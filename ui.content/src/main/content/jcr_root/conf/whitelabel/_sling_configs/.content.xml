@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="nt:unstructured">
+    <rep:policy/>
+    <com.adobe.cq.wcm.core.components.internal.DataLayerConfig
+        cq:lastReplicated="{Date}2022-07-21T10:02:18.622+01:00"
+        cq:lastReplicated_publish="{Date}2022-07-21T10:02:18.622+01:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="nt:unstructured"
+        enabled="{Boolean}true"/>
+    <com.adobe.cq.wcm.core.components.internal.services.pdfviewer.PdfViewerCaConfig
+        cq:lastReplicated="{Date}2022-07-21T10:02:18.622+01:00"
+        cq:lastReplicated_publish="{Date}2022-07-21T10:02:18.622+01:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="nt:unstructured"
+        clientId="28b07c6be4d544f188dc2f36e33b196b"
+        reportSuiteId="\0"/>
+</jcr:root>

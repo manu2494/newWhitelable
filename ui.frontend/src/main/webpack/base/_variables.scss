@@ -1,0 +1,495 @@
+// ===================================================================================================
+// ===========================>      Brand Settings      <============================================
+// ===================================================================================================
+
+// Breakpoints
+$breakpoint-desktop-min:            px-rem(1200) !default;
+$breakpoint-tablet-max:             px-rem(1199) !default;
+$breakpoint-tablet-min:             px-rem(769) !default;
+$breakpoint-mobile-max:             px-rem(768) !default;
+$desktop-width:						px-rem(1920) !default;
+
+// ===================================================================================================
+// ===============================>       Colors      <===============================================
+// ===================================================================================================
+
+$color-primary:                     #000 !default;
+$color-secondary:                   #636161 !default;
+$color-tertiary:                    #FFF !default;
+
+$color-shade-primary:               #4D4D4D !default;
+$color-shade-secondary:             #9E9E9E !default;
+$color-shade-tertiary:              #E6E6E6 !default;
+
+$background-theme-1:	            #FFF !default;
+$background-theme-2:	            #808080 !default;
+$background-theme-3:	            #D3D3D3!default;
+$bg-aquamarine-secondary:           #439ca3 !default;
+$background-tealishBlue:            #41547D !default;
+$background-light-grayish-orange:   #efedea !default;
+$background-translucid:             rgba(0,0,0,.6);
+
+$background-shade-primary:	        #FFF !default;
+$background-shade-secondary:        #8C8C8C !default;
+$background-shade-tertiary:	        #F2F2F2 !default;
+
+
+$color-success:                     #69d660 !default;
+$color-error:                       #ff3636 !default;
+$color-info:                        #296eff !default;
+$color-shadow:			            #F0F0f0 !default;
+$color-light:			            #FFF !default;
+$color-transparent:                 rgba(255, 255, 255, 0) !default;
+$color-translucid:                  rgba(0,0,0,0.5) !default;
+$color-background:                  #eaeaea !default;
+$color-background-translucid:       #eaeaea7F !default;
+$color-background-grey:             linear-gradient(0deg,rgba(0, 0, 0, 0.25),rgba(0, 0, 0, 0.25)) !default;
+$color-progressbar:                 #5cb85c !default;
+$color-shade-progressbar:           #74c374 !default;
+$color-hover:                       #296eff !default;
+$color-grey:                        #696F8C !default;
+
+$button-primary:                    #FFF !default;
+$button-secondary:                  #000 !default;
+$button-tertiary:                   #808080 !default;
+$button-success:                    #69d660 !default;
+$button-error:                      #ff3636 !default;
+$button-info:                       #296eff !default;
+
+$border-primary:                    #000 !default;
+$border-secondary:                  #F0F0f0 !default;
+$border-tertiary:                   #FFF !default;
+
+$accent-color-red:                  #E40426 !default;
+$accent-color-green:                #009F80 !default;
+
+$border-form-options-dropdown:      1px solid;
+
+$border-tabs:                       rgba(0,0,0,0.2) !default;
+$border-image:                      #ddd !default;
+
+$color-black:                       #000000 !default;
+$color-darkest:                     #2b2b2b !default;
+$color-darker:                      #4c4c4c !default;
+$color-dark:                        #aaaaaa !default;
+$color-softest:                     #d9d9d9 !default;
+$color-softer:                      #e5e5e5 !default;
+$color-soft:                        #f6f6f6 !default;
+$color-soft-2:                      #f4f4f4 !default;
+$color-white:                       #ffffff !default;
+
+$border-embed:                      #d9d9d9 !default;
+$button-disabled:                   #e5e5e5 !default;
+$button-active:                     #f6f6f6 !default;
+
+$color-link:                        #2f6dba !default;
+$color-link-active:                 #711975 !default;
+$color-link-dark:                   #000 !default; 
+
+$color-foreground:                  #eaeaea7f !default;
+$color-background-dark:             #2b2b2b !default;
+$color-hover-breadcrumb:            #2f6dba !default;
+$color-background-hover:            #4c4c4c !default;
+$color-background-visited:          #aaaaaa !default;
+$color-foreground-dark:             #eaeaea7f !default;
+
+$border-image-product:              #e2e2e2 !default;
+
+// ===== Shadow ==================
+
+$button-shadow:			            5px 5px 10px 2px #F0F0f0 !default;
+$image-shadow:                      0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !default;
+$tabs-shadow:                       0 5px 5px rgba(0,0,0,0.5) !default;
+$form-shadow:                       5px 5px 10px 2px rgba(0,0,0,0.8) !default;
+$navigation-shadow:                 0 5px 25px rgba(0,0,0,0.5) !default;
+$tabs-shadow:                       5px 5px 10px 2px rgba(0,0,0,0.2) !default;
+$tabs-hover-shadow:                 0px 0px 5px 2px rgba(0,0,0,0.2) !default;
+// ===== Filters============
+
+$filter-primary:                    invert(0) !default;
+$filter-secondary:                  invert(34%) sepia(0%) saturate(40%) hue-rotate(141deg) brightness(85%) contrast(85%) !default;
+$filter-tertiary:                   invert(1) !default;
+
+
+// ===================================================================================================
+//=============================>        Font and Size        <========================================
+// ===================================================================================================
+
+// Family
+$font-family-primary:  	            'ITC Century Std' !default;
+$font-family-secondary:             'martini' !default;
+$font-family-tertiary:              'Champion HTF-Welterweight Regular' !default;
+
+$font-family-primary-file:          'CenturyStd-Book.otf' !default;
+$font-family-secondary-file:        'martini.otf' !default;
+$font-family-tertiary-file:         'Champion-HTF-Welterweight-Regular.otf' !default;
+
+$font-height: 1.5;
+$letter-spacing: 1.2;
+
+// Font - Size
+$font-size:                         18px !default;                        
+$font-weight-medium:                600 !default;
+$font-weight-bold:                  700 !default;
+
+$line-height:                       1.5 !default;
+$letter-spacing:                    0 !default;
+
+// height
+$line-height-minimum:               1.5 !default;
+$line-height-medium:                2.5 !default;
+$line-height-maximum:               3.5 !default;
+
+$input-height-minimum:              px-rem(30) !default;
+$input-height-medium:               px-rem(50) !default;
+$input-height-maximum:              px-rem(60) !default;
+
+$textarea-height-mimimum:           px-rem(50) !default;
+$textarea-height-medium:            px-rem(150) !default;
+$textarea-height-maximum:           px-rem(200) !default;
+
+$height-mimimum:                    px-rem(30) !default;
+$height-medium:                     px-rem(40) !default;
+$height-maximum:                    px-rem(50) !default;
+
+// spacing
+$letter-spacing-small:	            -0.02em !default;
+$letter-spacing-medium:             0.02em !default;
+$letter-spacing-large:	            0.04em !default;
+
+// Font - Size
+$font-size-large-desktop:           px-rem(20) !default;
+$font-size-large-tablet:            px-rem(18) !default;
+$font-size-large-mobile:            px-rem(16) !default;
+$font-size-normal-desktop:		    px-rem(16) !default;
+$font-size-normal-tablet:		    px-rem(15) !default;
+$font-size-normal-mobile:		    px-rem(14) !default;
+$font-size-small-desktop:		    px-rem(12) !default;
+$font-size-small-tablet:		    px-rem(11) !default;
+$font-size-small-mobile:		    px-rem(10) !default;
+
+$font-size-h1-mobile:		        px-rem(33) !default;
+$font-size-h1-tablet:		        px-rem(40) !default;
+$font-size-h1-desktop:		        px-rem(48) !default;
+$font-size-h2-mobile:		        px-rem(28) !default;
+$font-size-h2-tablet:		        px-rem(30) !default;
+$font-size-h2-desktop:		        px-rem(33) !default;
+$font-size-h3-mobile:		        px-rem(24) !default;
+$font-size-h3-tablet:		        px-rem(26) !default;
+$font-size-h3-desktop:		        px-rem(28) !default;
+$font-size-h4-mobile:		        px-rem(18) !default;
+$font-size-h4-tablet:		        px-rem(20) !default;
+$font-size-h4-desktop:		        px-rem(22) !default;
+$font-size-h5-mobile:		        px-rem(16) !default;
+$font-size-h5-tablet:		        px-rem(17) !default;
+$font-size-h5-desktop:		        px-rem(18) !default;
+$font-size-h6-mobile:		        px-rem(14) !default;
+$font-size-h6-tablet:		        px-rem(15) !default;
+$font-size-h6-desktop:		        px-rem(16) !default;
+
+$font-weight-light:                 100 !default;
+$font-weight-normal:                400 !default;
+$font-weight-heavy:                 700 !default;
+
+//Buttons
+$button-font-size:                  px-rem(20) !default;
+
+//====================================================================================================
+// ===============================>        Padding        <===========================================
+//====================================================================================================
+
+$zero-padding:                      0 !default;
+$default-padding:                   px-rem(10) !default;
+$default-padding-mobile:            px-rem(10) !default;
+$large-padding-mobile:              px-rem(10) px-rem(30) !default;
+$medium-padding-mobile:             px-rem(10) px-rem(15) !default;
+
+// list
+$padding-list:                      px-rem(10) !default;
+$padding-list-icon:                 0 0 px-rem(1.6) px-rem(38) !default;
+
+// Image
+$padding-image-frame:               px-rem(16) !default;
+$padding-image-title:               px-rem(25) px-rem(20) !default;
+
+// Button
+$padding-button:                    px-rem(10) 0 !default;
+
+// container
+$padding-container-initial-desktop: px-rem(50) 0 0 0 !default;
+$padding-container-default-desktop: px-rem(25) 0 0 0 !default;
+$padding-large-desktop:             px-rem(45) 0 0 0 !default;
+$padding-medium-desktop:            px-rem(25) 0 0 0 !default;
+$padding-small-desktop:             px-rem(10) 0 0 0 !default;
+$padding-size-large-desktop:        px-rem(45) !default;
+$padding-size-medium-desktop:       px-rem(25) !default;
+$padding-size-small-desktop:        px-rem(10) !default;
+
+$padding-container-initial-tablet:  px-rem(40) 0 0 0 !default;
+$padding-container-default-tablet:  px-rem(20) 0 0 0 !default;
+$padding-large-tablet:              px-rem(35) 0 0 0 !default;
+$padding-medium-tablet:             px-rem(20) 0 0 0 !default;
+$padding-small-tablet:              px-rem(8) 0 0 0 !default;
+$padding-size-large-tablet:         px-rem(35) !default;
+$padding-size-medium-tablet:        px-rem(20) !default;
+$padding-size-small-tablet:         px-rem(8) !default;
+
+$padding-container-initial-mobile:  px-rem(30) 0 0 0 !default;
+$padding-container-default-mobile:  px-rem(15) 0 0 0 !default;
+$padding-large-mobile:              px-rem(25) 0 0 0 !default;
+$padding-medium-mobile:             px-rem(15) 0 0 0 !default;
+$padding-small-mobile:              px-rem(6) 0 0 0 !default;
+$padding-size-large-mobile:         px-rem(25) !default;
+$padding-size-medium-mobile:        px-rem(15) !default;
+$padding-size-small-mobile:         px-rem(6) !default;
+
+// Accordion
+$padding-accordion-min:             px-rem(10) !default;
+$padding-accordion-medium:          px-rem(12) !default;
+$padding-accordion-max:             px-rem(16) !default;
+$padding-accordion-panel:           0% 2% !default;
+$padding-accordion-header:          px-rem(5) 0 !default;
+$padding-accordion-LeftIcon-header: 0 0 0 px-rem(3) !default;
+$padding-accordion-LeftIcon-button: px-rem(1) px-rem(6) px-rem(1) px-rem(30) !default;
+$padding-accordion-rightIcon-header:0 px-rem(10) 0 px-rem(6) !default;
+$padding-accordion-rightIcon-button:px-rem(1) px-rem(30) px-rem(1) 0 !default;
+
+// Tabs
+$padding-tab-panel:                 0% 2% !default;
+$padding-tab-primary:               px-rem(5) px-rem(20) !default;
+$padding-tab-secondary:             px-rem(10) px-rem(20) !default;
+
+// Carousel
+$padding-carousel-indicator-active: px-rem(2) !default;
+
+// Carousel-Container
+$padding-carouselContainer-item:    0 px-rem(16) !default;
+$padding-carouselContainer-Nocontorl-item:0 px-rem(10) !default;
+
+// From-text
+$padding-formtext:                  0 px-rem(10) !default;
+$padding-formtext-input:            0 px-rem(20) !default;
+$padding-formtext-textarea:         5% !default;
+
+// Form options drop-down
+
+$padding-form-options-dropdown: 10px 0px 10px 13px !default;
+
+// Form options multi drop-down
+
+$padding-form-options-multi-dropdown: 10px 0 !default;
+$padding-form-options-row-multi-dropdown: 10px !default;
+
+// === Navigation ====
+
+// Desktop
+$padding-navigation-items:          px-rem(5) px-rem(10) !default;
+$padding-navigation-groupWrapper:   px-rem(60) px-rem(20) px-rem(30) !default;
+$padding-navigation-item0Link:      0 0 px-rem(5) 0 !default;
+$padding-navigation-items-bottom:   px-rem(25) !default;
+$padding-navigation-items-title:    px-rem(16) 0 0 !default;
+$padding-navigation-items-link:     px-rem(10) 0 !default;
+
+
+// Mobile
+$padding-navigation-mobile-items:   px-rem(16) 0 px-rem(16) px-rem(16) !default;
+$padding-navigation-mobile-group:   px-rem(10) 0 0 0 !default;
+
+
+// Teaser
+$padding-teaser:                    px-rem(20) !default;
+$padding-teaser-content:            px-rem(20) 0 !default;
+$padding-teaser-contentItems:       0 px-rem(20) !default;
+$padding-teaser-extra-content:      px-rem(40) 0 !default;
+$padding-teaser-extra-teaser:       0 px-rem(40) !default;
+$padding-teaser-linkN:              px-rem(9) px-rem(23) !default;
+$padding-teaser-link1:              px-rem(10) px-rem(25) !default;
+
+// Language-Navigation
+$padding-languagenavigation:        0 px-rem(10) !default;
+$padding-languagenavigation-link:   0 0 0 px-rem(10) !default;
+$padding-languagenavigation-item:   px-rem(5) 0 0 0 !default;
+
+$space-xxxs:                        4px !default;
+$space-xxs:                         6px !default;
+$space-xs:                          8px !default;
+$space-s:                           12px !default;
+$space-sd:                          16px !default;
+$space-m:                           20px !default;
+$space-md:                          24px !default;
+$space-l:                           32px !default;
+$space-xl:                          48px !default;
+$space-xxl:                         64px !default;
+$space-xxxl:                        80px !default;
+
+
+// =========== CIF Components ====================
+
+// Product Teaser
+
+$padding-productTeaser:             px-rem(5) !default;
+$padding-productTeaser-btn-desktop: px-rem(10) px-rem(25) !default;
+$padding-productTeaser-btn-tablet:  px-rem(10) px-rem(15) !default;
+$padding-productTeaser-btn-mobile:  px-rem(10) px-rem(10) !default;
+
+// Product Carousel
+
+$padding-productCarousel:               px-rem(10) !default;
+$padding-productCarousel-button-desktop:px-rem(10) px-rem(16) !default;
+$padding-productCarousel-button-tablet: px-rem(8) px-rem(14) !default;
+$padding-productCarousel-button-mobile: px-rem(5) px-rem(10) !default;
+$padding-productCarousel-content:       px-rem(24) 0 px-rem(48) 0 !default;
+$padding-productCarousel-items:         0 px-rem(16) !default;
+
+// ===================================================================================================
+// ===============================>      Margin       <===============================================
+// ===================================================================================================
+
+$zero-margin:                       0 !default;
+$default-margin:                    px-rem(10) 0 !default;
+
+// Carousel
+$margin-top:                       px-rem(20) !default;
+
+// List
+$margin-list-no:                    px-rem(15) 0 !default;
+$margin-list-medium:                px-rem(15) px-rem(30) !default;
+$margin-list-max:                   px-rem(15) px-rem(60) !default;
+$margin-list-icon-bottom:           px-rem(20) !default;
+
+// button
+$margin-button-icon:                0 px-rem(5) 0 0 !default;
+
+// Accordion
+$margin-accordion-secondary-items:  px-rem(5) !default;
+
+// Carousel
+$margin-carousel-indicator:         0 px-rem(7) !default;
+$margin-carousel-indicator-line:    0 px-rem(10) !default;
+
+// Carousel-Container
+$margin-carouselContainer-body:     0 px-rem(35) !default;
+$margin-carouselContainer-item:     0 px-rem(7) !default;
+
+// Form-text
+$margin-formText:                   px-rem(8) 0 0 0 !default;
+
+// Form-option
+$margin-formOption-label-row:       0 px-rem(20) 0 0 !default;
+$margin-formOption-label-column:    0 0 px-rem(10) 0 !default;
+
+// Download
+$margin-download-property:          px-rem(5) !default;
+
+// Navigation
+$margin-navigation-level0-items:    0.889em 1.4em 0 !default;
+
+
+// Teaser
+$margin-teaser:                     px-rem(10) !default;
+$margin-teaser-title:               px-rem(20) 0 !default;
+$margin-teaser-description:         px-rem(20) !default;
+
+// Language-Navigation
+$margin-languageText:               px-rem(16) px-rem(5) px-rem(16) 0 !default;
+
+// =========== CIF Components ====================
+
+// Product Teaser
+
+$margin-productTeaser:              px-rem(5) !default;
+
+// Product Carousel
+
+$margin-productCarousel-nav:        0 px-rem(7) !default;
+$margin-productCarousel-content:    0 px-rem(35) !default;
+
+// ===== Icon sizes ======
+$icon-size:                         px-rem(15) !default;
+
+
+// ===================================================================================================
+// ===============================>      Border-Radius      <=========================================
+// ===================================================================================================
+
+$zero-radius:                       0px !default;
+$default-radius:                    5px !default;
+
+$border-none:                       0px !default;
+$border-minimun:                    4px !default;
+$border-medium:                     8px !default;
+$border-maximum:                    12px !default;
+
+$border-minimun-image:              5px !default;
+$border-medium-image:               10px !default;
+$border-maximum-image:              15px !default;
+
+$border-progressbar:                8px !default;
+
+$border-download:                   8px !default;
+$border-download-property:          4px !default;
+
+// ===== Opacity ======
+
+$opacity-image:                     0.3 !default;
+
+
+// ===================================================================================================
+// ==============================>      Height      <=================================================
+// ===================================================================================================
+
+// ========= Navigation =================
+
+$height-navigation:                 px-rem(75) !default;
+$height-navigation-sublist:         px-rem(300) !default;
+$height-navigation-icon:            px-rem(15) !default;
+$height-navigation-hamburgurIcon:   px-rem(30) !default;
+
+// ======= Product Teaser =================
+
+$height-productTeaser-img-desktop:  px-rem(310) !default;
+$height-productTeaser-img-tablet:   px-rem(250) !default;
+$height-productTeaser-img-mobile:   px-rem(158) !default;
+
+// =========== Product Carousel ==============
+
+$height-productCarousel-img-desktop:  px-rem(310) !default;
+$height-productCarousel-img-tablet:   px-rem(250) !default;
+$height-productCarousel-img-mobile:   px-rem(158) !default;
+
+$height-productCarousel-icon-desktop:px-rem(34) !default;
+$height-productCarousel-icon-tablet: px-rem(30) !default;
+$height-productCarousel-icon-mobile: px-rem(24) !default;
+
+$height-productCarousel-nav-desktop: px-rem(12) !default;
+$height-productCarousel-nav-tablet:  px-rem(10) !default;
+$height-productCarousel-nav-mobile:  px-rem(8) !default;
+
+
+// ===================================================================================================
+// ==============================>      Width      <=================================================
+// ===================================================================================================
+
+// ========= Navigation =================
+$width-navigation-sublist:            px-rem(280) !default;
+$width-navigation-Secondary-sublist:  px-rem(1200) !default;
+$width-navigation-sublist-title:      20% !default;
+$width-navigation-icon:               px-rem(15) !default;
+$width-navigation-hamburgurIcon:      px-rem(30) !default;
+
+// =========== Product Carousel ==============
+
+$width-productCarousel-icon-desktop:px-rem(34) !default;
+$width-productCarousel-icon-tablet: px-rem(30) !default;
+$width-productCarousel-icon-mobile: px-rem(24) !default;
+
+$width-productCarousel-nav-desktop: px-rem(12) !default;
+$width-productCarousel-nav-tablet:  px-rem(10) !default;
+$width-productCarousel-nav-mobile:  px-rem(8) !default;
+
+
+// =======================================> Icons <===============================================
+
+$pluseIcon:'data:image/svg+xml !default;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="35px" height="20px" ><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/></svg>' !default;
+$rightAngleIcon:'data:image/svg+xml !default;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30px" height="20px"><path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/></svg>' !default;
+$minusIcon:'data:image/svg+xml !default;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="35px" height="20px" ><path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z"/></svg>' !default;

@@ -1,0 +1,13 @@
+<sly data-sly-test.author="${wcmmode.edit || wcmmode.design}">
+	<div class="cmp-dynamic-browser"
+		 data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+		 data-dynamic="${component.id}">
+		<h1>Dynamic Replacement : ${component.id}</h1>
+	</div>
+</sly>
+<sly data-sly-test="${!author}">
+	<div class="cmp-dynamic-browser"
+		 data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+		 data-dynamic="${component.id}" style="display: none">
+	</div>
+</sly>

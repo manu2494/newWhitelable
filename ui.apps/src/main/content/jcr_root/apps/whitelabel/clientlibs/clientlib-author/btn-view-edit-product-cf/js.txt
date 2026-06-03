@@ -1,0 +1,3 @@
+#base=js
+
+btn-view-edit-product-cf.js

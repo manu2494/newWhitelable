@@ -1,0 +1,223 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > LinkManagerImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.utils.link.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: LinkManagerImpl (com.merkle.xp.whitelabel.core.utils.link.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LinkManagerImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.utils.link.impl;
+&nbsp;
+&nbsp;import com.adobe.cq.wcm.core.components.services.link.PathProcessor;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.link.LinkBuilder;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.link.LinkManager;
+&nbsp;import com.day.cq.dam.api.Asset;
+&nbsp;import com.day.cq.wcm.api.Page;
+&nbsp;import com.day.cq.wcm.api.designer.Style;
+&nbsp;import com.drew.lang.annotations.NotNull;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import org.apache.sling.api.SlingHttpServletRequest;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.apache.sling.api.resource.ValueMap;
+&nbsp;import org.apache.sling.models.annotations.Model;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.Self;
+&nbsp;
+&nbsp;import javax.annotation.PostConstruct;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;
+&nbsp;@Model(adaptables = SlingHttpServletRequest.class,
+&nbsp;        adapters = LinkManager.class)
+<b class="nc">&nbsp;public class LinkManagerImpl implements LinkManager {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * List of allowed/supported values for link target.
+&nbsp;     * &lt;code&gt;_self&lt;/code&gt; is used in the edit dialog but not listed as allowed here as we do not
+&nbsp;     * want to render a target attribute at all when &lt;code&gt;_self&lt;/code&gt; is selected.
+&nbsp;     */
+<b class="nc">&nbsp;    public static final Set&lt;String&gt; VALID_LINK_TARGETS = ImmutableSet.of(&quot;_blank&quot;, &quot;_parent&quot;, &quot;_top&quot;);</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Name of the resource property that for redirecting pages will indicate if original page or redirect target page should be returned.
+&nbsp;     * Default is `false`. If `true` - original page is returned. If `false` or not configured - redirect target page.
+&nbsp;     */
+&nbsp;    public static final String PN_DISABLE_SHADOWING = &quot;disableShadowing&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Flag indicating if shadowing is disabled.
+&nbsp;     */
+&nbsp;    public static final boolean PROP_DISABLE_SHADOWING_DEFAULT = false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The current {@link SlingHttpServletRequest}.
+&nbsp;     */
+&nbsp;    @Self
+&nbsp;    private SlingHttpServletRequest request;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The current resource properties
+&nbsp;     */
+&nbsp;    @ScriptVariable(injectionStrategy = InjectionStrategy.OPTIONAL)
+&nbsp;    private ValueMap properties;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The current resource style/policies
+&nbsp;     */
+&nbsp;    @ScriptVariable(injectionStrategy = InjectionStrategy.OPTIONAL)
+&nbsp;    private Style currentStyle;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Registered path processors.
+&nbsp;     */
+&nbsp;    @OSGiService
+&nbsp;    private List&lt;PathProcessor&gt; pathProcessors;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Variable that defines how to handle pages that redirect. Given pages PageA and PageB where PageA redirects to PageB,
+&nbsp;     * when shadowing is disabled, the link will point to the original page (PageA).
+&nbsp;     */
+&nbsp;    private Boolean shadowingDisabled;
+&nbsp;
+&nbsp;    @PostConstruct
+&nbsp;    private void initModel() {
+<b class="nc">&nbsp;        shadowingDisabled = PROP_DISABLE_SHADOWING_DEFAULT;</b>
+<b class="nc">&nbsp;        if (currentStyle != null) {</b>
+<b class="nc">&nbsp;            shadowingDisabled = currentStyle.get(PN_DISABLE_SHADOWING, shadowingDisabled);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (properties != null) {</b>
+<b class="nc">&nbsp;            shadowingDisabled = properties.get(PN_DISABLE_SHADOWING, shadowingDisabled);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public @NotNull LinkBuilder get(@NotNull Resource resource) {
+<b class="nc">&nbsp;        return new LinkBuilderImpl(resource, request, pathProcessors, shadowingDisabled);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public @NotNull LinkBuilder get(@NotNull Page page) {
+<b class="nc">&nbsp;        return new LinkBuilderImpl(page, request, pathProcessors, shadowingDisabled);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public @NotNull LinkBuilder get(@NotNull Asset asset) {
+<b class="nc">&nbsp;        return new LinkBuilderImpl(asset, request, pathProcessors);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public @NotNull LinkBuilder get(@NotNull String url) {
+<b class="nc">&nbsp;        return new LinkBuilderImpl(url, request, pathProcessors, shadowingDisabled);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > SeoSiteOrganization</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.models.seo.structureddata</a>
+</div>
+
+<h1>Coverage Summary for Class: SeoSiteOrganization (com.merkle.xp.whitelabel.core.models.seo.structureddata)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SeoSiteOrganization</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (6/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (9/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    96%
+  </span>
+  <span class="absValue">
+    (24/25)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.models.seo.structureddata;
+&nbsp;
+&nbsp;import com.merkle.xp.whitelabel.core.config.SeoSiteContactPointConfig;
+&nbsp;import com.merkle.xp.whitelabel.core.config.SeoSiteOrganizationConfig;
+&nbsp;import com.google.gson.annotations.Expose;
+&nbsp;import com.google.gson.annotations.SerializedName;
+&nbsp;import lombok.Getter;
+&nbsp;import lombok.Setter;
+&nbsp;import org.apache.commons.collections4.CollectionUtils;
+&nbsp;import org.apache.commons.lang3.ArrayUtils;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;/**
+&nbsp; * The class for maintaining Organization data of Seo Site
+&nbsp; *
+&nbsp; */
+&nbsp;public class SeoSiteOrganization implements ISeoSiteStructuredData {
+&nbsp;
+<b class="fc">&nbsp;  @SerializedName(&quot;@context&quot;)</b>
+&nbsp;  @Expose
+&nbsp;  private String context = &quot;http://schema.org&quot;;
+&nbsp;
+<b class="fc">&nbsp;  @SerializedName(&quot;@type&quot;)</b>
+&nbsp;  @Expose
+&nbsp;  private String type = &quot;Organization&quot;;
+&nbsp;
+&nbsp;  @Expose
+&nbsp;  private String name;
+&nbsp;
+<b class="fc">&nbsp;  @Setter</b>
+<b class="fc">&nbsp;  @Getter</b>
+&nbsp;  @Expose
+&nbsp;  private String url;
+&nbsp;
+<b class="fc">&nbsp;  @Setter</b>
+<b class="fc">&nbsp;  @Getter</b>
+&nbsp;  @Expose
+&nbsp;  private String logo;
+&nbsp;
+&nbsp;  @Expose
+&nbsp;  private List&lt;String&gt; sameAs;
+&nbsp;
+&nbsp;  @Expose
+&nbsp;  private String countryCode;
+&nbsp;
+&nbsp;  @Expose
+&nbsp;  private String telephone;
+&nbsp;
+&nbsp;  @Expose
+&nbsp;  @SerializedName(&quot;contactPoint&quot;)
+&nbsp;  private List&lt;SeoSiteContactPoint&gt; contactPoints;
+&nbsp;
+<b class="fc">&nbsp;  public SeoSiteOrganization(SeoSiteOrganizationConfig config) {</b>
+<b class="fc">&nbsp;    this.name = config.name();</b>
+<b class="fc">&nbsp;    this.url = config.url();</b>
+<b class="fc">&nbsp;    this.logo = config.logo();</b>
+<b class="fc">&nbsp;    this.countryCode = config.countryCode();</b>
+<b class="fc">&nbsp;    this.telephone = config.telephone();</b>
+&nbsp;
+<b class="fc">&nbsp;    if (ArrayUtils.isNotEmpty(config.sameAs())) {</b>
+<b class="fc">&nbsp;      sameAs = Arrays.stream(config.sameAs()).filter(StringUtils::isNotBlank).collect(Collectors.toList());</b>
+&nbsp;    }
+&nbsp;    
+<b class="fc">&nbsp;    setContactPoints(config);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Set Contact Point from configuration
+&nbsp;   * @param config {@link SeoSiteOrganizationConfig}
+&nbsp;   */
+&nbsp;  public void setContactPoints(SeoSiteOrganizationConfig config) {
+<b class="fc">&nbsp;    if (ArrayUtils.isNotEmpty(config.contactPoint())) {</b>
+<b class="fc">&nbsp;      contactPoints = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="fc">&nbsp;      for (SeoSiteContactPointConfig cfg : config.contactPoint()) {</b>
+<b class="fc">&nbsp;        SeoSiteContactPoint contactPoint = new SeoSiteContactPoint(cfg);</b>
+<b class="fc">&nbsp;        contactPoints.add(contactPoint);</b>
+&nbsp;      }
+&nbsp;
+<b class="fc">&nbsp;      contactPoints = contactPoints.stream()</b>
+<b class="pc">&nbsp;          .filter(item -&gt; item != null &amp;&amp; StringUtils.isNotBlank(item.getContactType())</b>
+<b class="nc">&nbsp;              &amp;&amp; StringUtils.isNotBlank(item.getTelephone()))</b>
+<b class="fc">&nbsp;          .collect(Collectors.toList());</b>
+<b class="pc">&nbsp;      contactPoints = CollectionUtils.isEmpty(contactPoints) ? null : contactPoints;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

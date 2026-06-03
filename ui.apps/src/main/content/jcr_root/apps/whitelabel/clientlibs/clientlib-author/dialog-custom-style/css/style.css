@@ -1,0 +1,14 @@
+coral-select[readonly] button,
+coral-checkbox.readonly {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+coral-checkbox.readonly ._coral-Checkbox-box:before {
+    border-color: inherit !important;
+}
+
+coral-list-item[value="/apps/core-framework/components/form/smartfieldsreadonly"],
+coral-list-item [data-path="/apps/core-framework/components/form/smartfieldsreadonly"] {
+    display: none !important;
+}

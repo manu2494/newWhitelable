@@ -1,0 +1,259 @@
+// Form Option
+
+.options {
+  .cmp-form-options {
+    border: 1.5px solid;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.border {
+    &-dash {
+      .cmp-form-options {
+        border-style: dashed;
+      }
+    }
+
+    &-dot {
+      .cmp-form-options {
+        border-style: dotted;
+      }
+    }
+
+    &-double {
+      .cmp-form-options {
+        box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #000000;
+        
+        &--checkbox,
+        &--radio {
+          .cmp-form-options__legend {
+            position: relative;
+            top: 5px;
+            margin-bottom: $border-minimun-image;
+          }
+        }
+      }
+    }
+
+    &-none {
+      .cmp-form-options {
+        border: none;
+      }
+    }
+  }
+
+  &.align {
+    &-left {
+      .cmp-form-options {
+        text-align: left;
+      }
+    }
+
+    &-right {
+      .cmp-form-options {
+        text-align: right;
+      }
+    }
+
+    &-center {
+      .cmp-form-options {
+        text-align: center;
+      }
+    }
+
+    &-row {
+      .cmp-form-options {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        &--multi-drop-down,
+        &--drop-down {
+          .cmp-form-options__label {
+            margin-right: 20px;
+          }
+          .cmp-form-options__field--drop-down,
+          .cmp-form-options__field--multi-drop-down {
+            flex: 1;
+          }
+          .cmp-form-options__field--multi-drop-down {
+            padding: $padding-form-options-row-multi-dropdown;
+          }
+        }
+        
+        .cmp-form-options__help-message {
+          width: 100%;
+        }
+      }
+    }
+
+    &-column {
+      .cmp-form-options {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.options {
+  .cmp-form-options {
+    .cmp-form-options__field-label {
+      margin: $margin-formOption-label-column;
+    }
+  }
+  &.color {
+    &-primary {
+      .cmp-form-options {
+        color: $color-primary;
+        input {
+          accent-color: $color-primary;
+        }
+		select,
+		option {
+	      color: $color-primary;
+		}
+		select {
+		  border-color: $color-primary;	
+		}
+      }
+    }
+    &-secondary {
+      .cmp-form-options {
+        color: $color-secondary;
+        input {
+          accent-color: $color-secondary;
+        }
+		select,
+		option {
+		  color: $color-secondary;	
+		}
+		select {
+		  border-color: $color-secondary;	
+		}
+      }
+    }
+    &-tertiary {
+      .cmp-form-options {
+        color: $color-tertiary;
+        input {
+          accent-color: $color-tertiary;
+        }
+		select,
+		option {
+		  color: $color-tertiary;
+		  background: transparent;
+		}
+		select {
+		  border-color: $color-tertiary;
+		}
+      }
+    }
+  }
+
+  &.align {
+    &-row {
+      .cmp-form-options {
+        .cmp-form-options__field-label {
+          margin: $margin-formOption-label-row;
+        }
+      }
+    }
+  }
+
+  &.border {
+    &-min {
+      .cmp-form-options {
+        border-radius: $border-minimun;
+        padding: $padding-size-medium-mobile;
+      }
+    }
+    &-medium {
+      .cmp-form-options {
+        border-radius: $border-medium;
+        padding: $padding-size-medium-tablet;
+      }
+    }
+    &-max {
+      .cmp-form-options {
+        border-radius: $border-maximum;
+        padding: $padding-size-medium-desktop;
+      }
+    }
+  }
+  &.padding-none {
+    .cmp-form-options {
+      margin: $zero-margin;
+      padding-left: $default-padding;
+      padding-right: $default-padding;
+    }
+  }
+
+  &.green-icon-color {
+    .cmp-form-options {
+	  &.cmp-form-options--multi-drop-down,
+      &.cmp-form-options--checkbox,
+      &.cmp-form-options--radio {
+        input {
+          accent-color: $accent-color-green;
+        }
+		select {
+		  color: $accent-color-green;
+		}
+      }
+    }
+  }
+
+  &.red-icon-color {
+    .cmp-form-options {
+      &.cmp-form-options--multi-drop-down,
+      &.cmp-form-options--checkbox,
+      &.cmp-form-options--radio {
+        input {
+          accent-color: $accent-color-red;
+        }
+		select {
+		  color: $accent-color-red;
+		}
+      }
+    }
+  }
+
+  &.blue-icon-color {
+    .cmp-form-options {
+	  &.cmp-form-options--multi-drop-down,
+      &.cmp-form-options--checkbox,
+      &.cmp-form-options--radio {
+        input {
+          accent-color: inherit;
+        }
+		select {
+		  color: $color-link;
+		}
+      }
+    }
+  }
+
+  .cmp-form-options--multi-drop-down,
+  .cmp-form-options--drop-down {
+	.cmp-form-options__field--multi-drop-down,
+    .cmp-form-options__field--drop-down {
+      border-radius: $border-minimun;
+      border: $border-form-options-dropdown;
+	    option {
+		    padding: $padding-form-options-dropdown;
+	    }
+    }
+
+    .cmp-form-options__field--drop-down {
+      padding: $padding-form-options-dropdown;
+	    background: $background-shade-tertiary;
+	    option {
+		    background: $background-shade-tertiary;
+	    }
+    }
+	  .cmp-form-options__field--multi-drop-down {
+	    padding: $padding-form-options-multi-dropdown;
+	  }
+  }
+}

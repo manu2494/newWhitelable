@@ -1,0 +1,509 @@
+@mixin button-base {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+
+@mixin button-border-radius($btn-radius: 1rem) {
+    border-radius: $btn-radius;
+}
+
+@media only screen and (min-width: $breakpoint-desktop-min) {
+    .button, .voteButton, .proceedButton {
+
+        a,
+        button {
+            @include button-base;
+            border: 1.5px solid;
+            outline: none;
+
+            span {
+                text-transform: uppercase;
+                display: inline-block;
+            }
+
+            .cmp-button__icon {
+                height: 25px;
+                width: 25px;
+            }
+        }
+
+        button {
+
+            .cmp-button__text,
+            .cmp-button__icon {
+                vertical-align: middle;
+            }
+        }
+
+        .cmp-button__icon {
+            background-repeat: no-repeat;
+            vertical-align: text-bottom;
+            background-size: contain;
+            background-position: 50%;
+        }
+    }
+}
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+    .button, .voteButton, .proceedButton {
+
+        a,
+        button {
+            @include button-base;
+            border: 1px solid;
+            outline: none;
+
+            span {
+                text-transform: uppercase;
+                display: inline-block;
+            }
+
+            .cmp-button__icon {
+                height: 25px;
+                width: 25px;
+            }
+        }
+
+        button {
+
+            .cmp-button__text,
+            .cmp-button__icon {
+                vertical-align: middle;
+            }
+        }
+
+        .cmp-button__icon {
+            background-repeat: no-repeat;
+            vertical-align: text-bottom;
+            background-size: contain;
+            background-position: 50%;
+        }
+    }
+}
+
+@media only screen and (max-width: $breakpoint-mobile-max) {
+    .button, .voteButton, .proceedButton {
+
+        a,
+        button {
+            @include button-base;
+            border: 1px solid;
+            outline: none;
+
+            span {
+                text-transform: uppercase;
+                display: inline-block;
+            }
+
+            .cmp-button__icon {
+                height: 25px;
+                width: 25px;
+            }
+        }
+
+        button {
+
+            .cmp-button__text,
+            .cmp-button__icon {
+                vertical-align: middle;
+            }
+        }
+
+        .cmp-button__icon {
+            background-repeat: no-repeat;
+            vertical-align: text-bottom;
+            background-size: contain;
+            background-position: 50%;
+        }
+    }
+}
+
+.button, .voteButton, .proceedButton {
+
+    a,
+    button {
+        .cmp-button__icon {
+            filter: invert(0);
+        }
+    }
+
+    a:hover,
+    button:hover {
+        .cmp-button__icon {
+            filter: invert(1);
+        }
+    }
+}
+
+// Button Colors
+.btn-primary {
+
+    a,
+    button {
+        .cmp-button__icon {
+            filter: invert(0);
+        }
+        .cmp-button__text {
+            color: $color-primary;
+        }
+    }
+
+    a:hover,
+    button:hover {
+        .cmp-button__icon {
+            filter: invert(1);
+        }
+    }
+}
+
+.btn-secondary {
+
+    a,
+    button {
+        .cmp-button__icon {
+            filter: invert(0);
+        }
+        .cmp-button__text {
+            color: $color-secondary;
+        }
+    }
+
+    a:hover,
+    button:hover {
+        filter: brightness(90%);
+
+        .cmp-button__icon {
+            filter: invert(45%) sepia(5%) saturate(137%) hue-rotate(182deg) brightness(92%) contrast(99%);
+        }
+    }
+}
+
+.btn-tertiary {
+
+    a,
+    button {
+        .cmp-button__icon {
+            filter: invert(0);
+        }
+        .cmp-button__text {
+            color: $color-tertiary;
+        }
+    }
+
+    a:hover,
+    button:hover {
+        filter: brightness(90%);
+
+        .cmp-button__icon {
+            filter: invert(24%) sepia(97%) saturate(3730%) hue-rotate(221deg) brightness(101%) contrast(103%);
+        }
+    }
+}
+
+.btn-info {
+
+    a,
+    button {
+        .cmp-button__icon {
+            filter: invert(1);
+        }
+    }
+
+    a:hover,
+    button:hover {
+        .cmp-button__icon {
+            filter: invert(100%) sepia(4%) saturate(796%) hue-rotate(207deg) brightness(118%) contrast(100%);
+        }
+    }
+}
+
+.btn-success {
+
+    a,
+    button {
+        .cmp-button__icon {
+            filter: invert(1);
+        }
+    }
+
+    a:hover,
+    button:hover {
+        .cmp-button__icon {
+            filter: invert(100%) sepia(4%) saturate(796%) hue-rotate(207deg) brightness(118%) contrast(100%);
+        }
+    }
+}
+
+.btn-error {
+
+    a,
+    button {
+        .cmp-button__icon {
+            filter: invert(1);
+        }
+    }
+
+    a:hover,
+    button:hover {
+        filter: brightness(90%);
+
+        .cmp-button__icon {
+            filter: invert(100%) sepia(4%) saturate(796%) hue-rotate(207deg) brightness(118%) contrast(100%);
+        }
+    }
+}
+
+//  Button shape
+.btn-circle {
+
+    a,
+    button {
+        @include button-border-radius($btn-radius: 4rem);
+    }
+}
+
+.btn-round {
+
+    a,
+    button {
+        @include button-border-radius;
+    }
+}
+
+.cmp-button {
+	&:hover {
+		background-color: $color-background-hover;
+		border-color: $color-background-hover;
+	}
+	&:active {
+		background-color: $color-background-visited;
+		border-color: $color-background-visited;
+		color: $color-primary;
+	}
+}
+
+
+.btn-link {
+	.cmp-button {
+		border-radius: $zero-radius;
+		border: none;
+		background-color: $color-transparent;
+		padding: $zero-padding;
+        margin: $zero-margin;
+        &:hover {
+            background-color: $color-transparent;
+            color: $button-secondary;
+            border: $color-transparent;
+            .cmp-button__icon {
+                -webkit-filter: invert(0);
+                filter: invert(0);
+            }
+        }
+        &:active {
+            background-color: $color-transparent;
+            color: $button-secondary;
+            border: $color-transparent;
+            .cmp-button__icon {
+                -webkit-filter: invert(0);
+                filter: invert(0);
+            }
+        }
+	}
+    &:hover {
+        text-decoration: underline;
+        color: $button-secondary;
+    }
+    &:active {
+        color: $color-link-active;
+        text-decoration: underline;
+    }
+}
+
+//  Button with Icon
+.cmp-button__icon--email {
+    background-image: url('../resources/images/icons/icon-email.svg');
+}
+
+.cmp-button__icon--facebook {
+    background-image: url('../resources/images/icons/icon-facebook.svg');
+}
+
+.cmp-button__icon--phone {
+    background-image: url('../resources/images/icons/icon-phone.svg');
+}
+
+.cmp-button__icon--mobile {
+    background-image: url('../resources/images/icons/icon-mobile.svg');
+}
+
+.cmp-button__icon--twitter {
+    background-image: url('../resources/images/icons/icon-twitter.svg');
+}
+
+.cmp-button__icon--music {
+    background-image: url('../resources/images/icons/icon-music.svg');
+}
+
+.cmp-button__icon--user {
+    background-image: url('../resources/images/icons/icon-user.svg');
+}
+
+.cmp-button__icon--search {
+    background-image: url('../resources/images/icons/icon-search.svg');
+}
+
+.cmp-button__icon--mic {
+    background-image: url('../resources/images/icons/icon-mic.svg');
+}
+.cmp-button__icon--play {
+    background-image: url('../resources/images/icons/icon-play.svg');
+}
+.cmp-button__icon--white-play {
+    background-image: url('../resources/images/icons/icon-white-play.svg');
+}
+
+@mixin button-base {
+	padding: $padding-button;
+	margin: $default-margin;
+}
+
+@mixin button-color($btn-color: $button-white, $font-color: $color-primary) {
+	background-color: $btn-color;
+	color: $font-color;
+	border: 1.5px solid $font-color;
+}
+
+// Button Colors
+.btn-primary {
+	a, button {
+		@include button-color($btn-color: $button-primary, $font-color: $color-primary);
+	}
+
+	a:hover, button:hover {
+		@include button-color($btn-color: $button-secondary , $font-color: $color-secondary);
+	}
+}
+
+.btn-secondary {
+	a, button {
+		@include button-color($btn-color: $button-secondary, $font-color: $color-secondary);
+	}
+
+	a:hover, button:hover {
+		@include button-color($btn-color: $button-tertiary, $font-color: $color-tertiary);
+	}
+}
+
+.btn-tertiary {
+	a, button {
+		@include button-color($btn-color: $button-tertiary, $font-color: $color-tertiary);
+	}
+
+	a:hover, button:hover {
+		@include button-color($btn-color: $button-primary, $font-color: $color-primary);
+	}
+}
+
+.btn-info {
+	a, button {
+		@include button-color($btn-color: $button-info, $font-color: $color-light);
+	}
+
+	a:hover, button:hover {
+		@include button-color($btn-color: $button-tertiary, $font-color: $color-tertiary);
+	}
+}
+
+.btn-success {
+	a, button {
+		@include button-color($btn-color: $button-success, $font-color: $color-light);
+	}
+
+	a:hover, button:hover {
+		@include button-color($btn-color: $button-tertiary, $font-color: $color-tertiary);
+	}
+}
+
+.btn-error {
+	a, button {
+		@include button-color($btn-color: $button-error, $font-color: $color-light);
+	}
+
+	a:hover, button:hover {
+		@include button-color($btn-color: $button-tertiary, $font-color: $color-tertiary);
+	}
+}
+
+//  Button With shadow
+.btn-shadow {
+	a, button {
+		box-shadow: $button-shadow;
+	}
+}
+
+@media only screen and (min-width: $breakpoint-desktop-min) {
+	.button, .voteButton, .proceedButton {
+		a, button {
+			@include button-base;
+			span {
+				letter-spacing: $letter-spacing-large;
+				line-height: $line-height-medium;
+				font-size: $font-size-large-desktop;
+			}
+
+			.cmp-button__icon {
+				margin: $margin-button-icon;
+			}
+
+			.cmp-button__text {
+				font-size: $font-size-large-desktop;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+	.button, .voteButton, .proceedButton {
+		a, button {
+			@include button-base;
+			span {
+				letter-spacing: $letter-spacing-medium;
+				line-height: $line-height-medium;
+				font-size: $font-size-large-tablet;
+			}
+
+			.cmp-button__icon {
+				margin: $margin-button-icon;
+			}
+
+			.cmp-button__text {
+				font-size: $font-size-large-tablet;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint-mobile-max) {
+	.button, .voteButton, .proceedButton {
+		a, button {
+			@include button-base;
+			span {
+				letter-spacing: $letter-spacing-medium;
+				line-height: $line-height-minimum;
+				font-size: $font-size-large-mobile;
+			}
+
+			.cmp-button__icon {
+				margin: $margin-button-icon;
+			}
+
+			.cmp-button__text {
+				font-size: $font-size-large-mobile;
+			}
+		}
+	}
+}

@@ -1,0 +1,504 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > tabs__002e__html</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.apache.sling.scripting.sightly.apps.whitelabel.components.tabs</a>
+</div>
+
+<h1>Coverage Summary for Class: tabs__002e__html (org.apache.sling.scripting.sightly.apps.whitelabel.components.tabs)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">tabs__002e__html</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/158)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/187)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*******************************************************************************
+&nbsp; * Licensed to the Apache Software Foundation (ASF) under one
+&nbsp; * or more contributor license agreements.  See the NOTICE file
+&nbsp; * distributed with this work for additional information
+&nbsp; * regarding copyright ownership.  The ASF licenses this file
+&nbsp; * to you under the Apache License, Version 2.0 (the
+&nbsp; * &quot;License&quot;); you may not use this file except in compliance
+&nbsp; * with the License.  You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *   http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing,
+&nbsp; * software distributed under the License is distributed on an
+&nbsp; * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+&nbsp; * KIND, either express or implied.  See the License for the
+&nbsp; * specific language governing permissions and limitations
+&nbsp; * under the License.
+&nbsp; ******************************************************************************/
+&nbsp;package org.apache.sling.scripting.sightly.apps.whitelabel.components.tabs;
+&nbsp;
+&nbsp;import java.io.PrintWriter;
+&nbsp;import java.util.Collection;
+&nbsp;import javax.script.Bindings;
+&nbsp;
+&nbsp;import org.apache.sling.scripting.sightly.render.RenderUnit;
+&nbsp;import org.apache.sling.scripting.sightly.render.RenderContext;
+&nbsp;
+<b class="nc">&nbsp;public final class tabs__002e__html extends RenderUnit {</b>
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected final void render(PrintWriter out,
+&nbsp;                                Bindings bindings,
+&nbsp;                                Bindings arguments,
+&nbsp;                                RenderContext renderContext) {
+&nbsp;// Main Template Body -----------------------------------------------------------------------------
+&nbsp;
+<b class="nc">&nbsp;Object _global_tabs = null;</b>
+<b class="nc">&nbsp;Object _global_templates = null;</b>
+<b class="nc">&nbsp;Object _dynamic_wcmmode = bindings.get(&quot;wcmmode&quot;);</b>
+<b class="nc">&nbsp;Object _dynamic_properties = bindings.get(&quot;properties&quot;);</b>
+<b class="nc">&nbsp;Collection var_collectionvar24_list_coerced$ = null;</b>
+<b class="nc">&nbsp;Object _global_isactive = null;</b>
+<b class="nc">&nbsp;Collection var_collectionvar47_list_coerced$ = null;</b>
+<b class="nc">&nbsp;Object _dynamic_resource = bindings.get(&quot;resource&quot;);</b>
+<b class="nc">&nbsp;out.write(&quot;\n&quot;);</b>
+<b class="nc">&nbsp;_global_tabs = renderContext.call(&quot;use&quot;, com.adobe.cq.wcm.core.components.models.Tabs.class.getName(), obj());</b>
+<b class="nc">&nbsp;_global_templates = renderContext.call(&quot;use&quot;, &quot;core/wcm/components/commons/v1/templates.html&quot;, obj());</b>
+<b class="nc">&nbsp;out.write(&quot;&lt;div&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue0 = ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? &quot;tabs&quot; : renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)));</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent1 = renderContext.call(&quot;xss&quot;, var_attrvalue0, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr3 = (((null != var_attrcontent1) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent1))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue0)) &amp;&amp; (!((Object)false).equals(var_attrvalue0))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr3) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-panelcontainer&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr2 = (var_attrvalue0.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr2) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent1));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue4 = renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;id&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent5 = renderContext.call(&quot;xss&quot;, var_attrvalue4, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr7 = (((null != var_attrcontent5) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent5))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue4)) &amp;&amp; (!((Object)false).equals(var_attrvalue4))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr7) {</b>
+<b class="nc">&nbsp;                out.write(&quot; id&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr6 = (var_attrvalue4.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr6) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent5));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot; class=\&quot;cmp-tabs\&quot; data-cmp-is=\&quot;tabs\&quot;&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue8 = renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;data&quot;), &quot;json&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent9 = renderContext.call(&quot;xss&quot;, var_attrvalue8, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr11 = (((null != var_attrcontent9) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent9))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue8)) &amp;&amp; (!((Object)false).equals(var_attrvalue8))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr11) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-cmp-data-layer&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr10 = (var_attrvalue8.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr10) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent9));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue12 = renderContext.call(&quot;i18n&quot;, ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? &quot;Please drag Tab components here&quot; : renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;))), obj().with(&quot;i18n&quot;, null));</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent13 = renderContext.call(&quot;xss&quot;, var_attrvalue12, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr15 = (((null != var_attrcontent13) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent13))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue12)) &amp;&amp; (!((Object)false).equals(var_attrvalue12))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr15) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-placeholder-text&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr14 = (var_attrvalue12.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr14) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent13));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue16 = renderContext.getObjectModel().resolveProperty(_dynamic_properties, &quot;analyticsPrimary&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent17 = renderContext.call(&quot;xss&quot;, var_attrvalue16, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr19 = (((null != var_attrcontent17) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent17))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue16)) &amp;&amp; (!((Object)false).equals(var_attrvalue16))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr19) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-analytics-primary&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr18 = (var_attrvalue16.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr18) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent17));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue20 = renderContext.getObjectModel().resolveProperty(_dynamic_properties, &quot;analyticsSecondary&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent21 = renderContext.call(&quot;xss&quot;, var_attrvalue20, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr23 = (((null != var_attrcontent21) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent21))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue20)) &amp;&amp; (!((Object)false).equals(var_attrvalue20))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr23) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-analytics-secondary&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr22 = (var_attrvalue20.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr22) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent21));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;&gt;\n\t&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable31 = ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;items&quot;)) ? (!(org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.leq(renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;items&quot;), &quot;size&quot;), 0))) : renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;items&quot;)));</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable31)) {</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_collectionvar24 = renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;items&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                long var_size25 = ((var_collectionvar24_list_coerced$ == null ? (var_collectionvar24_list_coerced$ = renderContext.getObjectModel().toCollection(var_collectionvar24)) : var_collectionvar24_list_coerced$).size());</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_notempty26 = (var_size25 &gt; 0);</b>
+<b class="nc">&nbsp;                    if (var_notempty26) {</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            long var_end29 = var_size25;</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_validstartstepend30 = (((0 &lt; var_size25) &amp;&amp; true) &amp;&amp; (var_end29 &gt; 0));</b>
+<b class="nc">&nbsp;                                if (var_validstartstepend30) {</b>
+<b class="nc">&nbsp;                                    out.write(&quot;&lt;ol role=\&quot;tablist\&quot; class=\&quot;cmp-tabs__tablist\&quot;&quot;);</b>
+&nbsp;                                    {
+<b class="nc">&nbsp;                                        Object var_attrvalue32 = renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;accessibilityLabel&quot;);</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            Object var_attrcontent33 = renderContext.call(&quot;xss&quot;, var_attrvalue32, &quot;attribute&quot;);</b>
+&nbsp;                                            {
+<b class="nc">&nbsp;                                                boolean var_shoulddisplayattr35 = (((null != var_attrcontent33) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent33))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue32)) &amp;&amp; (!((Object)false).equals(var_attrvalue32))));</b>
+<b class="nc">&nbsp;                                                if (var_shoulddisplayattr35) {</b>
+<b class="nc">&nbsp;                                                    out.write(&quot; aria-label&quot;);</b>
+&nbsp;                                                    {
+<b class="nc">&nbsp;                                                        boolean var_istrueattr34 = (var_attrvalue32.equals(true));</b>
+<b class="nc">&nbsp;                                                        if (!var_istrueattr34) {</b>
+<b class="nc">&nbsp;                                                            out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                            out.write(renderContext.getObjectModel().toString(var_attrcontent33));</b>
+<b class="nc">&nbsp;                                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                        }
+&nbsp;                                                    }
+&nbsp;                                                }
+&nbsp;                                            }
+&nbsp;                                        }
+&nbsp;                                    }
+<b class="nc">&nbsp;                                    out.write(&quot; aria-multiselectable=\&quot;false\&quot;&gt;&quot;);</b>
+<b class="nc">&nbsp;                                    if (var_collectionvar24_list_coerced$ == null) {</b>
+<b class="nc">&nbsp;                                        var_collectionvar24_list_coerced$ = renderContext.getObjectModel().toCollection(var_collectionvar24);</b>
+&nbsp;                                    }
+<b class="nc">&nbsp;                                    long var_index36 = 0;</b>
+<b class="nc">&nbsp;                                    for (Object tab : var_collectionvar24_list_coerced$) {</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            boolean var_traversal38 = (((var_index36 &gt;= 0) &amp;&amp; (var_index36 &lt;= var_end29)) &amp;&amp; true);</b>
+<b class="nc">&nbsp;                                            if (var_traversal38) {</b>
+<b class="nc">&nbsp;                                                out.write(&quot;\n\t\t&quot;);</b>
+<b class="nc">&nbsp;_global_isactive = (org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.strictEq(renderContext.getObjectModel().resolveProperty(tab, &quot;name&quot;), renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;activeItem&quot;)));</b>
+<b class="nc">&nbsp;                                                if (renderContext.getObjectModel().toBoolean(_global_isactive)) {</b>
+&nbsp;                                                }
+<b class="nc">&nbsp;                                                out.write(&quot;\n\t\t&lt;li role=\&quot;tab\&quot;&quot;);</b>
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    String var_attrcontent39 = (renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(tab, &quot;id&quot;), &quot;attribute&quot;)) + &quot;-tab&quot;);</b>
+<b class="nc">&nbsp;                                                    out.write(&quot; id=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                    out.write(renderContext.getObjectModel().toString(var_attrcontent39));</b>
+<b class="nc">&nbsp;                                                    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                }
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    String var_attrcontent40 = (&quot;cmp-tabs__tab&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, (renderContext.getObjectModel().toBoolean(_global_isactive) ? &quot; cmp-tabs__tab--active&quot; : &quot;&quot;), &quot;attribute&quot;)));</b>
+<b class="nc">&nbsp;                                                    out.write(&quot; class=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                    out.write(renderContext.getObjectModel().toString(var_attrcontent40));</b>
+<b class="nc">&nbsp;                                                    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                }
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    String var_attrcontent41 = (renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(tab, &quot;id&quot;), &quot;attribute&quot;)) + &quot;-tabpanel&quot;);</b>
+<b class="nc">&nbsp;                                                    out.write(&quot; aria-controls=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                    out.write(renderContext.getObjectModel().toString(var_attrcontent41));</b>
+<b class="nc">&nbsp;                                                    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                }
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    String var_attrvalue42 = (renderContext.getObjectModel().toBoolean(_global_isactive) ? &quot;0&quot; : &quot;-1&quot;);</b>
+&nbsp;                                                    {
+<b class="nc">&nbsp;                                                        Object var_attrcontent43 = renderContext.call(&quot;xss&quot;, var_attrvalue42, &quot;attribute&quot;);</b>
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            boolean var_shoulddisplayattr45 = (((null != var_attrcontent43) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent43))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue42)) &amp;&amp; (!((Object)false).equals(var_attrvalue42))));</b>
+<b class="nc">&nbsp;                                                            if (var_shoulddisplayattr45) {</b>
+<b class="nc">&nbsp;                                                                out.write(&quot; tabindex&quot;);</b>
+&nbsp;                                                                {
+<b class="nc">&nbsp;                                                                    boolean var_istrueattr44 = (var_attrvalue42.equals(true));</b>
+<b class="nc">&nbsp;                                                                    if (!var_istrueattr44) {</b>
+<b class="nc">&nbsp;                                                                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                        out.write(renderContext.getObjectModel().toString(var_attrcontent43));</b>
+<b class="nc">&nbsp;                                                                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                    }
+&nbsp;                                                                }
+&nbsp;                                                            }
+&nbsp;                                                        }
+&nbsp;                                                    }
+&nbsp;                                                }
+<b class="nc">&nbsp;                                                out.write(&quot; data-cmp-hook-tabs=\&quot;tab\&quot;&gt;&quot;);</b>
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    String var_46 = (renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(tab, &quot;title&quot;), &quot;text&quot;)) + &quot;\n\t\t&quot;);</b>
+<b class="nc">&nbsp;                                                    out.write(renderContext.getObjectModel().toString(var_46));</b>
+&nbsp;                                                }
+<b class="nc">&nbsp;                                                out.write(&quot;&lt;/li&gt;\n\t&quot;);</b>
+&nbsp;                                            }
+&nbsp;                                        }
+<b class="nc">&nbsp;                                        var_index36++;</b>
+&nbsp;                                    }
+<b class="nc">&nbsp;                                    out.write(&quot;&lt;/ol&gt;&quot;);</b>
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;            var_collectionvar24_list_coerced$ = null;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\t&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_collectionvar47 = renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;items&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        long var_size48 = ((var_collectionvar47_list_coerced$ == null ? (var_collectionvar47_list_coerced$ = renderContext.getObjectModel().toCollection(var_collectionvar47)) : var_collectionvar47_list_coerced$).size());</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_notempty49 = (var_size48 &gt; 0);</b>
+<b class="nc">&nbsp;            if (var_notempty49) {</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    long var_end52 = var_size48;</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        boolean var_validstartstepend53 = (((0 &lt; var_size48) &amp;&amp; true) &amp;&amp; (var_end52 &gt; 0));</b>
+<b class="nc">&nbsp;                        if (var_validstartstepend53) {</b>
+<b class="nc">&nbsp;                            if (var_collectionvar47_list_coerced$ == null) {</b>
+<b class="nc">&nbsp;                                var_collectionvar47_list_coerced$ = renderContext.getObjectModel().toCollection(var_collectionvar47);</b>
+&nbsp;                            }
+<b class="nc">&nbsp;                            long var_index54 = 0;</b>
+<b class="nc">&nbsp;                            for (Object item : var_collectionvar47_list_coerced$) {</b>
+&nbsp;                                {
+<b class="nc">&nbsp;                                    boolean var_traversal56 = (((var_index54 &gt;= 0) &amp;&amp; (var_index54 &lt;= var_end52)) &amp;&amp; true);</b>
+<b class="nc">&nbsp;                                    if (var_traversal56) {</b>
+<b class="nc">&nbsp;                                        out.write(&quot;&lt;div&quot;);</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            String var_attrcontent57 = (renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(item, &quot;id&quot;), &quot;attribute&quot;)) + &quot;-tabpanel&quot;);</b>
+<b class="nc">&nbsp;                                            out.write(&quot; id=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                            out.write(renderContext.getObjectModel().toString(var_attrcontent57));</b>
+<b class="nc">&nbsp;                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                        }
+<b class="nc">&nbsp;                                        out.write(&quot; role=\&quot;tabpanel\&quot;&quot;);</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            String var_attrcontent58 = (renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(item, &quot;id&quot;), &quot;attribute&quot;)) + &quot;-tab&quot;);</b>
+<b class="nc">&nbsp;                                            out.write(&quot; aria-labelledby=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                            out.write(renderContext.getObjectModel().toString(var_attrcontent58));</b>
+<b class="nc">&nbsp;                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                        }
+<b class="nc">&nbsp;                                        out.write(&quot; tabindex=\&quot;0\&quot;&quot;);</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            String var_attrcontent59 = (&quot;cmp-tabs__tabpanel&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, ((org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.strictEq(renderContext.getObjectModel().resolveProperty(item, &quot;name&quot;), renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;activeItem&quot;))) ? &quot; cmp-tabs__tabpanel--active&quot; : &quot;&quot;), &quot;attribute&quot;)));</b>
+<b class="nc">&nbsp;                                            out.write(&quot; class=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                            out.write(renderContext.getObjectModel().toString(var_attrcontent59));</b>
+<b class="nc">&nbsp;                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                        }
+<b class="nc">&nbsp;                                        out.write(&quot; data-cmp-hook-tabs=\&quot;tabpanel\&quot;&quot;);</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            Object var_attrvalue60 = renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(item, &quot;data&quot;), &quot;json&quot;);</b>
+&nbsp;                                            {
+<b class="nc">&nbsp;                                                Object var_attrcontent61 = renderContext.call(&quot;xss&quot;, var_attrvalue60, &quot;attribute&quot;);</b>
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    boolean var_shoulddisplayattr63 = (((null != var_attrcontent61) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent61))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue60)) &amp;&amp; (!((Object)false).equals(var_attrvalue60))));</b>
+<b class="nc">&nbsp;                                                    if (var_shoulddisplayattr63) {</b>
+<b class="nc">&nbsp;                                                        out.write(&quot; data-cmp-data-layer&quot;);</b>
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            boolean var_istrueattr62 = (var_attrvalue60.equals(true));</b>
+<b class="nc">&nbsp;                                                            if (!var_istrueattr62) {</b>
+<b class="nc">&nbsp;                                                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                out.write(renderContext.getObjectModel().toString(var_attrcontent61));</b>
+<b class="nc">&nbsp;                                                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                            }
+&nbsp;                                                        }
+&nbsp;                                                    }
+&nbsp;                                                }
+&nbsp;                                            }
+&nbsp;                                        }
+<b class="nc">&nbsp;                                        out.write(&quot;&gt;&quot;);</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            Object var_resourcecontent64 = renderContext.call(&quot;includeResource&quot;, renderContext.getObjectModel().resolveProperty(item, &quot;name&quot;), obj().with(&quot;decorationTagName&quot;, &quot;div&quot;));</b>
+<b class="nc">&nbsp;                                            out.write(renderContext.getObjectModel().toString(var_resourcecontent64));</b>
+&nbsp;                                        }
+<b class="nc">&nbsp;                                        out.write(&quot;&lt;/div&gt;\n&quot;);</b>
+&nbsp;                                    }
+&nbsp;                                }
+<b class="nc">&nbsp;                                var_index54++;</b>
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+<b class="nc">&nbsp;    var_collectionvar47_list_coerced$ = null;</b>
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\t&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable65 = ((renderContext.getObjectModel().toBoolean(((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;) : renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;preview&quot;)))) ? (org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.lt(renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_tabs, &quot;items&quot;), &quot;size&quot;), 1)) : ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;) : renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;preview&quot;)))));</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable65)) {</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_resourcecontent66 = renderContext.call(&quot;includeResource&quot;, renderContext.getObjectModel().resolveProperty(_dynamic_resource, &quot;path&quot;), obj().with(&quot;cssClassName&quot;, &quot;new section aem-Grid-newComponent&quot;).with(&quot;decorationTagName&quot;, &quot;div&quot;).with(&quot;appendPath&quot;, &quot;/*&quot;).with(&quot;resourceType&quot;, &quot;wcm/foundation/components/parsys/newpar&quot;));</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_resourcecontent66));</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n&lt;/div&gt;&quot;);</b>
+&nbsp;
+&nbsp;
+&nbsp;// End Of Main Template Body ----------------------------------------------------------------------
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    {
+&nbsp;//Sub-Templates Initialization --------------------------------------------------------------------
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;//End of Sub-Templates Initialization -------------------------------------------------------------
+&nbsp;    }
+&nbsp;
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

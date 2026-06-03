@@ -1,0 +1,191 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > CreatePageIT</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.it.tests</a>
+</div>
+
+<h1>Coverage Summary for Class: CreatePageIT (com.merkle.xp.whitelabel.it.tests)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CreatePageIT</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; *  Copyright 2015 Adobe Systems Incorporated
+&nbsp; *
+&nbsp; *  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; *  you may not use this file except in compliance with the License.
+&nbsp; *  You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *      http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; *  Unless required by applicable law or agreed to in writing, software
+&nbsp; *  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; *  See the License for the specific language governing permissions and
+&nbsp; *  limitations under the License.
+&nbsp; */
+&nbsp;package com.merkle.xp.whitelabel.it.tests;
+&nbsp;
+&nbsp;import com.adobe.cq.testing.client.CQClient;
+&nbsp;import com.adobe.cq.testing.junit.assertion.CQAssert;
+&nbsp;import com.adobe.cq.testing.junit.rules.CQAuthorClassRule;
+&nbsp;import com.adobe.cq.testing.junit.rules.CQRule;
+&nbsp;import com.adobe.cq.testing.junit.rules.Page;
+&nbsp;import org.junit.BeforeClass;
+&nbsp;import org.junit.ClassRule;
+&nbsp;import org.junit.Rule;
+&nbsp;import org.junit.Test;
+&nbsp;
+&nbsp;import static java.util.concurrent.TimeUnit.MINUTES;
+&nbsp;
+&nbsp;/**
+&nbsp; * Test that a page can be successfully created on the author instance. This
+&nbsp; * test showcases some &lt;a
+&nbsp; * href=&quot;https://github.com/adobe/aem-testing-clients/wiki/Best-practices&quot;&gt;best
+&nbsp; * practices&lt;/a&gt; of the &lt;a
+&nbsp; * href=&quot;https://github.com/adobe/aem-testing-clients&quot;&gt;AEM Testing Clients&lt;/a&gt;.
+&nbsp; */
+<b class="nc">&nbsp;public class CreatePageIT {</b>
+&nbsp;
+<b class="nc">&nbsp;    private static final long TIMEOUT = MINUTES.toMillis(3);</b>
+&nbsp;
+&nbsp;    // The CQAuthorClassRule represents an author service. The rule will read
+&nbsp;    // the hostname and port of the author service from the system properties
+&nbsp;    // passed to the tests.
+&nbsp;
+&nbsp;    @ClassRule
+<b class="nc">&nbsp;    public static final CQAuthorClassRule cqBaseClassRule = new CQAuthorClassRule();</b>
+&nbsp;
+&nbsp;    // CQRule decorates your test and adds additional functionality on top of
+&nbsp;    // it, like session stickyness, test filtering and identification of the
+&nbsp;    // test on the remote service.
+&nbsp;
+<b class="nc">&nbsp;    @Rule</b>
+&nbsp;    public CQRule cqBaseRule = new CQRule(cqBaseClassRule.authorRule);
+&nbsp;
+&nbsp;    // Page will create a test page with a random name and it will make sure
+&nbsp;    // that the page is removed at the end of every test execution. By using a
+&nbsp;    // random name, your test will not conflict with any other test running on
+&nbsp;    // the same instance. By removing the page at the end of the test execution,
+&nbsp;    // you are not going to leave any clutter on the instance under test.
+&nbsp;
+<b class="nc">&nbsp;    @Rule</b>
+&nbsp;    public Page root = new Page(cqBaseClassRule.authorRule);
+&nbsp;
+&nbsp;    static CQClient adminAuthor;
+&nbsp;
+&nbsp;    // Thanks to the CQAuthorClassRule, we can create a CQClient bound to the
+&nbsp;    // admin user on the author instance.
+&nbsp;
+&nbsp;    @BeforeClass
+&nbsp;    public static void beforeClass() {
+<b class="nc">&nbsp;        adminAuthor = cqBaseClassRule.authorRule.getAdminClient(CQClient.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Test
+&nbsp;    public void testCreatePage() throws InterruptedException {
+&nbsp;
+&nbsp;        // Assert that the page (created with the Page rule above) exists on the
+&nbsp;        // admin instance. Under the hood, this assertion implements a
+&nbsp;        // retry-loop with a timeout. The retry-loop prevents your test from
+&nbsp;        // failing due to the eventual consistency model of the persistence
+&nbsp;        // layer, and the timeout from hanging forever in case an error occurs
+&nbsp;        // and a page can&#39;t be created in time.
+&nbsp;
+<b class="nc">&nbsp;        CQAssert.assertCQPageExistsWithTimeout(adminAuthor, root.getPath(), TIMEOUT, 500);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

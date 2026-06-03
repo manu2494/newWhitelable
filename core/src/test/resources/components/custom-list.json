@@ -1,0 +1,18 @@
+{
+    "jcr:primaryType": "nt:unstructured",
+    "showModificationDate": "true",
+    "jcr:createdBy": "admin",
+    "tagsMatch": "any",
+    "linkItems": "true",
+    "headingElement": "h3",
+    "jcr:lastModifiedBy": "admin",
+    "jcr:created": "Sat Dec 24 2022 02:28:54 GMT+0100",
+    "parentPage": "/content/core-framework/us/en/aem-training-guide/aem-training-guide---sprint-1",
+    "sortOrder": "asc",
+    "displayItemAsTeaser": "true",
+    "showDescription": "true",
+    "jcr:lastModified": "Sat Dec 24 2022 02:29:24 GMT+0100",
+    "sling:resourceType": "core-framework/components/list",
+    "childDepth": "1",
+    "listFrom": "children"
+}

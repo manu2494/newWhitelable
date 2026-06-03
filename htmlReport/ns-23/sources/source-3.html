@@ -1,0 +1,107 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > GenericListService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.services</a>
+</div>
+
+<h1>Coverage Summary for Class: GenericListService (com.merkle.xp.whitelabel.core.services)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">GenericListService$MockitoMock$PM1gKoXc</td>
+  </tr>
+  <tr>
+    <td class="name">GenericListService$MockitoMock$PM1gKoXc$auxiliary$toHZK7Ft</td>
+  </tr>
+  <tr>
+    <td class="name">GenericListService$MockitoMock$PM1gKoXc$auxiliary$yFhGcHp6</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.services;
+&nbsp;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;
+&nbsp;import javax.jcr.Value;
+&nbsp;import javax.jcr.ValueFactory;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;public interface GenericListService {
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * populating Map from Generic List
+&nbsp;	 *
+&nbsp;	 */
+&nbsp;	LinkedHashMap&lt;String, String&gt; populateGenListMap(ResourceResolver resourceResolver, String genericListPath);
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * returns value from Generic List
+&nbsp;	 *
+&nbsp;	 */
+&nbsp;	Value[] findValueFromGenericList(ValueFactory valueFactory, Map&lt;String, String&gt; itemsMap, String title);
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * finding region for the given CBU
+&nbsp;	 *
+&nbsp;	 */
+&nbsp;	String findRegionValue(ResourceResolver resourceResolver, String genericListPath, String cbu);
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

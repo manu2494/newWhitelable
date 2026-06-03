@@ -1,0 +1,48 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "sling:alias": "pageAlias",
+    "jcr:title": "page title",
+    "twitterCard": "summary",
+    "pwaOrientation": "any",
+    "cq:template": "/conf/whitelabel/settings/wcm/templates/page-content",
+    "pwaDisplay": "standalone",
+    "productMaster": "productCF",
+    "pwaCachestrategy": "staleWhileRevalidate",
+    "canonicalTag": "/content/whitelabel",
+    "isPrivatePage": "false",
+    "jcr:language":"en_GB",
+    "cq:tags": [
+      "test:Type/E-Learning",
+      "test:Type/Patient-&-Carer-Resources"
+    ],
+    "sling:resourceType": "whitelabel/components/page",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "layout": "responsiveGrid",
+      "sling:resourceType": "whitelabel/components/container",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "whitelabel/components/container",
+        "title": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "whitelabel/components/title"
+        },
+        "container": {
+          "jcr:primaryType": "nt:unstructured",
+          "layout": "responsiveGrid",
+          "sling:resourceType": "whitelabel/components/container"
+        }
+      }
+    },
+    "cq:featuredimage": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:lastModifiedBy": "admin",
+      "sling:resourceType": "core/wcm/components/image/v3/image",
+      "altValueFromDAM": "false"
+    }
+  }
+}

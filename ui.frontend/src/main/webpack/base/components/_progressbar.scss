@@ -1,0 +1,280 @@
+.progressbar {
+    .cmp-progressbar {
+        display: block;
+        width: 100%;
+        height: 30px;
+        justify-content: center;
+        overflow: hidden;
+        text-align: center;
+        white-space: nowrap;
+        position: relative;
+
+        .cmp-progressbar__label--completed {
+            float: left;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .cmp-progressbar__label--remaining {
+            float: right;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .cmp-progressbar__bar {
+            display: block;
+            height: 100%;
+            font-size: 0;
+        }
+    }
+
+
+    &.no-status {
+        .cmp-progressbar {
+            .cmp-progressbar__label--completed {
+                display: none;
+            }
+
+            .cmp-progressbar__label--remaining {
+                display: none;
+            }
+        }
+    }
+}
+
+@mixin progress-stripe($stripe1:$color-progressbar,$stripe2:$color-shade-progressbar) {
+	background: repeating-linear-gradient(
+      -45deg,
+      $stripe1,
+      $stripe1 20px,
+      $stripe2 20px,
+      $stripe2 40px
+    );
+}
+
+.progressbar {
+	.cmp-progressbar {
+		background-color: $color-background;
+		border-radius: $border-progressbar;
+		.cmp-progressbar__label--completed {
+			color: $color-background;
+			padding-left: $default-padding;
+		}
+		.cmp-progressbar__label--remaining {
+			color: $color-progressbar;
+			padding-right: $default-padding;
+		}
+		.cmp-progressbar__bar {
+			border-radius: $border-progressbar;
+			@include progress-stripe;
+		}
+	}
+
+	&.color {
+		&-primary {
+			.cmp-progressbar {
+				.cmp-progressbar__label--remaining {
+					color: $color-primary;
+				}
+				.cmp-progressbar__bar {
+					background: $color-primary;
+				}
+			}
+		}
+		&-secondary {
+			.cmp-progressbar {
+				.cmp-progressbar__label--remaining {
+					color: $color-secondary;
+				}
+				.cmp-progressbar__bar {
+					background: $color-secondary;
+				}
+			}
+		}
+
+		&-tertiary {
+			.cmp-progressbar {
+				background-color: $color-secondary;
+				.cmp-progressbar__label--completed {
+					color: $color-primary;
+				}
+				.cmp-progressbar__label--remaining {
+					color: $color-tertiary;
+				}
+				.cmp-progressbar__bar {
+					background: $color-tertiary;
+				}
+			}
+		}
+	}
+
+	&.stripe {
+		&-primary {
+			.cmp-progressbar {
+				.cmp-progressbar__label--remaining {
+					color: $color-primary;
+				}
+				.cmp-progressbar__bar {
+					@include progress-stripe ($stripe1:$color-primary,$stripe2:$color-shade-primary);
+				}
+			}
+		}
+		&-secondary {
+			.cmp-progressbar {
+				.cmp-progressbar__label--remaining {
+					color: $color-secondary;
+				}
+				.cmp-progressbar__bar {
+					@include progress-stripe ($stripe1:$color-secondary,$stripe2:$color-shade-secondary);
+				}
+			}
+		}
+
+		&-tertiary {
+			.cmp-progressbar {
+				background-color: $color-secondary;
+				.cmp-progressbar__label--completed {
+					color: $color-primary;
+				}
+				.cmp-progressbar__label--remaining {
+					color: $color-tertiary;
+				}
+				.cmp-progressbar__bar {
+					@include progress-stripe ($stripe1:$color-tertiary,$stripe2:$color-shade-tertiary);
+				}
+			}
+		}
+	}
+
+	&.height {
+		&-min {
+			.cmp-progressbar {
+				height: $height-mimimum;
+			}
+		}
+		&-medium {
+			.cmp-progressbar {
+				height: $height-medium;
+			}
+		}
+		&-max {
+			.cmp-progressbar {
+				height: $height-maximum;
+			}
+		}
+	}
+
+	&.border {
+		&-min {
+			.cmp-progressbar {
+				border-radius: $border-minimun;
+				.cmp-progressbar__bar {
+					border-radius: $border-minimun;
+				}
+			}
+		}
+		&-medium {
+			.cmp-progressbar {
+				border-radius: $border-medium;
+				.cmp-progressbar__bar {
+					border-radius: $border-medium;
+				}
+			}
+		}
+		&-max {
+			.cmp-progressbar {
+				border-radius: $border-maximum;
+				.cmp-progressbar__bar {
+					border-radius: $border-maximum;
+				}
+			}
+		}
+	}
+}
+
+.progress-bar-type {
+	.cmp-progressbar {
+		border-radius: $space-xxxs;
+		position: relative;
+		background-color: $color-tertiary;
+		margin-top: $space-m;
+		margin-bottom: $space-m;
+		height: $font-size-h3-mobile;
+		&__label {
+			&--completed {
+				padding-left: $space-xs;
+				position: absolute;
+				top: -17px;
+				font-size: $font-size-small-desktop;
+				line-height: 150%;
+			}
+			&--remaining {
+				display: none;
+			}
+		}
+		&__bar {
+			background-color: $border-embed;
+			position: absolute;
+			top: 0;
+			border-radius: $space-xxxs;
+			min-width: $space-xxxs;
+			height: 100%;
+		}
+	}
+}
+
+.within-bar {
+	.cmp-progressbar {
+		&__label {
+			&--completed {
+				top: 3px;
+				padding-left: $space-s;
+				z-index: 999;
+			}
+		}
+	}
+}
+.height-small {
+	.cmp-progressbar {
+		height: 6px;
+	}
+}
+.percent-hidden {
+	.cmp-progressbar {
+		&__label {
+			&--completed {
+				display: none;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $breakpoint-desktop-min) {
+	.progressbar {
+		.cmp-progressbar {
+			font-size: $font-size-normal-desktop;
+		}
+	}
+}
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+	.progressbar {
+		.cmp-progressbar {
+			font-size: $font-size-normal-tablet;
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint-mobile-max) {
+	.progressbar {
+		.cmp-progressbar {
+			font-size: $font-size-normal-mobile;
+		}
+	}
+}

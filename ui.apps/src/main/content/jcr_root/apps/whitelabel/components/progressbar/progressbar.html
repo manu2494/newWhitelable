@@ -1,0 +1,14 @@
+<div data-sly-use.progressBar="com.adobe.cq.wcm.core.components.models.ProgressBar"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     id="${progressBar.id}"
+     class="cmp-progressbar"
+     data-analytics-primary="${properties.analyticsPrimary}"
+     data-analytics-secondary="${properties.analyticsSecondary}"
+     data-cmp-data-layer="${progressBar.data.json}">
+    <span class="cmp-progressbar__label--completed">${'#.##' @ format=progressBar.completed}</span>
+    <span class="cmp-progressbar__label--remaining">${'#.##' @ format=progressBar.remaining}</span>
+    <div class="cmp-progressbar__bar" role="progressbar"
+         aria-valuenow="${'#.##' @ format=progressBar.completed}" aria-valuemin="0" aria-valuemax="100"
+         style="width: ${progressBar.completed @ context='number'}%">${'#.##' @ format=progressBar.completed}</div>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=wcmmode.edit, classAppend='cmp-progressbar-placeholder'}"></sly>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    cq:lastReplicated_publish="{Date}2022-05-23T14:45:28.356+05:30"
+    cq:lastReplicatedBy_publish="admin"
+    cq:lastReplicationAction_publish="Activate"
+    jcr:mixinTypes="[cq:ReplicationStatus]"
+    jcr:primaryType="cq:Component"
+    jcr:title="Pega Content"
+    componentGroup="White label - Pega"/>

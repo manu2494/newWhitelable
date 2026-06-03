@@ -1,0 +1,35 @@
+{
+  "jcr:primaryType": "cq:Tag",
+  "jcr:createdBy": "admin",
+  "jcr:title": "Therapeutic area",
+  "jcr:description": "",
+  "sling:resourceType": "cq/tagging/components/tag",
+  "eldery-care---oncology": {
+    "jcr:primaryType": "cq:Tag",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Eldery Care | Oncology",
+    "jcr:description": "",
+    "sling:resourceType": "cq/tagging/components/tag"
+  },
+  "eldery-care---grm": {
+    "jcr:primaryType": "cq:Tag",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Eldery Care | GRM",
+    "jcr:description": "",
+    "sling:resourceType": "cq/tagging/components/tag"
+  },
+  "eldery-care---memory": {
+    "jcr:primaryType": "cq:Tag",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Eldery Care | Memory",
+    "jcr:description": "",
+    "sling:resourceType": "cq/tagging/components/tag"
+  },
+  "none": {
+    "jcr:primaryType": "cq:Tag",
+    "jcr:createdBy": "admin",
+    "jcr:title": "None",
+    "jcr:description": "",
+    "sling:resourceType": "cq/tagging/components/tag"
+  }
+}

@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}false"
+    jcr:primaryType="cq:WorkflowModel"
+    jcr:uuid="8bb398ef-7061-4d76-8f55-7a98971353a7"
+    sling:resourceType="cq/workflow/components/model"
+    description="No Description"
+    title="Content Approval Request">
+    <metaData
+        cq:generatingPage="/conf/global/settings/workflow/models/content_approval_request/jcr:content"
+        cq:lastModified="{Long}1705995175869"
+        cq:lastModifiedBy="test"
+        jcr:primaryType="nt:unstructured"/>
+    <nodes jcr:primaryType="nt:unstructured">
+        <node0
+            jcr:primaryType="cq:WorkflowNode"
+            title="Start"
+            type="START">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node0>
+        <node1
+            jcr:primaryType="cq:WorkflowNode"
+            description="Validate content"
+            title="Content Approval Payload Validation Process"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.merklecxm.ep.whitelabel.core.services.impl.ContentApprovalPayloadValidatorProcess"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node1>
+        <node2
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node2>
+        <node3
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node3>
+        <node4
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node4>
+        <node5
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node5>
+        <node6
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node6>
+        <node7
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node7>
+        <node8
+            jcr:primaryType="cq:WorkflowNode"
+            description="Request to approve or reject content"
+            title="Approve or Reject Content"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DYNAMIC_PARTICIPANT="com.merklecxm.ep.whitelabel.core.services.impl.DynamicContentApproverService"/>
+        </node8>
+        <node9
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node9>
+        <node10
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node10>
+        <node11
+            jcr:primaryType="cq:WorkflowNode"
+            description="Approver has declined the workflow"
+            title="Reject"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node11>
+        <node12
+            jcr:primaryType="cq:WorkflowNode"
+            description="Verify if initiator is acting as approver"
+            title="Approve"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.merklecxm.ep.whitelabel.core.services.impl.PreventApproveFromInitiatorProcess"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node12>
+        <node13
+            jcr:primaryType="cq:WorkflowNode"
+            description="Initiator cannot approve the content"
+            title="If Initiator assign back to approver group"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.adobe.granite.workflow.core.process.GotoProcess"
+                PROCESS_AUTO_ADVANCE="false"
+                script="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;        log.info(&quot;********** is initiator :{}&quot;,metaData.get(&quot;isInitiator&quot;));&#xd;&#xa;&#x9;return ('true' == metaData.get(&quot;isInitiator&quot;));&#xd;&#xa;}"
+                TARGET_NODE_ID="node8"
+                TARGET_NODE_PATH="/conf/global/settings/workflow/models/content_approval_request/jcr:content/flow/or/1/or_copy_copy_copy/1/or_235433045_copy/1/dynamic_participant"/>
+        </node13>
+        <node14
+            jcr:primaryType="cq:WorkflowNode"
+            description="A process to activate a page or asset"
+            title="Activate Content"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.day.cq.wcm.workflow.process.ActivatePageProcess"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node14>
+        <node15
+            jcr:primaryType="cq:WorkflowNode"
+            description="Workflow has been approved and the content has been published"
+            title="Content Published"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node15>
+        <node16
+            jcr:primaryType="cq:WorkflowNode"
+            description="Unable to find Approver-Group"
+            title="Invalid Approver"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node16>
+        <node17
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node17>
+        <node18
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node18>
+        <node19
+            jcr:primaryType="cq:WorkflowNode"
+            description="Requesting list of nodes for publishing review"
+            title="Request List of Nodes for Publishing Review"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.merklecxm.ep.whitelabel.core.services.impl.RequestNodesListForPublishingReview"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node19>
+        <node20
+            jcr:primaryType="cq:WorkflowNode"
+            description="Request to approve or reject publishing of CF"
+            title="Approve or Reject Publish CF"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DYNAMIC_PARTICIPANT="com.merklecxm.ep.whitelabel.core.services.impl.DynamicContentApproverService"/>
+        </node20>
+        <node21
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node21>
+        <node22
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node22>
+        <node23
+            jcr:primaryType="cq:WorkflowNode"
+            description="Approver has declined the workflow"
+            title="Reject"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node23>
+        <node24
+            jcr:primaryType="cq:WorkflowNode"
+            description="Verify if initiator is acting as approver"
+            title="Approve"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.merklecxm.ep.whitelabel.core.services.impl.PreventApproveFromInitiatorProcess"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node24>
+        <node25
+            jcr:primaryType="cq:WorkflowNode"
+            description="Initiator cannot approve the content"
+            title="If Initiator assign back to approver group"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.adobe.granite.workflow.core.process.GotoProcess"
+                PROCESS_AUTO_ADVANCE="false"
+                script="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;        log.info(&quot;********** is initiator :{}&quot;,metaData.get(&quot;isInitiator&quot;));&#xd;&#xa;&#x9;return ('true' == metaData.get(&quot;isInitiator&quot;));&#xd;&#xa;}"
+                TARGET_NODE_ID="node20"
+                TARGET_NODE_PATH="/conf/global/settings/workflow/models/content_approval_request/jcr:content/flow/or/1/or_copy_copy_copy/2/or_235433045_copy_co/1/dynamic_participant_"/>
+        </node25>
+        <node26
+            jcr:primaryType="cq:WorkflowNode"
+            description="Approving CF publish request"
+            title="Approve"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.merklecxm.ep.whitelabel.core.services.impl.ApprovePublishCF"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node26>
+        <node27
+            jcr:primaryType="cq:WorkflowNode"
+            description="Workflow has been approved and the CF has been published"
+            title="CF Published"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node27>
+        <node28
+            jcr:primaryType="cq:WorkflowNode"
+            description="Unable to find Approver-Group"
+            title="Invalid Approver"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node28>
+        <node29
+            jcr:primaryType="cq:WorkflowNode"
+            description="Workflow contains an invalid payload"
+            title="Invalid Payload"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node29>
+        <node30
+            jcr:primaryType="cq:WorkflowNode"
+            title="End"
+            type="END">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node30>
+    </nodes>
+    <transitions jcr:primaryType="nt:unstructured">
+        <node0_x0023_node1
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node0"
+            rule=""
+            to="node1">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node0_x0023_node1>
+        <node1_x0023_node2
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node1"
+            to="node2">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node1_x0023_node2>
+        <node2_x0023_node4
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node2"
+            rule="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return metaData.containsKey(&quot;isValidContentPayload&quot;);&#xd;&#xa;}"
+            to="node4">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node2_x0023_node4>
+        <node4_x0023_node6
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node4"
+            rule="function check() {&#xd;&#xa;    var check = false;&#xd;&#xa;    if (workflowData.getPayloadType() == &quot;JCR_PATH&quot;) {&#xd;&#xa;        var path = workflowData.getPayload().toString();&#xd;&#xa;        var jcrsession = graniteWorkflowSession.adaptTo(Packages.javax.jcr.Session);&#xd;&#xa;        var node = jcrsession.getNode(path + &quot;/jcr:content&quot;);&#xd;&#xa;        log.info(&quot;node path = {}&quot;, node.getPath());&#xd;&#xa;        if (!node.hasProperty(&quot;contentFragment&quot;)) {&#xd;&#xa;            check = true;&#xd;&#xa;        }&#xd;&#xa;    }&#xd;&#xa;    return check;&#xd;&#xa;}"
+            to="node6">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node4_x0023_node6>
+        <node6_x0023_node8
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node6"
+            rule="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return metaData.containsKey(&quot;contentApproverGroup&quot;);&#xd;&#xa;}"
+            to="node8">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node6_x0023_node8>
+        <node8_x0023_node9
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node8"
+            to="node9">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node8_x0023_node9>
+        <node9_x0023_node11
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node9"
+            rule=""
+            to="node11">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node9_x0023_node11>
+        <node11_x0023_node10
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node11"
+            to="node10">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node11_x0023_node10>
+        <node9_x0023_node12
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node9"
+            rule=""
+            to="node12">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node9_x0023_node12>
+        <node12_x0023_node13
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node12"
+            rule=""
+            to="node13">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node12_x0023_node13>
+        <node13_x0023_node14
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node13"
+            rule=""
+            to="node14">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node13_x0023_node14>
+        <node14_x0023_node15
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node14"
+            rule=""
+            to="node15">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node14_x0023_node15>
+        <node15_x0023_node10
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node15"
+            to="node10">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node15_x0023_node10>
+        <node10_x0023_node7
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node10"
+            to="node7">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node10_x0023_node7>
+        <node6_x0023_node16
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node6"
+            rule="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return !metaData.containsKey(&quot;contentApproverGroup&quot;);&#xd;&#xa;}"
+            to="node16">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="true"/>
+        </node6_x0023_node16>
+        <node16_x0023_node7
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node16"
+            to="node7">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node16_x0023_node7>
+        <node7_x0023_node5
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node7"
+            to="node5">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node7_x0023_node5>
+        <node4_x0023_node17
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node4"
+            rule="function check() {&#xd;&#xa;    var check = false;&#xd;&#xa;    if (workflowData.getPayloadType() == &quot;JCR_PATH&quot;) {&#xd;&#xa;        var path = workflowData.getPayload().toString();&#xd;&#xa;        var jcrsession = graniteWorkflowSession.adaptTo(Packages.javax.jcr.Session);&#xd;&#xa;        var node = jcrsession.getNode(path + &quot;/jcr:content&quot;);&#xd;&#xa;        log.info(&quot;node path === {}&quot;, node.getPath());&#xd;&#xa;        if (node.hasProperty(&quot;contentFragment&quot;)) {&#xd;&#xa;            log.info(&quot;boolean value === {}&quot;, node.getProperty(&quot;contentFragment&quot;).getValue().getBoolean());&#xd;&#xa;            check = node.getProperty(&quot;contentFragment&quot;).getValue().getBoolean();&#xd;&#xa;        }&#xd;&#xa;    }&#xd;&#xa;    return check;&#xd;&#xa;}"
+            to="node17">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node4_x0023_node17>
+        <node17_x0023_node19
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node17"
+            rule="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return metaData.containsKey(&quot;contentApproverGroup&quot;);&#xd;&#xa;}"
+            to="node19">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node17_x0023_node19>
+        <node19_x0023_node20
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node19"
+            rule=""
+            to="node20">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node19_x0023_node20>
+        <node20_x0023_node21
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node20"
+            to="node21">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node20_x0023_node21>
+        <node21_x0023_node23
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node21"
+            rule=""
+            to="node23">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node21_x0023_node23>
+        <node23_x0023_node22
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node23"
+            to="node22">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node23_x0023_node22>
+        <node21_x0023_node24
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node21"
+            rule=""
+            to="node24">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node21_x0023_node24>
+        <node24_x0023_node25
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node24"
+            rule=""
+            to="node25">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node24_x0023_node25>
+        <node25_x0023_node26
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node25"
+            rule=""
+            to="node26">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node25_x0023_node26>
+        <node26_x0023_node27
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node26"
+            rule=""
+            to="node27">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node26_x0023_node27>
+        <node27_x0023_node22
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node27"
+            to="node22">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node27_x0023_node22>
+        <node22_x0023_node18
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node22"
+            to="node18">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node22_x0023_node18>
+        <node17_x0023_node28
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node17"
+            rule="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return !metaData.containsKey(&quot;contentApproverGroup&quot;);&#xd;&#xa;}"
+            to="node28">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="true"/>
+        </node17_x0023_node28>
+        <node28_x0023_node18
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node28"
+            to="node18">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node28_x0023_node18>
+        <node18_x0023_node5
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node18"
+            to="node5">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node18_x0023_node5>
+        <node5_x0023_node3
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node5"
+            to="node3">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node5_x0023_node3>
+        <node2_x0023_node29
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node2"
+            rule="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return !metaData.containsKey(&quot;isValidContentPayload&quot;);&#xd;&#xa;}"
+            to="node29">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="true"/>
+        </node2_x0023_node29>
+        <node29_x0023_node3
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node29"
+            to="node3">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node29_x0023_node3>
+        <node3_x0023_node30
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node3"
+            to="node30">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node3_x0023_node30>
+    </transitions>
+</jcr:root>

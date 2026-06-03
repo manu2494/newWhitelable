@@ -1,0 +1,260 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > SeoArticle</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.models.seo.structureddata</a>
+</div>
+
+<h1>Coverage Summary for Class: SeoArticle (com.merkle.xp.whitelabel.core.models.seo.structureddata)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SeoArticle</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/36)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/31)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.models.seo.structureddata;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;import javax.annotation.PostConstruct;
+&nbsp;import javax.inject.Named;
+&nbsp;
+&nbsp;import org.apache.commons.collections4.CollectionUtils;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;import org.apache.sling.api.resource.ValueMap;
+&nbsp;import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+&nbsp;import org.apache.sling.models.annotations.Model;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.ChildResource;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.Self;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+&nbsp;
+&nbsp;import com.day.cq.dam.api.DamConstants;
+&nbsp;import com.day.cq.wcm.api.constants.NameConstants;
+&nbsp;import com.day.cq.wcm.api.Page;
+&nbsp;import com.google.gson.annotations.Expose;
+&nbsp;import com.google.gson.annotations.SerializedName;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.PageUtils;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.link.LinkManager;
+&nbsp;
+&nbsp;/**
+&nbsp; * The class for maintaining Site data for Seo Article
+&nbsp; */
+&nbsp;@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+<b class="nc">&nbsp;public class SeoArticle implements ISeoSiteStructuredData {</b>
+&nbsp;
+<b class="nc">&nbsp;    @SerializedName(&quot;@context&quot;)</b>
+&nbsp;    @Expose
+&nbsp;    private String context = &quot;http://schema.org&quot;;
+&nbsp;
+&nbsp;    @Self
+&nbsp;    private Resource resource;
+&nbsp;
+&nbsp;    @ValueMapValue
+&nbsp;    @Named(&quot;articleType&quot;)
+&nbsp;    @Expose
+&nbsp;    private String type;
+&nbsp;
+&nbsp;    @ValueMapValue
+&nbsp;    @Expose
+&nbsp;    private String dateModified;
+&nbsp;
+&nbsp;    @ValueMapValue
+&nbsp;    @Expose
+&nbsp;    private String datePublished;
+&nbsp;
+&nbsp;    @ValueMapValue
+&nbsp;    @Expose
+&nbsp;    private String headline;
+&nbsp;
+&nbsp;    @ValueMapValue
+&nbsp;    @Expose
+&nbsp;    private List&lt;String&gt; image;
+&nbsp;
+&nbsp;    @ValueMapValue
+&nbsp;    @Expose
+&nbsp;    private String description;
+&nbsp;
+&nbsp;    @ChildResource
+&nbsp;    @Expose
+&nbsp;    private SeoArticleAuthor author;
+&nbsp;
+&nbsp;    @ChildResource
+&nbsp;    @Expose
+&nbsp;    private SeoArticlePublish publisher;
+&nbsp;
+&nbsp;    @SlingObject
+&nbsp;    private ResourceResolver rr;
+&nbsp;
+&nbsp;    @Self
+&nbsp;    private LinkManager linkManager;
+&nbsp;
+&nbsp;    @PostConstruct
+&nbsp;    public void init() {
+<b class="nc">&nbsp;        setData();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Set fallback data if configuration is empty
+&nbsp;     */
+&nbsp;    private void setData() {
+<b class="nc">&nbsp;        Page currentPage = PageUtils.getPageFromResource(rr, resource);</b>
+<b class="nc">&nbsp;        if (currentPage != null) {</b>
+<b class="nc">&nbsp;          setProperties(currentPage);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (CollectionUtils.isNotEmpty(image)) {</b>
+<b class="nc">&nbsp;            image = image.stream().filter(StringUtils::isNotBlank).collect(Collectors.toList());</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (author != null &amp;&amp; StringUtils.isBlank(author.getType())</b>
+<b class="nc">&nbsp;                &amp;&amp; StringUtils.isBlank(author.getName())) {</b>
+<b class="nc">&nbsp;            author = null;</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (publisher != null &amp;&amp; StringUtils.isBlank(publisher.getType())</b>
+<b class="nc">&nbsp;                &amp;&amp; StringUtils.isBlank(publisher.getName())) {</b>
+<b class="nc">&nbsp;            publisher = null;</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (publisher != null &amp;&amp; publisher.getLogo() != null) {</b>
+<b class="nc">&nbsp;            String url = publisher.getLogo().getUrl();</b>
+<b class="nc">&nbsp;            if (StringUtils.isNotBlank(url) &amp;&amp; linkManager != null) {</b>
+<b class="nc">&nbsp;                publisher.getLogo().setUrl(linkManager.get(url).build().getExternalizedURL());</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;  private void setProperties(Page currentPage) {
+<b class="nc">&nbsp;    ValueMap pageProperties = currentPage.getContentResource().getValueMap();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (StringUtils.isBlank(dateModified)) {</b>
+<b class="nc">&nbsp;        dateModified = pageProperties.get(NameConstants.PN_PAGE_LAST_MOD, String.class);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (StringUtils.isBlank(datePublished)) {</b>
+<b class="nc">&nbsp;        datePublished = pageProperties.get(DamConstants.PN_PAGE_LAST_REPLICATED, String.class);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (StringUtils.isBlank(headline)) {</b>
+<b class="nc">&nbsp;        headline = currentPage.getTitle();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (StringUtils.isBlank(description)) {</b>
+<b class="nc">&nbsp;        description = currentPage.getDescription();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    String thumbnailImg = pageProperties.get(&quot;image/fileReference&quot;, StringUtils.EMPTY);</b>
+<b class="nc">&nbsp;    if (CollectionUtils.isEmpty(image) &amp;&amp; StringUtils.isNotBlank(thumbnailImg)) {</b>
+<b class="nc">&nbsp;        image = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;        image.add(thumbnailImg);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

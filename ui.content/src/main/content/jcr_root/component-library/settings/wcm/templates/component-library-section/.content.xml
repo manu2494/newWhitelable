@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:lastModified="{Date}2023-11-13T17:57:36.978Z"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2022-08-30T09:54:32.345+01:00"
+        cq:lastReplicated_publish="{Date}2022-08-30T09:54:32.345+01:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:templateType="/conf/component-library/settings/wcm/template-types/page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Component Library Section"
+        status="enabled"/>
+</jcr:root>

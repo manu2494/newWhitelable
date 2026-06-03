@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-12-03T21:58:34.240+05:30"
+        cq:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Content Approvers"
+        sling:resourceType="acs-commons/components/utilities/genericlist">
+        <image
+            jcr:primaryType="nt:unstructured"
+            fileReference="/apps/acs-commons/components/utilities/genericlist/generic-list.png"/>
+        <list jcr:primaryType="nt:unstructured">
+            <item0
+                jcr:primaryType="nt:unstructured"
+                jcr:title="/content/whitelabel"
+                value="approvers"/>
+            <item1
+                jcr:primaryType="nt:unstructured"
+                jcr:title="/content/experience-fragments/whitelabel"
+                value="approvers"/>
+            <item2
+                jcr:primaryType="nt:unstructured"
+                jcr:title="/content/dam/whitelabel"
+                value="approvers"/>
+        </list>
+    </jcr:content>
+</jcr:root>

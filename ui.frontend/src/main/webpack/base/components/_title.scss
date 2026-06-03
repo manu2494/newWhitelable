@@ -1,0 +1,101 @@
+.cmp-title {
+    $component: &;
+
+    &__text {
+        margin: $zero-margin;
+        letter-spacing: $letter-spacing-large;
+        line-height: $line-height-minimum;
+        text-transform: none;
+
+        #{$component}--align-left & {
+            text-align: left;
+        }
+
+        #{$component}--align-center & {
+            text-align: center;
+        }
+
+        #{$component}--align-right & {
+            text-align: right;
+        }
+
+        #{$component}--case-upper & {
+            text-transform: uppercase;
+        }
+
+        #{$component}--case-lower & {
+            text-transform: lowercase;
+        }
+
+        #{$component}--case-capitalize & {
+            text-transform: capitalize;
+        }
+
+        #{$component}--link-nostyle & {
+            text-decoration: none;
+        }
+        #{$component}--link-hover & :hover{
+            color: $color-hover;
+        }
+
+        #{$component}--color-primary & {
+            color: $color-primary;
+        }
+
+        #{$component}--color-secondary & {
+            color: $color-secondary;
+        }
+
+        #{$component}--color-tertiary & {
+            color: $color-tertiary;
+        }
+
+        #{$component}--background-theme-1 & {
+            background-color: $background-theme-1;
+        }
+
+        #{$component}--background-theme-2 & {
+            background-color: $background-theme-2;
+        }
+
+        #{$component}--background-theme-3 & {
+            background-color: $background-theme-3;
+        }
+
+        #{$component}--font-primary & {
+            font-family: $font-family-primary;
+        }
+
+        #{$component}--font-secondary & {
+            font-family: $font-family-secondary;
+        }
+
+        #{$component}--font-tertiary & {
+            font-family: $font-family-tertiary;
+        }
+
+        #{$component}--weight-light & {
+            font-weight: $font-weight-light;
+        }
+
+        #{$component}--weight-normal & {
+            font-weight: $font-weight-normal;
+        }
+
+        #{$component}--weight-heavy & {
+            font-weight: $font-weight-heavy;
+        }
+
+        #{$component}--height-small & {
+            line-height: $line-height-minimum;
+        }
+
+        #{$component}--height-medium & {
+            line-height: $line-height-medium;
+        }
+
+        #{$component}--height-large & {
+            line-height: $line-height-maximum;
+        }
+    }
+}

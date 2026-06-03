@@ -1,0 +1,28 @@
+{
+  "jcr:primaryType": "nt:unstructured",
+  "jcr:createdBy": "usdmama02",
+  "jcr:lastModifiedBy": "usdmama02",
+  "jcr:created": "Wed Feb 01 2023 20:58:15 GMT+0000",
+  "jcr:lastModified": "Wed Feb 01 2023 20:59:21 GMT+0000",
+  "sling:resourceType": "whitelabel/components/content/contactus",
+  "contactTiles": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "description": "Are you looking to buy a Merkle® product online or in a store near you? Use our store finder.",
+      "newTab": "_self",
+      "eventTrigger": "ps-widget-global",
+      "title": "Where To Buy",
+      "ctaText": "Where To Buy",
+      "ctaDestination": "#"
+    },
+    "item1": {
+      "jcr:primaryType": "nt:unstructured",
+      "description": "Read the answers to the most frequently asked questions we receive on Kelloggs.com",
+      "newTab": "_self",
+      "title": "FAQ",
+      "ctaText": "Check Our FAQ",
+      "ctaDestination": "/content/whitelabel/merkle/en-us/pages/faq"
+    }
+  }
+}

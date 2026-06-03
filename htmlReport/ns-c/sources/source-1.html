@@ -1,0 +1,190 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > LinkUtils</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.utils.link</a>
+</div>
+
+<h1>Coverage Summary for Class: LinkUtils (com.merkle.xp.whitelabel.core.utils.link)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LinkUtils</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.utils.link;
+&nbsp;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.constants.Constants;
+&nbsp;import com.day.cq.wcm.api.Page;
+&nbsp;import com.drew.lang.annotations.NotNull;
+&nbsp;import com.drew.lang.annotations.Nullable;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;import org.apache.commons.lang3.tuple.ImmutablePair;
+&nbsp;import org.apache.commons.lang3.tuple.Pair;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;
+&nbsp;import java.io.UnsupportedEncodingException;
+&nbsp;import java.net.URLEncoder;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;
+&nbsp;import static com.day.cq.wcm.api.NameConstants.PN_REDIRECT_TARGET;
+&nbsp;
+&nbsp;public final class LinkUtils {
+&nbsp;
+<b class="nc">&nbsp;    private static final Logger LOGGER = LoggerFactory.getLogger(LinkUtils.class);</b>
+&nbsp;
+<b class="nc">&nbsp;    private static final String CLASS_NAME = LinkUtils.class.getSimpleName();</b>
+&nbsp;
+<b class="nc">&nbsp;    private LinkUtils() {</b>
+<b class="nc">&nbsp;        throw new IllegalStateException(Constants.UTILITY_CLASS);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static String getExternalizedLink(LinkManager linkManager, String path) {
+<b class="nc">&nbsp;        MerkleLink link = linkManager.get(path).build();</b>
+&nbsp;
+<b class="nc">&nbsp;        if (link != null) {</b>
+<b class="nc">&nbsp;            return link.getExternalizedURL();</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return path;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Attempts to resolve the redirect chain starting from the given page, avoiding
+&nbsp;     * loops.
+&nbsp;     *
+&nbsp;     * @param page The starting {@link Page}
+&nbsp;     * @return A pair of {@link Page} and {@link String} the redirect chain resolves
+&nbsp;     * to. The page can be the original page, if no redirect target is
+&nbsp;     * defined or even {@code null} if the redirect chain does not resolve
+&nbsp;     * to a valid page, in this case one should use the right part of the
+&nbsp;     * pair (the {@link String} redirect target).
+&nbsp;     */
+&nbsp;    @NotNull
+&nbsp;    public static Pair&lt;Page, String&gt; resolveRedirects(@Nullable final Page page) {
+<b class="nc">&nbsp;        Page result = page;</b>
+<b class="nc">&nbsp;        String redirectTarget = null;</b>
+<b class="nc">&nbsp;        if (page != null &amp;&amp; page.getPageManager() != null) {</b>
+<b class="nc">&nbsp;            Set&lt;String&gt; redirectCandidates = new LinkedHashSet&lt;&gt;();</b>
+<b class="nc">&nbsp;            redirectCandidates.add(page.getPath());</b>
+<b class="nc">&nbsp;            while (result != null &amp;&amp; StringUtils</b>
+<b class="nc">&nbsp;                    .isNotEmpty((redirectTarget = result.getProperties().get(PN_REDIRECT_TARGET, String.class)))) {</b>
+<b class="nc">&nbsp;                result = page.getPageManager().getPage(redirectTarget);</b>
+<b class="nc">&nbsp;                if (result != null) {</b>
+<b class="nc">&nbsp;                    if (!redirectCandidates.add(result.getPath())) {</b>
+<b class="nc">&nbsp;                        LOGGER.warn(&quot;[Merkle Whitelabel] - {} - Detected redirect loop for the following pages: {}.&quot;, CLASS_NAME, redirectCandidates);</b>
+&nbsp;                        break;
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        return new ImmutablePair&lt;&gt;(result, redirectTarget);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

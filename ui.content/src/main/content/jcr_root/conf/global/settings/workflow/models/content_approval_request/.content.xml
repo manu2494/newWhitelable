@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/libs/settings/wcm/designs/default"
+        cq:lastModified="{Date}2024-01-23T13:02:55.120+05:30"
+        cq:lastModifiedBy="test"
+        cq:template="/libs/cq/workflow/templates/model"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Content Approval Request"
+        sling:resourceType="cq/workflow/components/pages/model">
+        <flow
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <process
+                jcr:description="Validate content"
+                jcr:lastModified="{Date}2024-01-23T03:21:46.691+05:30"
+                jcr:lastModifiedBy="test"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Content Approval Payload Validation Process"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.merkle.xp.whitelabel.core.services.impl.ContentApprovalPayloadValidatorProcess"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process>
+            <or
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Payload Validation"
+                sling:resourceType="cq/workflow/components/model/or"
+                branches="2"
+                branchName1="Valid payload"
+                branchName2="Invalid payload"
+                branchOrder="[0,1]"
+                default2="true"
+                orSplit="true"
+                script1="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return metaData.containsKey(&quot;isValidContentPayload&quot;);&#xd;&#xa;}"
+                script2="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return !metaData.containsKey(&quot;isValidContentPayload&quot;);&#xd;&#xa;}">
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <or_copy_copy_copy
+                        jcr:created="{Date}2024-01-22T11:33:39.173+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-01-22T14:04:58.209+05:30"
+                        jcr:lastModifiedBy="test"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Asset Type Check"
+                        sling:resourceType="cq/workflow/components/model/or"
+                        branches="2"
+                        branchName1="Branch 1"
+                        branchName2="Branch 2"
+                        branchOrder="[0,1]"
+                        default1="true"
+                        orSplit="true"
+                        script1="function check() {&#xd;&#xa;    var check = false;&#xd;&#xa;    if (workflowData.getPayloadType() == &quot;JCR_PATH&quot;) {&#xd;&#xa;        var path = workflowData.getPayload().toString();&#xd;&#xa;        var jcrsession = graniteWorkflowSession.adaptTo(Packages.javax.jcr.Session);&#xd;&#xa;        var node = jcrsession.getNode(path + &quot;/jcr:content&quot;);&#xd;&#xa;        log.info(&quot;node path = {}&quot;, node.getPath());&#xd;&#xa;        if (!node.hasProperty(&quot;contentFragment&quot;)) {&#xd;&#xa;            check = true;&#xd;&#xa;        }&#xd;&#xa;    }&#xd;&#xa;    return check;&#xd;&#xa;}"
+                        script2="function check() {&#xd;&#xa;    var check = false;&#xd;&#xa;    if (workflowData.getPayloadType() == &quot;JCR_PATH&quot;) {&#xd;&#xa;        var path = workflowData.getPayload().toString();&#xd;&#xa;        var jcrsession = graniteWorkflowSession.adaptTo(Packages.javax.jcr.Session);&#xd;&#xa;        var node = jcrsession.getNode(path + &quot;/jcr:content&quot;);&#xd;&#xa;        log.info(&quot;node path === {}&quot;, node.getPath());&#xd;&#xa;        if (node.hasProperty(&quot;contentFragment&quot;)) {&#xd;&#xa;            log.info(&quot;boolean value === {}&quot;, node.getProperty(&quot;contentFragment&quot;).getValue().getBoolean());&#xd;&#xa;            check = node.getProperty(&quot;contentFragment&quot;).getValue().getBoolean();&#xd;&#xa;        }&#xd;&#xa;    }&#xd;&#xa;    return check;&#xd;&#xa;}">
+                        <_x0031_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <or_235433045_copy
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Approver Group Validation"
+                                sling:resourceType="cq/workflow/components/model/or"
+                                branches="2"
+                                branchName1="Valid Approver"
+                                branchName2="Invalid Approver"
+                                branchOrder="[0,1]"
+                                default2="true"
+                                orSplit="true"
+                                script1="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return metaData.containsKey(&quot;contentApproverGroup&quot;);&#xd;&#xa;}"
+                                script2="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return !metaData.containsKey(&quot;contentApproverGroup&quot;);&#xd;&#xa;}">
+                                <_x0031_
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/flow/components/parsys">
+                                    <dynamic_participant
+                                        jcr:description="Request to approve or reject content"
+                                        jcr:lastModified="{Date}2024-01-23T12:05:37.139+05:30"
+                                        jcr:lastModifiedBy="test"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Approve or Reject Content"
+                                        sling:resourceType="cq/workflow/components/model/dynamic_participant">
+                                        <metaData
+                                            jcr:primaryType="nt:unstructured"
+                                            DYNAMIC_PARTICIPANT="com.merkle.xp.whitelabel.core.services.impl.DynamicContentApproverService"/>
+                                    </dynamic_participant>
+                                    <or_copy_copy
+                                        jcr:created="{Date}2024-01-23T05:09:23.445+05:30"
+                                        jcr:createdBy="test"
+                                        jcr:lastModified="{Date}2024-01-23T05:09:23.445+05:30"
+                                        jcr:lastModifiedBy="test"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/workflow/components/model/or"
+                                        branches="2"
+                                        orSplit="true">
+                                        <_x0032_
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/flow/components/parsys">
+                                            <initiatorparticipant
+                                                jcr:description="Approver has declined the workflow"
+                                                jcr:lastModified="{Date}2024-01-23T03:39:02.445+05:30"
+                                                jcr:lastModifiedBy="test"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Reject"
+                                                sling:resourceType="cq/workflow/components/workflow/initiatorparticipantchooser">
+                                                <metaData
+                                                    jcr:primaryType="nt:unstructured"
+                                                    DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                                                    PROCESS_AUTO_ADVANCE="true"/>
+                                            </initiatorparticipant>
+                                        </_x0032_>
+                                        <_x0031_
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/flow/components/parsys">
+                                            <process_copy_copy
+                                                jcr:description="Verify if initiator is acting as approver"
+                                                jcr:lastModified="{Date}2024-01-23T11:46:57.466+05:30"
+                                                jcr:lastModifiedBy="test"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Approve"
+                                                sling:resourceType="cq/workflow/components/model/process">
+                                                <metaData
+                                                    jcr:primaryType="nt:unstructured"
+                                                    PROCESS="com.merkle.xp.whitelabel.core.services.impl.PreventApproveFromInitiatorProcess"
+                                                    PROCESS_AUTO_ADVANCE="true"/>
+                                            </process_copy_copy>
+                                            <goto_copy_copy
+                                                jcr:description="Initiator cannot approve the content"
+                                                jcr:lastModified="{Date}2024-01-23T11:47:51.374+05:30"
+                                                jcr:lastModifiedBy="test"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="If Initiator assign back to approver group"
+                                                sling:resourceType="cq/workflow/components/model/goto">
+                                                <metaData
+                                                    jcr:primaryType="nt:unstructured"
+                                                    PROCESS="com.adobe.granite.workflow.core.process.GotoProcess"
+                                                    PROCESS_AUTO_ADVANCE="false"
+                                                    script="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;        log.info(&quot;********** is initiator :{}&quot;,metaData.get(&quot;isInitiator&quot;));&#xd;&#xa;&#x9;return ('true' == metaData.get(&quot;isInitiator&quot;));&#xd;&#xa;}"
+                                                    TARGET_NODE_PATH="/conf/global/settings/workflow/models/content_approval_request/jcr:content/flow/or/1/or_copy_copy_copy/1/or_235433045_copy/1/dynamic_participant"/>
+                                            </goto_copy_copy>
+                                            <activateresourceproc
+                                                jcr:description="A process to activate a page or asset"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Activate Content"
+                                                sling:resourceType="wcm/workflow/components/workflow/activateresourceprocess">
+                                                <metaData
+                                                    jcr:primaryType="nt:unstructured"
+                                                    PROCESS="com.day.cq.wcm.workflow.process.ActivatePageProcess"
+                                                    PROCESS_AUTO_ADVANCE="true"/>
+                                            </activateresourceproc>
+                                            <initiatorparticipant
+                                                jcr:description="Workflow has been approved and the content has been published"
+                                                jcr:lastModified="{Date}2024-01-23T11:48:20.290+05:30"
+                                                jcr:lastModifiedBy="test"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Content Published"
+                                                sling:resourceType="cq/workflow/components/workflow/initiatorparticipantchooser">
+                                                <metaData
+                                                    jcr:primaryType="nt:unstructured"
+                                                    DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                                                    PROCESS_AUTO_ADVANCE="true"/>
+                                            </initiatorparticipant>
+                                        </_x0031_>
+                                    </or_copy_copy>
+                                </_x0031_>
+                                <_x0032_
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/flow/components/parsys">
+                                    <initiatorparticipant
+                                        jcr:description="Unable to find Approver-Group"
+                                        jcr:lastModified="{Date}2024-01-23T03:22:24.501+05:30"
+                                        jcr:lastModifiedBy="test"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Invalid Approver"
+                                        sling:resourceType="cq/workflow/components/workflow/initiatorparticipantchooser">
+                                        <metaData
+                                            jcr:primaryType="nt:unstructured"
+                                            DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                                            PROCESS_AUTO_ADVANCE="true"/>
+                                    </initiatorparticipant>
+                                </_x0032_>
+                            </or_235433045_copy>
+                        </_x0031_>
+                        <_x0032_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <or_235433045_copy_co
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Approver Group Validation"
+                                sling:resourceType="cq/workflow/components/model/or"
+                                branches="2"
+                                branchName1="Valid Approver"
+                                branchName2="Invalid Approver"
+                                branchOrder="[0,1]"
+                                default2="true"
+                                orSplit="true"
+                                script1="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return metaData.containsKey(&quot;contentApproverGroup&quot;);&#xd;&#xa;}"
+                                script2="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;&#x9;return !metaData.containsKey(&quot;contentApproverGroup&quot;);&#xd;&#xa;}">
+                                <_x0031_
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/flow/components/parsys">
+                                    <process_copy
+                                        jcr:created="{Date}2024-01-23T03:22:53.395+05:30"
+                                        jcr:createdBy="test"
+                                        jcr:description="Requesting list of nodes for publishing review"
+                                        jcr:lastModified="{Date}2024-01-23T12:05:51.649+05:30"
+                                        jcr:lastModifiedBy="test"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Request List of Nodes for Publishing Review"
+                                        sling:resourceType="cq/workflow/components/model/process">
+                                        <metaData
+                                            jcr:primaryType="nt:unstructured"
+                                            PROCESS="com.merkle.xp.whitelabel.core.services.impl.RequestNodesListForPublishingReview"
+                                            PROCESS_AUTO_ADVANCE="true"/>
+                                    </process_copy>
+                                    <dynamic_participant_
+                                        jcr:created="{Date}2024-01-23T05:09:05.236+05:30"
+                                        jcr:createdBy="test"
+                                        jcr:description="Request to approve or reject publishing of CF"
+                                        jcr:lastModified="{Date}2024-01-23T12:06:08.289+05:30"
+                                        jcr:lastModifiedBy="test"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Approve or Reject Publish CF"
+                                        sling:resourceType="cq/workflow/components/model/dynamic_participant">
+                                        <metaData
+                                            jcr:primaryType="nt:unstructured"
+                                            DYNAMIC_PARTICIPANT="com.merkle.xp.whitelabel.core.services.impl.DynamicContentApproverService"/>
+                                    </dynamic_participant_>
+                                    <or_copy
+                                        jcr:created="{Date}2024-01-23T05:09:23.445+05:30"
+                                        jcr:createdBy="test"
+                                        jcr:lastModified="{Date}2024-01-23T05:09:23.445+05:30"
+                                        jcr:lastModifiedBy="test"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/workflow/components/model/or"
+                                        branches="2"
+                                        orSplit="true">
+                                        <_x0032_
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/flow/components/parsys">
+                                            <initiatorparticipant
+                                                jcr:description="Approver has declined the workflow"
+                                                jcr:lastModified="{Date}2024-01-23T03:39:02.445+05:30"
+                                                jcr:lastModifiedBy="test"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Reject"
+                                                sling:resourceType="cq/workflow/components/workflow/initiatorparticipantchooser">
+                                                <metaData
+                                                    jcr:primaryType="nt:unstructured"
+                                                    DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                                                    PROCESS_AUTO_ADVANCE="true"/>
+                                            </initiatorparticipant>
+                                        </_x0032_>
+                                        <_x0031_
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/flow/components/parsys">
+                                            <process_copy_copy
+                                                jcr:description="Verify if initiator is acting as approver"
+                                                jcr:lastModified="{Date}2024-01-23T11:46:52.947+05:30"
+                                                jcr:lastModifiedBy="test"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Approve"
+                                                sling:resourceType="cq/workflow/components/model/process">
+                                                <metaData
+                                                    jcr:primaryType="nt:unstructured"
+                                                    PROCESS="com.merkle.xp.whitelabel.core.services.impl.PreventApproveFromInitiatorProcess"
+                                                    PROCESS_AUTO_ADVANCE="true"/>
+                                            </process_copy_copy>
+                                            <goto_copy_copy
+                                                jcr:description="Initiator cannot approve the content"
+                                                jcr:lastModified="{Date}2024-01-23T12:41:27.877+05:30"
+                                                jcr:lastModifiedBy="test"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="If Initiator assign back to approver group"
+                                                sling:resourceType="cq/workflow/components/model/goto">
+                                                <metaData
+                                                    jcr:primaryType="nt:unstructured"
+                                                    PROCESS="com.adobe.granite.workflow.core.process.GotoProcess"
+                                                    PROCESS_AUTO_ADVANCE="false"
+                                                    script="function check() {    &#xd;&#xa;&#x9;var metaData = workflowData.getMetaDataMap();&#xd;&#xa;        log.info(&quot;********** is initiator :{}&quot;,metaData.get(&quot;isInitiator&quot;));&#xd;&#xa;&#x9;return ('true' == metaData.get(&quot;isInitiator&quot;));&#xd;&#xa;}"
+                                                    TARGET_NODE_PATH="/conf/global/settings/workflow/models/content_approval_request/jcr:content/flow/or/1/or_copy_copy_copy/2/or_235433045_copy_co/1/dynamic_participant_"/>
+                                            </goto_copy_copy>
+                                            <process
+                                                jcr:created="{Date}2024-01-23T12:21:17.261+05:30"
+                                                jcr:createdBy="test"
+                                                jcr:description="Approving CF publish request"
+                                                jcr:lastModified="{Date}2024-01-23T12:21:51.447+05:30"
+                                                jcr:lastModifiedBy="test"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Approve"
+                                                sling:resourceType="cq/workflow/components/model/process">
+                                                <metaData
+                                                    jcr:primaryType="nt:unstructured"
+                                                    PROCESS="com.merkle.xp.whitelabel.core.services.impl.ApprovePublishCF"
+                                                    PROCESS_AUTO_ADVANCE="true"/>
+                                            </process>
+                                            <initiatorparticipant_786623473
+                                                jcr:description="Workflow has been approved and the CF has been published"
+                                                jcr:lastModified="{Date}2024-01-23T13:02:55.094+05:30"
+                                                jcr:lastModifiedBy="test"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="CF Published"
+                                                sling:resourceType="cq/workflow/components/workflow/initiatorparticipantchooser">
+                                                <metaData
+                                                    jcr:primaryType="nt:unstructured"
+                                                    DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                                                    PROCESS_AUTO_ADVANCE="true"/>
+                                            </initiatorparticipant_786623473>
+                                        </_x0031_>
+                                    </or_copy>
+                                </_x0031_>
+                                <_x0032_
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/flow/components/parsys">
+                                    <initiatorparticipant
+                                        jcr:description="Unable to find Approver-Group"
+                                        jcr:lastModified="{Date}2024-01-23T03:22:24.501+05:30"
+                                        jcr:lastModifiedBy="test"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Invalid Approver"
+                                        sling:resourceType="cq/workflow/components/workflow/initiatorparticipantchooser">
+                                        <metaData
+                                            jcr:primaryType="nt:unstructured"
+                                            DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                                            PROCESS_AUTO_ADVANCE="true"/>
+                                    </initiatorparticipant>
+                                </_x0032_>
+                            </or_235433045_copy_co>
+                        </_x0032_>
+                    </or_copy_copy_copy>
+                </_x0031_>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <initiatorparticipant
+                        jcr:description="Workflow contains an invalid payload"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Invalid Payload"
+                        sling:resourceType="cq/workflow/components/workflow/initiatorparticipantchooser">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </initiatorparticipant>
+                </_x0032_>
+            </or>
+        </flow>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,169 @@
+.icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: $font-family-primary;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-lg-left:before {
+    content: "\e900";
+}
+
+.icon-arrow-lg-right:before {
+    content: "\e901";
+}
+
+.icon-arrow-sm-left:before {
+    content: "\e902";
+}
+
+.icon-arrow-sm-right:before {
+    content: "\e903";
+}
+
+.icon-asterisk:before {
+    content: "\e904";
+}
+
+.icon-bookmark-solid:before {
+    content: "\e905";
+}
+
+.icon-bookmark:before {
+    content: "\e906";
+}
+
+.icon-calendar:before {
+    content: "\e907";
+}
+
+.icon-cart:before {
+    content: "\e908";
+}
+
+.icon-check-solid:before {
+    content: "\e909";
+}
+
+.icon-check:before {
+    content: "\e90a";
+}
+
+.icon-chevron-down:before {
+    content: "\e90b";
+}
+
+.icon-chevron-left:before {
+    content: "\e90c";
+}
+
+.icon-chevron-right:before {
+    content: "\e90d";
+}
+
+.icon-chevron-up:before {
+    content: "\e90e";
+}
+
+.icon-ellipse:before {
+    content: "\e90f";
+}
+
+.icon-facebook:before {
+    content: "\e910";
+}
+
+.icon-hamburger:before {
+    content: "\e911";
+}
+
+.icon-link:before {
+    content: "\e912";
+}
+
+.icon-linkedin:before {
+    content: "\e913";
+}
+
+.icon-mail:before {
+    content: "\e914";
+}
+
+.icon-plus:before {
+    content: "\e915";
+}
+
+.icon-search:before {
+    content: "\e916";
+}
+
+.icon-star-half-fill:before {
+    content: "\e917";
+}
+
+.icon-star-solid:before {
+    content: "\e918";
+}
+
+.icon-star:before {
+    content: "\e919";
+}
+
+.icon-times-solid:before {
+    content: "\e91a";
+}
+
+.icon-times:before {
+    content: "\e91b";
+}
+
+.icon-twitter:before {
+    content: "\e91c";
+}
+
+.icon-upload:before {
+    content: "\e91d";
+}
+
+.icon-user:before {
+    content: "\e91e";
+}
+
+.icon-download:before {
+    content: "\e920";
+}
+
+.icon-info:before {
+    content: "\e921";
+}
+
+.icon-pinterest:before {
+    content: "\e923";
+}
+
+.icon-print:before {
+    content: "\e922";
+}
+
+.icon-solid-arrow:before {
+    content: "\e91f";
+}
+
+.icon-profile-account:before {
+    content: "\e924";
+}
+
+.icon-profile-login:before {
+    content: "\e925";
+}
+
+.icon-cancel-circle:before {
+    content: "\ea0d";
+}

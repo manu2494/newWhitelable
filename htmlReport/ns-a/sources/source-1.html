@@ -1,0 +1,326 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > AllowedHeadingElementsDataSourceServlet</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.servlets.datasource</a>
+</div>
+
+<h1>Coverage Summary for Class: AllowedHeadingElementsDataSourceServlet (com.merkle.xp.whitelabel.core.servlets.datasource)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AllowedHeadingElementsDataSourceServlet</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    55%
+  </span>
+  <span class="absValue">
+    (11/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (25/25)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AllowedHeadingElementsDataSourceServlet$Heading</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AllowedHeadingElementsDataSourceServlet$HeadingElementResource</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    65.4%
+  </span>
+  <span class="absValue">
+    (17/26)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (49/49)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.servlets.datasource;
+&nbsp;
+&nbsp;import com.adobe.granite.ui.components.ds.DataSource;
+&nbsp;import com.adobe.granite.ui.components.ds.SimpleDataSource;
+&nbsp;import com.merkle.xp.whitelabel.core.servlets.TextValueDataResourceSource;
+&nbsp;import com.day.cq.wcm.api.policies.ContentPolicy;
+&nbsp;import com.day.cq.wcm.api.policies.ContentPolicyManager;
+&nbsp;import com.drew.lang.annotations.NotNull;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;import org.apache.sling.api.SlingHttpServletRequest;
+&nbsp;import org.apache.sling.api.SlingHttpServletResponse;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;import org.apache.sling.api.resource.ValueMap;
+&nbsp;import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+&nbsp;import org.osgi.service.component.annotations.Component;
+&nbsp;
+&nbsp;import javax.servlet.Servlet;
+&nbsp;import javax.servlet.ServletException;
+&nbsp;import java.io.IOException;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@Component(service = Servlet.class, property = {
+&nbsp;        &quot;sling.servlet.resourceTypes=&quot; + AllowedHeadingElementsDataSourceServlet.RESOURCE_TYPE_CUSTOM_HEADING,
+&nbsp;        &quot;sling.servlet.methods=GET&quot;,
+&nbsp;        &quot;sling.servlet.extensions=html&quot;
+&nbsp;})
+<b class="fc">&nbsp;public class AllowedHeadingElementsDataSourceServlet extends SlingSafeMethodsServlet {</b>
+&nbsp;
+&nbsp;    public static final String RESOURCE_TYPE_CUSTOM_HEADING = &quot;whitelabel/datasources/allowedheadingelements&quot;;
+&nbsp;    public static final String PN_ALLOWED_HEADING_ELEMENTS = &quot;allowedHeadingElements&quot;;
+&nbsp;    public static final String PN_DEFAULT_HEADING_ELEMENT = &quot;headingElement&quot;;
+&nbsp;    public static final String PN_ALLOWED_TYPES = &quot;allowedTypes&quot;;
+&nbsp;    public static final String PN_DEFAULT_TYPE = &quot;type&quot;;
+&nbsp;    public static final String PN_DEFAULT_TITLE_TYPE = &quot;titleType&quot;;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void doGet(@NotNull SlingHttpServletRequest request, @NotNull SlingHttpServletResponse response)
+&nbsp;            throws ServletException, IOException {
+<b class="fc">&nbsp;        SimpleDataSource allowedHeadingElementsDataSource = new SimpleDataSource(getAllowedHeadingElements(request).iterator());</b>
+<b class="fc">&nbsp;        request.setAttribute(DataSource.class.getName(), allowedHeadingElementsDataSource);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private List&lt;Resource&gt; getAllowedHeadingElements(@NotNull SlingHttpServletRequest request) {
+<b class="fc">&nbsp;        List&lt;Resource&gt; allowedHeadingElements = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;        ResourceResolver resolver = request.getResourceResolver();</b>
+<b class="fc">&nbsp;        Resource contentResource = resolver.getResource((String) request.getAttribute(&quot;granite.ui.form.contentpath&quot;));</b>
+<b class="fc">&nbsp;        ContentPolicyManager policyManager = resolver.adaptTo(ContentPolicyManager.class);</b>
+<b class="pc">&nbsp;        if (contentResource != null &amp;&amp; policyManager != null) {</b>
+<b class="fc">&nbsp;            ContentPolicy policy = policyManager.getPolicy(contentResource);</b>
+<b class="pc">&nbsp;            if (policy != null) {</b>
+<b class="fc">&nbsp;                ValueMap props = policy.getProperties();</b>
+<b class="pc">&nbsp;                if (props != null) {</b>
+<b class="fc">&nbsp;                    setAllowedHeadingElementsList(allowedHeadingElements, resolver, props);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="fc">&nbsp;        return allowedHeadingElements;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void setAllowedHeadingElementsList(List&lt;Resource&gt; allowedHeadingElements, ResourceResolver resolver, ValueMap props) {
+<b class="fc">&nbsp;        String[] headingElements = props.get(PN_ALLOWED_HEADING_ELEMENTS, String[].class);</b>
+<b class="fc">&nbsp;        String[] allowedTypes = props.get(PN_ALLOWED_TYPES, String[].class);</b>
+<b class="fc">&nbsp;        String defaultHeadingElement = props.get(PN_DEFAULT_HEADING_ELEMENT, props.get(PN_DEFAULT_TYPE, StringUtils.EMPTY));</b>
+<b class="fc">&nbsp;        if (defaultHeadingElement.isEmpty() ) {</b>
+<b class="fc">&nbsp;            defaultHeadingElement = props.get(PN_DEFAULT_TITLE_TYPE, StringUtils.EMPTY);</b>
+&nbsp;        }
+<b class="pc">&nbsp;        if (headingElements == null || headingElements.length == 0) {</b>
+<b class="fc">&nbsp;            headingElements = allowedTypes;</b>
+&nbsp;        }
+<b class="pc">&nbsp;        if (headingElements != null &amp;&amp; headingElements.length &gt; 0) {</b>
+<b class="fc">&nbsp;            for (String headingElement : headingElements) {</b>
+<b class="fc">&nbsp;                allowedHeadingElements.add(new HeadingElementResource(headingElement,</b>
+<b class="fc">&nbsp;                        StringUtils.equals(headingElement, defaultHeadingElement), resolver));</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private static class HeadingElementResource extends TextValueDataResourceSource {
+&nbsp;
+&nbsp;        private final String elementName;
+&nbsp;        private final boolean selected;
+&nbsp;
+&nbsp;        HeadingElementResource(String headingElement, boolean defaultElement, ResourceResolver resourceResolver) {
+<b class="fc">&nbsp;            super(resourceResolver, StringUtils.EMPTY, RESOURCE_TYPE_NON_EXISTING);</b>
+<b class="fc">&nbsp;            this.elementName = headingElement;</b>
+<b class="fc">&nbsp;            this.selected = defaultElement;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public String getText() {
+<b class="fc">&nbsp;            Heading heading = Heading.getHeading(elementName);</b>
+<b class="fc">&nbsp;            if (heading != null) {</b>
+<b class="fc">&nbsp;                return heading.getElement();</b>
+&nbsp;            }
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public String getValue() {
+<b class="fc">&nbsp;            return elementName;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public boolean getSelected() {
+<b class="fc">&nbsp;            return selected;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    private enum Heading {</b>
+&nbsp;        
+<b class="fc">&nbsp;        SPAN(&quot;span&quot;),</b>
+<b class="fc">&nbsp;        H1(&quot;h1&quot;),</b>
+<b class="fc">&nbsp;        H2(&quot;h2&quot;),</b>
+<b class="fc">&nbsp;        H3(&quot;h3&quot;),</b>
+<b class="fc">&nbsp;        H4(&quot;h4&quot;),</b>
+<b class="fc">&nbsp;        H5(&quot;h5&quot;),</b>
+<b class="fc">&nbsp;        H6(&quot;h6&quot;);</b>
+&nbsp;
+&nbsp;        private String element;
+&nbsp;
+<b class="fc">&nbsp;        Heading(String element) {</b>
+<b class="fc">&nbsp;            this.element = element;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        private static Heading getHeading(String value) {
+<b class="fc">&nbsp;            for (Heading heading : values()) {</b>
+<b class="fc">&nbsp;                if (StringUtils.equalsIgnoreCase(heading.element, value)) {</b>
+<b class="fc">&nbsp;                    return heading;</b>
+&nbsp;                }
+&nbsp;            }
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        public String getElement() {
+<b class="fc">&nbsp;            return element;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

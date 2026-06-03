@@ -1,0 +1,182 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ApprovePublishCF</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.services.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: ApprovePublishCF (com.merkle.xp.whitelabel.core.services.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ApprovePublishCF</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.services.impl;
+&nbsp;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import org.apache.sling.api.resource.PersistenceException;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;import org.osgi.framework.Constants;
+&nbsp;import org.osgi.service.component.annotations.Component;
+&nbsp;import org.osgi.service.component.annotations.Reference;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;
+&nbsp;import com.adobe.granite.workflow.WorkflowException;
+&nbsp;import com.adobe.granite.workflow.WorkflowSession;
+&nbsp;import com.adobe.granite.workflow.exec.WorkItem;
+&nbsp;import com.adobe.granite.workflow.exec.WorkflowData;
+&nbsp;import com.adobe.granite.workflow.exec.WorkflowProcess;
+&nbsp;import com.adobe.granite.workflow.metadata.MetaDataMap;
+&nbsp;import com.merkle.xp.whitelabel.core.services.ApiService;
+&nbsp;import com.merkle.xp.whitelabel.core.services.GenericListService;
+&nbsp;import com.merkle.xp.whitelabel.core.services.ReplicationService;
+&nbsp;
+&nbsp;@Component(service = WorkflowProcess.class, property = { Constants.SERVICE_DESCRIPTION + &quot;=Approve Publish CF&quot;,
+&nbsp;		&quot;process.label&quot; + &quot;=Approve Publish CF&quot; })
+<b class="nc">&nbsp;public class ApprovePublishCF implements WorkflowProcess {</b>
+&nbsp;
+&nbsp;	@Reference
+&nbsp;	private ReplicationService replicationService;
+&nbsp;	
+&nbsp;	@Reference
+&nbsp;	private GenericListService genericList;
+&nbsp;	
+&nbsp;	@Reference
+&nbsp;	ApiService apiService;
+&nbsp;
+<b class="nc">&nbsp;	private static final Logger LOGGER = LoggerFactory.getLogger(ApprovePublishCF.class);</b>
+&nbsp;
+&nbsp;	@Override
+&nbsp;	public void execute(WorkItem workItem, WorkflowSession workflowSession, MetaDataMap metaDataMap)
+&nbsp;			throws WorkflowException {
+<b class="nc">&nbsp;		ResourceResolver resourceResolver = workflowSession.adaptTo(ResourceResolver.class);</b>
+<b class="nc">&nbsp;		WorkflowData wfData = workItem.getWorkflowData();</b>
+<b class="nc">&nbsp;		String publishNodesString = wfData.getMetaDataMap().get(&quot;publishNodesList&quot;, String.class);</b>
+<b class="nc">&nbsp;		LOGGER.warn(&quot;publishNodesString: {}&quot;, publishNodesString);</b>
+<b class="nc">&nbsp;		if (publishNodesString != null) {</b>
+<b class="nc">&nbsp;			publishPlatform(resourceResolver, publishNodesString);</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;	private void publishPlatform(ResourceResolver resourceResolver, String publishNodesString) {
+<b class="nc">&nbsp;		List&lt;String&gt; publishNodesList = Arrays.asList(publishNodesString.split(&quot;,&quot;));</b>
+<b class="nc">&nbsp;		for (String publishNode : publishNodesList) {</b>
+&nbsp;			try {
+<b class="nc">&nbsp;				if (resourceResolver.getResource(publishNode) != null) {</b>
+<b class="nc">&nbsp;					replicationService.activate(publishNode, resourceResolver);</b>
+<b class="nc">&nbsp;					resourceResolver.commit();</b>
+&nbsp;				} else {
+<b class="nc">&nbsp;					LOGGER.warn(&quot;Resource &quot; + publishNode + &quot; does not exist for activation&quot;);</b>
+&nbsp;				}
+<b class="nc">&nbsp;			} catch (PersistenceException e) {</b>
+<b class="nc">&nbsp;				LOGGER.error(&quot;Error in execute of PublishCF processing &quot; + publishNode, e);</b>
+&nbsp;			}
+&nbsp;		}
+&nbsp;	}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

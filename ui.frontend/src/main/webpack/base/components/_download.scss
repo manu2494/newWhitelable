@@ -1,0 +1,280 @@
+.download {
+    .cmp-download {
+        display: flex;
+        flex-direction: column;
+
+        .cmp-download__title {
+            .cmp-download__title-link {
+                text-decoration: none;
+            }
+        }
+
+        .cmp-download__properties {
+            display: flex;
+            flex-wrap: wrap;
+
+            .cmp-download__property {
+                text-align: center;
+
+                .cmp-download__property-label {
+                    display: none;
+                }
+
+                .cmp-download__property-content {
+                    width: 100%;
+                }
+            }
+        }
+
+        .cmp-download__action {
+            text-decoration: none;
+            display: flex;
+
+            .cmp-download__action-text {
+                border: 1.5px solid;
+                font-weight: bold;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &.color {
+        &-primary {
+            .cmp-download__action-text {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &-secondary {
+            .cmp-download__action-text {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &-tertiary {
+            .cmp-download__action-text {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &.align {
+        &-center {
+            text-align: center;
+
+            .cmp-download__properties {
+                justify-content: center;
+            }
+
+            .cmp-download__action {
+                justify-content: center;
+            }
+        }
+
+        &-left {
+            text-align: left;
+
+            .cmp-download__properties {
+                justify-content: left;
+            }
+
+            .cmp-download__action {
+                justify-content: left;
+            }
+        }
+
+        &-right {
+            text-align: right;
+
+            .cmp-download__properties {
+                justify-content: right;
+            }
+
+            .cmp-download__action {
+                justify-content: right;
+            }
+        }
+    }
+
+    &.bordered {
+        .cmp-download {
+            border: 1.5px solid;
+        }
+    }
+}
+
+.download {
+	.cmp-download {
+		border-radius: $border-download;
+		.cmp-download__title {
+			margin: $zero-margin;
+			.cmp-download__title-link {
+				color: $color-primary;
+			}
+		}
+		.cmp-download__properties {
+			.cmp-download__property {
+				padding: $default-padding;
+				margin: $margin-download-property;
+				background: $color-background-translucid;
+				border-radius: $border-download-property;
+				.cmp-download__property-content {
+					margin: $zero-margin;
+				}
+			}
+		}
+		.cmp-download__action {
+			color: $color-primary;
+			.cmp-download__action-text {
+				padding: $default-padding;
+			}
+		}
+	}
+
+	&.color {
+		&-primary {
+			color: $color-primary;
+			.cmp-download__title {
+				.cmp-download__title-link {
+					color: $color-primary;
+				}
+			}
+			.cmp-download__action-text {
+				color: $color-primary;
+				&:hover {
+					background: $color-primary;
+					color: $color-light;
+				}
+			}
+		}
+		&-secondary {
+			color: $color-secondary;
+			.cmp-download__title {
+				.cmp-download__title-link {
+					color: $color-secondary;
+				}
+			}
+			.cmp-download__action-text {
+				color: $color-secondary;
+				&:hover {
+					background: $color-secondary;
+					color: $color-light;
+				}
+			}
+		}
+		&-tertiary {
+			color: $color-light;
+			.cmp-download__title {
+				.cmp-download__title-link {
+					color: $color-light;
+				}
+			}
+			.cmp-download__action-text {
+				color: $color-light;
+				&:hover {
+					background: $color-light;
+					color: $color-primary;
+				}
+			}
+		}
+	}
+
+	&.bordered {
+		.cmp-download {
+			padding: $default-padding;
+		}
+	}
+
+	&.background {
+		&-theme-1 {
+			.cmp-download {
+				background-color: $background-theme-1;
+			}
+		}
+		&-theme-2 {
+			.cmp-download {
+				background-color: $background-theme-2;
+			}
+		}
+		&-theme-3 {
+			.cmp-download {
+				background-color: $background-theme-3;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $breakpoint-desktop-min) {
+	.download {
+		&.padding {
+			&-max {
+				.cmp-download {
+					padding: $padding-size-large-desktop;
+				}
+			}
+			&-medium {
+				.cmp-download {
+					padding: $padding-size-medium-desktop;
+				}
+			}
+			&-min {
+				.cmp-download {
+					padding: $padding-size-small-desktop;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+	.download {
+		&.padding {
+			&-max {
+				.cmp-download {
+					padding: $padding-size-large-tablet;
+				}
+			}
+			&-medium {
+				.cmp-download {
+					padding: $padding-size-medium-tablet;
+				}
+			}
+			&-min {
+				.cmp-download {
+					padding: $padding-size-small-tablet;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint-mobile-max) {
+	.download {
+		&.padding {
+			&-max {
+				.cmp-download {
+					padding: $padding-size-large-mobile;
+				}
+			}
+			&-medium {
+				.cmp-download {
+					padding: $padding-size-medium-mobile;
+				}
+			}
+			&-min {
+				.cmp-download {
+					padding: $padding-size-small-mobile;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "page title",
+    "twitterCard": "summary",
+    "pwaOrientation": "any",
+    "cq:template": "/conf/test/settings/wcm/templates/article-template",
+    "readingTime": "20 mins",
+    "pwaDisplay": "standalone",
+    "articleAuthor": "Test",
+    "articleNew": "true",
+    "pwaCachestrategy": "staleWhileRevalidate",
+    "articleId": "test1",
+    "isPrivatePage": "false",
+    "sling:resourceType": "whitelabel/components/articlepage",
+    "articleCategories": [
+      "test:Type/Articles",
+      "test:/Type/Case-Study"
+    ],
+    "articleTypeLearningTag":"test:Type/Articles",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "layout": "responsiveGrid",
+      "sling:resourceType": "whitelabel/components/container",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "whitelabel/components/container",
+        "articlemetadata": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "whitelabel/components/articlemetadata"
+        }
+      }
+    },
+    "cq:featuredimage": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "core/wcm/components/image/v3/image",
+      "altValueFromDAM": "false"
+    }
+  }
+}

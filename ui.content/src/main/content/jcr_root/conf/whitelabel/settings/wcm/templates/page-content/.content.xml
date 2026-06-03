@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:lastModified="{Date}2023-06-26T11:15:57.804+01:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2022-07-29T10:44:52.404+01:00"
+        cq:lastReplicated_publish="{Date}2022-07-29T10:44:52.404+01:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:templateType="/conf/whitelabel/settings/wcm/template-types/page"
+        jcr:description="My Site Page Template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Content Page"
+        status="enabled"/>
+</jcr:root>

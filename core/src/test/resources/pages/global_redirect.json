@@ -1,0 +1,320 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Global",
+    "twitterCard": "summary",
+    "pwaOrientation": "any",
+    "cq:template": "/conf/merkle/settings/wcm/templates/merkle-generic-template",
+    "imageSize": "large",
+    "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+    "pwaDisplay": "standalone",
+    "cq:lastModified": "Wed Oct 25 2023 01:13:18 GMT+0530",
+    "pwaCachestrategy": "staleWhileRevalidate",
+    "hideInNav": true,
+    "cq:conf": "/conf/merkle",
+    "sling:resourceType": "whitelabel/components/page",
+    "redirectPagePrivate": "/content/redirect",
+    "cq:allowedTemplates": [
+      "/conf/merkle/settings/wcm/templates/(?!xf-).*"
+    ],
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:lastModifiedBy": "admin",
+      "jcr:lastModified": "Mon Oct 23 2023 11:28:35 GMT+0530",
+      "sling:resourceType": "wcm/foundation/components/responsivegrid"
+    }
+  },
+  "promotions": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:createdBy": "admin",
+    "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:createdBy": "admin",
+      "jcr:title": "Promotions",
+      "twitterCard": "summary",
+      "cq:template": "/conf/merkle/settings/wcm/templates/merkle-generic-template",
+      "imageSize": "large",
+      "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+      "cq:lastModified": "Wed Oct 25 2023 01:19:03 GMT+0530",
+      "sling:resourceType": "whitelabel/components/page",
+      "cq:lastModifiedBy": "admin",
+      "root": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:lastModifiedBy": "admin",
+        "jcr:lastModified": "Mon Oct 23 2023 11:28:35 GMT+0530",
+        "sling:resourceType": "wcm/foundation/components/responsivegrid"
+      }
+    },
+    "merkle": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+      "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "jcr:createdBy": "admin",
+        "jcr:title": "merkle",
+        "twitterCard": "summary",
+        "cq:template": "/conf/merkle/settings/wcm/templates/merkle-generic-template",
+        "imageSize": "large",
+        "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+        "cq:lastModified": "Wed Oct 25 2023 01:19:03 GMT+0530",
+        "sling:resourceType": "whitelabel/components/page",
+        "cq:lastModifiedBy": "admin",
+        "root": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:lastModified": "Mon Oct 23 2023 11:28:35 GMT+0530",
+          "sling:resourceType": "wcm/foundation/components/responsivegrid"
+        }
+      },
+      "site": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+        "jcr:content": {
+          "jcr:primaryType": "cq:PageContent",
+          "jcr:createdBy": "admin",
+          "jcr:title": "Site",
+          "twitterCard": "summary",
+          "cq:template": "/conf/merkle/settings/wcm/templates/merkle-generic-template",
+          "imageSize": "large",
+          "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+          "cq:lastModified": "Wed Oct 25 2023 01:19:14 GMT+0530",
+          "sling:resourceType": "whitelabel/components/page",
+          "cq:lastModifiedBy": "admin",
+          "root": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:lastModified": "Mon Oct 23 2023 11:28:35 GMT+0530",
+            "sling:resourceType": "wcm/foundation/components/responsivegrid"
+          }
+        },
+        "gb": {
+          "jcr:primaryType": "cq:Page",
+          "jcr:createdBy": "admin",
+          "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+          "jcr:content": {
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:mixinTypes": [
+              "mix:versionable"
+            ],
+            "jcr:createdBy": "admin",
+            "jcr:title": "UK",
+            "twitterCard": "summary",
+            "cq:lastReplicationAction": "Activate",
+            "jcr:versionHistory": "ddc15255-b30c-4f8f-8e60-bd889ec2dee5",
+            "cq:template": "/conf/merkle/settings/wcm/templates/merkle-generic-template",
+            "cq:lastReplicatedBy": "workflow-process-service",
+            "jcr:lastModifiedBy": "admin",
+            "imageSize": "large",
+            "jcr:predecessors": [
+              "c49819d6-f1ac-4ae0-8c05-ae6abb499357"
+            ],
+            "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+            "cq:lastReplicated": "Tue Nov 28 2023 19:04:33 GMT+0530",
+            "cq:lastModified": "Wed Oct 25 2023 01:21:02 GMT+0530",
+            "jcr:baseVersion": "c49819d6-f1ac-4ae0-8c05-ae6abb499357",
+            "jcr:isCheckedOut": true,
+            "isInitiator": "false",
+            "jcr:lastModified": "Wed Oct 25 2023 01:21:02 GMT+0530",
+            "jcr:uuid": "4fa8820d-6b23-43ec-8b28-5331ea7733bf",
+            "sling:resourceType": "whitelabel/components/page",
+            "cq:lastModifiedBy": "admin",
+            "root": {
+              "jcr:primaryType": "nt:unstructured",
+              "jcr:lastModifiedBy": "admin",
+              "jcr:lastModified": "Mon Oct 23 2023 11:28:35 GMT+0530",
+              "sling:resourceType": "wcm/foundation/components/responsivegrid"
+            },
+            "schema": {
+              "jcr:primaryType": "nt:unstructured",
+              "article": {
+                "jcr:primaryType": "nt:unstructured",
+                "articleType": "Article",
+                "author": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "type": "Person"
+                },
+                "publisher": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "type": "Organization",
+                  "logo": {
+                    "jcr:primaryType": "nt:unstructured"
+                  }
+                }
+              }
+            }
+          },
+          "en": {
+            "jcr:primaryType": "cq:Page",
+            "jcr:createdBy": "admin",
+            "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+            "jcr:content": {
+              "jcr:primaryType": "cq:PageContent",
+              "jcr:mixinTypes": [
+                "mix:versionable"
+              ],
+              "jcr:createdBy": "admin",
+              "jcr:title": "English",
+              "twitterCard": "summary",
+              "cq:lastReplicationAction": "Activate",
+              "jcr:versionHistory": "9ad8f23b-018e-45b2-8296-ff8b4b4523e0",
+              "cq:template": "/conf/merkle/settings/wcm/templates/merkle-generic-template",
+              "cq:lastReplicatedBy": "workflow-process-service",
+              "imageSize": "large",
+              "jcr:predecessors": [
+                "6a5d3867-f557-4ffe-bdfe-26fc5514d8f2"
+              ],
+              "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+              "cq:lastReplicated": "Thu Dec 07 2023 16:52:39 GMT+0530",
+              "cq:lastModified": "Wed Oct 25 2023 01:19:55 GMT+0530",
+              "isValidContentPayload": "true",
+              "jcr:baseVersion": "6a5d3867-f557-4ffe-bdfe-26fc5514d8f2",
+              "jcr:isCheckedOut": true,
+              "isInitiator": "false",
+              "jcr:uuid": "ea75289e-5e83-419b-9cef-359b26228765",
+              "sling:resourceType": "whitelabel/components/page",
+              "contentApproverGroup": "merkle-approvers",
+              "cq:lastModifiedBy": "admin",
+              "root": {
+                "jcr:primaryType": "nt:unstructured",
+                "jcr:lastModifiedBy": "admin",
+                "jcr:lastModified": "Mon Oct 23 2023 11:28:35 GMT+0530",
+                "sling:resourceType": "wcm/foundation/components/responsivegrid"
+              }
+            },
+            "home": {
+              "jcr:primaryType": "cq:Page",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+              "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                  "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Home",
+                "twitterCard": "summary",
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "e66e49a0-327d-428e-b52f-4d83697bb42a",
+                "cq:template": "/conf/merkle/settings/wcm/templates/merkle-generic-template",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "imageSize": "large",
+                "jcr:predecessors": [
+                  "0af2306b-a338-4626-9339-3c2e0adb5f8c"
+                ],
+                "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+                "cq:lastReplicated": "Fri Dec 01 2023 21:00:05 GMT+0530",
+                "cq:lastModified": "Wed Oct 25 2023 01:20:09 GMT+0530",
+                "isValidContentPayload": "true",
+                "jcr:baseVersion": "0af2306b-a338-4626-9339-3c2e0adb5f8c",
+                "jcr:isCheckedOut": true,
+                "isInitiator": "false",
+                "jcr:uuid": "fa596b60-9252-4619-ade5-daec53ec2737",
+                "sling:resourceType": "whitelabel/components/page",
+                "contentApproverGroup": "merkle-approvers",
+                "cq:lastModifiedBy": "admin",
+                "root": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "jcr:lastModifiedBy": "admin",
+                  "jcr:lastModified": "Mon Oct 23 2023 11:28:35 GMT+0530",
+                  "sling:resourceType": "wcm/foundation/components/responsivegrid"
+                }
+              }
+            },
+            "register": {
+              "jcr:primaryType": "cq:Page",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+              "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:mixinTypes": [
+                  "mix:versionable"
+                ],
+                "jcr:createdBy": "admin",
+                "jcr:title": "Register",
+                "twitterCard": "summary",
+                "cq:lastReplicationAction": "Activate",
+                "jcr:versionHistory": "e2c052bf-99bd-475c-86e2-69ab58e7c427",
+                "cq:template": "/conf/merkle/settings/wcm/templates/merkle-generic-template",
+                "cq:lastReplicatedBy": "workflow-process-service",
+                "imageSize": "large",
+                "jcr:predecessors": [
+                  "6cfbfc6f-bb1d-4432-952a-7e934fc00940"
+                ],
+                "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+                "cq:lastReplicated": "Thu Dec 07 2023 16:57:33 GMT+0530",
+                "cq:lastModified": "Wed Oct 25 2023 01:20:23 GMT+0530",
+                "isValidContentPayload": "true",
+                "jcr:baseVersion": "6cfbfc6f-bb1d-4432-952a-7e934fc00940",
+                "jcr:isCheckedOut": true,
+                "jcr:uuid": "7f1335d4-fd55-4a35-aa67-7b5e7f5fb6c3",
+                "sling:resourceType": "whitelabel/components/page",
+                "contentApproverGroup": "merkle-approvers",
+                "cq:lastModifiedBy": "admin",
+                "root": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "jcr:lastModifiedBy": "admin",
+                  "jcr:lastModified": "Mon Oct 23 2023 11:28:35 GMT+0530",
+                  "sling:resourceType": "wcm/foundation/components/responsivegrid"
+                }
+              }
+            },
+            "login": {
+              "jcr:primaryType": "cq:Page",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+              "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:createdBy": "admin",
+                "jcr:title": "Login",
+                "twitterCard": "summary",
+                "cq:template": "/conf/merkle/settings/wcm/templates/merkle-generic-template",
+                "imageSize": "large",
+                "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+                "cq:lastModified": "Wed Oct 25 2023 01:20:31 GMT+0530",
+                "sling:resourceType": "whitelabel/components/page",
+                "cq:lastModifiedBy": "admin",
+                "root": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "jcr:lastModifiedBy": "admin",
+                  "jcr:lastModified": "Mon Oct 23 2023 11:28:35 GMT+0530",
+                  "sling:resourceType": "wcm/foundation/components/responsivegrid"
+                }
+              }
+            },
+            "faq": {
+              "jcr:primaryType": "cq:Page",
+              "jcr:createdBy": "admin",
+              "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+              "jcr:content": {
+                "jcr:primaryType": "cq:PageContent",
+                "jcr:createdBy": "admin",
+                "jcr:title": "FAQ",
+                "twitterCard": "summary",
+                "cq:template": "/conf/merkle/settings/wcm/templates/merkle-generic-template",
+                "imageSize": "large",
+                "jcr:created": "Tue Oct 31 2023 18:10:36 GMT+0530",
+                "cq:lastModified": "Wed Oct 25 2023 01:20:46 GMT+0530",
+                "sling:resourceType": "whitelabel/components/page",
+                "cq:lastModifiedBy": "admin",
+                "root": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "jcr:lastModifiedBy": "admin",
+                  "jcr:lastModified": "Mon Oct 23 2023 11:28:35 GMT+0530",
+                  "sling:resourceType": "wcm/foundation/components/responsivegrid"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

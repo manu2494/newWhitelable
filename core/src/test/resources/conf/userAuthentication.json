@@ -1,0 +1,17 @@
+{
+	"jcr:primaryType": "cq:Page",
+	"jcr:content": {
+		"jcr:primaryType": "sling:Folder",
+		"jcr:title": "whitelabel-test",
+		"sling:resourceType": "sling:Folder"
+	},
+	"sling:configs": {
+		"jcr:primaryType": "sling:Folder",
+		"layout": "responsiveGrid",
+		"sling:resourceType": "sling:Folder",
+		"com.merkle.xp.whitelabel.core.config.UserAuthentication": {
+			"jcr:primaryType": "cq:Page",
+			"cookies": ["cookie1","cookie2"]
+		}
+	}
+}

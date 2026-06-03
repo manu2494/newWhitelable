@@ -1,0 +1,25 @@
+{
+    "jcr:primaryType": "nt:unstructured",
+    "showModificationDate": "false",
+    "jcr:createdBy": "admin",
+    "tagsMatch": "any",
+    "linkItems": "true",
+    "jcr:lastModifiedBy": "admin",
+    "jcr:created": "Fri Dec 16 2022 15:14:06 GMT+0700",
+    "parentPage": "/content/core-framework/us/en/page",
+    "sortOrder": "asc",
+    "displayItemAsTeaser": "true",
+    "showDescription": "false",
+    "jcr:lastModified": "Mon Dec 19 2022 14:18:09 GMT+0700",
+    "sling:resourceType": "core-framework/components/list",
+    "childDepth": "1",
+    "listFrom": "static",
+    "fixedList": {
+        "jcr:primaryType": "nt:unstructured",
+        "item0": {
+            "jcr:primaryType": "nt:unstructured",
+            "link": "/content/core-framework/us/en/page",
+            "title": "Hello"
+        }
+    }
+}

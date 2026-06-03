@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-12-04T15:20:09.121Z"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2023-12-04T15:20:20.864Z"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:policy="whitelabel/components/page/policy"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus,mix:versionable]"
+        jcr:primaryType="nt:unstructured"
+        jcr:uuid="b9080d88-c50e-49d3-a5c2-61a553b6bb20"
+        sling:resourceType="wcm/core/components/policies/mappings"/>
+</jcr:root>

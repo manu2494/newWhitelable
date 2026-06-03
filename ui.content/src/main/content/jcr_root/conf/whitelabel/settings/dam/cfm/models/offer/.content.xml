@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Template"
+    allowedPaths="[/content/entities(/.*)?]"
+    ranking="{Long}100">
+    <jcr:content
+        cq:lastModified="{Date}2023-03-21T06:20:50.095Z"
+        cq:lastModifiedBy="robin.bhat@merkle.com"
+        cq:scaffolding="/conf/whitelabel/settings/dam/cfm/models/offer/jcr:content/model"
+        cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Offer"
+        sling:resourceSuperType="dam/cfm/models/console/components/data/entity"
+        sling:resourceType="dam/cfm/models/console/components/data/entity/default"
+        status="enabled">
+        <metadata jcr:primaryType="nt:unstructured"/>
+        <model
+            cq:targetPath="/content/entities"
+            jcr:primaryType="cq:PageContent"
+            sling:resourceType="wcm/scaffolding/components/scaffolding"
+            dataTypesConfig="/mnt/overlay/settings/dam/cfm/models/formbuilderconfig/datatypes"
+            maxGeneratedOrder="20">
+            <cq:dialog
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/authoring/dialog">
+                <content
+                    jcr:lastModified="{Date}2023-03-21T06:20:50.095Z"
+                    jcr:lastModifiedBy="robin.bhat@merkle.com"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                    <items
+                        jcr:primaryType="nt:unstructured"
+                        maxGeneratedOrder="20">
+                        <_x0031_678614032634
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Offer Title"
+                            listOrder="1"
+                            maxlength="255"
+                            metaType="text-single"
+                            name="offerTitle"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            valueType="string">
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                        </_x0031_678614032634>
+                        <_x0031_678614243625
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
+                            cfm-element="Offer Description"
+                            checked="false"
+                            default-mime-type="text/html"
+                            listOrder="2"
+                            metaType="text-multi"
+                            name="offerDescription"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            valueType="string/multiline"/>
+                        <_x0031_678963837621
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Withdrawal Limit"
+                            listOrder="1"
+                            maxlength="255"
+                            metaType="text-single"
+                            name="withdrawalLimit"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            valueType="string">
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                        </_x0031_678963837621>
+                        <_x0031_678963822149
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Interest Rate"
+                            listOrder="1"
+                            maxlength="255"
+                            metaType="text-single"
+                            name="interestRate"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            valueType="string">
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                        </_x0031_678963822149>
+                        <_x0031_678614300970
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Offer Discount"
+                            listOrder="1"
+                            maxlength="255"
+                            metaType="text-single"
+                            name="offerDiscount"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            valueType="string">
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                        </_x0031_678614300970>
+                        <_x0031_678614498316
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="dam/cfm/models/editor/components/contentreference"
+                            fieldLabel="Offer Hero Image"
+                            filter="hierarchy"
+                            listOrder="8"
+                            metaType="reference"
+                            name="offerHeroImage"
+                            nameSuffix="contentReference"
+                            renderReadOnly="false"
+                            rootPath="/content/dam/whitelabel"
+                            showEmptyInReadOnly="true"
+                            showThumbnail="false"
+                            validation="cfm.validation.contenttype.image"
+                            valueType="string/reference">
+                            <granite:data
+                                jcr:primaryType="nt:unstructured"
+                                thumbnail-validation="cfm.validation.thumbnail.show"/>
+                        </_x0031_678614498316>
+                        <_x0031_678614592551
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="dam/cfm/models/editor/components/contentreference"
+                            fieldLabel="Offer Tile Image"
+                            filter="hierarchy"
+                            listOrder="8"
+                            metaType="reference"
+                            name="offerTileImage"
+                            nameSuffix="contentReference"
+                            renderReadOnly="false"
+                            rootPath="/content/dam/whitelabel"
+                            showEmptyInReadOnly="true"
+                            showThumbnail="false"
+                            valueType="string/reference">
+                            <granite:data
+                                jcr:primaryType="nt:unstructured"
+                                thumbnail-validation="cfm.validation.thumbnail.show"/>
+                        </_x0031_678614592551>
+                        <_x0031_678614948616
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="dam/cfm/models/editor/components/fragmentreference"
+                            allowNew="{Boolean}true"
+                            fieldLabel="Linked Product"
+                            filter="hierarchy"
+                            fragmentmodelreference="/conf/whitelabel/settings/dam/cfm/models/product"
+                            listOrder="9"
+                            metaType="fragment-reference"
+                            name="linkedProduct"
+                            nameSuffix="contentReference"
+                            renderReadOnly="false"
+                            rootPath="/content/dam/whitelabel"
+                            showEmptyInReadOnly="true"
+                            valueType="string/content-fragment">
+                            <field
+                                jcr:primaryType="nt:unstructured"
+                                rootPath="/content/dam/whitelabel"/>
+                            <granite:data jcr:primaryType="nt:unstructured"/>
+                        </_x0031_678614948616>
+                    </items>
+                </content>
+            </cq:dialog>
+        </model>
+    </jcr:content>
+</jcr:root>

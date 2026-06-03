@@ -1,0 +1,41 @@
+{
+    "jcr:primaryType": "nt:unstructured",
+    "showModificationDate": "true",
+    "jcr:createdBy": "alejandro.castellanos@danone.com",
+    "tagsMatch": "any",
+    "linkItems": "true",
+    "headingElement": "h3",
+    "jcr:lastModifiedBy": "admin",
+    "jcr:created": "Thu Oct 13 2022 08:45:15 GMT+0000",
+    "sortOrder": "asc",
+    "displayItemAsTeaser": "true",
+    "showDescription": "true",
+    "jcr:lastModified": "Fri Dec 23 2022 15:26:14 GMT+0100",
+    "sling:resourceType": "core-framework/components/list",
+    "childDepth": "1",
+    "listFrom": "static",
+    "fixedList": {
+        "jcr:primaryType": "nt:unstructured",
+        "item0": {
+            "jcr:primaryType": "nt:unstructured",
+            "link": "/content/core-framework/us/en/aem-training-guide/aem-training-guide---sprint-1/test-page-teaser"
+        },
+        "item1": {
+            "jcr:primaryType": "nt:unstructured",
+            "link": "/content/core-framework/us/en/aem-training-guide/aem-training-guide---sprint-1/test-page-teaser",
+            "title": "Titolo sovrascritto"
+        },
+        "item2": {
+            "jcr:primaryType": "nt:unstructured",
+            "description": "Descrizione sovrascritta",
+            "link": "/content/core-framework/us/en/aem-training-guide/aem-training-guide---sprint-1/test-page-teaser"
+        },
+        "item3": {
+            "jcr:primaryType": "nt:unstructured",
+            "description": "descrizione custom",
+            "icon": "icon",
+            "link": "/content/core-framework/us/en/aem-training-guide/aem-training-guide---sprint-2/test-page-search",
+            "title": "title sovrascritto"
+        }
+    }
+}

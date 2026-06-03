@@ -1,0 +1,103 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ReplicationService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.services</a>
+</div>
+
+<h1>Coverage Summary for Class: ReplicationService (com.merkle.xp.whitelabel.core.services)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ReplicationService</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.services;
+&nbsp;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;
+&nbsp;/**
+&nbsp; * Services for page activation and deactivation.
+&nbsp; */
+&nbsp;public interface ReplicationService {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Activates the given (page or resource) {@code path}.
+&nbsp;     *
+&nbsp;     * @param path
+&nbsp;     *     the path to activate
+&nbsp;     */
+&nbsp;    void activate(String path, ResourceResolver resourceResolver);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Deactivates the given (page or resource) {@code path}.
+&nbsp;     *
+&nbsp;     * @param path
+&nbsp;     *     the path to deactivate
+&nbsp;     */
+&nbsp;    void deactivate(String path, ResourceResolver resourceResolver);
+&nbsp;    
+&nbsp;    /**
+&nbsp;     * Checks if resource is published or not.
+&nbsp;     *
+&nbsp;     * @param resource
+&nbsp;     *     the resource to check isPublished
+&nbsp;     */
+&nbsp;    boolean isPublished(Resource resource);
+&nbsp;    
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

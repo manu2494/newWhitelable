@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:lastModified="{Date}2022-08-11T19:44:01.417+02:00"
+        cq:lastModifiedBy="admin"
+        cq:templateType="/conf/component-library/settings/wcm/template-types/ca-editor"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Context-Aware Config Editor"
+        allowedPaths="^/content(/.+)?config$"
+        status="enabled"/>
+</jcr:root>

@@ -1,0 +1,5 @@
+<!--/* Override to add modal html */-->
+<sly data-sly-use.templatedContainer="com.day.cq.wcm.foundation.TemplatedContainer"
+     data-sly-repeat.child="${templatedContainer.structureResources}"
+     data-sly-resource="${child @ resourceType=child.resourceType, decorationTagName='div'}"></sly>
+<sly data-sly-include="modal.html" />

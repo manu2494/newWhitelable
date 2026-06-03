@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:lastModified="{Date}2024-05-17T10:46:41.651Z"
+        cq:lastModifiedBy="usdmssu01"
+        cq:lastReplicated="{Date}2024-03-26T17:41:58.631Z"
+        cq:lastReplicatedBy="usdmsak02"
+        cq:lastReplicationAction="Activate"
+        cq:templateType="/conf/merkle/settings/wcm/template-types/xf-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="merkle Experience Fragment Template"
+        status="enabled"/>
+</jcr:root>

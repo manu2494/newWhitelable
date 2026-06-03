@@ -1,0 +1,11 @@
+<template data-sly-template.item="${@ list, item}">
+    <a class="cmp-list__item-link" data-sly-attribute="${item.link.htmlAttributes}"
+        data-sly-unwrap="${!list.linkItems || !item.link.valid}" data-cmp-clickable="${item.data ? true : false}"
+        data-itemtag="${item.tags ? item.tags[0].tagID : ''}">
+        <span data-sly-element="${properties.headingElement @ context='elementName'}"
+            class="cmp-list__item-title ${item.icon}">${item.title}</span>
+        <span data-sly-test="${list.showModificationDate}" class="cmp-list__item-date">${list.dateFormatString
+            @format=item.lastModified}</span>
+    </a>
+    <span data-sly-test="${list.showDescription}" class="cmp-list__item-description">${item.description}</span>
+</template>

@@ -1,0 +1,215 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > GenericListServiceImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.services.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: GenericListServiceImpl (com.merkle.xp.whitelabel.core.services.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GenericListServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    68.2%
+  </span>
+  <span class="absValue">
+    (15/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.1%
+  </span>
+  <span class="absValue">
+    (27/29)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.services.impl;
+&nbsp;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;
+&nbsp;import javax.jcr.Value;
+&nbsp;import javax.jcr.ValueFactory;
+&nbsp;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;import org.osgi.service.component.annotations.Component;
+&nbsp;import org.osgi.service.component.annotations.Reference;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;
+&nbsp;import com.adobe.acs.commons.genericlists.GenericList;
+&nbsp;import com.adobe.acs.commons.genericlists.GenericList.Item;
+&nbsp;import com.day.cq.replication.Replicator;
+&nbsp;import com.day.cq.tagging.Tag;
+&nbsp;import com.day.cq.tagging.TagManager;
+&nbsp;import com.day.cq.wcm.api.Page;
+&nbsp;import com.day.cq.wcm.api.PageManager;
+&nbsp;import com.merkle.xp.whitelabel.core.services.GenericListService;
+&nbsp;
+&nbsp;/**
+&nbsp; * Implementation of ESKO Generic List service Interface
+&nbsp; *
+&nbsp; */
+&nbsp;@Component(service = GenericListService.class)
+<b class="fc">&nbsp;public class GenericListServiceImpl implements GenericListService {</b>
+&nbsp;
+<b class="fc">&nbsp;	private static final Logger LOGGER = LoggerFactory.getLogger(GenericListServiceImpl.class);</b>
+&nbsp;
+<b class="fc">&nbsp;	private static final String CLASS_NAME = GenericListServiceImpl.class.getSimpleName();</b>
+&nbsp;
+&nbsp;	@Reference
+&nbsp;	private Replicator replicator;
+&nbsp;	
+&nbsp;	/**
+&nbsp;	 * populating Map from Generic List
+&nbsp;	 *
+&nbsp;	 */
+&nbsp;	@Override
+&nbsp;	public LinkedHashMap&lt;String, String&gt; populateGenListMap(ResourceResolver resourceResolver, String genericListPath) {
+<b class="fc">&nbsp;		LinkedHashMap&lt;String, String&gt; itemsMap = new LinkedHashMap&lt;&gt;();</b>
+<b class="fc">&nbsp;		PageManager pageManager = resourceResolver.adaptTo(PageManager.class);</b>
+<b class="fc">&nbsp;		if (Objects.isNull(pageManager)) {</b>
+<b class="fc">&nbsp;			return itemsMap;</b>
+&nbsp;		}
+<b class="fc">&nbsp;		Page genericPage = pageManager.getPage(genericListPath);</b>
+<b class="pc">&nbsp;		GenericList genericList = Objects.nonNull(genericPage)? genericPage.adaptTo(GenericList.class):null;</b>
+<b class="pc">&nbsp;		List&lt;Item&gt; itemList = genericList != null ? genericList.getItems() : null;</b>
+<b class="pc">&nbsp;		if (Objects.nonNull(itemList)) {</b>
+<b class="fc">&nbsp;			for (Item genericItem : itemList) {</b>
+<b class="fc">&nbsp;				itemsMap.put(genericItem.getTitle(), genericItem.getValue());</b>
+&nbsp;			}
+&nbsp;		} else {
+<b class="nc">&nbsp;			LOGGER.info(&quot;[Merkle Whitelabel] - {} - GenericListServiceImpl.populateGenListMap() Generic List corresponding to {} is not found&quot;, CLASS_NAME,</b>
+&nbsp;					itemsMap);
+&nbsp;		}
+<b class="fc">&nbsp;		return itemsMap;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * returns value from Generic List
+&nbsp;	 *
+&nbsp;	 */
+&nbsp;	@Override
+&nbsp;	public Value[] findValueFromGenericList(ValueFactory valueFactory, Map&lt;String, String&gt; itemsMap, String title) {
+<b class="fc">&nbsp;		String[] xmlValueArr = title.split(&quot;\\|&quot;);</b>
+<b class="fc">&nbsp;		Value[] values = new Value[xmlValueArr.length];</b>
+<b class="fc">&nbsp;		if (itemsMap.size() &lt; 1) {</b>
+<b class="fc">&nbsp;			return values;</b>
+&nbsp;		}
+<b class="fc">&nbsp;		int count = 0;</b>
+<b class="fc">&nbsp;		for (String valueElement : xmlValueArr) {</b>
+<b class="pc">&nbsp;			if (Objects.nonNull(itemsMap.get(valueElement.trim()))) {</b>
+<b class="fc">&nbsp;				values[count++] = valueFactory.createValue(itemsMap.get(valueElement.trim()));</b>
+&nbsp;			} else {
+<b class="nc">&nbsp;				values[count++] = valueFactory.createValue(valueElement.trim());</b>
+&nbsp;			}
+&nbsp;		}
+<b class="fc">&nbsp;		return values;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * finding region for the given CBU
+&nbsp;	 *
+&nbsp;	 */
+&nbsp;	@Override
+&nbsp;	public String findRegionValue(ResourceResolver resourceResolver, String genericListPath, String cbu) {
+<b class="fc">&nbsp;		PageManager pageManager = resourceResolver.adaptTo(PageManager.class);</b>
+<b class="pc">&nbsp;		Page genericPage = pageManager != null ? pageManager.getPage(genericListPath) : null;</b>
+<b class="pc">&nbsp;		GenericList genericList = genericPage != null ? genericPage.adaptTo(GenericList.class) : null;</b>
+<b class="pc">&nbsp;		return genericList != null ? genericList.lookupTitle(cbu) : null;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

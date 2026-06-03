@@ -1,0 +1,660 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > MerklePageImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.models</a>
+</div>
+
+<h1>Coverage Summary for Class: MerklePageImpl (com.merkle.xp.whitelabel.core.models)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MerklePageImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/50)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/82)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/159)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.models;
+&nbsp;
+&nbsp;import java.io.UnsupportedEncodingException;
+&nbsp;import java.net.URLEncoder;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Calendar;
+&nbsp;import java.util.Iterator;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Locale;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;
+&nbsp;import javax.annotation.PostConstruct;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+&nbsp;import org.apache.commons.lang3.ArrayUtils;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;import org.apache.sling.api.SlingHttpServletRequest;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;import org.apache.sling.api.resource.ValueMap;
+&nbsp;import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+&nbsp;import org.apache.sling.models.annotations.Model;
+&nbsp;import org.apache.sling.models.annotations.Via;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.ChildResource;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.Self;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+&nbsp;import org.apache.sling.models.annotations.via.ResourceSuperType;
+&nbsp;import org.jetbrains.annotations.NotNull;
+&nbsp;import org.jetbrains.annotations.Nullable;
+&nbsp;
+&nbsp;import com.adobe.cq.export.json.ComponentExporter;
+&nbsp;import com.adobe.cq.wcm.core.components.models.HtmlPageItem;
+&nbsp;import com.adobe.cq.wcm.core.components.models.NavigationItem;
+&nbsp;import com.adobe.cq.wcm.core.components.models.Page;
+&nbsp;import com.day.cq.commons.inherit.HierarchyNodeInheritanceValueMap;
+&nbsp;import com.day.cq.commons.inherit.InheritanceValueMap;
+&nbsp;import com.day.cq.tagging.Tag;
+&nbsp;import com.day.cq.tagging.TagManager;
+&nbsp;import com.day.cq.wcm.api.constants.NameConstants;
+&nbsp;import com.fasterxml.jackson.annotation.JsonIgnore;
+&nbsp;import com.google.gson.Gson;
+&nbsp;import com.google.gson.GsonBuilder;
+&nbsp;import com.google.gson.JsonArray;
+&nbsp;import com.google.gson.JsonObject;
+&nbsp;import com.merkle.xp.whitelabel.core.config.DeviceConfig;
+&nbsp;import com.merkle.xp.whitelabel.core.config.GeneralConfig;
+&nbsp;import com.merkle.xp.whitelabel.core.config.SeoSiteLinkConfig;
+&nbsp;import com.merkle.xp.whitelabel.core.config.SeoSiteOrganizationConfig;
+&nbsp;import com.merkle.xp.whitelabel.core.config.SiteDeviceConfig;
+&nbsp;import com.merkle.xp.whitelabel.core.config.TrackingConfig;
+&nbsp;import com.merkle.xp.whitelabel.core.models.items.TrackingVariableItem;
+&nbsp;import com.merkle.xp.whitelabel.core.models.seo.structureddata.ISeoSiteStructuredData;
+&nbsp;import com.merkle.xp.whitelabel.core.models.seo.structureddata.SeoArticle;
+&nbsp;import com.merkle.xp.whitelabel.core.models.seo.structureddata.SeoSiteLink;
+&nbsp;import com.merkle.xp.whitelabel.core.models.seo.structureddata.SeoSiteOrganization;
+&nbsp;import com.merkle.xp.whitelabel.core.models.seo.structureddata.SeoSiteOrganizationWithSearchAction;
+&nbsp;import com.merkle.xp.whitelabel.core.models.seo.structureddata.SeoSiteSearchAction;
+&nbsp;import com.merkle.xp.whitelabel.core.services.InstanceType;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.ConfigurationUtils;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.PageUtils;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.link.LinkManager;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.link.LinkUtils;
+&nbsp;
+&nbsp;import lombok.Getter;
+&nbsp;
+&nbsp;@Model(adaptables = SlingHttpServletRequest.class, adapters = Page.class, resourceType = MerklePageImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+<b class="nc">&nbsp;public class MerklePageImpl implements Page {</b>
+&nbsp;
+&nbsp;    public static final String RESOURCE_TYPE = &quot;whitelabel/components/page&quot;;
+&nbsp;    private static final String SCHEMA_ARTICLE_RESOURCE_NAME_PATH = &quot;schema/article&quot;;
+&nbsp;    private static final String TRACKING_PATH = &quot;jcr:content/trackingVariables&quot;;
+&nbsp;
+&nbsp;    @Self
+&nbsp;    @Via(type = ResourceSuperType.class)
+&nbsp;    private Page page;
+&nbsp;
+&nbsp;    @ScriptVariable
+&nbsp;    private com.day.cq.wcm.api.Page currentPage;
+&nbsp;
+&nbsp;    @Self
+&nbsp;    private LinkManager linkManager;
+&nbsp;
+&nbsp;    @ValueMapValue
+&nbsp;    private String canonicalTag;
+&nbsp;
+&nbsp;    @OSGiService
+&nbsp;    private InstanceType instanceType;
+&nbsp;    
+&nbsp;    @Inject
+&nbsp;    private Resource resource;
+&nbsp;
+&nbsp;    @ChildResource
+&nbsp;    @ValueMapValue
+&nbsp;    private List&lt;TrackingVariableItem&gt; trackingVariables;
+&nbsp;
+&nbsp;    @Self
+&nbsp;    @Via(&quot;resourceResolver&quot;)
+&nbsp;    private TagManager tagManager;
+&nbsp;
+&nbsp;    @Inject
+&nbsp;    private ValueMap pageProperties;
+&nbsp;
+&nbsp;    private Gson gson;
+&nbsp;
+<b class="nc">&nbsp;    @Getter</b>
+&nbsp;    private String datalayerJson;
+&nbsp;
+&nbsp;    @Self
+&nbsp;    private SlingHttpServletRequest request;
+&nbsp;    
+<b class="nc">&nbsp;    @Getter</b>
+&nbsp;    private String instance;
+&nbsp;    
+<b class="nc">&nbsp;    @Getter</b>
+&nbsp;    private String secure;
+<b class="nc">&nbsp;    @Getter</b>
+&nbsp;    private String loginPage;
+<b class="nc">&nbsp;    @Getter</b>
+&nbsp;    private DeviceConfig[] devices;
+&nbsp;    
+&nbsp;
+&nbsp;    @PostConstruct
+&nbsp;    protected void init() {
+<b class="nc">&nbsp;    	instance = instanceType.isAuthorInstance()?&quot;author&quot;:&quot;publish&quot;;</b>
+<b class="nc">&nbsp;    	loginPage = getRedirectPageExternalized(getRedirectPrivatePage());</b>
+<b class="nc">&nbsp;        TrackingConfig trackingConfig = ConfigurationUtils.getTrackingConfig(resource);</b>
+<b class="nc">&nbsp;        secure = (Boolean.TRUE.equals(currentPage.getContentResource().getValueMap().get(&quot;isPrivatePage&quot;, Boolean.class)) &amp;&amp; !instanceType.isAuthorInstance())?&quot;true&quot;:&quot;&quot;;</b>
+<b class="nc">&nbsp;        JsonObject jsonObject = new JsonObject();</b>
+<b class="nc">&nbsp;        jsonObject.addProperty(&quot;page_environment&quot;, instanceType.runmodes());</b>
+<b class="nc">&nbsp;        jsonObject.addProperty(&quot;page_lang&quot;, currentPage.getLanguage().getLanguage());</b>
+<b class="nc">&nbsp;        jsonObject.addProperty(&quot;page_country&quot;, currentPage.getLanguage().getCountry());</b>
+<b class="nc">&nbsp;        if (currentPage.getTitle() != null) {</b>
+&nbsp;        	try {
+<b class="nc">&nbsp;				jsonObject.addProperty(&quot;page_name&quot;, URLEncoder.encode(currentPage.getTitle(),&quot;UTF-8&quot;));</b>
+<b class="nc">&nbsp;			} catch (UnsupportedEncodingException e) {</b>
+&nbsp;			}
+&nbsp;        }
+<b class="nc">&nbsp;        String templatePath = currentPage.getContentResource().getValueMap().get(NameConstants.NN_TEMPLATE, String.class);</b>
+<b class="nc">&nbsp;        if (templatePath != null) {</b>
+<b class="nc">&nbsp;            jsonObject.addProperty(&quot;page_category&quot;, templatePath.substring(templatePath.lastIndexOf(&quot;/&quot;) + 1));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        SiteDeviceConfig siteDevices = ConfigurationUtils.getDeviceConfig(resource);</b>
+<b class="nc">&nbsp;        if (siteDevices != null) {</b>
+<b class="nc">&nbsp;        	devices = siteDevices.devices();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        ResourceResolver resolver = request.getResourceResolver();</b>
+<b class="nc">&nbsp;        initTrackingVariables(resolver.getResource(trackingConfig.rootPath()), jsonObject);</b>
+<b class="nc">&nbsp;        if (trackingVariables != null) {</b>
+<b class="nc">&nbsp;            for (TrackingVariableItem item : trackingVariables) {</b>
+<b class="nc">&nbsp;                String trackingValue = item.getTrackingValue();</b>
+&nbsp;
+&nbsp;                // Set tracking value from tag
+<b class="nc">&nbsp;                if (StringUtils.isBlank(trackingValue)) {</b>
+<b class="nc">&nbsp;                    JsonArray trackingValues = getTrackingValuesFromTags(item.getTrackingValueTags());</b>
+<b class="nc">&nbsp;                    jsonObject.add(item.getTrackingKey(), trackingValues);</b>
+&nbsp;                } else {
+&nbsp;                    // String String tracking value
+<b class="nc">&nbsp;                    jsonObject.addProperty(item.getTrackingKey(), trackingValue);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        datalayerJson = jsonObject.toString();</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;	private String getRedirectPrivatePage() {
+<b class="nc">&nbsp;		InheritanceValueMap ivm = new HierarchyNodeInheritanceValueMap(currentPage.getContentResource());</b>
+<b class="nc">&nbsp;		String path = ivm.getInherited(&quot;redirectPagePrivate&quot;, String.class);</b>
+<b class="nc">&nbsp;		return path;</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	private String getRedirectPageExternalized(String redirectPage) {
+<b class="nc">&nbsp;		if (redirectPage != null) {</b>
+<b class="nc">&nbsp;			String externalizedLink = redirectPage.concat(&quot;.html&quot;);</b>
+<b class="nc">&nbsp;			LinkManager linkManager = request.adaptTo(LinkManager.class);</b>
+<b class="nc">&nbsp;			if (linkManager != null) {</b>
+<b class="nc">&nbsp;				String originalPage = linkManager.get(currentPage).build().getMappedURL();</b>
+<b class="nc">&nbsp;				String pageToRedirect = LinkUtils.getExternalizedLink(linkManager, redirectPage);</b>
+<b class="nc">&nbsp;				externalizedLink = Optional.ofNullable(originalPage).map(</b>
+&nbsp;						pageString -&gt; {
+&nbsp;							try {
+<b class="nc">&nbsp;								return pageToRedirect + &quot;?resource=&quot; + URLEncoder.encode(pageString, &quot;UTF-8&quot;);</b>
+<b class="nc">&nbsp;							} catch (UnsupportedEncodingException e) {</b>
+&nbsp;							}
+<b class="nc">&nbsp;							return pageToRedirect;</b>
+&nbsp;						})
+<b class="nc">&nbsp;						.orElse(pageToRedirect);</b>
+&nbsp;			}
+<b class="nc">&nbsp;			return externalizedLink;</b>
+&nbsp;		}
+<b class="nc">&nbsp;		return redirectPage;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;    private JsonObject initTrackingVariables(Resource resource, JsonObject jsonObject) {
+<b class="nc">&nbsp;        if (resource != null) {</b>
+<b class="nc">&nbsp;            Resource datalayerConfRes = resource.getChild(TRACKING_PATH);</b>
+<b class="nc">&nbsp;            if (datalayerConfRes != null) {</b>
+<b class="nc">&nbsp;                for (Iterator&lt;Resource&gt; inter = datalayerConfRes.listChildren(); inter.hasNext(); ) {</b>
+<b class="nc">&nbsp;                    TrackingVariableItem item = inter.next().adaptTo(TrackingVariableItem.class);</b>
+<b class="nc">&nbsp;                    buildJsonObject(jsonObject, item);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        return jsonObject;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void buildJsonObject(JsonObject jsonObject, TrackingVariableItem item) {
+<b class="nc">&nbsp;        if (item != null) { </b>
+<b class="nc">&nbsp;            String trackingValue = item.getTrackingValue();</b>
+&nbsp;
+&nbsp;            // Set tracking value from tag
+<b class="nc">&nbsp;            if (StringUtils.isBlank(trackingValue)) {</b>
+<b class="nc">&nbsp;                JsonArray trackingValues = getTrackingValuesFromTags(item.getTrackingValueTags());</b>
+<b class="nc">&nbsp;                jsonObject.add(item.getTrackingKey(), trackingValues);</b>
+&nbsp;            } else {
+&nbsp;                // String String tracking value
+<b class="nc">&nbsp;                jsonObject.addProperty(item.getTrackingKey(), trackingValue);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getCanonicalTag() {
+<b class="nc">&nbsp;        String canonicalString = Optional.ofNullable(canonicalTag).orElse(currentPage.getPath());</b>
+<b class="nc">&nbsp;        return LinkUtils.getExternalizedLink(linkManager, canonicalString);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Build structured data related to SEO Site
+&nbsp;     *
+&nbsp;     * @return String Json of ISeoSiteStructuredData
+&nbsp;     */
+&nbsp;    public String getSeoSiteStructuredData() {
+<b class="nc">&nbsp;        gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().disableHtmlEscaping().create();</b>
+<b class="nc">&nbsp;        GeneralConfig config = ConfigurationUtils.getGeneralConfig(resource);</b>
+&nbsp;
+<b class="nc">&nbsp;        if (currentPage != null &amp;&amp; config != null &amp;&amp; pageProperties != null) {</b>
+<b class="nc">&nbsp;            boolean ignoreOrganization = pageProperties.get(&quot;ignoreOrganization&quot;, Boolean.FALSE);</b>
+<b class="nc">&nbsp;            boolean ignoreSitelink = pageProperties.get(&quot;ignoreSitelink&quot;, Boolean.FALSE);</b>
+<b class="nc">&nbsp;            String targetSearchUrl = StringUtils.EMPTY;</b>
+&nbsp;
+<b class="nc">&nbsp;            SeoSiteOrganizationConfig seoSiteOgCfg = config.seoSiteOrganization();</b>
+<b class="nc">&nbsp;            SeoSiteLinkConfig seoSiteLinkCfg = config.seoSiteLinkConfig();</b>
+&nbsp;
+<b class="nc">&nbsp;            if (seoSiteLinkCfg != null) {</b>
+<b class="nc">&nbsp;                targetSearchUrl = seoSiteLinkCfg.target();</b>
+&nbsp;            }
+&nbsp;
+&nbsp;            // Case 1: Show Organization and Site Link. Return Organization with Search Info
+<b class="nc">&nbsp;            if (!ignoreOrganization &amp;&amp; !ignoreSitelink &amp;&amp; seoSiteOgCfg != null) {</b>
+<b class="nc">&nbsp;                SeoSiteOrganizationWithSearchAction result = new SeoSiteOrganizationWithSearchAction(seoSiteOgCfg);</b>
+<b class="nc">&nbsp;                resolveURLOrganization(result);</b>
+<b class="nc">&nbsp;                result.setPotentialAction(getSearchAction(targetSearchUrl, seoSiteLinkCfg));</b>
+<b class="nc">&nbsp;                return buildStringJsonFromObject(result);</b>
+&nbsp;            }
+&nbsp;
+&nbsp;            // Case 2: Ignore Site Link is true. Return Organization without Search Info
+<b class="nc">&nbsp;            if (!ignoreOrganization &amp;&amp; seoSiteOgCfg != null) {</b>
+<b class="nc">&nbsp;                SeoSiteOrganization result = new SeoSiteOrganization(seoSiteOgCfg);</b>
+<b class="nc">&nbsp;                resolveURLOrganization(result);</b>
+<b class="nc">&nbsp;                return buildStringJsonFromObject(result);</b>
+&nbsp;            }
+&nbsp;
+&nbsp;            // Case 3: Ignore Organization is true. Return Seo link structured data
+<b class="nc">&nbsp;            if (ignoreOrganization &amp;&amp; !ignoreSitelink &amp;&amp; seoSiteLinkCfg != null) {</b>
+<b class="nc">&nbsp;                SeoSiteLink result = new SeoSiteLink(seoSiteLinkCfg);</b>
+&nbsp;
+&nbsp;                // Set canonical url
+<b class="nc">&nbsp;                setUrl(result);</b>
+&nbsp;
+<b class="nc">&nbsp;                result.setPotentialAction(getSearchAction(targetSearchUrl, seoSiteLinkCfg));</b>
+<b class="nc">&nbsp;                return buildStringJsonFromObject(result);</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void setUrl(SeoSiteLink result) {
+<b class="nc">&nbsp;        if (StringUtils.isBlank(result.getUrl())) {</b>
+<b class="nc">&nbsp;            result.setUrl(getCanonicalTag());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Build structured data related to SEO Article
+&nbsp;     *
+&nbsp;     * @return String Json of ISeoSiteStructuredData
+&nbsp;     */
+&nbsp;    public String getSeoArticleStructuredData() {
+<b class="nc">&nbsp;        SeoArticle result = null;</b>
+<b class="nc">&nbsp;        gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().disableHtmlEscaping().create();</b>
+&nbsp;
+<b class="nc">&nbsp;        if (currentPage != null) {</b>
+<b class="nc">&nbsp;            Resource schemaArticleResource = this.currentPage.getContentResource(SCHEMA_ARTICLE_RESOURCE_NAME_PATH);</b>
+<b class="nc">&nbsp;            if (schemaArticleResource != null) {</b>
+<b class="nc">&nbsp;                result = schemaArticleResource.adaptTo(SeoArticle.class);</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        return buildStringJsonFromObject(result);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Build String Json return for using in LD Json SEO script
+&nbsp;     *
+&nbsp;     * @param seoDataObj {@link ISeoSiteStructuredData}
+&nbsp;     * @return String Json Structured data
+&nbsp;     */
+&nbsp;    private String buildStringJsonFromObject(ISeoSiteStructuredData seoDataObj) {
+<b class="nc">&nbsp;        String result = StringUtils.EMPTY;</b>
+<b class="nc">&nbsp;        if (seoDataObj != null) {</b>
+<b class="nc">&nbsp;            result = gson.toJson(seoDataObj);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return result;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Resolve URL configuration with externalize for SEO Organization
+&nbsp;     *
+&nbsp;     * @param organization {@link SeoSiteOrganization}
+&nbsp;     */
+&nbsp;    private void resolveURLOrganization(SeoSiteOrganization organization) {
+<b class="nc">&nbsp;        if (organization != null) {</b>
+<b class="nc">&nbsp;            if (StringUtils.isBlank(organization.getUrl())) {</b>
+<b class="nc">&nbsp;                organization.setUrl(getCanonicalTag());</b>
+&nbsp;            }
+<b class="nc">&nbsp;            organization.setLogo(getExternalizedURL(organization.getLogo()));</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Build SEO Search Action data SEO Link configuration
+&nbsp;     *
+&nbsp;     * @param target is Search Target page
+&nbsp;     * @param cfg    {@link SeoSiteLinkConfig}
+&nbsp;     */
+&nbsp;    private List&lt;SeoSiteSearchAction&gt; getSearchAction(final String target, final SeoSiteLinkConfig cfg) {
+<b class="nc">&nbsp;        List&lt;SeoSiteSearchAction&gt; searchActions = null;</b>
+&nbsp;
+<b class="nc">&nbsp;        if (StringUtils.isNotBlank(target)) {</b>
+<b class="nc">&nbsp;            searchActions = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;            SeoSiteSearchAction searchAction = new SeoSiteSearchAction(cfg);</b>
+<b class="nc">&nbsp;            searchAction.setTarget(target);</b>
+<b class="nc">&nbsp;            searchAction.buildSeoSearchTargetUrl(linkManager);</b>
+<b class="nc">&nbsp;            searchActions.add(searchAction);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return searchActions;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get Externalize for specific url
+&nbsp;     *
+&nbsp;     * @param url is link to get Externalize
+&nbsp;     * @return URL link externalize
+&nbsp;     */
+&nbsp;    private String getExternalizedURL(String url) {
+<b class="nc">&nbsp;        if (StringUtils.isNotBlank(url)) {</b>
+<b class="nc">&nbsp;            return LinkUtils.getExternalizedLink(linkManager, url);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get list tracking values from list Tag Ids
+&nbsp;     *
+&nbsp;     * @param tagIds is list Tag Id to get value
+&nbsp;     * @return JsonArray
+&nbsp;     */
+&nbsp;    private JsonArray getTrackingValuesFromTags(String[] tagIds) {
+<b class="nc">&nbsp;        JsonArray trackingValues = new JsonArray();</b>
+&nbsp;
+<b class="nc">&nbsp;        if (ArrayUtils.isNotEmpty(tagIds)) {</b>
+<b class="nc">&nbsp;            for (String tagId : tagIds) {</b>
+<b class="nc">&nbsp;                Tag tag = tagManager.resolve(tagId);</b>
+&nbsp;
+<b class="nc">&nbsp;                if (tag != null) {</b>
+<b class="nc">&nbsp;                    trackingValues.add(tag.getTitle());</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return trackingValues;</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    
+&nbsp;    
+&nbsp;    /* Delegate methods */
+&nbsp;    
+&nbsp;    public String getLanguage() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getLanguage()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Calendar getLastModifiedDate() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getLastModifiedDate()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @JsonIgnore
+&nbsp;	public String[] getKeywords() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getKeywords()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getDesignPath() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getDesignPath()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getStaticDesignPath() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getStaticDesignPath()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Deprecated
+&nbsp;    @JsonIgnore
+&nbsp;    public Map&lt;String, String&gt; getFavicons() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getFavicons()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getTitle() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getTitle()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getDescription() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getDescription()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getBrandSlug() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getBrandSlug()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @JsonIgnore
+&nbsp;    public String[] getClientLibCategories() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getClientLibCategories()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @JsonIgnore
+&nbsp;    public String[] getClientLibCategoriesJsBody() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getClientLibCategoriesJsBody()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @JsonIgnore
+&nbsp;    public String[] getClientLibCategoriesJsHead() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getClientLibCategoriesJsHead()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getTemplateName() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getTemplateName()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    public String getAppResourcesPath() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getAppResourcesPath()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getCssClassNames() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getCssClassNames()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    public NavigationItem getRedirectTarget() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getRedirectTarget()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean hasCloudconfigSupport() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.hasCloudconfigSupport()).orElse(false);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @NotNull
+&nbsp;    public Set&lt;String&gt; getComponentsResourceTypes() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getComponentsResourceTypes()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @NotNull
+&nbsp;    @Override
+&nbsp;    public String[] getExportedItemsOrder() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getExportedItemsOrder()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @NotNull
+&nbsp;    @Override
+&nbsp;    public Map&lt;String, ? extends ComponentExporter&gt; getExportedItems() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getExportedItems()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @NotNull
+&nbsp;    @Override
+&nbsp;    public String getExportedType() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getExportedType()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    public String getMainContentSelector() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getMainContentSelector()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    public List&lt;HtmlPageItem&gt; getHtmlPageItems() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getHtmlPageItems()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    @JsonIgnore
+&nbsp;    public String getCanonicalLink() { 
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getCanonicalLink()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @NotNull
+&nbsp;    @JsonIgnore
+&nbsp;    public Map&lt;Locale, String&gt; getAlternateLanguageLinks() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getAlternateLanguageLinks()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @NotNull
+&nbsp;    @JsonIgnore
+&nbsp;    public List&lt;String&gt; getRobotsTags() {
+<b class="nc">&nbsp;        return Optional.ofNullable(page).map(page -&gt;page.getRobotsTags()).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @NotNull
+&nbsp;    @JsonIgnore
+&nbsp;    public String getCountryPageTitle() {
+<b class="nc">&nbsp;        com.day.cq.wcm.api.Page[] localePages = PageUtils.getLocalePages(currentPage);</b>
+<b class="nc">&nbsp;        if (localePages != null) {</b>
+<b class="nc">&nbsp;        	return localePages[0].getTitle();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return StringUtils.EMPTY;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @NotNull
+&nbsp;    @JsonIgnore
+&nbsp;    public String getSiteLocale() {
+<b class="nc">&nbsp;        return PageUtils.getLocale(currentPage);</b>
+&nbsp;    }
+&nbsp;    @NotNull
+&nbsp;    @JsonIgnore
+&nbsp;    public String getLanguagePageTitle() {
+<b class="nc">&nbsp;        com.day.cq.wcm.api.Page[] localePages = PageUtils.getLocalePages(currentPage);</b>
+<b class="nc">&nbsp;        if (localePages != null) {</b>
+<b class="nc">&nbsp;        	return localePages[1].getTitle();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return StringUtils.EMPTY;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

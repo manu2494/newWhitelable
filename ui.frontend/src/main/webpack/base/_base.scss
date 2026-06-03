@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+a {
+	color: inherit;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font: inherit;
+}
+
+body {
+    min-height: 100svh;
+    color: $color-primary;
+    background-color: $background-theme-1;
+    font-family: $font-family-primary;
+    font-size: $font-size-normal-mobile;
+    line-height: $line-height-minimum;
+    max-width: $desktop-width;
+    margin: auto;
+
+    @include min-tablet {
+        font-size: $font-size-normal-tablet;
+    }
+
+    @include min-desktop {
+        font-size: $font-size-normal-desktop;
+    }
+}
+
+.hidden {
+	display: none !important;
+}

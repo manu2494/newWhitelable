@@ -1,0 +1,129 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "en",
+    "twitterCard": "summary",
+    "cq:lastReplicationAction": "Activate",
+    "pwaOrientation": "any",
+    "cq:template": "/conf/whitelabel/settings/wcm/templates/page-content",
+    "cq:lastReplicatedBy": "admin",
+    "jcr:language": "en_gb",
+    "cq:contextHubSegmentsPath": "/etc/segmentation/contexthub",
+    "pwaDisplay": "standalone",
+    "pwaCachestrategy": "staleWhileRevalidate",
+    "isPrivatePage": "false",
+    "pageTitle": "Test - Core Framework",
+    "sling:resourceType": "whitelabel/components/page",
+    "cq:contextHubPath": "/etc/cloudsettings/default/contexthub",
+    "cq:isLanguageRoot": "true",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "layout": "responsiveGrid",
+      "sling:resourceType": "whitelabel/components/container",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "whitelabel/components/container",
+        "title": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "whitelabel/components/title"
+        },
+        "container": {
+          "jcr:primaryType": "nt:unstructured",
+          "layout": "responsiveGrid",
+          "sling:resourceType": "whitelabel/components/container",
+          "teaser": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:title": "Epic Journey",
+            "actionsEnabled": "false",
+            "titleFromPage": "false",
+            "jcr:description": "<p>Don't stop half way, go for the top!</p>\r\n",
+            "descriptionFromPage": "false",
+            "sling:resourceType": "whitelabel/components/teaser",
+            "textIsRich": "true"
+          },
+          "teaser_copy": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:title": "Epic Journey",
+            "actionsEnabled": "false",
+            "titleFromPage": "false",
+            "jcr:description": "<p>Don't stop half way, go for the top!</p>\r\n",
+            "descriptionFromPage": "false",
+            "sling:resourceType": "whitelabel/components/teaser",
+            "textIsRich": "true"
+          },
+          "teaser_copy_1579324932": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:title": "Epic Journey",
+            "actionsEnabled": "false",
+            "titleFromPage": "false",
+            "jcr:description": "<p>Don't stop half way, go for the top!</p>\r\n",
+            "descriptionFromPage": "false",
+            "sling:resourceType": "whitelabel/components/teaser",
+            "textIsRich": "true"
+          },
+          "helloworld": {
+            "jcr:primaryType": "nt:unstructured",
+            "text": "lalala :)",
+            "sling:resourceType": "whitelabel/components/helloworld"
+          }
+        }
+      }
+    },
+    "cq:featuredimage": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "core/wcm/components/image/v3/image",
+      "altValueFromDAM": "false"
+    },
+    "schema": {
+      "jcr:primaryType": "nt:unstructured",
+      "organization": {
+        "jcr:primaryType": "nt:unstructured",
+        "countryCode": "+49",
+        "sameAs": [
+          "https://de-de.facebook.com/",
+          "https://www.instagram.com/",
+          "https://www.youtube.com/channel/UCUAeMXYcGox6z3KZ8Cp81Vg",
+          "https://www.pinterest.com.mx/"
+        ],
+        "logo": "/content/dam/training-guide/sprint-10/header_logo.png",
+        "name": "Nutricia Milupa GmbH",
+        "telephone": "08002782645",
+        "contactPoint": {
+          "jcr:primaryType": "nt:unstructured",
+          "item0": {
+            "jcr:primaryType": "nt:unstructured",
+            "countryCode": "+84",
+            "contactType": "customer support",
+            "telephone": "090909"
+          },
+          "item1": {
+            "jcr:primaryType": "nt:unstructured",
+            "countryCode": "+65",
+            "contactType": "technical support",
+            "telephone": "09090909"
+          }
+        }
+      },
+      "website": {
+        "jcr:primaryType": "nt:unstructured",
+        "target": "/content/whitelabel/us/en/(Playground)--AEM-Training-Guide-Sprint-3/b2c-calendar?q=",
+        "url": "https://www.pinterest.com.mx/aaaa"
+      },
+      "article": {
+        "jcr:primaryType": "nt:unstructured",
+        "articleType": "Article",
+        "author": {
+          "jcr:primaryType": "nt:unstructured"
+        },
+        "publisher": {
+          "jcr:primaryType": "nt:unstructured",
+          "logo": {
+            "jcr:primaryType": "nt:unstructured",
+            "url": "/content/dam/whitelabel/cq5dam.web.1280.1280.jpeg"
+          }
+        }
+      }
+    }
+  }
+}
