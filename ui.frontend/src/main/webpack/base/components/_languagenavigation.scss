@@ -1,0 +1,175 @@
+.languagenavigation {
+    &.language-primary {
+        border: 1px solid $color-primary;
+        position: relative;
+
+        .languageDiv {
+            display: flex;
+            align-items: center;
+            width: 95px;
+
+            .languageSpan {
+                width: 25px;
+                height: 25px;
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20px" height="20px"><path d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"/></svg>');
+                background-repeat: no-repeat;
+                background-position: left 50%;
+            }
+
+            .languageSpan-close {
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20px" height="20px"><path d="M118.6 105.4l128 127.1C252.9 239.6 256 247.8 256 255.1s-3.125 16.38-9.375 22.63l-128 127.1c-9.156 9.156-22.91 11.9-34.88 6.943S64 396.9 64 383.1V128c0-12.94 7.781-24.62 19.75-29.58S109.5 96.23 118.6 105.4z"/></svg>');
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .cmp-languagenavigation {
+            width: 200px;
+            position: absolute;
+            z-index: 999;
+            border: 1px solid;
+            display: none;
+
+            .cmp-languagenavigation__item-title {
+                font-weight: bolder;
+            }
+
+            .cmp-languagenavigation__item-link {
+                text-decoration: none;
+                width: 100%;
+            }
+
+            .cmp-languagenavigation__group {
+                list-style: none;
+            }
+        }
+    }
+
+    &.language-secondary {
+        .cmp-languagenavigation {
+            .cmp-languagenavigation__group {
+                border: 1px solid;
+                display: flex;
+                flex-wrap: wrap;
+                list-style: none;
+            }
+
+            .cmp-languagenavigation__item-link {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.languagenavigation {
+	&.language-primary {
+		.languageDiv {
+			.languageText {
+				margin: $margin-languageText;
+			}
+		}
+		.cmp-languagenavigation {
+			margin: $zero-margin;
+			padding: $padding-languagenavigation;
+			background-color: $color-tertiary;
+			.cmp-languagenavigation__item-link {
+				color: $color-primary;
+				padding: $padding-languagenavigation-link;
+			}
+			.cmp-languagenavigation__group {
+				padding: $zero-padding;
+				.cmp-languagenavigation__item {
+					padding: $padding-languagenavigation-item;
+				}
+			}
+		}
+	}
+
+	&.language-secondary {
+		.cmp-languagenavigation {
+			.cmp-languagenavigation__group {
+				padding: $zero-padding;
+				margin: $zero-margin;
+				.cmp-languagenavigation__item {
+					padding: $default-padding;
+				}
+			}
+			.cmp-languagenavigation__item-link {
+				color: $color-primary;
+			}
+		}
+	}
+
+
+	&.background {
+		&-primary {
+			.cmp-languagenavigation {
+				background-color: $background-theme-1;
+			}
+		}
+		&-secondary {
+			.cmp-languagenavigation {
+				background-color: $background-theme-2;
+			}
+		}
+		&-tertiary {
+			.cmp-languagenavigation {
+				background-color: $background-theme-3;
+			}
+		}
+	}
+	&.color {
+		&-primary {
+			.languageDiv {
+				.languageText {
+					color: $color-primary;
+				}
+				.languageSpan {
+					filter: $filter-primary;
+				}
+			}
+			.cmp-languagenavigation {
+				color: $color-primary;
+				.cmp-languagenavigation__item-link {
+					color: $color-primary;
+				}
+			}
+		}
+
+		&-secondary {
+			.languageDiv {
+				.languageText {
+					color: $color-secondary;
+				}
+				.languageSpan {
+					filter: $filter-secondary;
+				}
+			}
+			.cmp-languagenavigation {
+				color: $color-secondary;
+				.cmp-languagenavigation__item-link {
+					color: $color-secondary;
+				}
+			}
+		}
+
+		&-tertiary {
+			.languageDiv {
+				.languageText {
+					color: $color-tertiary;
+				}
+				.languageSpan {
+					filter: $filter-tertiary;
+				}
+			}
+			.cmp-languagenavigation {
+				color: $color-tertiary;
+				.cmp-languagenavigation__item-link {
+					color: $color-tertiary;
+				}
+			}
+		}
+	}
+}

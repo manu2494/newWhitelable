@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page" lang="${page.language}"
+	data-sly-use.pwa="com.adobe.cq.wcm.core.components.models.PWA" data-sly-use.head="head.html"
+	data-sly-use.footer="footer.html" data-sly-use.redirect="redirect.html"
+	data-sly-set.trackingConfig="${caconfig['com.merkle.xp.whitelabel.core.config.TrackingConfig']}"
+	  data-sly-set.oneTrustConfig="${caconfig['com.merkle.xp.whitelabel.core.config.OneTrustConfig']}"
+	data-sly-set.generalConfig="${caconfig['com.merkle.xp.whitelabel.core.config.GeneralConfig']}"
+	data-sly-set.authentication="${caconfig['com.merkle.xp.whitelabel.core.config.UserAuthentication']}"
+	data-sly-set.promo="${caconfig['com.merkle.xp.whitelabel.core.config.PromotionConfig']}">
+
+<head data-sly-call="${head.head @ page = page, pwa = pwa, promo = promo, oneTrustConfig = oneTrustConfig, trackingConfig = trackingConfig}"></head>
+
+<body class="${page.cssClassNames} ${generalConfig.body} ${page.instance} ${wcmmode.edit ? '' : 'live'} ${page.secure? 'hidden':''}" id="${page.id}" data-cmp-data-layer-enabled="true" data-private="${page.secure}">
+	<div class="hidden datalayer" data-promotionName="${promo.promotionName}" data-timezone="${promo.timezone}" data-platform="${promo.promotionPlatform}" data-region="${promo.siteRegion}" data-type="${promo.siteType}" data-promotionId="${promo.promotionId}" data-locale="${page.siteLocale}"}></div>
+	
+	<sly data-sly-test="${page.instance =='publish' && page.devices}">
+		<div class="hidden deviceSettings" >
+			<sly data-sly-list.device="${page.devices}">
+				<p class="device-size" data-min="${device.minSize}" data-max="${device.maxSize}" data-redirect="${device.redirect}"></p>
+			</sly>
+		</div>
+		<script>
+			const width=window.innerWidth;
+			Array.from(document.querySelectorAll('.device-size')).forEach((device)=>{
+				const min = parseInt(device.getAttribute('data-min'));
+				const max = parseInt(device.getAttribute('data-max'));
+				if (width >= min && width <= max) {
+					redirect = device.getAttribute('data-redirect');
+					window.location.href = redirect;
+				}
+			});
+			
+		</script>
+	</sly>
+	<sly data-sly-test="${page.instance =='publish' && page.secure}">
+		<script>
+			setTimeout(() => {
+				const cookies = '${authentication.cookies @ context="scriptString"}'.split(',');
+	            let found = true;
+	            for (let i=0;i<cookies.length;i++) {
+	            	if (!BGC.cookie(cookies[i])) {
+	                	found = false;
+	                    break;
+	                }
+	            }
+	            if (!found) {
+	            	window.location.href='${page.loginPage @ context="scriptString"}';
+	            } else {
+					document.body.classList.remove('hidden');
+				}
+			},250);
+		</script>
+	</sly>
+	<sly data-sly-test="${trackingConfig.googleAnalyticsUACode}">
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=${trackingConfig.googleAnalyticsUACode  @ context='unsafe'} " height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager -->
+	</sly>
+	
+	<script data-sly-test.dataLayerEnabled="${page.data}">
+		window.adobeDataLayer = window.adobeDataLayer || [];
+		adobeDataLayer.push({
+			page: JSON.parse("${page.data.json @ context='scriptString'}"),
+			event: 'cmp:show',
+			eventInfo: {
+				path: 'page.${page.id @ context="scriptString"}'
+			}
+		});
+	</script>
+	<sly data-sly-set.variableName="${trackingConfig.variableName || 'datalayer'}" />
+	<script data-sly-test="${page.datalayerJson && variableName && !tracingConfig.useArray}">
+		let jsonData = '${page.datalayerJson @context="unsafe"}';
+		jsonData = JSON.parse(jsonData);
+		window["${variableName @ context='unsafe'}"] = window["${variableName @ context='unsafe'}"] || {};
+		window["${variableName @ context='unsafe'}"] = {
+		    ...jsonData
+		}
+	</script>
+	<script data-sly-test="${page.datalayerJson && variableName && trackingConfig.useArray}">
+		let jsonData = '${page.datalayerJson @context="unsafe"}';
+		jsonData = JSON.parse(jsonData);
+
+		window['${variableName @ context='unsafe'}'] = window['${variableName @ context='unsafe'}'] || [];
+		window['${variableName @ context='unsafe'}'].push(jsonData);
+	</script>
+	<sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
+		data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
+	<sly data-sly-test="${!isRedirectPage}">
+		<sly data-sly-include="body.skiptomaincontent.html"></sly>
+		<sly data-sly-include="body.socialmedia_begin.html"></sly>
+		<sly data-sly-include="body.html"></sly>
+		<sly data-sly-call="${footer.footer @ page = page, pwa = pwa}"></sly>
+		<sly data-sly-include="body.socialmedia_end.html"></sly>
+	</sly>
+
+	<sly data-sly-set.promotionConfig="${caconfig['com.merkle.xp.whitelabel.core.config.PromotionConfig']}">
+		<div class="adobelaunchconfig">
+			<div id = "propid"
+				 data-propid = "${trackingConfig.launchPropertyID}"
+				 data-entity= "${promotionConfig.siteEntity}"
+				 data-sitetype="${promotionConfig.siteType}"
+				 data-sitereg ="${promotionConfig.siteRegion}"
+				 data-country="${page.countryPageTitle}"
+				 data-promotionname="${promotionConfig.promotionName}"
+				 data-locale="${page.siteLocale}"
+				 data-language="${page.languagePageTitle}"
+				 data-env="${promotionConfig.env}"
+				 data-promotionPlatform = "${promotionConfig.promotionPlatform}"></div>
+			<adobeLaunch id ="footerbvscipt" src="https://assets.adobedtm.com/${trackingConfig.launchID}.min.js">
+				<sly data-sly-test="${trackingConfig.launchID}">
+				</sly>
+			</adobeLaunch>
+		</div>
+	</sly>
+</body>
+</html>

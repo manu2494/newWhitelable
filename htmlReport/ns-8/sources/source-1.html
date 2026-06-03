@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ApiConfigurationImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.services.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: ApiConfigurationImpl (com.merkle.xp.whitelabel.core.services.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ApiConfigurationImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.services.impl;
+&nbsp;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;import org.osgi.service.component.annotations.Activate;
+&nbsp;import org.osgi.service.component.annotations.Component;
+&nbsp;import org.osgi.service.component.annotations.ConfigurationPolicy;
+&nbsp;import org.osgi.service.component.annotations.Deactivate;
+&nbsp;import org.osgi.service.component.annotations.Reference;
+&nbsp;import org.osgi.service.component.annotations.ReferenceCardinality;
+&nbsp;import org.osgi.service.component.annotations.ReferencePolicy;
+&nbsp;import org.osgi.service.component.propertytypes.ServiceDescription;
+&nbsp;import org.osgi.service.component.propertytypes.ServiceVendor;
+&nbsp;import org.osgi.service.metatype.annotations.Designate;
+&nbsp;
+&nbsp;import com.merkle.xp.whitelabel.core.services.ApiConfigurationService;
+&nbsp;
+&nbsp;@Component(service = ApiConfigurationService.class, immediate = true, configurationPolicy = ConfigurationPolicy.OPTIONAL, reference = @Reference(name=&quot;api&quot;, service= ApiConfiguration.class, policy=ReferencePolicy.DYNAMIC, cardinality = ReferenceCardinality.MULTIPLE))
+&nbsp;@Designate(ocd = ApiConfiguration.class, factory = true)
+&nbsp;@ServiceDescription(&quot;Merkle - Api Configuration Service&quot;)
+&nbsp;@ServiceVendor(&quot;Merkle Whitelabel&quot;)
+<b class="fc">&nbsp;public class ApiConfigurationImpl implements ApiConfigurationService {</b>
+<b class="fc">&nbsp;	private static Map&lt;String, ApiConfiguration&gt; configs = new HashMap&lt;&gt;();</b>
+&nbsp;	
+&nbsp;	@Activate
+&nbsp;	public void activate(final ApiConfiguration config) {
+<b class="fc">&nbsp;		configs.put(config.name(), config);</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Deactivate
+&nbsp;	public void deactivate(final ApiConfiguration config) {
+<b class="fc">&nbsp;		configs.remove(config.name());</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	@Override
+&nbsp;	public ApiConfiguration getApi(String name) {
+<b class="fc">&nbsp;		return configs.get(name);</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	public String[] getConfigNames() {
+<b class="fc">&nbsp;		return configs.keySet().toArray(new String[configs.size()]);</b>
+&nbsp;	}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

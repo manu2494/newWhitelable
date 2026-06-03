@@ -1,0 +1,617 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > image__002e__html</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.apache.sling.scripting.sightly.apps.whitelabel.components.image</a>
+</div>
+
+<h1>Coverage Summary for Class: image__002e__html (org.apache.sling.scripting.sightly.apps.whitelabel.components.image)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">image__002e__html</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/206)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/235)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*******************************************************************************
+&nbsp; * Licensed to the Apache Software Foundation (ASF) under one
+&nbsp; * or more contributor license agreements.  See the NOTICE file
+&nbsp; * distributed with this work for additional information
+&nbsp; * regarding copyright ownership.  The ASF licenses this file
+&nbsp; * to you under the Apache License, Version 2.0 (the
+&nbsp; * &quot;License&quot;); you may not use this file except in compliance
+&nbsp; * with the License.  You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *   http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing,
+&nbsp; * software distributed under the License is distributed on an
+&nbsp; * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+&nbsp; * KIND, either express or implied.  See the License for the
+&nbsp; * specific language governing permissions and limitations
+&nbsp; * under the License.
+&nbsp; ******************************************************************************/
+&nbsp;package org.apache.sling.scripting.sightly.apps.whitelabel.components.image;
+&nbsp;
+&nbsp;import java.io.PrintWriter;
+&nbsp;import java.util.Collection;
+&nbsp;import javax.script.Bindings;
+&nbsp;
+&nbsp;import org.apache.sling.scripting.sightly.render.RenderUnit;
+&nbsp;import org.apache.sling.scripting.sightly.render.RenderContext;
+&nbsp;
+<b class="nc">&nbsp;public final class image__002e__html extends RenderUnit {</b>
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected final void render(PrintWriter out,
+&nbsp;                                Bindings bindings,
+&nbsp;                                Bindings arguments,
+&nbsp;                                RenderContext renderContext) {
+&nbsp;// Main Template Body -----------------------------------------------------------------------------
+&nbsp;
+<b class="nc">&nbsp;Object _global_image = null;</b>
+<b class="nc">&nbsp;Object _global_templates = null;</b>
+<b class="nc">&nbsp;Object _dynamic_wcmmode = bindings.get(&quot;wcmmode&quot;);</b>
+<b class="nc">&nbsp;Object _dynamic_properties = bindings.get(&quot;properties&quot;);</b>
+<b class="nc">&nbsp;Collection var_attrmap26_list_coerced$ = null;</b>
+<b class="nc">&nbsp;_global_image = renderContext.call(&quot;use&quot;, com.adobe.cq.wcm.core.components.models.Image.class.getName(), obj());</b>
+<b class="nc">&nbsp;_global_templates = renderContext.call(&quot;use&quot;, &quot;core/wcm/components/commons/v1/templates.html&quot;, obj());</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable0 = renderContext.getObjectModel().resolveProperty(_global_image, &quot;src&quot;);</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable0)) {</b>
+<b class="nc">&nbsp;        out.write(&quot;&lt;div&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_attrvalue1 = renderContext.getObjectModel().resolveProperty(_global_image, &quot;dmImage&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrcontent2 = renderContext.call(&quot;xss&quot;, var_attrvalue1, &quot;attribute&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_shoulddisplayattr4 = (((null != var_attrcontent2) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent2))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue1)) &amp;&amp; (!((Object)false).equals(var_attrvalue1))));</b>
+<b class="nc">&nbsp;                    if (var_shoulddisplayattr4) {</b>
+<b class="nc">&nbsp;                        out.write(&quot; data-cmp-dmimage&quot;);</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            boolean var_istrueattr3 = (var_attrvalue1.equals(true));</b>
+<b class="nc">&nbsp;                            if (!var_istrueattr3) {</b>
+<b class="nc">&nbsp;                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                out.write(renderContext.getObjectModel().toString(var_attrcontent2));</b>
+<b class="nc">&nbsp;                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_attrvalue5 = renderContext.getObjectModel().resolveProperty(_global_image, &quot;uuid&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrcontent6 = renderContext.call(&quot;xss&quot;, var_attrvalue5, &quot;attribute&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_shoulddisplayattr8 = (((null != var_attrcontent6) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent6))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue5)) &amp;&amp; (!((Object)false).equals(var_attrvalue5))));</b>
+<b class="nc">&nbsp;                    if (var_shoulddisplayattr8) {</b>
+<b class="nc">&nbsp;                        out.write(&quot; data-asset-id&quot;);</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            boolean var_istrueattr7 = (var_attrvalue5.equals(true));</b>
+<b class="nc">&nbsp;                            if (!var_istrueattr7) {</b>
+<b class="nc">&nbsp;                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                out.write(renderContext.getObjectModel().toString(var_attrcontent6));</b>
+<b class="nc">&nbsp;                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_attrvalue9 = renderContext.getObjectModel().resolveProperty(_global_image, &quot;id&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrcontent10 = renderContext.call(&quot;xss&quot;, var_attrvalue9, &quot;attribute&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_shoulddisplayattr12 = (((null != var_attrcontent10) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent10))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue9)) &amp;&amp; (!((Object)false).equals(var_attrvalue9))));</b>
+<b class="nc">&nbsp;                    if (var_shoulddisplayattr12) {</b>
+<b class="nc">&nbsp;                        out.write(&quot; id&quot;);</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            boolean var_istrueattr11 = (var_attrvalue9.equals(true));</b>
+<b class="nc">&nbsp;                            if (!var_istrueattr11) {</b>
+<b class="nc">&nbsp;                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                out.write(renderContext.getObjectModel().toString(var_attrcontent10));</b>
+<b class="nc">&nbsp;                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_attrvalue13 = renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_image, &quot;data&quot;), &quot;json&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrcontent14 = renderContext.call(&quot;xss&quot;, var_attrvalue13, &quot;attribute&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_shoulddisplayattr16 = (((null != var_attrcontent14) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent14))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue13)) &amp;&amp; (!((Object)false).equals(var_attrvalue13))));</b>
+<b class="nc">&nbsp;                    if (var_shoulddisplayattr16) {</b>
+<b class="nc">&nbsp;                        out.write(&quot; data-cmp-data-layer&quot;);</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            boolean var_istrueattr15 = (var_attrvalue13.equals(true));</b>
+<b class="nc">&nbsp;                            if (!var_istrueattr15) {</b>
+<b class="nc">&nbsp;                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                out.write(renderContext.getObjectModel().toString(var_attrcontent14));</b>
+<b class="nc">&nbsp;                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;        {
+<b class="nc">&nbsp;            String var_attrcontent17 = (&quot;cmp-image&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, ((!renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;disabled&quot;))) ? &quot; cq-dd-image&quot; : &quot;&quot;), &quot;attribute&quot;)));</b>
+<b class="nc">&nbsp;            out.write(&quot; class=\&quot;&quot;);</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_attrcontent17));</b>
+<b class="nc">&nbsp;            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot; itemscope itemtype=\&quot;http://schema.org/ImageObject\&quot;&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_attrvalue18 = renderContext.getObjectModel().resolveProperty(_dynamic_properties, &quot;analyticsPrimary&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrcontent19 = renderContext.call(&quot;xss&quot;, var_attrvalue18, &quot;attribute&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_shoulddisplayattr21 = (((null != var_attrcontent19) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent19))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue18)) &amp;&amp; (!((Object)false).equals(var_attrvalue18))));</b>
+<b class="nc">&nbsp;                    if (var_shoulddisplayattr21) {</b>
+<b class="nc">&nbsp;                        out.write(&quot; data-analytics-primary&quot;);</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            boolean var_istrueattr20 = (var_attrvalue18.equals(true));</b>
+<b class="nc">&nbsp;                            if (!var_istrueattr20) {</b>
+<b class="nc">&nbsp;                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                out.write(renderContext.getObjectModel().toString(var_attrcontent19));</b>
+<b class="nc">&nbsp;                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_attrvalue22 = renderContext.getObjectModel().resolveProperty(_dynamic_properties, &quot;analyticsSecondary&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrcontent23 = renderContext.call(&quot;xss&quot;, var_attrvalue22, &quot;attribute&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_shoulddisplayattr25 = (((null != var_attrcontent23) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent23))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue22)) &amp;&amp; (!((Object)false).equals(var_attrvalue22))));</b>
+<b class="nc">&nbsp;                    if (var_shoulddisplayattr25) {</b>
+<b class="nc">&nbsp;                        out.write(&quot; data-analytics-secondary&quot;);</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            boolean var_istrueattr24 = (var_attrvalue22.equals(true));</b>
+<b class="nc">&nbsp;                            if (!var_istrueattr24) {</b>
+<b class="nc">&nbsp;                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                out.write(renderContext.getObjectModel().toString(var_attrcontent23));</b>
+<b class="nc">&nbsp;                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;&gt;\n    &quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_unwrapcondition27 = (!renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_image, &quot;imageLink&quot;), &quot;valid&quot;)));</b>
+<b class="nc">&nbsp;            if (!var_unwrapcondition27) {</b>
+<b class="nc">&nbsp;                out.write(&quot;&lt;a&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_attrmap26 = renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_image, &quot;imageLink&quot;), &quot;htmlAttributes&quot;);</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        String var_attrname_class28 = &quot;class&quot;;</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            Object var_mapcontains_class29 = renderContext.getObjectModel().resolveProperty(var_attrmap26, &quot;class&quot;);</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                Object var_attrcontentescaped30 = renderContext.call(&quot;xss&quot;, var_mapcontains_class29, &quot;attribute&quot;, &quot;class&quot;);</b>
+&nbsp;                                {
+<b class="nc">&nbsp;                                    boolean var_shoulddisplayattr31 = (((null != var_attrcontentescaped30) &amp;&amp; (!&quot;&quot;.equals(var_attrcontentescaped30))) &amp;&amp; ((!&quot;&quot;.equals(var_mapcontains_class29)) &amp;&amp; (!((Object)false).equals(var_mapcontains_class29))));</b>
+<b class="nc">&nbsp;                                    if (var_shoulddisplayattr31) {</b>
+<b class="nc">&nbsp;                                        out.write(&quot; &quot;);</b>
+<b class="nc">&nbsp;                                        out.write(renderContext.getObjectModel().toString(var_attrname_class28));</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            boolean var_istrueattr32 = (var_mapcontains_class29.equals(true));</b>
+<b class="nc">&nbsp;                                            if (!var_istrueattr32) {</b>
+<b class="nc">&nbsp;                                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                out.write(renderContext.getObjectModel().toString(var_attrcontentescaped30));</b>
+<b class="nc">&nbsp;                                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                            }
+&nbsp;                                        }
+&nbsp;                                    }
+&nbsp;                                }
+&nbsp;                            }
+<b class="nc">&nbsp;                            if (!renderContext.getObjectModel().toBoolean(var_mapcontains_class29)) {</b>
+<b class="nc">&nbsp;                                out.write(&quot; class=\&quot;cmp-image__link\&quot;&quot;);</b>
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                    {
+<b class="nc">&nbsp;                        boolean var_attrvalue33 = (renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_image, &quot;data&quot;)) ? true : false);</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            Object var_attrcontent34 = renderContext.call(&quot;xss&quot;, var_attrvalue33, &quot;attribute&quot;);</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_shoulddisplayattr36 = (((null != var_attrcontent34) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent34))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue33)) &amp;&amp; (false != var_attrvalue33)));</b>
+<b class="nc">&nbsp;                                if (var_shoulddisplayattr36) {</b>
+<b class="nc">&nbsp;                                    out.write(&quot; data-cmp-clickable&quot;);</b>
+&nbsp;                                    {
+<b class="nc">&nbsp;                                        boolean var_istrueattr35 = (var_attrvalue33 == true);</b>
+<b class="nc">&nbsp;                                        if (!var_istrueattr35) {</b>
+<b class="nc">&nbsp;                                            out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                            out.write(renderContext.getObjectModel().toString(var_attrcontent34));</b>
+<b class="nc">&nbsp;                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                        }
+&nbsp;                                    }
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                    {
+<b class="nc">&nbsp;                        boolean var_ignoredattributes37_field$_data__002d__cmp__002d__clickable = true;</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            boolean var_ignoredattributes37_field$_class = true;</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                java.util.Map var_ignoredattributes37 = obj().with(&quot;data-cmp-clickable&quot;, var_ignoredattributes37_field$_data__002d__cmp__002d__clickable).with(&quot;class&quot;, var_ignoredattributes37_field$_class);</b>
+<b class="nc">&nbsp;                                if (var_attrmap26_list_coerced$ == null) {</b>
+<b class="nc">&nbsp;                                    var_attrmap26_list_coerced$ = renderContext.getObjectModel().toCollection(var_attrmap26);</b>
+&nbsp;                                }
+<b class="nc">&nbsp;                                long var_attrindex40 = 0;</b>
+<b class="nc">&nbsp;                                for (Object var_attrname38 : var_attrmap26_list_coerced$) {</b>
+&nbsp;                                    {
+<b class="nc">&nbsp;                                        Object var_attrnameescaped39 = renderContext.call(&quot;xss&quot;, var_attrname38, &quot;attributeName&quot;);</b>
+<b class="nc">&nbsp;                                        if (renderContext.getObjectModel().toBoolean(var_attrnameescaped39)) {</b>
+&nbsp;                                            {
+<b class="nc">&nbsp;                                                Object var_isignoredattr41 = var_ignoredattributes37.get(var_attrname38);</b>
+<b class="nc">&nbsp;                                                if (!renderContext.getObjectModel().toBoolean(var_isignoredattr41)) {</b>
+&nbsp;                                                    {
+<b class="nc">&nbsp;                                                        Object var_attrcontent42 = renderContext.getObjectModel().resolveProperty(var_attrmap26, var_attrname38);</b>
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            Object var_attrcontentescaped43 = renderContext.call(&quot;xss&quot;, var_attrcontent42, &quot;attribute&quot;, var_attrnameescaped39);</b>
+&nbsp;                                                            {
+<b class="nc">&nbsp;                                                                boolean var_shoulddisplayattr44 = (((null != var_attrcontentescaped43) &amp;&amp; (!&quot;&quot;.equals(var_attrcontentescaped43))) &amp;&amp; ((!&quot;&quot;.equals(var_attrcontent42)) &amp;&amp; (!((Object)false).equals(var_attrcontent42))));</b>
+<b class="nc">&nbsp;                                                                if (var_shoulddisplayattr44) {</b>
+<b class="nc">&nbsp;                                                                    out.write(&quot; &quot;);</b>
+<b class="nc">&nbsp;                                                                    out.write(renderContext.getObjectModel().toString(var_attrnameescaped39));</b>
+&nbsp;                                                                    {
+<b class="nc">&nbsp;                                                                        boolean var_istrueattr45 = (var_attrcontent42.equals(true));</b>
+<b class="nc">&nbsp;                                                                        if (!var_istrueattr45) {</b>
+<b class="nc">&nbsp;                                                                            out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                            out.write(renderContext.getObjectModel().toString(var_attrcontentescaped43));</b>
+<b class="nc">&nbsp;                                                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                        }
+&nbsp;                                                                    }
+&nbsp;                                                                }
+&nbsp;                                                            }
+&nbsp;                                                        }
+&nbsp;                                                    }
+&nbsp;                                                }
+&nbsp;                                            }
+&nbsp;                                        }
+&nbsp;                                    }
+<b class="nc">&nbsp;                                    var_attrindex40++;</b>
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+<b class="nc">&nbsp;                    var_attrmap26_list_coerced$ = null;</b>
+&nbsp;                }
+<b class="nc">&nbsp;                out.write(&quot;&gt;&quot;);</b>
+&nbsp;            }
+<b class="nc">&nbsp;            out.write(&quot;\n        &lt;img&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrvalue46 = renderContext.getObjectModel().resolveProperty(_global_image, &quot;srcset&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_attrcontent47 = renderContext.call(&quot;xss&quot;, var_attrvalue46, &quot;attribute&quot;);</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        boolean var_shoulddisplayattr49 = (((null != var_attrcontent47) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent47))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue46)) &amp;&amp; (!((Object)false).equals(var_attrvalue46))));</b>
+<b class="nc">&nbsp;                        if (var_shoulddisplayattr49) {</b>
+<b class="nc">&nbsp;                            out.write(&quot; srcset&quot;);</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_istrueattr48 = (var_attrvalue46.equals(true));</b>
+<b class="nc">&nbsp;                                if (!var_istrueattr48) {</b>
+<b class="nc">&nbsp;                                    out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                    out.write(renderContext.getObjectModel().toString(var_attrcontent47));</b>
+<b class="nc">&nbsp;                                    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrvalue50 = renderContext.getObjectModel().resolveProperty(_global_image, &quot;src&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_attrcontent51 = renderContext.call(&quot;xss&quot;, var_attrvalue50, &quot;uri&quot;);</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        boolean var_shoulddisplayattr53 = (((null != var_attrcontent51) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent51))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue50)) &amp;&amp; (!((Object)false).equals(var_attrvalue50))));</b>
+<b class="nc">&nbsp;                        if (var_shoulddisplayattr53) {</b>
+<b class="nc">&nbsp;                            out.write(&quot; src&quot;);</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_istrueattr52 = (var_attrvalue50.equals(true));</b>
+<b class="nc">&nbsp;                                if (!var_istrueattr52) {</b>
+<b class="nc">&nbsp;                                    out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                    out.write(renderContext.getObjectModel().toString(var_attrcontent51));</b>
+<b class="nc">&nbsp;                                    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;            {
+<b class="nc">&nbsp;                String var_attrvalue54 = (renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_image, &quot;lazyEnabled&quot;)) ? &quot;lazy&quot; : &quot;&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_attrcontent55 = renderContext.call(&quot;xss&quot;, var_attrvalue54, &quot;attribute&quot;);</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        boolean var_shoulddisplayattr57 = (((null != var_attrcontent55) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent55))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue54)) &amp;&amp; (!((Object)false).equals(var_attrvalue54))));</b>
+<b class="nc">&nbsp;                        if (var_shoulddisplayattr57) {</b>
+<b class="nc">&nbsp;                            out.write(&quot; loading&quot;);</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_istrueattr56 = (var_attrvalue54.equals(true));</b>
+<b class="nc">&nbsp;                                if (!var_istrueattr56) {</b>
+<b class="nc">&nbsp;                                    out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                    out.write(renderContext.getObjectModel().toString(var_attrcontent55));</b>
+<b class="nc">&nbsp;                                    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;            out.write(&quot; class=\&quot;cmp-image__image\&quot; itemprop=\&quot;contentUrl\&quot;&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrvalue58 = renderContext.getObjectModel().resolveProperty(_global_image, &quot;width&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_attrcontent59 = renderContext.call(&quot;xss&quot;, var_attrvalue58, &quot;attribute&quot;);</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        boolean var_shoulddisplayattr61 = (((null != var_attrcontent59) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent59))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue58)) &amp;&amp; (!((Object)false).equals(var_attrvalue58))));</b>
+<b class="nc">&nbsp;                        if (var_shoulddisplayattr61) {</b>
+<b class="nc">&nbsp;                            out.write(&quot; width&quot;);</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_istrueattr60 = (var_attrvalue58.equals(true));</b>
+<b class="nc">&nbsp;                                if (!var_istrueattr60) {</b>
+<b class="nc">&nbsp;                                    out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                    out.write(renderContext.getObjectModel().toString(var_attrcontent59));</b>
+<b class="nc">&nbsp;                                    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrvalue62 = renderContext.getObjectModel().resolveProperty(_global_image, &quot;height&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_attrcontent63 = renderContext.call(&quot;xss&quot;, var_attrvalue62, &quot;attribute&quot;);</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        boolean var_shoulddisplayattr65 = (((null != var_attrcontent63) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent63))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue62)) &amp;&amp; (!((Object)false).equals(var_attrvalue62))));</b>
+<b class="nc">&nbsp;                        if (var_shoulddisplayattr65) {</b>
+<b class="nc">&nbsp;                            out.write(&quot; height&quot;);</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_istrueattr64 = (var_attrvalue62.equals(true));</b>
+<b class="nc">&nbsp;                                if (!var_istrueattr64) {</b>
+<b class="nc">&nbsp;                                    out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                    out.write(renderContext.getObjectModel().toString(var_attrcontent63));</b>
+<b class="nc">&nbsp;                                    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrvalue66 = ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_image, &quot;alt&quot;)) ? renderContext.getObjectModel().resolveProperty(_global_image, &quot;alt&quot;) : true));</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_attrcontent67 = renderContext.call(&quot;xss&quot;, var_attrvalue66, &quot;attribute&quot;);</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        boolean var_shoulddisplayattr69 = (((null != var_attrcontent67) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent67))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue66)) &amp;&amp; (!((Object)false).equals(var_attrvalue66))));</b>
+<b class="nc">&nbsp;                        if (var_shoulddisplayattr69) {</b>
+<b class="nc">&nbsp;                            out.write(&quot; alt&quot;);</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_istrueattr68 = (var_attrvalue66.equals(true));</b>
+<b class="nc">&nbsp;                                if (!var_istrueattr68) {</b>
+<b class="nc">&nbsp;                                    out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                    out.write(renderContext.getObjectModel().toString(var_attrcontent67));</b>
+<b class="nc">&nbsp;                                    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrvalue70 = ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_image, &quot;displayPopupTitle&quot;)) ? renderContext.getObjectModel().resolveProperty(_global_image, &quot;title&quot;) : renderContext.getObjectModel().resolveProperty(_global_image, &quot;displayPopupTitle&quot;)));</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_attrcontent71 = renderContext.call(&quot;xss&quot;, var_attrvalue70, &quot;attribute&quot;);</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        boolean var_shoulddisplayattr73 = (((null != var_attrcontent71) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent71))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue70)) &amp;&amp; (!((Object)false).equals(var_attrvalue70))));</b>
+<b class="nc">&nbsp;                        if (var_shoulddisplayattr73) {</b>
+<b class="nc">&nbsp;                            out.write(&quot; title&quot;);</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_istrueattr72 = (var_attrvalue70.equals(true));</b>
+<b class="nc">&nbsp;                                if (!var_istrueattr72) {</b>
+<b class="nc">&nbsp;                                    out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                    out.write(renderContext.getObjectModel().toString(var_attrcontent71));</b>
+<b class="nc">&nbsp;                                    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;            out.write(&quot;/&gt;\n    &quot;);</b>
+<b class="nc">&nbsp;            if (!var_unwrapcondition27) {</b>
+<b class="nc">&nbsp;                out.write(&quot;&lt;/a&gt;&quot;);</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n    &quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_testvariable74 = (((!renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_image, &quot;displayPopupTitle&quot;))) ? renderContext.getObjectModel().resolveProperty(_global_image, &quot;title&quot;) : (!renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_image, &quot;displayPopupTitle&quot;)))));</b>
+<b class="nc">&nbsp;            if (renderContext.getObjectModel().toBoolean(var_testvariable74)) {</b>
+<b class="nc">&nbsp;                out.write(&quot;&lt;span class=\&quot;cmp-image__title\&quot; itemprop=\&quot;caption\&quot;&gt;&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_75 = renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_image, &quot;title&quot;), &quot;text&quot;);</b>
+<b class="nc">&nbsp;                    out.write(renderContext.getObjectModel().toString(var_75));</b>
+&nbsp;                }
+<b class="nc">&nbsp;                out.write(&quot;&lt;/span&gt;&quot;);</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n    &quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_testvariable76 = ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_image, &quot;displayPopupTitle&quot;)) ? renderContext.getObjectModel().resolveProperty(_global_image, &quot;title&quot;) : renderContext.getObjectModel().resolveProperty(_global_image, &quot;displayPopupTitle&quot;)));</b>
+<b class="nc">&nbsp;            if (renderContext.getObjectModel().toBoolean(var_testvariable76)) {</b>
+<b class="nc">&nbsp;                out.write(&quot;&lt;meta itemprop=\&quot;caption\&quot;&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_attrvalue77 = renderContext.getObjectModel().resolveProperty(_global_image, &quot;title&quot;);</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        Object var_attrcontent78 = renderContext.call(&quot;xss&quot;, var_attrvalue77, &quot;attribute&quot;);</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            boolean var_shoulddisplayattr80 = (((null != var_attrcontent78) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent78))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue77)) &amp;&amp; (!((Object)false).equals(var_attrvalue77))));</b>
+<b class="nc">&nbsp;                            if (var_shoulddisplayattr80) {</b>
+<b class="nc">&nbsp;                                out.write(&quot; content&quot;);</b>
+&nbsp;                                {
+<b class="nc">&nbsp;                                    boolean var_istrueattr79 = (var_attrvalue77.equals(true));</b>
+<b class="nc">&nbsp;                                    if (!var_istrueattr79) {</b>
+<b class="nc">&nbsp;                                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                        out.write(renderContext.getObjectModel().toString(var_attrcontent78));</b>
+<b class="nc">&nbsp;                                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                    }
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+<b class="nc">&nbsp;                out.write(&quot;/&gt;&quot;);</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n&lt;/div&gt;&quot;);</b>
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_templatevar81 = renderContext.getObjectModel().resolveProperty(_global_templates, &quot;placeholder&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        boolean var_templateoptions82_field$_isempty = (!renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_image, &quot;src&quot;)));</b>
+&nbsp;        {
+<b class="nc">&nbsp;            String var_templateoptions82_field$_classappend = &quot;cmp-image cq-dd-image&quot;;</b>
+&nbsp;            {
+<b class="nc">&nbsp;                java.util.Map var_templateoptions82 = obj().with(&quot;isEmpty&quot;, var_templateoptions82_field$_isempty).with(&quot;classAppend&quot;, var_templateoptions82_field$_classappend);</b>
+<b class="nc">&nbsp;                callUnit(out, renderContext, var_templatevar81, var_templateoptions82);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n&quot;);</b>
+&nbsp;
+&nbsp;
+&nbsp;// End Of Main Template Body ----------------------------------------------------------------------
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    {
+&nbsp;//Sub-Templates Initialization --------------------------------------------------------------------
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;//End of Sub-Templates Initialization -------------------------------------------------------------
+&nbsp;    }
+&nbsp;
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

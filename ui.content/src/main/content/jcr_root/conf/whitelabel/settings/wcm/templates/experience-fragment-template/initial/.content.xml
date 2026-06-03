@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/merkle/settings/wcm/templates/merkle-experience-fragment-template"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="whitelabel/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <cq:responsive jcr:primaryType="nt:unstructured">
+                <breakpoints jcr:primaryType="nt:unstructured">
+                    <phone
+                        jcr:primaryType="nt:unstructured"
+                        title="Mobile"
+                        width="{Long}768"/>
+                    <tablet
+                        jcr:primaryType="nt:unstructured"
+                        title="Tablet"
+                        width="{Long}1200"/>
+                    <desktop
+                        jcr:primaryType="nt:unstructured"
+                        title="Desktop"
+                        width="{Long}1920"/>
+                </breakpoints>
+            </cq:responsive>
+        </root>
+    </jcr:content>
+</jcr:root>

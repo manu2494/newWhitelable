@@ -1,0 +1,112 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > SeoSiteContactPointConfig</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.config</a>
+</div>
+
+<h1>Coverage Summary for Class: SeoSiteContactPointConfig (com.merkle.xp.whitelabel.core.config)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">SeoSiteContactPointConfig$MockitoMock$ShNd3QyP</td>
+  </tr>
+  <tr>
+    <td class="name">SeoSiteContactPointConfig$MockitoMock$ShNd3QyP$auxiliary$jZktIH4s</td>
+  </tr>
+  <tr>
+    <td class="name">SeoSiteContactPointConfig$MockitoMock$ShNd3QyP$auxiliary$woKIUgJp</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.config;
+&nbsp;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;import org.apache.sling.caconfig.annotation.Property;
+&nbsp;
+&nbsp;/**
+&nbsp; * Context-aware configuration holding information about the SEO Site Organization Contact Point
+&nbsp; * This configuration is meant to be used as a context-aware resource. See &lt;a href=
+&nbsp; * &quot;https://sling.apache.org/documentation/bundles/context-aware-configuration/context-aware-configuration.html#context-aware-resources&quot;&gt;Context-Aware
+&nbsp; * Resources&lt;/a&gt;
+&nbsp; */
+&nbsp;public @interface SeoSiteContactPointConfig {
+&nbsp;
+&nbsp;  @Property(label = &quot;Contact Type&quot;, description = &quot;Select Contact Type data&quot;,
+&nbsp;      property = {&quot;widgetType=dropdown&quot;,
+&nbsp;          &quot;dropdownOptions=[&quot; + &quot;{&#39;value&#39;:&#39;customer support&#39;,&#39;description&#39;:&#39;Customer support&#39;},&quot;
+&nbsp;              + &quot;{&#39;value&#39;:&#39;technical support&#39;,&#39;description&#39;:&#39;Technical support&#39;},&quot;
+&nbsp;              + &quot;{&#39;value&#39;:&#39;billingSupport&#39;,&#39;description&#39;:&#39;Billing support&#39;},&quot;
+&nbsp;              + &quot;{&#39;value&#39;:&#39;billPayment&#39;,&#39;description&#39;:&#39;Bill payment&#39;},&quot;
+&nbsp;              + &quot;{&#39;value&#39;:&#39;sales&#39;,&#39;description&#39;:&#39;Sales&#39;},&quot;
+&nbsp;              + &quot;{&#39;value&#39;:&#39;reservations&#39;,&#39;description&#39;:&#39;Reservations&#39;},&quot;
+&nbsp;              + &quot;{&#39;value&#39;:&#39;credit card support&#39;,&#39;description&#39;:&#39;Credit card support&#39;},&quot;
+&nbsp;              + &quot;{&#39;value&#39;:&#39;emergency&#39;,&#39;description&#39;:&#39;Emergency&#39;},&quot;
+&nbsp;              + &quot;{&#39;value&#39;:&#39;baggage tracking&#39;,&#39;description&#39;:&#39;Baggage tracking&#39;},&quot;
+&nbsp;              + &quot;{&#39;value&#39;:&#39;roadside assistance&#39;,&#39;description&#39;:&#39;Roadside assistance&#39;},&quot;
+&nbsp;              + &quot;{&#39;value&#39;:&#39;package tracking&#39;,&#39;description&#39;:&#39;Package tracking&#39;}&quot; + &quot;]&quot;})
+&nbsp;  String contactType();
+&nbsp;
+&nbsp;  @Property(label = &quot;Telephone country code&quot;, description = &quot;Please add the country code with the &#39;+&#39; suffix if necessary&quot;)
+&nbsp;  String countryCode() default StringUtils.EMPTY;
+&nbsp;
+&nbsp;  @Property(label = &quot;Organization telephone&quot;, description = &quot;A &#39;-&#39; will be automatically added between the country code and the telephone number&quot;)
+&nbsp;  String telephone() default StringUtils.EMPTY;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

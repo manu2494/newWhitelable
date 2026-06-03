@@ -1,0 +1,18 @@
+@font-face {
+  font-family: $font-family-primary;
+  font-style: normal;
+  src: url("../resources/fonts/#{$font-family-primary-file}") format("opentype");
+}
+
+@font-face {
+  font-family: $font-family-secondary;
+  font-style: normal;
+  src: url("../resources/fonts/#{$font-family-secondary-file}");
+}
+
+@font-face {
+  font-family: $font-family-tertiary;
+  src: url("../resources/fonts/#{$font-family-tertiary-file}");
+  font-style: normal;
+}
+

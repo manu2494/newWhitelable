@@ -1,0 +1,102 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > TrackingConfig</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.config</a>
+</div>
+
+<h1>Coverage Summary for Class: TrackingConfig (com.merkle.xp.whitelabel.core.config)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">TrackingConfig$MockitoMock$LLJkLXes</td>
+  </tr>
+  <tr>
+    <td class="name">TrackingConfig$MockitoMock$LLJkLXes$auxiliary$6TNKmpKX</td>
+  </tr>
+  <tr>
+    <td class="name">TrackingConfig$MockitoMock$LLJkLXes$auxiliary$DcR6Iov6</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.config;
+&nbsp;
+&nbsp;import org.apache.sling.caconfig.annotation.Configuration;
+&nbsp;import org.apache.sling.caconfig.annotation.Property;
+&nbsp;
+&nbsp;@Configuration(label = &quot;Analytics Tracking Configuration&quot;, description = &quot;Context-Aware Configuration for Tracking Analytics&quot;)
+&nbsp;public @interface TrackingConfig {
+&nbsp;    @Property(label = &quot;Root path to config Datalayer&quot;, description = &quot;to define where to store master config datalayer&quot;, property = {&quot;widgetType=pathbrowser&quot;, &quot;pathbrowserRootPath=/content&quot;})
+&nbsp;    String rootPath();
+&nbsp;
+&nbsp;    @Property(label = &quot;Variable name for window.VARIABLE_NAME&quot;)
+&nbsp;    String variableName();
+&nbsp;
+&nbsp;    @Property(label = &quot;Use array instead of object&quot;, description = &quot;Click to use array instead of object for datalayer&quot;)
+&nbsp;    boolean useArray() default false;
+&nbsp;    
+&nbsp;    @Property(label = &quot;Google Analytics UA code&quot;, description = &quot;Google Analytics UA code&quot;)
+&nbsp;    String googleAnalyticsUACode();
+&nbsp;
+&nbsp;    @Property(label = &quot;Adobe Launch Id&quot;, description = &quot;CA config for Adobe analytics Id&quot;)
+&nbsp;    String launchID();
+&nbsp;
+&nbsp;    @Property(label = &quot;Adobe Launch Property Id&quot;, description = &quot;CA config for Adobe Launch property ID&quot;)
+&nbsp;    String launchPropertyID();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,323 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > HtmlUnitClient</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.it.tests</a>
+</div>
+
+<h1>Coverage Summary for Class: HtmlUnitClient (com.merkle.xp.whitelabel.it.tests)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HtmlUnitClient</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/67)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2020 Adobe Systems Incorporated
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *     http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;package com.merkle.xp.whitelabel.it.tests;
+&nbsp;
+&nbsp;import com.adobe.cq.testing.client.CQClient;
+&nbsp;import org.apache.http.impl.client.CloseableHttpClient;
+&nbsp;import org.apache.sling.testing.clients.ClientException;
+&nbsp;import org.apache.sling.testing.clients.SlingClientConfig;
+&nbsp;import org.htmlunit.DefaultCssErrorHandler;
+&nbsp;import org.htmlunit.WebClient;
+&nbsp;import org.htmlunit.WebClientOptions;
+&nbsp;import org.htmlunit.html.DomNode;
+&nbsp;import org.htmlunit.html.HtmlPage;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;import org.w3c.dom.Node;
+&nbsp;
+&nbsp;import java.io.IOException;
+&nbsp;import java.net.URI;
+&nbsp;import java.net.URISyntaxException;
+&nbsp;import java.net.URL;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.logging.Level;
+&nbsp;import java.util.logging.Logger;
+&nbsp;
+&nbsp;import static org.junit.Assert.fail;
+&nbsp;
+&nbsp;/**
+&nbsp; * AEM client that maintains a WebClient instance from HTMLUnit framework
+&nbsp; */
+&nbsp;public class HtmlUnitClient extends CQClient {
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(HtmlUnitClient.class);</b>
+&nbsp;
+<b class="nc">&nbsp;    private final WebClient webClient = new WebClient();</b>
+&nbsp;
+&nbsp;    /** Extracts references to external resources used by the specified page.
+&nbsp;     * This method extracts references from script, img, meta and link tags.
+&nbsp;     * @param path path to the page.
+&nbsp;     * @return list of URIs resolved against the pages baseURL
+&nbsp;     * @throws IOException when IO error occurs
+&nbsp;     * @throws URISyntaxException if malformed URL reference is found.
+&nbsp;     */
+&nbsp;    public List&lt;URI&gt; getResourceRefs(String path) throws IOException, URISyntaxException {
+<b class="nc">&nbsp;        HtmlPage page = getPage(path, false);</b>
+<b class="nc">&nbsp;        List&lt;URI&gt; result = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;        result.addAll(getRefs(page, &quot;script&quot;, &quot;src&quot;));</b>
+<b class="nc">&nbsp;        result.addAll(getRefs(page, &quot;img&quot;, &quot;src&quot;));</b>
+<b class="nc">&nbsp;        result.addAll(getRefs(page, &quot;meta&quot;, &quot;href&quot;));</b>
+<b class="nc">&nbsp;        result.addAll(getRefs(page, &quot;link&quot;, &quot;href&quot;));</b>
+<b class="nc">&nbsp;        result.addAll(getCoreComponentImageRenditions(page));</b>
+<b class="nc">&nbsp;        return result;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Loads html page specified by path.
+&nbsp;     * @param path path to the page
+&nbsp;     * @param javaScriptEnabled whether to execute javascript
+&nbsp;     * @return parsed page.
+&nbsp;     * @throws IOException if IO error occurs.
+&nbsp;     */
+&nbsp;    public HtmlPage getPage(String path, boolean javaScriptEnabled) throws IOException {
+<b class="nc">&nbsp;        WebClientOptions options = webClient.getOptions();</b>
+<b class="nc">&nbsp;        boolean wasJsEnabled = options.isJavaScriptEnabled();</b>
+&nbsp;        try {
+<b class="nc">&nbsp;            options.setJavaScriptEnabled(javaScriptEnabled);</b>
+<b class="nc">&nbsp;            return getPage(webClient, getUrl(path).toURL());</b>
+&nbsp;        } finally {
+<b class="nc">&nbsp;            options.setJavaScriptEnabled(wasJsEnabled);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //*********************************************
+&nbsp;    // Creation
+&nbsp;    //*********************************************
+&nbsp;
+&nbsp;    public HtmlUnitClient(CloseableHttpClient http, SlingClientConfig config) throws ClientException {
+<b class="nc">&nbsp;        super(http, config);</b>
+<b class="nc">&nbsp;        webClient.setCredentialsProvider(this.getCredentialsProvider());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public HtmlUnitClient(URI url, String user, String password) throws ClientException {
+<b class="nc">&nbsp;        super(url, user, password);</b>
+<b class="nc">&nbsp;        webClient.setCredentialsProvider(this.getCredentialsProvider());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void close() throws IOException {
+&nbsp;        try {
+<b class="nc">&nbsp;            webClient.close();</b>
+&nbsp;        } finally {
+<b class="nc">&nbsp;            super.close();</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //*********************************************
+&nbsp;    // Internals
+&nbsp;    //*********************************************
+&nbsp;
+&nbsp;    private static List&lt;URI&gt; getRefs(HtmlPage page, String tag, String refAttr) throws URISyntaxException {
+<b class="nc">&nbsp;        URI baseUri = new URI(page.getBaseURI());</b>
+<b class="nc">&nbsp;        List&lt;URI&gt; result = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;        for (DomNode child : page.getElementsByTagName(tag)) {</b>
+<b class="nc">&nbsp;            URI uriRef = getNamedItemAsUri(child, refAttr);</b>
+<b class="nc">&nbsp;            if (uriRef != null) {</b>
+<b class="nc">&nbsp;                URI uri = baseUri.resolve(uriRef);</b>
+<b class="nc">&nbsp;                result.add(uri);</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        return result;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Extract all image core components and their references from the page.
+&nbsp;     * @param page the page to scan
+&nbsp;     * @return all renditions of all image core components
+&nbsp;     * @throws URISyntaxException
+&nbsp;     */
+&nbsp;    private static List&lt;URI&gt; getCoreComponentImageRenditions (HtmlPage page) throws URISyntaxException {
+<b class="nc">&nbsp;        URI baseUri = new URI(page.getBaseURI());</b>
+<b class="nc">&nbsp;        List&lt;URI&gt; result = new ArrayList&lt;&gt;();</b>
+&nbsp;
+&nbsp;        // detect images core components based on the CSS class name
+<b class="nc">&nbsp;        List&lt;DomNode&gt; coreComponents = page.getByXPath(&quot;//div[contains(@class, &#39;cmp-image&#39;)]&quot;);</b>
+<b class="nc">&nbsp;        for (DomNode child:  coreComponents) {</b>
+<b class="nc">&nbsp;            String src = null;</b>
+<b class="nc">&nbsp;            String width = null;</b>
+<b class="nc">&nbsp;            if (child.getAttributes().getNamedItem(&quot;data-cmp-src&quot;) != null) {</b>
+<b class="nc">&nbsp;                src = child.getAttributes().getNamedItem(&quot;data-cmp-src&quot;).getNodeValue();</b>
+&nbsp;            }
+<b class="nc">&nbsp;            if (child.getAttributes().getNamedItem(&quot;data-cmp-widths&quot;) != null) {</b>
+<b class="nc">&nbsp;                width = child.getAttributes().getNamedItem(&quot;data-cmp-widths&quot;).getNodeValue();</b>
+&nbsp;            }
+<b class="nc">&nbsp;            if (src != null &amp;&amp; width != null) {</b>
+<b class="nc">&nbsp;                String[] widths = width.split(&quot;,&quot;);</b>
+<b class="nc">&nbsp;                for (String w: widths) {</b>
+<b class="nc">&nbsp;                    String ref = src.replace(&quot;{.width}&quot;, &quot;.&quot;+w);</b>
+<b class="nc">&nbsp;                    result.add(baseUri.resolve(ref));</b>
+&nbsp;                }
+<b class="nc">&nbsp;            } else if (src != null &amp;&amp; width == null) {</b>
+&nbsp;                // happens with SVG and GIFs
+<b class="nc">&nbsp;                String ref = src.replace(&quot;{.width}&quot;, &quot;&quot;);</b>
+<b class="nc">&nbsp;                result.add(baseUri.resolve(ref));</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        return result;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     *  Loads requested page while suppressing CSS errors (logged as warnings)
+&nbsp;     * @param webClient web client to use for loading
+&nbsp;     * @param url page URL
+&nbsp;     * @return loaded HtmlPage instance.
+&nbsp;     * @throws IOException when error occurs
+&nbsp;     */
+&nbsp;    private static HtmlPage getPage(WebClient webClient, URL url) throws IOException {
+<b class="nc">&nbsp;        Logger logger = Logger.getLogger(DefaultCssErrorHandler.class.getName());</b>
+<b class="nc">&nbsp;        Level originalLevel = logger.getLevel();</b>
+&nbsp;        try {
+<b class="nc">&nbsp;            logger.setLevel(Level.SEVERE);</b>
+<b class="nc">&nbsp;            return webClient.getPage(url);</b>
+&nbsp;        } finally {
+<b class="nc">&nbsp;            logger.setLevel(originalLevel);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Extracts URI reference from specified element and converts it to URI
+&nbsp;     * This method will trigger junit assertion if refAttr value cannot be parsed as URI
+&nbsp;     * providing comprehensive error message.
+&nbsp;     * @param node - html element from which to extract reference
+&nbsp;     * @param refAttr - name of the attribute containing corresponding value
+&nbsp;     * @return refAttr value as URI or &lt;code&gt;null&lt;/code&gt; if attribute does not exist
+&nbsp;     */
+&nbsp;    private static URI getNamedItemAsUri(DomNode node, String refAttr) {
+<b class="nc">&nbsp;        Node src = node.getAttributes().getNamedItem(refAttr);</b>
+<b class="nc">&nbsp;        if (src == null) {</b>
+<b class="nc">&nbsp;            return null;</b>
+&nbsp;        } else {
+&nbsp;            try {
+<b class="nc">&nbsp;                String href = src.getNodeValue();</b>
+<b class="nc">&nbsp;                return new URI(href);</b>
+<b class="nc">&nbsp;            } catch (URISyntaxException e) {</b>
+<b class="nc">&nbsp;                fail(&quot;Invalid URI value in [&quot; + refAttr + &quot;] attribute in: [&quot; + node + &quot;].\n&quot; +</b>
+<b class="nc">&nbsp;                        &quot;   Page URL:  [&quot; + node.getPage().getUrl() + &quot;]\n&quot; +</b>
+<b class="nc">&nbsp;                        &quot;   XPath:     [&quot; + node.getCanonicalXPath() + &quot;]\n&quot; +</b>
+<b class="nc">&nbsp;                        &quot;   Caused by: [&quot; + e.getMessage() + &quot;]&quot;);</b>
+<b class="nc">&nbsp;                throw new AssertionError(); // must never happen</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

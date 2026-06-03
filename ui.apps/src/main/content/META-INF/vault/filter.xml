@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/whitelabel/clientlibs"/>
+    <filter root="/apps/whitelabel/components"/>
+    <filter root="/apps/whitelabel/i18n"/>
+    <filter root="/apps/cq" mode="merge"/>
+    <filter root="/apps/msm/whitelabel_blueprint" mode="merge"/>
+</workspaceFilter>

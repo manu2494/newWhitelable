@@ -1,0 +1,27 @@
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rive {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  &.show-rive-animation {
+    display: block;
+    height: 100vh;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    background: #fff;
+    top: 0;
+
+    .rive-component {
+      display: flex;
+      height: 100vh;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > SeoSiteLinkConfig</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.config</a>
+</div>
+
+<h1>Coverage Summary for Class: SeoSiteLinkConfig (com.merkle.xp.whitelabel.core.config)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">SeoSiteLinkConfig$MockitoMock$AfduAsyM</td>
+  </tr>
+  <tr>
+    <td class="name">SeoSiteLinkConfig$MockitoMock$AfduAsyM$auxiliary$5zfnTKsv</td>
+  </tr>
+  <tr>
+    <td class="name">SeoSiteLinkConfig$MockitoMock$AfduAsyM$auxiliary$SW2zecvZ</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.config;
+&nbsp;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;import org.apache.sling.caconfig.annotation.Property;
+&nbsp;
+&nbsp;/**
+&nbsp; * Context-aware configuration holding information about the SEO site link data
+&nbsp; * This configuration is meant to be used as a context-aware resource.
+&nbsp; * See &lt;a href=&quot;https://sling.apache.org/documentation/bundles/context-aware-configuration/context-aware-configuration.html#context-aware-resources&quot;&gt;Context-Aware Resources&lt;/a&gt;
+&nbsp; */
+&nbsp;public @interface SeoSiteLinkConfig {
+&nbsp;
+&nbsp;  @Property(label = &quot;Website URL&quot;, description = &quot;Use the homepage URL. If left out the canonical URL will be set.&quot;)
+&nbsp;  String url() default StringUtils.EMPTY;
+&nbsp;
+&nbsp;  @Property(label = &quot;Search Target&quot;, description = &quot;Set the search page path including the search query marker at the end, for example: &#39;/search_page_path?q=&#39;&quot;,
+&nbsp;      property = {&quot;widgetType=pathbrowser&quot;, &quot;pathbrowserRootPath=/content&quot;})
+&nbsp;  String target();
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

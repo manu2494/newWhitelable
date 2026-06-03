@@ -1,0 +1,17 @@
+.cmp-modal {
+  display: none;
+}
+
+body {
+  &.background-theme-1 {
+    background-color: $background-theme-1;
+  }
+
+  &.background-theme-2 {
+    background-color: $background-theme-2;
+  }
+
+  &.background-theme-3 {
+    background-color: $background-theme-3;
+  }
+}

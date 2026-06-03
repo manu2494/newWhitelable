@@ -1,0 +1,85 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > OneTrustConfig</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.config</a>
+</div>
+
+<h1>Coverage Summary for Class: OneTrustConfig (com.merkle.xp.whitelabel.core.config)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">OneTrustConfig</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.config;
+&nbsp;
+&nbsp;import org.apache.sling.caconfig.annotation.Configuration;
+&nbsp;import org.apache.sling.caconfig.annotation.Property;
+&nbsp;
+&nbsp;@Configuration(label = &quot;One Trust Configuration&quot;, description = &quot;Configuration related to One Trust&quot;)
+&nbsp;public @interface OneTrustConfig {
+&nbsp;
+&nbsp;    @Property(label = &quot;One Trust Source Url&quot;, description = &quot;One Trust Config script source url&quot;)
+&nbsp;    String oneTrustSrcUrl();
+&nbsp;
+&nbsp;    @Property(label = &quot;One Trust SDK Url&quot;, description =&quot;One Trust Config SDK url&quot;)
+&nbsp;    String oneTrustSDKUrl() default &quot;https://cdn.cookielaw.org/scripttemplates/otSDKStub.js&quot;;
+&nbsp;
+&nbsp;    @Property(label = &quot;One Trust Id&quot;, description = &quot;One Trust Config ID&quot;)
+&nbsp;    String oneTrustId();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

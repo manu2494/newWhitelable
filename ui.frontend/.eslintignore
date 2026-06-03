@@ -1,0 +1,4 @@
+../ui.apps/
+./src/main/webpack/tests/
+**/tagging/*.js
+**/vendor/*.js

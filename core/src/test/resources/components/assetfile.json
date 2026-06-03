@@ -1,0 +1,121 @@
+// 20230221151627
+// http://localhost:4502/content/dam/sn/hcp/global/dnc/Items3.png.infinity.json
+
+{
+  "jcr:primaryType": "dam:Asset",
+  "jcr:mixinTypes": [
+    "mix:referenceable"
+  ],
+  "jcr:createdBy": "admin",
+  "jcr:created": "Mon Feb 20 2023 14:12:26 GMT+0530",
+  "jcr:uuid": "48a54610-15c2-4737-b37e-f5cc38f68c13",
+  "jcr:content": {
+    "jcr:primaryType": "dam:AssetContent",
+    "cq:lastReplicatedBy_publish": "camille.labrousse@danone.com",
+    "cq:lastReplicationAction_scene7": "Activate",
+    "cq:lastReplicationAction": "Activate",
+    "cq:lastReplicatedBy": "camille.labrousse@danone.com",
+    "jcr:lastModifiedBy": "admin",
+    "cq:lastReplicationAction_publish": "Activate",
+    "cq:lastReplicatedBy_scene7": "camille.labrousse@danone.com",
+    "cq:lastReplicated": "Thu Jan 26 2023 09:51:25 GMT+0000",
+    "cq:lastReplicated_scene7": "Thu Jan 26 2023 09:51:25 GMT+0000",
+    "dam:assetState": "processed",
+    "jcr:lastModified": "Mon Feb 20 2023 14:14:12 GMT+0530",
+    "cq:lastReplicated_publish": "Thu Jan 26 2023 09:51:25 GMT+0000",
+    "renditions": {
+      "jcr:primaryType": "nt:folder",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Mon Feb 20 2023 14:12:26 GMT+0530",
+      "cq5dam.web.1280.1280.png": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Feb 20 2023 14:12:28 GMT+0530",
+        "jcr:content": {
+          "jcr:primaryType": "oak:Resource",
+          "jcr:lastModifiedBy": "workflow-process-service",
+          "jcr:mimeType": "image/png",
+          "jcr:lastModified": "Mon Feb 20 2023 14:14:10 GMT+0530",
+          ":jcr:data": 143176
+        }
+      },
+      "cq5dam.thumbnail.48.48.png": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Feb 20 2023 14:12:28 GMT+0530",
+        "jcr:content": {
+          "jcr:primaryType": "oak:Resource",
+          "jcr:lastModifiedBy": "workflow-process-service",
+          "jcr:mimeType": "image/png",
+          "jcr:lastModified": "Mon Feb 20 2023 14:14:09 GMT+0530",
+          ":jcr:data": 3525
+        }
+      },
+      "cq5dam.thumbnail.140.100.png": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Feb 20 2023 14:12:26 GMT+0530",
+        "jcr:content": {
+          "jcr:primaryType": "oak:Resource",
+          "jcr:lastModifiedBy": "workflow-process-service",
+          "jcr:mimeType": "image/png",
+          "jcr:lastModified": "Mon Feb 20 2023 14:14:09 GMT+0530",
+          ":jcr:data": 24704
+        }
+      },
+      "original": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Feb 20 2023 14:12:28 GMT+0530",
+        "jcr:content": {
+          "jcr:primaryType": "oak:Resource",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:mimeType": "image/png",
+          "jcr:lastModified": "Mon Feb 20 2023 14:12:28 GMT+0530",
+          ":jcr:data": 105837
+        }
+      },
+      "cq5dam.thumbnail.319.319.png": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Mon Feb 20 2023 14:12:27 GMT+0530",
+        "jcr:content": {
+          "jcr:primaryType": "oak:Resource",
+          "jcr:lastModifiedBy": "workflow-process-service",
+          "jcr:mimeType": "image/png",
+          "jcr:lastModified": "Mon Feb 20 2023 14:14:09 GMT+0530",
+          ":jcr:data": 105404
+        }
+      }
+    },
+    "related": {
+      "jcr:primaryType": "nt:unstructured"
+    },
+    "metadata": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:mixinTypes": [
+        "cq:Taggable"
+      ],
+      "danone:division": "amn",
+      "dam:Physicalheightininches": "-1.0",
+      "dam:Physicalwidthininches": "-1.0",
+      "dam:Fileformat": "PNG",
+      "dam:Progressive": "no",
+      "tiff:ImageLength": 218,
+      "dam:extension": "png",
+      "dam:extracted": "Mon Feb 20 2023 14:14:08 GMT+0530",
+      "dc:format": "image/png",
+      "dam:Bitsperpixel": 32,
+      "dam:MIMEtype": "image/png",
+      "danone:TypeOfAssets": "",
+      "dam:Physicalwidthindpi": -1,
+      "dam:Physicalheightindpi": -1,
+      "dam:Numberofimages": 1,
+      "dam:Numberoftextualcomments": 0,
+      "tiff:ImageWidth": 389,
+      "dam:sha1": "718db9a9841261cae6e7c25ab09cc7dd1741fbca",
+      "dam:size": 105837,
+      "dam:scene7PublishPending": true
+    }
+  }
+}

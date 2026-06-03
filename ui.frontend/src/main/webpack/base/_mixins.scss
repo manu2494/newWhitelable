@@ -1,0 +1,35 @@
+@function px-rem($value) {
+    $result: calc($value / 16) + rem;
+    @return $result;
+}
+
+@mixin min-tablet() {
+    @media screen and (min-width: $breakpoint-tablet-min) {
+        @content;
+    }
+}
+
+@mixin min-desktop() {
+    @media screen and (min-width: $breakpoint-desktop-min) {
+        @content;
+    }
+}
+
+@mixin heading-size($heading, $size-mobile, $size-tablet, $size-desktop) {
+    #{$heading} {
+        font-size: $size-mobile;
+
+    }
+
+    @include min-tablet {
+        #{$heading} {
+            font-size: $size-tablet;
+        }
+    }
+
+    @include min-desktop {
+        #{$heading} {
+            font-size: $size-desktop;
+        }
+    }
+}

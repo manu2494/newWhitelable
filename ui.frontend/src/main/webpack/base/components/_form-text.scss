@@ -1,0 +1,446 @@
+@media only screen and (min-width: $breakpoint-desktop-min) {
+    %form-text-base {
+        .cmp-form-text,.form-group {
+            label {
+                text-transform: capitalize;
+            }
+
+            input,
+            textarea {
+                height: 50px;
+                display: inline-block;
+                box-sizing: border-box;
+                outline: none;
+            }
+
+            textarea {
+                resize: none;
+                height: 150px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+    %form-text-base {
+        .cmp-form-text,.form-group {
+            label {
+                text-transform: capitalize;
+            }
+
+            input,
+            textarea {
+                height: 45px;
+                display: inline-block;
+                box-sizing: border-box;
+                outline: none;
+            }
+
+            textarea {
+                resize: none;
+                height: 150px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $breakpoint-mobile-max) {
+    %form-text-base {
+        .cmp-form-text,.form-group {
+            label {
+                text-transform: capitalize;
+            }
+
+            input,
+            textarea {
+                height: 40px;
+                display: inline-block;
+                box-sizing: border-box;
+                outline: none;
+            }
+
+            textarea {
+                resize: none;
+                height: 150px;
+            }
+        }
+    }
+}
+
+.text,.cmp-form-field {
+    &.formtext {
+
+        &-primary {
+            @extend %form-text-base;
+
+            .cmp-form-text,.form-group {
+                label {
+                    display: none;
+                }
+
+                input,
+                textarea {
+
+                    border: none;
+                    outline: none;
+                    margin: none;
+                    padding: none;
+                    resize: none;
+                    width: 100%;
+                    border-bottom: 1.5px solid;
+                }
+            }
+        }
+
+        &-secondary {
+            @extend %form-text-base;
+
+            .cmp-form-text,.form-group {
+
+                input,
+                textarea {
+                    outline: none;
+                    width: 100%;
+                    border: 1.5px solid;
+                }
+            }
+        }
+
+        &-row {
+            .cmp-form-text,.form-group  {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                label {
+                    align-self: center;
+                    width: 24%;
+                }
+
+                input,
+                textarea {
+                    align-self: center;
+                    width: 75%;
+                }
+            }
+        }
+
+        &-column {
+            .cmp-form-text,.form-group  {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        &-center {
+            .cmp-form-text,.form-group  {
+                text-align: center;
+
+                input {
+                    text-align: center;
+                }
+
+                &::placeholder {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &.case {
+        &-upper {
+            .cmp-form-text,.form-group  {
+
+                label,
+                input::placeholder {
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        &-cap {
+            .cmp-form-text,.form-group  {
+
+                label,
+                input::placeholder {
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        &-lower {
+            .cmp-form-text,.form-group  {
+
+                label,
+                input::placeholder {
+                    text-transform: lowercase;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $breakpoint-desktop-min) {
+
+	%form-text-base {
+		.cmp-form-text {
+			label {
+				font-size: $font-size-normal-desktop;
+				letter-spacing: $letter-spacing;
+				line-height: $line-height-minimum;
+			}
+			input,textarea {
+				margin: $margin-formText;
+				&::placeholder {
+					font-size: $font-size-normal-desktop;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+	%form-text-base {
+		.cmp-form-text {
+			label {
+				font-size: $font-size-normal-tablet;
+				letter-spacing: $letter-spacing;
+				line-height: $line-height-minimum;
+			}
+			input,textarea {
+				margin: $margin-formText;
+				&::placeholder {
+					font-size: $font-size-normal-tablet;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint-mobile-max) {
+	%form-text-base {
+		.cmp-form-text {
+			label {
+				font-size: $font-size-normal-mobile;
+				letter-spacing: $letter-spacing;
+				line-height: $line-height-minimum;
+			}
+			input,textarea {
+				margin: $margin-formText;
+				&::placeholder {
+					font-size: $font-size-normal-mobile;
+				}
+			}
+		}
+	}
+}
+
+
+.text, .cmp-form-field {
+	&.formtext {
+
+		&-primary {
+			@extend %form-text-base;
+			.cmp-form-text,.form-group  {
+				input,textarea {
+					padding: $padding-formtext;
+				}
+			}
+		}
+		&-secondary {
+			@extend %form-text-base;
+			.cmp-form-text,.form-group  {
+				input,textarea {
+					border-radius: $default-radius;
+					padding: $padding-formtext;
+				}
+			}
+		}
+		&-transparent {
+			.cmp-form-text,.form-group  {
+				input,textarea {
+					background: $color-transparent;
+				}
+			}
+		}
+	}
+	&.radius {
+		&-min {
+			.cmp-form-text,.form-group  {
+				input,textarea {
+					border-radius: $border-minimun;
+					padding: $padding-formtext-input;
+					border: 1px solid;
+				}
+				textarea {
+					padding: $padding-formtext-textarea;
+				}
+			}
+		}
+		&-medium {
+			.cmp-form-text,.form-group  {
+				input,textarea {
+					border-radius: $border-medium;
+					padding: $padding-formtext-input;
+					border: 1px solid;
+				}
+				textarea {
+					padding: $padding-formtext-textarea;
+				}
+			}
+		}
+
+		&-max {
+			.cmp-form-text,.form-group  {
+				input,textarea {
+					border-radius: $border-maximum;
+					padding: $padding-formtext-input;
+					border: 1px solid;
+				}
+				textarea {
+					padding: $padding-formtext-textarea;
+				}
+			}
+		}
+	}
+
+	&.height {
+		&-min {
+			.cmp-form-text,.form-group  {
+				input {
+					height: $input-height-minimum;
+				}
+				textarea {
+					height: $textarea-height-mimimum;
+				}
+			}
+		}
+		&-medium {
+			.cmp-form-text,.form-group  {
+				input {
+					height: $input-height-medium;
+				}
+				textarea {
+					height: $textarea-height-medium;
+				}
+			}
+		}
+		&-max {
+			.cmp-form-text,.form-group  {
+				input {
+					height: $input-height-maximum;
+				}
+				textarea {
+					height: $textarea-height-maximum;
+				}
+			}
+		}
+	}
+
+	&.color {
+		&-primary {
+			.cmp-form-text,.form-group  {
+				color: $color-primary;
+				input,textarea,input::placeholder,textarea::placeholder {
+					color: $color-primary;
+				}
+			}
+		}
+		&-secondary {
+			.cmp-form-text,.form-group  {
+				color: $color-secondary;
+				input,textarea,input::placeholder,textarea::placeholder {
+					color: $color-secondary;
+				}
+			}
+		}
+		&-tertiary {
+			.cmp-form-text,.form-group  {
+				color: $color-tertiary;
+				input,textarea,input::placeholder,textarea::placeholder {
+					color: $color-tertiary;
+				}
+			}
+		}
+	}
+	&.background {
+		&-theme-1 {
+			background-color: $background-theme-1;
+		}
+	
+		&-theme-2 {
+			background-color: $background-theme-2;
+		}
+	
+		&-theme-3 {
+			background-color: $background-theme-3;
+		}
+	}
+	
+	&.font-family {
+		&-primary {
+			font-family: $font-family-primary;
+		}
+	
+		&-secondary {
+			font-family: $font-family-secondary;
+		}
+	
+		&-tertiary {
+			font-family: $font-family-tertiary;
+		}
+	}
+	
+	&.font-weight {
+		&-light {
+			font-weight: $font-weight-light;
+		}
+	
+		&-normal {
+			font-weight: $font-weight-normal;
+		}
+	
+		&-heavy {
+			font-weight: $font-weight-heavy;
+		}
+	}
+	
+	&.font-size {
+		&-small {
+			font-size: $font-size-small-mobile;
+	
+			@include min-tablet {
+				font-size: $font-size-small-tablet;
+			}
+	
+			@include min-desktop {
+				font-size: $font-size-small-desktop;
+			}
+		}
+	
+		&-medium {
+			font-size: $font-size-normal-mobile;
+	
+			@include min-tablet {
+				font-size: $font-size-normal-tablet;
+			}
+	
+			@include min-desktop {
+				font-size: $font-size-normal-desktop;
+			}
+		}
+	
+		&-large {
+			font-size: $font-size-large-mobile;
+	
+			@include min-tablet {
+				font-size: $font-size-large-tablet;
+			}
+	
+			@include min-desktop {
+				font-size: $font-size-large-desktop;
+			}
+		}
+	}
+}
+

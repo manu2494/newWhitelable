@@ -1,0 +1,8 @@
+<sly data-sly-template.tooltip="${ @ text, icon, cssClass }">
+    <div data-sly-test="${text}"
+         class="cmp-genericTooltip ${cssClass}">
+        <div class="cmp-genericTooltip__text">${text}</div>
+        <sly data-sly-use.iconTemplate="core/wcm/components/button/v2/button/icon.html"
+             data-sly-call="${iconTemplate.icon @ icon=icon}"></sly>
+    </div>
+</sly>

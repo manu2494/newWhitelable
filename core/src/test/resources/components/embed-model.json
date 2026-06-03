@@ -1,0 +1,8 @@
+{
+	"jcr:primaryType": "nt:unstructured",
+	"useCFData": true,
+	"elementNames": "spotifyURL",
+	"url": "https://open.spotify.com/track/3VM35337X7Ro1tesUHnZ95?si=598698f535db4cc5",
+	"type": "contentfragment",
+	"sling:resourceType": "core-framework/components-dnc/embed"
+}

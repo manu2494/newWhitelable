@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Carousel"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[core.wcm.components.commons.editor.dialog.childreneditor.v1]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <analytics
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/include"
+                        path="/apps/whitelabel/components/common-utils/common-tabs/analytics-dialog-tab/cq:dialog/analyticsTab"/>
+                    <itemLinks
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Item Links"
+                        sling:orderBefore="properties"
+                        margin="{Boolean}true"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <general
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./carouselLinks">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <carouselLink
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldDescription="Enter URL for each carousel Item to make whole carousel item is clickable. Please input valid URL start with : /content (for internal link) and https://, http:// (for external link)"
+                                            fieldLabel="Carousel Link URL"
+                                            rootPath="/content"
+                                            name="./linkURL"/>
+                                        <openNewTab
+                                             jcr:primaryType="nt:unstructured"
+                                             name="./linkTarget"
+                                             text="Open in New Tab"
+                                             fieldDescription="If this field checked, Carousel link URL will open in new tab when click on it"
+                                             value="_blank"
+                                             uncheckedValue=""
+                                             sling:resourceType="granite/ui/components/coral/foundation/form/checkbox" />
+                                    </items>
+                                </field>
+                            </general>
+                        </items>
+                    </itemLinks>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,226 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ApiServiceImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.services.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: ApiServiceImpl (com.merkle.xp.whitelabel.core.services.impl)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ApiServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/27)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ApiServiceImpl$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.services.impl;
+&nbsp;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.osgi.service.component.annotations.Component;
+&nbsp;import org.osgi.service.component.annotations.Reference;
+&nbsp;import org.osgi.service.component.propertytypes.ServiceDescription;
+&nbsp;
+&nbsp;import com.merkle.xp.whitelabel.core.api.ApiException;
+&nbsp;import com.merkle.xp.whitelabel.core.api.ApiProcess;
+&nbsp;import com.merkle.xp.whitelabel.core.config.ApiConfig;
+&nbsp;import com.merkle.xp.whitelabel.core.models.ApiResponse;
+&nbsp;import com.merkle.xp.whitelabel.core.services.ApiConfigurationService;
+&nbsp;import com.merkle.xp.whitelabel.core.services.ApiService;
+&nbsp;import com.merkle.xp.whitelabel.core.services.HttpConnection;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.ConfigurationUtils;
+&nbsp;
+&nbsp;@Component(immediate = true, service = ApiService.class)
+&nbsp;@ServiceDescription(&quot;Api Service to process Http Request&quot;)
+<b class="nc">&nbsp;public class ApiServiceImpl implements ApiService {</b>
+&nbsp;
+&nbsp;		@Reference
+&nbsp;	HttpConnection httpConnectionService;
+&nbsp;
+&nbsp;	@Reference
+&nbsp;	private ApiConfigurationService apiConfig;
+&nbsp;
+&nbsp;	public &lt;T extends ApiResponse&gt; T processRequest(ApiProcess apiProcess, Resource resource, Class&lt;T&gt; responseType) throws ApiException {
+<b class="nc">&nbsp;		if (apiProcess.isAdmin()) {</b>
+<b class="nc">&nbsp;			return processAdminRequest(apiProcess,resource, responseType);</b>
+&nbsp;		} else {
+<b class="nc">&nbsp;			return processUserRequest(apiProcess, resource, responseType);</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;	private &lt;T extends ApiResponse&gt; T processUserRequest(ApiProcess apiProcess, Resource resource, Class&lt;T&gt; responseType) throws ApiException {
+<b class="nc">&nbsp;		ApiConfig config = ConfigurationUtils.getApiConfig(resource);</b>
+<b class="nc">&nbsp;		if (config == null) {</b>
+<b class="nc">&nbsp;			throw new ApiException(&quot;config has not been defined for &quot;+resource.getPath());</b>
+&nbsp;		}
+<b class="nc">&nbsp;		return processRequest(apiProcess, apiConfig.getApi(config.userApiName()), responseType);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	private &lt;T extends ApiResponse&gt; T processAdminRequest(ApiProcess apiProcess, Resource resource, Class&lt;T&gt; responseType) throws ApiException {
+<b class="nc">&nbsp;		ApiConfig config = ConfigurationUtils.getApiConfig(resource);</b>
+<b class="nc">&nbsp;		if (config == null) {</b>
+<b class="nc">&nbsp;			throw new ApiException(&quot;config has not been defined for &quot;+resource.getPath());</b>
+&nbsp;		}
+<b class="nc">&nbsp;		return processRequest(apiProcess, apiConfig.getApi(config.adminApiName()), responseType);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	private &lt;T extends ApiResponse&gt; T processRequest(ApiProcess apiProcess, ApiConfiguration config, Class&lt;T&gt; responseType) throws ApiException {
+<b class="nc">&nbsp;		if (config == null) {</b>
+<b class="nc">&nbsp;			return null;</b>
+&nbsp;		}
+<b class="nc">&nbsp;		apiProcess.configure(config);</b>
+<b class="nc">&nbsp;		switch (apiProcess.getMethod()) {</b>
+&nbsp;		case GET:
+<b class="nc">&nbsp;			return httpConnectionService.httpGetRequest(apiProcess.getUrl(), apiProcess.getUrlParams(),</b>
+<b class="nc">&nbsp;					apiProcess.getRequestHeaders(),responseType);</b>
+&nbsp;		case POST:
+<b class="nc">&nbsp;			return httpConnectionService.httpPostRequest(apiProcess.getUrl(), apiProcess.getUrlParams(),</b>
+<b class="nc">&nbsp;					apiProcess.getRequestHeaders(), apiProcess.getBody(),responseType);</b>
+&nbsp;		case PUT:
+<b class="nc">&nbsp;			return httpConnectionService.httpPutRequest(apiProcess.getUrl(), apiProcess.getUrlParams(),</b>
+<b class="nc">&nbsp;					apiProcess.getRequestHeaders(), apiProcess.getBody(),responseType);</b>
+&nbsp;		case DELETE:
+<b class="nc">&nbsp;			return httpConnectionService.httpDeleteRequest(apiProcess.getUrl(), apiProcess.getUrlParams(),</b>
+<b class="nc">&nbsp;					apiProcess.getRequestHeaders(),apiProcess.getBody(), responseType);</b>
+&nbsp;		case PATCH:
+<b class="nc">&nbsp;			return httpConnectionService.httpPatchRequest(apiProcess.getUrl(), apiProcess.getUrlParams(),</b>
+<b class="nc">&nbsp;					apiProcess.getRequestHeaders(), apiProcess.getBody(),responseType);</b>
+&nbsp;		default:
+<b class="nc">&nbsp;			throw new ApiException(&quot;Unsupported HTTP method&quot;);</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

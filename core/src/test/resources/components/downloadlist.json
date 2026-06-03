@@ -1,0 +1,14 @@
+{
+  "jcr:primaryType": "nt:unstructured",
+  "jcr:createdBy": "admin",
+  "jcr:lastModifiedBy": "admin",
+  "inline": "false",
+  "useCFData": true,
+  "elementNames": "visual",
+  "jcr:created": "Mon Feb 20 2023 14:22:37 GMT+0530",
+  "jcr:lastModified": "Mon Feb 20 2023 17:37:50 GMT+0530",
+  "sling:resourceType": "core-framework/components-dnc/downloadlist",
+  "titleFromAsset": "true",
+  "textIsRich": "true",
+  "descriptionFromAsset": "true"
+}

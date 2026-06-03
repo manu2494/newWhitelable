@@ -1,0 +1,26 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:title": "EA_CBU",
+    "sling:resourceType": "acs-commons/components/utilities/genericlist",
+    "list": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:title": "Africa & Overseas",
+        "value": "africa"
+      },
+      "item1": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:title": "Argentina",
+        "value": "arg"
+      },
+      "item2": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:title": "Australia",
+        "value": "aus"
+      }
+    }
+  }
+}

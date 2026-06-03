@@ -1,0 +1,174 @@
+@mixin form-button-base {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+@mixin form-button-radius($btn-radius: 1rem) {
+    border-radius: $btn-radius;
+}
+
+@media only screen and (min-width: $breakpoint-desktop-min) {
+    .button {
+        .cmp-form-button {
+            @include form-button-base;
+            border: 1.5px solid;
+            outline: none;
+            vertical-align: middle;
+        }
+    }
+}
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+    .button {
+        .cmp-form-button {
+            @include form-button-base;
+            border: 1px solid;
+            outline: none;
+            vertical-align: middle;
+        }
+    }
+}
+
+@media only screen and (max-width: $breakpoint-mobile-max) {
+    .button {
+        .cmp-form-button {
+            @include form-button-base;
+            border: 1px solid;
+            outline: none;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+//  Button shape
+.button-circle {
+    .cmp-form-button {
+        @include form-button-radius($btn-radius: 4rem);
+    }
+}
+
+.button-round {
+    .cmp-form-button {
+        @include form-button-radius;
+    }
+}
+
+@mixin form-button-base {
+	padding: $padding-button;
+	margin: $default-margin;
+}
+
+@mixin form-button-color($btn-color: $button-white, $font-color: $color-primary) {
+	background-color: $btn-color;
+	color: $font-color;
+	border: 1.5px solid $btn-color;
+}
+
+// Button Colors
+.button-primary {
+	.cmp-form-button {
+		@include form-button-color($btn-color: $button-primary, $font-color: $color-primary);
+		border-color: $color-primary;
+	}
+
+	.cmp-form-button:hover {
+		@include form-button-color($btn-color: $button-secondary , $font-color: $color-secondary);
+	}
+}
+
+.button-secondary {
+	.cmp-form-button {
+		@include form-button-color($btn-color: $button-secondary, $font-color: $color-secondary);
+	}
+
+	.cmp-form-button:hover {
+		@include form-button-color($btn-color: $button-tertiary, $font-color: $color-tertiary);
+	}
+}
+
+.button-tertiary {
+	.cmp-form-button {
+		@include form-button-color($btn-color: $button-tertiary, $font-color: $color-tertiary);
+	}
+
+	.cmp-form-button:hover {
+		@include form-button-color($btn-color: $button-primary, $font-color: $color-primary);
+		border-color: $color-primary;
+	}
+}
+
+.button-info {
+	.cmp-form-button {
+		@include form-button-color($btn-color: $button-info, $font-color: $color-light);
+	}
+
+	.cmp-form-button:hover {
+		@include form-button-color($btn-color: $button-tertiary, $font-color: $color-tertiary);
+	}
+}
+
+.button-success {
+	.cmp-form-button {
+		@include form-button-color($btn-color: $button-success, $font-color: $color-light);
+	}
+
+	.cmp-form-button:hover {
+		@include form-button-color($btn-color: $button-tertiary, $font-color: $color-tertiary);
+	}
+}
+
+.button-error {
+	.cmp-form-button {
+		@include form-button-color($btn-color: $button-error, $font-color: $color-light);
+	}
+
+	.cmp-form-button:hover {
+		@include form-button-color($btn-color: $button-tertiary, $font-color: $color-tertiary);
+	}
+}
+
+//  Button With shadow
+.button-shadow {
+	.cmp-form-button {
+		box-shadow: $button-shadow;
+	}
+}
+
+@media only screen and (min-width: $breakpoint-desktop-min) {
+	.button {
+		.cmp-form-button {
+			@include form-button-base;
+			letter-spacing: $letter-spacing-large;
+			line-height: $line-height;
+			font-size: $font-size-large-desktop;
+		}
+	}
+}
+
+@media only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+	.button {
+		.cmp-form-button {
+			@include form-button-base;
+			letter-spacing: $letter-spacing-medium;
+			line-height: $line-height;
+			font-size: $font-size-large-tablet;
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint-mobile-max) {
+	.button {
+		.cmp-form-button {
+			@include form-button-base;
+			letter-spacing: $letter-spacing-medium;
+			line-height: $line-height;
+			font-size: $font-size-large-mobile;
+		}
+	}
+}

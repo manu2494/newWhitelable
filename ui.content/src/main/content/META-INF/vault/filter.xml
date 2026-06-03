@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/whitelabel"/>
+    <filter root="/conf/global/settings/workflow/models/content_approval_request"/>
+    <filter root="/conf/component-library"/>
+    <filter root="/content/whitelabel"/>
+    <filter root="/content/dam/whitelabel"/>
+    <filter root="/content/experience-fragments/whitelabel"/>
+    <filter root="/etc/acs-commons/lists" mode="merge"/>
+    <filter root="/var/workflow/models/content_approval_request"/>
+</workspaceFilter>

@@ -1,0 +1,16 @@
+<template data-sly-template.seoStructuredData="${ @ page}">
+
+  <!--/* Include site structured data script */-->
+  <sly data-sly-test="${!(properties.ignoreSitelink && properties.ignoreOrganization)}">
+    <script type="application/ld+json" data-sly-test.seoSiteStructuredData="${page.seoSiteStructuredData}">${seoSiteStructuredData @ context='unsafe'}</script>
+  </sly>
+  
+  <!--/* Include article structured data script */-->
+  <sly data-sly-test="${!properties.ignoreArticle}">
+      <script type="application/ld+json" data-sly-test.seoArticleStructuredData="${page.seoArticleStructuredData}">${seoArticleStructuredData @ context='unsafe'}</script>
+  </sly>
+
+  <script data-sly-test="${properties.customStructuredData}"
+      type="application/ld+json">${properties.customStructuredData @ context='unsafe'}</script>
+      
+</template>

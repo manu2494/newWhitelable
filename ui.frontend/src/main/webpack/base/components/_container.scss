@@ -1,0 +1,107 @@
+.cmp-container {
+    padding: $padding-container-initial-mobile;
+
+    @include min-tablet {
+        padding: $padding-container-initial-tablet;
+    }
+
+    @include min-desktop {
+        padding: $padding-container-initial-desktop;
+    }
+
+    & & { // nested containers
+        padding: $padding-container-default-mobile;
+
+        @include min-tablet {
+            padding: $padding-container-default-tablet;
+        }
+
+        @include min-desktop {
+            padding: $padding-container-default-desktop;
+        }
+    }
+
+    &--padding-small > .container-wrapper > & {
+        padding: $padding-small-mobile;
+
+        @include min-tablet {
+            padding: $padding-small-tablet;
+        }
+
+        @include min-desktop {
+            padding: $padding-small-desktop;
+        }
+    }
+
+    &--padding-medium > .container-wrapper > & {
+        padding: $padding-medium-mobile;
+
+        @include min-tablet {
+            padding: $padding-medium-tablet;
+        }
+
+        @include min-desktop {
+            padding: $padding-medium-desktop;
+        }
+    }
+
+    &--padding-large > .container-wrapper > & {
+        padding: $padding-large-mobile;
+
+        @include min-tablet {
+            padding: $padding-large-tablet;
+        }
+
+        @include min-desktop {
+            padding: $padding-large-desktop;
+        }
+    }
+
+    &--padding-none > .container-wrapper > & {
+        padding: 0;
+
+        @include min-tablet {
+            padding: 0;
+        }
+
+        @include min-desktop {
+            padding: 0;
+        }
+    }
+
+    &--full-bleed > .container-wrapper > & {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+
+    &--flexItem-center > .container-wrapper > & {
+        .aem-Grid {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    &--flexItem-flex > .container-wrapper > & {
+        .aem-Grid {
+            display: flex;
+            max-width: fit-content;
+        }
+    }
+
+    &--background-theme-1 > .container-wrapper > & {
+        background: $background-theme-1;
+    }
+
+    &--background-theme-2 > .container-wrapper > & {
+        background: $background-theme-2;
+    }
+
+    &--background-theme-3 > .container-wrapper > & {
+        background: $background-theme-3;
+    }
+}

@@ -1,0 +1,164 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > TextValueDataResourceSource</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.servlets</a>
+</div>
+
+<h1>Coverage Summary for Class: TextValueDataResourceSource (com.merkle.xp.whitelabel.core.servlets)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TextValueDataResourceSource</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/10)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.servlets;
+&nbsp;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;import org.apache.sling.api.resource.SyntheticResource;
+&nbsp;import org.apache.sling.api.resource.ValueMap;
+&nbsp;import org.apache.sling.api.wrappers.ValueMapDecorator;
+&nbsp;
+&nbsp;import java.util.HashMap;
+&nbsp;
+&nbsp;public abstract class TextValueDataResourceSource extends SyntheticResource {
+&nbsp;
+&nbsp;    public static final String PN_VALUE = &quot;value&quot;;
+&nbsp;    public static final String PN_TEXT = &quot;text&quot;;
+&nbsp;    protected static final String PN_SELECTED = &quot;selected&quot;;
+&nbsp;
+&nbsp;    private ValueMap valueMap;
+&nbsp;
+&nbsp;    public TextValueDataResourceSource(ResourceResolver resourceResolver, String path, String resourceType) {
+<b class="fc">&nbsp;        super(resourceResolver, path, resourceType);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;    public &lt;AdapterType&gt; AdapterType adaptTo(Class&lt;AdapterType&gt; type) {
+<b class="fc">&nbsp;        if (type == ValueMap.class) {</b>
+<b class="pc">&nbsp;            if (valueMap == null) {</b>
+<b class="fc">&nbsp;                initValueMap();</b>
+&nbsp;            }
+<b class="fc">&nbsp;            return (AdapterType) valueMap;</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            return super.adaptTo(type);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void initValueMap() {
+<b class="fc">&nbsp;        valueMap = new ValueMapDecorator(new HashMap&lt;String, Object&gt;());</b>
+<b class="fc">&nbsp;        valueMap.put(PN_VALUE, getValue());</b>
+<b class="fc">&nbsp;        valueMap.put(PN_TEXT, getText());</b>
+<b class="fc">&nbsp;        valueMap.put(PN_SELECTED, getSelected());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public abstract String getText();
+&nbsp;
+&nbsp;    public abstract String getValue();
+&nbsp;
+&nbsp;    public abstract boolean getSelected();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

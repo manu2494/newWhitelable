@@ -1,0 +1,868 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > page__002e__html</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.apache.sling.scripting.sightly.apps.whitelabel.components.page</a>
+</div>
+
+<h1>Coverage Summary for Class: page__002e__html (org.apache.sling.scripting.sightly.apps.whitelabel.components.page)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">page__002e__html</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/296)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/380)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*******************************************************************************
+&nbsp; * Licensed to the Apache Software Foundation (ASF) under one
+&nbsp; * or more contributor license agreements.  See the NOTICE file
+&nbsp; * distributed with this work for additional information
+&nbsp; * regarding copyright ownership.  The ASF licenses this file
+&nbsp; * to you under the Apache License, Version 2.0 (the
+&nbsp; * &quot;License&quot;); you may not use this file except in compliance
+&nbsp; * with the License.  You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *   http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing,
+&nbsp; * software distributed under the License is distributed on an
+&nbsp; * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+&nbsp; * KIND, either express or implied.  See the License for the
+&nbsp; * specific language governing permissions and limitations
+&nbsp; * under the License.
+&nbsp; ******************************************************************************/
+&nbsp;package org.apache.sling.scripting.sightly.apps.whitelabel.components.page;
+&nbsp;
+&nbsp;import java.io.PrintWriter;
+&nbsp;import java.util.Collection;
+&nbsp;import javax.script.Bindings;
+&nbsp;
+&nbsp;import org.apache.sling.scripting.sightly.render.RenderUnit;
+&nbsp;import org.apache.sling.scripting.sightly.render.RenderContext;
+&nbsp;
+<b class="nc">&nbsp;public final class page__002e__html extends RenderUnit {</b>
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected final void render(PrintWriter out,
+&nbsp;                                Bindings bindings,
+&nbsp;                                Bindings arguments,
+&nbsp;                                RenderContext renderContext) {
+&nbsp;// Main Template Body -----------------------------------------------------------------------------
+&nbsp;
+<b class="nc">&nbsp;Object _global_page = null;</b>
+<b class="nc">&nbsp;Object _global_pwa = null;</b>
+<b class="nc">&nbsp;Object _global_head = null;</b>
+<b class="nc">&nbsp;Object _global_footer = null;</b>
+<b class="nc">&nbsp;Object _global_redirect = null;</b>
+<b class="nc">&nbsp;Object _dynamic_caconfig = bindings.get(&quot;caconfig&quot;);</b>
+<b class="nc">&nbsp;Object _global_trackingconfig = null;</b>
+<b class="nc">&nbsp;Object _global_onetrustconfig = null;</b>
+<b class="nc">&nbsp;Object _global_generalconfig = null;</b>
+<b class="nc">&nbsp;Object _global_authentication = null;</b>
+<b class="nc">&nbsp;Object _global_promo = null;</b>
+<b class="nc">&nbsp;Object _dynamic_wcmmode = bindings.get(&quot;wcmmode&quot;);</b>
+<b class="nc">&nbsp;Collection var_collectionvar44_list_coerced$ = null;</b>
+<b class="nc">&nbsp;Object _global_datalayerenabled = null;</b>
+<b class="nc">&nbsp;Object _global_variablename = null;</b>
+<b class="nc">&nbsp;Object _dynamic_tracingconfig = bindings.get(&quot;tracingconfig&quot;);</b>
+<b class="nc">&nbsp;Object _global_isredirectpage = null;</b>
+<b class="nc">&nbsp;Object _global_promotionconfig = null;</b>
+<b class="nc">&nbsp;out.write(&quot;&lt;!DOCTYPE HTML&gt;\n&quot;);</b>
+<b class="nc">&nbsp;_global_page = renderContext.call(&quot;use&quot;, com.adobe.cq.wcm.core.components.models.Page.class.getName(), obj());</b>
+<b class="nc">&nbsp;_global_pwa = renderContext.call(&quot;use&quot;, com.adobe.cq.wcm.core.components.models.PWA.class.getName(), obj());</b>
+<b class="nc">&nbsp;_global_head = renderContext.call(&quot;use&quot;, &quot;head.html&quot;, obj());</b>
+<b class="nc">&nbsp;_global_footer = renderContext.call(&quot;use&quot;, &quot;footer.html&quot;, obj());</b>
+<b class="nc">&nbsp;_global_redirect = renderContext.call(&quot;use&quot;, &quot;redirect.html&quot;, obj());</b>
+<b class="nc">&nbsp;_global_trackingconfig = renderContext.getObjectModel().resolveProperty(_dynamic_caconfig, &quot;com.merkle.xp.whitelabel.core.config.TrackingConfig&quot;);</b>
+<b class="nc">&nbsp;_global_onetrustconfig = renderContext.getObjectModel().resolveProperty(_dynamic_caconfig, &quot;com.merkle.xp.whitelabel.core.config.OneTrustConfig&quot;);</b>
+<b class="nc">&nbsp;_global_generalconfig = renderContext.getObjectModel().resolveProperty(_dynamic_caconfig, &quot;com.merkle.xp.whitelabel.core.config.GeneralConfig&quot;);</b>
+<b class="nc">&nbsp;_global_authentication = renderContext.getObjectModel().resolveProperty(_dynamic_caconfig, &quot;com.merkle.xp.whitelabel.core.config.UserAuthentication&quot;);</b>
+<b class="nc">&nbsp;_global_promo = renderContext.getObjectModel().resolveProperty(_dynamic_caconfig, &quot;com.merkle.xp.whitelabel.core.config.PromotionConfig&quot;);</b>
+<b class="nc">&nbsp;out.write(&quot;&lt;html&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue0 = renderContext.getObjectModel().resolveProperty(_global_page, &quot;language&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent1 = renderContext.call(&quot;xss&quot;, var_attrvalue0, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr3 = (((null != var_attrcontent1) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent1))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue0)) &amp;&amp; (!((Object)false).equals(var_attrvalue0))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr3) {</b>
+<b class="nc">&nbsp;                out.write(&quot; lang&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr2 = (var_attrvalue0.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr2) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent1));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;&gt;\n\n&lt;head&gt;&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_templatevar4 = renderContext.getObjectModel().resolveProperty(_global_head, &quot;head&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_templateoptions5_field$_promo = _global_promo;</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_templateoptions5_field$_page = _global_page;</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_templateoptions5_field$_pwa = _global_pwa;</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_templateoptions5_field$_onetrustconfig = _global_onetrustconfig;</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        Object var_templateoptions5_field$_trackingconfig = _global_trackingconfig;</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            java.util.Map var_templateoptions5 = obj().with(&quot;promo&quot;, var_templateoptions5_field$_promo).with(&quot;page&quot;, var_templateoptions5_field$_page).with(&quot;pwa&quot;, var_templateoptions5_field$_pwa).with(&quot;oneTrustConfig&quot;, var_templateoptions5_field$_onetrustconfig).with(&quot;trackingConfig&quot;, var_templateoptions5_field$_trackingconfig);</b>
+<b class="nc">&nbsp;                            callUnit(out, renderContext, var_templatevar4, var_templateoptions5);</b>
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;&lt;/head&gt;\n\n&lt;body&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    String var_attrcontent6 = ((((((((renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_page, &quot;cssClassNames&quot;), &quot;attribute&quot;)) + &quot; &quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_generalconfig, &quot;body&quot;), &quot;attribute&quot;))) + &quot; &quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_page, &quot;instance&quot;), &quot;attribute&quot;))) + &quot; &quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, (renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? &quot;&quot; : &quot;live&quot;), &quot;attribute&quot;))) + &quot; &quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, (renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_page, &quot;secure&quot;)) ? &quot;hidden&quot; : &quot;&quot;), &quot;attribute&quot;)));</b>
+<b class="nc">&nbsp;    out.write(&quot; class=\&quot;&quot;);</b>
+<b class="nc">&nbsp;    out.write(renderContext.getObjectModel().toString(var_attrcontent6));</b>
+<b class="nc">&nbsp;    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue7 = renderContext.getObjectModel().resolveProperty(_global_page, &quot;id&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent8 = renderContext.call(&quot;xss&quot;, var_attrvalue7, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr10 = (((null != var_attrcontent8) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent8))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue7)) &amp;&amp; (!((Object)false).equals(var_attrvalue7))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr10) {</b>
+<b class="nc">&nbsp;                out.write(&quot; id&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr9 = (var_attrvalue7.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr9) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent8));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot; data-cmp-data-layer-enabled=\&quot;true\&quot;&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue11 = renderContext.getObjectModel().resolveProperty(_global_page, &quot;secure&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent12 = renderContext.call(&quot;xss&quot;, var_attrvalue11, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr14 = (((null != var_attrcontent12) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent12))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue11)) &amp;&amp; (!((Object)false).equals(var_attrvalue11))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr14) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-private&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr13 = (var_attrvalue11.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr13) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent12));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;&gt;\n\t&lt;div class=\&quot;hidden datalayer\&quot;&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue15 = renderContext.getObjectModel().resolveProperty(_global_promo, &quot;promotionName&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent16 = renderContext.call(&quot;xss&quot;, var_attrvalue15, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr18 = (((null != var_attrcontent16) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent16))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue15)) &amp;&amp; (!((Object)false).equals(var_attrvalue15))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr18) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-promotionName&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr17 = (var_attrvalue15.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr17) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent16));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue19 = renderContext.getObjectModel().resolveProperty(_global_promo, &quot;timezone&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent20 = renderContext.call(&quot;xss&quot;, var_attrvalue19, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr22 = (((null != var_attrcontent20) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent20))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue19)) &amp;&amp; (!((Object)false).equals(var_attrvalue19))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr22) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-timezone&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr21 = (var_attrvalue19.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr21) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent20));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue23 = renderContext.getObjectModel().resolveProperty(_global_promo, &quot;promotionPlatform&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent24 = renderContext.call(&quot;xss&quot;, var_attrvalue23, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr26 = (((null != var_attrcontent24) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent24))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue23)) &amp;&amp; (!((Object)false).equals(var_attrvalue23))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr26) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-platform&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr25 = (var_attrvalue23.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr25) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent24));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue27 = renderContext.getObjectModel().resolveProperty(_global_promo, &quot;siteRegion&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent28 = renderContext.call(&quot;xss&quot;, var_attrvalue27, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr30 = (((null != var_attrcontent28) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent28))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue27)) &amp;&amp; (!((Object)false).equals(var_attrvalue27))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr30) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-region&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr29 = (var_attrvalue27.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr29) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent28));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue31 = renderContext.getObjectModel().resolveProperty(_global_promo, &quot;siteType&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent32 = renderContext.call(&quot;xss&quot;, var_attrvalue31, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr34 = (((null != var_attrcontent32) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent32))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue31)) &amp;&amp; (!((Object)false).equals(var_attrvalue31))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr34) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-type&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr33 = (var_attrvalue31.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr33) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent32));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue35 = renderContext.getObjectModel().resolveProperty(_global_promo, &quot;promotionId&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent36 = renderContext.call(&quot;xss&quot;, var_attrvalue35, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr38 = (((null != var_attrcontent36) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent36))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue35)) &amp;&amp; (!((Object)false).equals(var_attrvalue35))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr38) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-promotionId&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr37 = (var_attrvalue35.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr37) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent36));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue39 = renderContext.getObjectModel().resolveProperty(_global_page, &quot;siteLocale&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent40 = renderContext.call(&quot;xss&quot;, var_attrvalue39, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr42 = (((null != var_attrcontent40) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent40))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue39)) &amp;&amp; (!((Object)false).equals(var_attrvalue39))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr42) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-locale&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr41 = (var_attrvalue39.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr41) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent40));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot; }&gt;&lt;/div&gt;\n\t\n\t&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable43 = (((org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.strictEq(renderContext.getObjectModel().resolveProperty(_global_page, &quot;instance&quot;), &quot;publish&quot;)) ? renderContext.getObjectModel().resolveProperty(_global_page, &quot;devices&quot;) : (org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.strictEq(renderContext.getObjectModel().resolveProperty(_global_page, &quot;instance&quot;), &quot;publish&quot;))));</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable43)) {</b>
+<b class="nc">&nbsp;        out.write(&quot;\n\t\t&lt;div class=\&quot;hidden deviceSettings\&quot;&gt;\n\t\t\t&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_collectionvar44 = renderContext.getObjectModel().resolveProperty(_global_page, &quot;devices&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                long var_size45 = ((var_collectionvar44_list_coerced$ == null ? (var_collectionvar44_list_coerced$ = renderContext.getObjectModel().toCollection(var_collectionvar44)) : var_collectionvar44_list_coerced$).size());</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_notempty46 = (var_size45 &gt; 0);</b>
+<b class="nc">&nbsp;                    if (var_notempty46) {</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            long var_end49 = var_size45;</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_validstartstepend50 = (((0 &lt; var_size45) &amp;&amp; true) &amp;&amp; (var_end49 &gt; 0));</b>
+<b class="nc">&nbsp;                                if (var_validstartstepend50) {</b>
+<b class="nc">&nbsp;                                    if (var_collectionvar44_list_coerced$ == null) {</b>
+<b class="nc">&nbsp;                                        var_collectionvar44_list_coerced$ = renderContext.getObjectModel().toCollection(var_collectionvar44);</b>
+&nbsp;                                    }
+<b class="nc">&nbsp;                                    long var_index51 = 0;</b>
+<b class="nc">&nbsp;                                    for (Object device : var_collectionvar44_list_coerced$) {</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            boolean var_traversal53 = (((var_index51 &gt;= 0) &amp;&amp; (var_index51 &lt;= var_end49)) &amp;&amp; true);</b>
+<b class="nc">&nbsp;                                            if (var_traversal53) {</b>
+<b class="nc">&nbsp;                                                out.write(&quot;\n\t\t\t\t&lt;p class=\&quot;device-size\&quot;&quot;);</b>
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    Object var_attrvalue54 = renderContext.getObjectModel().resolveProperty(device, &quot;minSize&quot;);</b>
+&nbsp;                                                    {
+<b class="nc">&nbsp;                                                        Object var_attrcontent55 = renderContext.call(&quot;xss&quot;, var_attrvalue54, &quot;attribute&quot;);</b>
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            boolean var_shoulddisplayattr57 = (((null != var_attrcontent55) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent55))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue54)) &amp;&amp; (!((Object)false).equals(var_attrvalue54))));</b>
+<b class="nc">&nbsp;                                                            if (var_shoulddisplayattr57) {</b>
+<b class="nc">&nbsp;                                                                out.write(&quot; data-min&quot;);</b>
+&nbsp;                                                                {
+<b class="nc">&nbsp;                                                                    boolean var_istrueattr56 = (var_attrvalue54.equals(true));</b>
+<b class="nc">&nbsp;                                                                    if (!var_istrueattr56) {</b>
+<b class="nc">&nbsp;                                                                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                        out.write(renderContext.getObjectModel().toString(var_attrcontent55));</b>
+<b class="nc">&nbsp;                                                                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                    }
+&nbsp;                                                                }
+&nbsp;                                                            }
+&nbsp;                                                        }
+&nbsp;                                                    }
+&nbsp;                                                }
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    Object var_attrvalue58 = renderContext.getObjectModel().resolveProperty(device, &quot;maxSize&quot;);</b>
+&nbsp;                                                    {
+<b class="nc">&nbsp;                                                        Object var_attrcontent59 = renderContext.call(&quot;xss&quot;, var_attrvalue58, &quot;attribute&quot;);</b>
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            boolean var_shoulddisplayattr61 = (((null != var_attrcontent59) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent59))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue58)) &amp;&amp; (!((Object)false).equals(var_attrvalue58))));</b>
+<b class="nc">&nbsp;                                                            if (var_shoulddisplayattr61) {</b>
+<b class="nc">&nbsp;                                                                out.write(&quot; data-max&quot;);</b>
+&nbsp;                                                                {
+<b class="nc">&nbsp;                                                                    boolean var_istrueattr60 = (var_attrvalue58.equals(true));</b>
+<b class="nc">&nbsp;                                                                    if (!var_istrueattr60) {</b>
+<b class="nc">&nbsp;                                                                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                        out.write(renderContext.getObjectModel().toString(var_attrcontent59));</b>
+<b class="nc">&nbsp;                                                                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                    }
+&nbsp;                                                                }
+&nbsp;                                                            }
+&nbsp;                                                        }
+&nbsp;                                                    }
+&nbsp;                                                }
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    Object var_attrvalue62 = renderContext.getObjectModel().resolveProperty(device, &quot;redirect&quot;);</b>
+&nbsp;                                                    {
+<b class="nc">&nbsp;                                                        Object var_attrcontent63 = renderContext.call(&quot;xss&quot;, var_attrvalue62, &quot;attribute&quot;);</b>
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            boolean var_shoulddisplayattr65 = (((null != var_attrcontent63) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent63))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue62)) &amp;&amp; (!((Object)false).equals(var_attrvalue62))));</b>
+<b class="nc">&nbsp;                                                            if (var_shoulddisplayattr65) {</b>
+<b class="nc">&nbsp;                                                                out.write(&quot; data-redirect&quot;);</b>
+&nbsp;                                                                {
+<b class="nc">&nbsp;                                                                    boolean var_istrueattr64 = (var_attrvalue62.equals(true));</b>
+<b class="nc">&nbsp;                                                                    if (!var_istrueattr64) {</b>
+<b class="nc">&nbsp;                                                                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                        out.write(renderContext.getObjectModel().toString(var_attrcontent63));</b>
+<b class="nc">&nbsp;                                                                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                    }
+&nbsp;                                                                }
+&nbsp;                                                            }
+&nbsp;                                                        }
+&nbsp;                                                    }
+&nbsp;                                                }
+<b class="nc">&nbsp;                                                out.write(&quot;&gt;&lt;/p&gt;\n\t\t\t&quot;);</b>
+&nbsp;                                            }
+&nbsp;                                        }
+<b class="nc">&nbsp;                                        var_index51++;</b>
+&nbsp;                                    }
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;            var_collectionvar44_list_coerced$ = null;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n\t\t&lt;/div&gt;\n\t\t&lt;script&gt;\n\t\t\tconst width=window.innerWidth;\n\t\t\tArray.from(document.querySelectorAll(&#39;.device-size&#39;)).forEach((device)=&gt;{\n\t\t\t\tconst min = parseInt(device.getAttribute(&#39;data-min&#39;));\n\t\t\t\tconst max = parseInt(device.getAttribute(&#39;data-max&#39;));\n\t\t\t\tif (width &gt;= min &amp;&amp; width &lt;= max) {\n\t\t\t\t\tredirect = device.getAttribute(&#39;data-redirect&#39;);\n\t\t\t\t\twindow.location.href = redirect;\n\t\t\t\t}\n\t\t\t});\n\t\t\t\n\t\t&lt;/script&gt;\n\t&quot;);</b>
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\t&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable66 = (((org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.strictEq(renderContext.getObjectModel().resolveProperty(_global_page, &quot;instance&quot;), &quot;publish&quot;)) ? renderContext.getObjectModel().resolveProperty(_global_page, &quot;secure&quot;) : (org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.strictEq(renderContext.getObjectModel().resolveProperty(_global_page, &quot;instance&quot;), &quot;publish&quot;))));</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable66)) {</b>
+<b class="nc">&nbsp;        out.write(&quot;\n\t\t&lt;script&gt;&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            String var_67 = ((((&quot;\n\t\t\tsetTimeout(() =&gt; {\n\t\t\t\tconst cookies = &#39;&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_authentication, &quot;cookies&quot;), &quot;scriptString&quot;))) + &quot;&#39;.split(&#39;,&#39;);\n\t            let found = true;\n\t            for (let i=0;i&lt;cookies.length;i++) {\n\t            \tif (!BGC.cookie(cookies[i])) {\n\t                \tfound = false;\n\t                    break;\n\t                }\n\t            }\n\t            if (!found) {\n\t            \twindow.location.href=&#39;&quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_page, &quot;loginPage&quot;), &quot;scriptString&quot;))) + &quot;&#39;;\n\t            } else {\n\t\t\t\t\tdocument.body.classList.remove(&#39;hidden&#39;);\n\t\t\t\t}\n\t\t\t},250);\n\t\t&quot;);</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_67));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;&lt;/script&gt;\n\t&quot;);</b>
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\t&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable68 = renderContext.getObjectModel().resolveProperty(_global_trackingconfig, &quot;googleAnalyticsUACode&quot;);</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable68)) {</b>
+<b class="nc">&nbsp;        out.write(&quot;\n        &lt;!-- Google Tag Manager --&gt;\n        &lt;noscript&gt;&lt;iframe&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            String var_attrcontent69 = ((&quot;//www.googletagmanager.com/ns.html?id=&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_trackingconfig, &quot;googleAnalyticsUACode&quot;), &quot;unsafe&quot;))) + &quot; &quot;);</b>
+<b class="nc">&nbsp;            out.write(&quot; src=\&quot;&quot;);</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_attrcontent69));</b>
+<b class="nc">&nbsp;            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot; height=\&quot;0\&quot; width=\&quot;0\&quot; style=\&quot;display:none;visibility:hidden\&quot;&gt;&lt;/iframe&gt;&lt;/noscript&gt;\n        &lt;!-- End Google Tag Manager --&gt;\n\t&quot;);</b>
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\t\n\t&quot;);</b>
+<b class="nc">&nbsp;_global_datalayerenabled = renderContext.getObjectModel().resolveProperty(_global_page, &quot;data&quot;);</b>
+<b class="nc">&nbsp;if (renderContext.getObjectModel().toBoolean(_global_datalayerenabled)) {</b>
+<b class="nc">&nbsp;    out.write(&quot;&lt;script&gt;&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        String var_70 = ((((&quot;\n\t\twindow.adobeDataLayer = window.adobeDataLayer || [];\n\t\tadobeDataLayer.push({\n\t\t\tpage: JSON.parse(\&quot;&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_page, &quot;data&quot;), &quot;json&quot;), &quot;scriptString&quot;))) + &quot;\&quot;),\n\t\t\tevent: &#39;cmp:show&#39;,\n\t\t\teventInfo: {\n\t\t\t\tpath: &#39;page.&quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_page, &quot;id&quot;), &quot;scriptString&quot;))) + &quot;&#39;\n\t\t\t}\n\t\t});\n\t&quot;);</b>
+<b class="nc">&nbsp;        out.write(renderContext.getObjectModel().toString(var_70));</b>
+&nbsp;    }
+<b class="nc">&nbsp;    out.write(&quot;&lt;/script&gt;&quot;);</b>
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\t&quot;);</b>
+<b class="nc">&nbsp;_global_variablename = ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_trackingconfig, &quot;variableName&quot;)) ? renderContext.getObjectModel().resolveProperty(_global_trackingconfig, &quot;variableName&quot;) : &quot;datalayer&quot;));</b>
+<b class="nc">&nbsp;out.write(&quot;\n\t&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable71 = ((renderContext.getObjectModel().toBoolean(((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_page, &quot;datalayerJson&quot;)) ? _global_variablename : renderContext.getObjectModel().resolveProperty(_global_page, &quot;datalayerJson&quot;)))) ? (!renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_tracingconfig, &quot;useArray&quot;))) : ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_page, &quot;datalayerJson&quot;)) ? _global_variablename : renderContext.getObjectModel().resolveProperty(_global_page, &quot;datalayerJson&quot;)))));</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable71)) {</b>
+<b class="nc">&nbsp;        out.write(&quot;&lt;script&gt;&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            String var_72 = ((((((((&quot;\n\t\tlet jsonData = &#39;&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_page, &quot;datalayerJson&quot;), &quot;unsafe&quot;))) + &quot;&#39;;\n\t\tjsonData = JSON.parse(jsonData);\n\t\twindow[\&quot;&quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, _global_variablename, &quot;unsafe&quot;))) + &quot;\&quot;] = window[\&quot;&quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, _global_variablename, &quot;unsafe&quot;))) + &quot;\&quot;] || {};\n\t\twindow[\&quot;&quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, _global_variablename, &quot;unsafe&quot;))) + &quot;\&quot;] = {\n\t\t    ...jsonData\n\t\t}\n\t&quot;);</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_72));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;&lt;/script&gt;&quot;);</b>
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\t&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable73 = ((renderContext.getObjectModel().toBoolean(((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_page, &quot;datalayerJson&quot;)) ? _global_variablename : renderContext.getObjectModel().resolveProperty(_global_page, &quot;datalayerJson&quot;)))) ? renderContext.getObjectModel().resolveProperty(_global_trackingconfig, &quot;useArray&quot;) : ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_page, &quot;datalayerJson&quot;)) ? _global_variablename : renderContext.getObjectModel().resolveProperty(_global_page, &quot;datalayerJson&quot;)))));</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable73)) {</b>
+<b class="nc">&nbsp;        out.write(&quot;&lt;script&gt;&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            String var_74 = ((((((((&quot;\n\t\tlet jsonData = &#39;&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_page, &quot;datalayerJson&quot;), &quot;unsafe&quot;))) + &quot;&#39;;\n\t\tjsonData = JSON.parse(jsonData);\n\n\t\twindow[&#39;&quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, _global_variablename, &quot;unsafe&quot;))) + &quot;&#39;] = window[&#39;&quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, _global_variablename, &quot;unsafe&quot;))) + &quot;&#39;] || [];\n\t\twindow[&#39;&quot;) + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, _global_variablename, &quot;unsafe&quot;))) + &quot;&#39;].push(jsonData);\n\t&quot;);</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_74));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;&lt;/script&gt;&quot;);</b>
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\t&quot;);</b>
+<b class="nc">&nbsp;_global_isredirectpage = ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_page, &quot;redirectTarget&quot;)) ? ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;) : renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;preview&quot;))) : renderContext.getObjectModel().resolveProperty(_global_page, &quot;redirectTarget&quot;)));</b>
+<b class="nc">&nbsp;if (renderContext.getObjectModel().toBoolean(_global_isredirectpage)) {</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_templatevar75 = renderContext.getObjectModel().resolveProperty(_global_redirect, &quot;redirect&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_templateoptions76_field$_redirecttarget = renderContext.getObjectModel().resolveProperty(_global_page, &quot;redirectTarget&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                java.util.Map var_templateoptions76 = obj().with(&quot;redirectTarget&quot;, var_templateoptions76_field$_redirecttarget);</b>
+<b class="nc">&nbsp;                callUnit(out, renderContext, var_templatevar75, var_templateoptions76);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\t&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    boolean var_testvariable77 = (!renderContext.getObjectModel().toBoolean(_global_isredirectpage));</b>
+<b class="nc">&nbsp;    if (var_testvariable77) {</b>
+<b class="nc">&nbsp;        out.write(&quot;\n\t\t&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_includedresult78 = renderContext.call(&quot;include&quot;, &quot;body.skiptomaincontent.html&quot;, obj());</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_includedresult78));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n\t\t&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_includedresult80 = renderContext.call(&quot;include&quot;, &quot;body.socialmedia_begin.html&quot;, obj());</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_includedresult80));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n\t\t&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_includedresult82 = renderContext.call(&quot;include&quot;, &quot;body.html&quot;, obj());</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_includedresult82));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n\t\t&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_templatevar84 = renderContext.getObjectModel().resolveProperty(_global_footer, &quot;footer&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_templateoptions85_field$_page = _global_page;</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_templateoptions85_field$_pwa = _global_pwa;</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        java.util.Map var_templateoptions85 = obj().with(&quot;page&quot;, var_templateoptions85_field$_page).with(&quot;pwa&quot;, var_templateoptions85_field$_pwa);</b>
+<b class="nc">&nbsp;                        callUnit(out, renderContext, var_templatevar84, var_templateoptions85);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n\t\t&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_includedresult86 = renderContext.call(&quot;include&quot;, &quot;body.socialmedia_end.html&quot;, obj());</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_includedresult86));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n\t&quot;);</b>
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\n\t&quot;);</b>
+<b class="nc">&nbsp;_global_promotionconfig = renderContext.getObjectModel().resolveProperty(_dynamic_caconfig, &quot;com.merkle.xp.whitelabel.core.config.PromotionConfig&quot;);</b>
+<b class="nc">&nbsp;out.write(&quot;\n\t\t&lt;div class=\&quot;adobelaunchconfig\&quot;&gt;\n\t\t\t&lt;div id=\&quot;propid\&quot;&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue88 = renderContext.getObjectModel().resolveProperty(_global_trackingconfig, &quot;launchPropertyID&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent89 = renderContext.call(&quot;xss&quot;, var_attrvalue88, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr91 = (((null != var_attrcontent89) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent89))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue88)) &amp;&amp; (!((Object)false).equals(var_attrvalue88))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr91) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-propid&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr90 = (var_attrvalue88.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr90) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent89));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue92 = renderContext.getObjectModel().resolveProperty(_global_promotionconfig, &quot;siteEntity&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent93 = renderContext.call(&quot;xss&quot;, var_attrvalue92, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr95 = (((null != var_attrcontent93) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent93))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue92)) &amp;&amp; (!((Object)false).equals(var_attrvalue92))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr95) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-entity&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr94 = (var_attrvalue92.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr94) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent93));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue96 = renderContext.getObjectModel().resolveProperty(_global_promotionconfig, &quot;siteType&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent97 = renderContext.call(&quot;xss&quot;, var_attrvalue96, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr99 = (((null != var_attrcontent97) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent97))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue96)) &amp;&amp; (!((Object)false).equals(var_attrvalue96))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr99) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-sitetype&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr98 = (var_attrvalue96.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr98) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent97));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue100 = renderContext.getObjectModel().resolveProperty(_global_promotionconfig, &quot;siteRegion&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent101 = renderContext.call(&quot;xss&quot;, var_attrvalue100, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr103 = (((null != var_attrcontent101) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent101))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue100)) &amp;&amp; (!((Object)false).equals(var_attrvalue100))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr103) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-sitereg&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr102 = (var_attrvalue100.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr102) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent101));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue104 = renderContext.getObjectModel().resolveProperty(_global_page, &quot;countryPageTitle&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent105 = renderContext.call(&quot;xss&quot;, var_attrvalue104, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr107 = (((null != var_attrcontent105) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent105))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue104)) &amp;&amp; (!((Object)false).equals(var_attrvalue104))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr107) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-country&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr106 = (var_attrvalue104.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr106) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent105));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue108 = renderContext.getObjectModel().resolveProperty(_global_promotionconfig, &quot;promotionName&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent109 = renderContext.call(&quot;xss&quot;, var_attrvalue108, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr111 = (((null != var_attrcontent109) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent109))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue108)) &amp;&amp; (!((Object)false).equals(var_attrvalue108))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr111) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-promotionname&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr110 = (var_attrvalue108.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr110) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent109));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue112 = renderContext.getObjectModel().resolveProperty(_global_page, &quot;siteLocale&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent113 = renderContext.call(&quot;xss&quot;, var_attrvalue112, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr115 = (((null != var_attrcontent113) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent113))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue112)) &amp;&amp; (!((Object)false).equals(var_attrvalue112))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr115) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-locale&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr114 = (var_attrvalue112.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr114) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent113));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue116 = renderContext.getObjectModel().resolveProperty(_global_page, &quot;languagePageTitle&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent117 = renderContext.call(&quot;xss&quot;, var_attrvalue116, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr119 = (((null != var_attrcontent117) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent117))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue116)) &amp;&amp; (!((Object)false).equals(var_attrvalue116))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr119) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-language&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr118 = (var_attrvalue116.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr118) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent117));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue120 = renderContext.getObjectModel().resolveProperty(_global_promotionconfig, &quot;env&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent121 = renderContext.call(&quot;xss&quot;, var_attrvalue120, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr123 = (((null != var_attrcontent121) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent121))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue120)) &amp;&amp; (!((Object)false).equals(var_attrvalue120))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr123) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-env&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr122 = (var_attrvalue120.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr122) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent121));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue124 = renderContext.getObjectModel().resolveProperty(_global_promotionconfig, &quot;promotionPlatform&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent125 = renderContext.call(&quot;xss&quot;, var_attrvalue124, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr127 = (((null != var_attrcontent125) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent125))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue124)) &amp;&amp; (!((Object)false).equals(var_attrvalue124))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr127) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-promotionPlatform&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr126 = (var_attrvalue124.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr126) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent125));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;&gt;&lt;/div&gt;\n\t\t\t&lt;adobeLaunch id=\&quot;footerbvscipt\&quot;&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    String var_attrcontent128 = ((&quot;https://assets.adobedtm.com/&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(_global_trackingconfig, &quot;launchID&quot;), &quot;uri&quot;))) + &quot;.min.js&quot;);</b>
+<b class="nc">&nbsp;    out.write(&quot; src=\&quot;&quot;);</b>
+<b class="nc">&nbsp;    out.write(renderContext.getObjectModel().toString(var_attrcontent128));</b>
+<b class="nc">&nbsp;    out.write(&quot;\&quot;&quot;);</b>
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;&gt;\n\t\t\t\t&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable129 = renderContext.getObjectModel().resolveProperty(_global_trackingconfig, &quot;launchID&quot;);</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable129)) {</b>
+<b class="nc">&nbsp;        out.write(&quot;\n\t\t\t\t&quot;);</b>
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\t\t\t&lt;/adobeLaunch&gt;\n\t\t&lt;/div&gt;\n\t\n&lt;/body&gt;\n&lt;/html&gt;&quot;);</b>
+&nbsp;
+&nbsp;
+&nbsp;// End Of Main Template Body ----------------------------------------------------------------------
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    {
+&nbsp;//Sub-Templates Initialization --------------------------------------------------------------------
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;//End of Sub-Templates Initialization -------------------------------------------------------------
+&nbsp;    }
+&nbsp;
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

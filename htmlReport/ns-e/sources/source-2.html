@@ -1,0 +1,199 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > GetPageIT</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.it.tests</a>
+</div>
+
+<h1>Coverage Summary for Class: GetPageIT (com.merkle.xp.whitelabel.it.tests)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GetPageIT</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; *  Copyright 2015 Adobe Systems Incorporated
+&nbsp; *
+&nbsp; *  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; *  you may not use this file except in compliance with the License.
+&nbsp; *  You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *      http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; *  Unless required by applicable law or agreed to in writing, software
+&nbsp; *  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; *  See the License for the specific language governing permissions and
+&nbsp; *  limitations under the License.
+&nbsp; */
+&nbsp;package com.merkle.xp.whitelabel.it.tests;
+&nbsp;
+&nbsp;import com.adobe.cq.testing.client.CQClient;
+&nbsp;import com.adobe.cq.testing.junit.rules.CQAuthorPublishClassRule;
+&nbsp;import com.adobe.cq.testing.junit.rules.CQRule;
+&nbsp;import com.adobe.cq.testing.junit.rules.Page;
+&nbsp;import org.apache.sling.testing.clients.ClientException;
+&nbsp;import org.apache.sling.testing.clients.SlingHttpResponse;
+&nbsp;import org.junit.*;
+&nbsp;
+&nbsp;
+&nbsp;/**
+&nbsp; * Test that some paths exist out-of-the-box on the author service. This test
+&nbsp; * showcases some &lt;a
+&nbsp; * href=&quot;https://github.com/adobe/aem-testing-clients/wiki/Best-practices&quot;&gt;best
+&nbsp; * practices&lt;/a&gt; of the &lt;a
+&nbsp; * href=&quot;https://github.com/adobe/aem-testing-clients&quot;&gt;AEM Testing Clients&lt;/a&gt;.
+&nbsp; */
+<b class="nc">&nbsp;public class GetPageIT {</b>
+&nbsp;
+&nbsp;    // The CQAuthorClassRule represents an author service. The rule will read
+&nbsp;    // the hostname and port of the author service from the system properties
+&nbsp;    // passed to the tests.@ClassRule
+&nbsp;
+&nbsp;    @ClassRule
+<b class="nc">&nbsp;    public static final CQAuthorPublishClassRule cqBaseClassRule = new CQAuthorPublishClassRule();</b>
+&nbsp;
+&nbsp;    // CQRule decorates your test and adds additional functionality on top of
+&nbsp;    // it, like session stickyness, test filtering and identification of the
+&nbsp;    // test on the remote service.
+&nbsp;
+<b class="nc">&nbsp;    @Rule</b>
+&nbsp;    public CQRule cqBaseRule = new CQRule(cqBaseClassRule.authorRule, cqBaseClassRule.publishRule);
+&nbsp;
+&nbsp;    static CQClient adminAuthor;
+&nbsp;
+&nbsp;    static CQClient adminPublish;
+&nbsp;
+&nbsp;    // Thanks to the CQAuthorClassRule, we can create two CQClient instances
+&nbsp;    // bound to the admin user on both the author and publish service.
+&nbsp;
+&nbsp;    @BeforeClass
+&nbsp;    public static void beforeClass() throws ClientException {
+<b class="nc">&nbsp;        adminAuthor = cqBaseClassRule.authorRule.getAdminClient(CQClient.class);</b>
+<b class="nc">&nbsp;        adminPublish = cqBaseClassRule.publishRule.getAdminClient(CQClient.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifies that the homepage exists on author
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void testHomePageAuthor() throws ClientException {
+<b class="nc">&nbsp;        adminAuthor.doGet(&quot;/&quot;, 200);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifies that the sites console exists on author
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void testSitesAuthor() throws ClientException {
+<b class="nc">&nbsp;        adminAuthor.doGet(&quot;/sites.html&quot;, 200);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifies that the assets console exists on author
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void testAssetsAuthor() throws ClientException {
+<b class="nc">&nbsp;        adminAuthor.doGet(&quot;/assets.html&quot;, 200);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifies that the projects console exists on author
+&nbsp;     */
+&nbsp;    @Test
+&nbsp;    public void testProjectsAuthor() throws ClientException {
+<b class="nc">&nbsp;        adminAuthor.doGet(&quot;/projects.html&quot;, 200);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

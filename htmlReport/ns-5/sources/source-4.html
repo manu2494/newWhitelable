@@ -1,0 +1,490 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > DownloadListModelImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.models.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: DownloadListModelImpl (com.merkle.xp.whitelabel.core.models.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DownloadListModelImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    89.7%
+  </span>
+  <span class="absValue">
+    (26/29)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    36.5%
+  </span>
+  <span class="absValue">
+    (19/52)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    64.4%
+  </span>
+  <span class="absValue">
+    (76/118)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/**
+&nbsp; * 
+&nbsp; */
+&nbsp;package com.merkle.xp.whitelabel.core.models.impl;
+&nbsp;
+&nbsp;import static com.adobe.cq.wcm.core.components.models.Download.PN_DESCRIPTION_FROM_ASSET;
+&nbsp;import static com.adobe.cq.wcm.core.components.models.Download.PN_DISPLAY_FILENAME;
+&nbsp;import static com.adobe.cq.wcm.core.components.models.Download.PN_DISPLAY_FORMAT;
+&nbsp;import static com.adobe.cq.wcm.core.components.models.Download.PN_DISPLAY_SIZE;
+&nbsp;import static com.adobe.cq.wcm.core.components.models.Download.PN_HIDE_TITLE_LINK;
+&nbsp;import static com.adobe.cq.wcm.core.components.models.Download.PN_INLINE;
+&nbsp;import static com.adobe.cq.wcm.core.components.models.Download.PN_TITLE_FROM_ASSET;
+&nbsp;import static com.adobe.cq.wcm.core.components.models.Download.PN_TITLE_TYPE;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Calendar;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import javax.annotation.PostConstruct;
+&nbsp;import javax.inject.Inject;
+&nbsp;
+&nbsp;import org.apache.commons.io.FileUtils;
+&nbsp;import org.apache.commons.io.FilenameUtils;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;import org.apache.sling.api.SlingHttpServletRequest;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;import org.apache.sling.api.resource.ValueMap;
+&nbsp;import org.apache.sling.commons.mime.MimeTypeService;
+&nbsp;import org.apache.sling.models.annotations.Default;
+&nbsp;import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+&nbsp;import org.apache.sling.models.annotations.Model;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.Self;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+&nbsp;import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+&nbsp;
+&nbsp;import com.adobe.cq.dam.cfm.ContentElement;
+&nbsp;import com.adobe.cq.dam.cfm.ContentFragment;
+&nbsp;import com.adobe.cq.wcm.core.components.commons.link.Link;
+&nbsp;import com.day.cq.commons.jcr.JcrConstants;
+&nbsp;import com.day.cq.dam.api.Asset;
+&nbsp;import com.day.cq.dam.api.DamConstants;
+&nbsp;import com.day.cq.wcm.api.designer.Style;
+&nbsp;import com.drew.lang.annotations.NotNull;
+&nbsp;import com.drew.lang.annotations.Nullable;
+&nbsp;import com.fasterxml.jackson.annotation.JsonIgnore;
+&nbsp;import com.merkle.xp.whitelabel.core.bean.DownloadListBean;
+&nbsp;import com.merkle.xp.whitelabel.core.models.DownloadListModel;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.link.LinkManager;
+&nbsp;
+&nbsp;import lombok.Getter;
+&nbsp;
+&nbsp;@Model(adaptables = SlingHttpServletRequest.class, adapters = DownloadListModel.class, resourceType = &quot;whitelabel/components-dnc/downloadlist&quot;, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+<b class="fc">&nbsp;public class DownloadListModelImpl implements DownloadListModel {</b>
+&nbsp;	public static final String SELECTOR = &quot;coredownload&quot;;
+&nbsp;	public static final String INLINE_SELECTOR = &quot;inline&quot;;
+&nbsp;
+&nbsp;	@Inject
+&nbsp;	private String cfPath;
+&nbsp;
+&nbsp;	@Inject
+&nbsp;	private String elementNames;
+&nbsp;
+&nbsp;	@ScriptVariable
+&nbsp;	private Resource resource;
+&nbsp;
+&nbsp;	@Self
+&nbsp;	private SlingHttpServletRequest request;
+&nbsp;
+&nbsp;	@SlingObject
+&nbsp;	private ResourceResolver resolver;
+&nbsp;
+&nbsp;	@Override
+&nbsp;	public String getCFPath() {
+<b class="fc">&nbsp;		return cfPath;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * @return
+&nbsp;	 */
+&nbsp;	@Override
+&nbsp;	public String getElementNames() {
+<b class="fc">&nbsp;		return elementNames;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	@Self
+&nbsp;	private LinkManager linkManager;
+&nbsp;
+&nbsp;	@ValueMapValue
+&nbsp;	@Default(values = StringUtils.EMPTY)
+<b class="fc">&nbsp;	@Getter</b>
+&nbsp;	private String variant;
+&nbsp;
+&nbsp;	@ScriptVariable
+&nbsp;	private ValueMap properties;
+&nbsp;
+<b class="fc">&nbsp;	private boolean titleFromAsset = false;</b>
+&nbsp;
+<b class="fc">&nbsp;	private boolean descriptionFromAsset = false;</b>
+&nbsp;
+<b class="fc">&nbsp;	private boolean inline = false;</b>
+&nbsp;
+&nbsp;	private boolean displaySize;
+&nbsp;
+&nbsp;	private boolean displayFormat;
+&nbsp;
+&nbsp;	private boolean displayFilename;
+&nbsp;
+<b class="fc">&nbsp;	private boolean hideTitleLink = false;</b>
+&nbsp;
+&nbsp;	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL, name = JcrConstants.JCR_TITLE)
+&nbsp;	@Nullable
+&nbsp;	private String title;
+&nbsp;
+&nbsp;	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL, name = JcrConstants.JCR_DESCRIPTION)
+&nbsp;	@Nullable
+&nbsp;	private String description;
+&nbsp;
+&nbsp;	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+&nbsp;	@Nullable
+&nbsp;	private String actionText;
+&nbsp;
+&nbsp;	@ScriptVariable(injectionStrategy = InjectionStrategy.OPTIONAL)
+&nbsp;	@JsonIgnore
+&nbsp;	@Nullable
+&nbsp;	protected Style currentStyle;
+&nbsp;
+&nbsp;	@OSGiService
+&nbsp;	private MimeTypeService mimeTypeService;
+&nbsp;	private String titleType;
+&nbsp;
+&nbsp;	private String filename;
+&nbsp;
+&nbsp;	private String format;
+&nbsp;
+&nbsp;	private String size;
+&nbsp;
+&nbsp;	private String extension;
+&nbsp;
+<b class="fc">&nbsp;	private long lastModified = 0;</b>
+&nbsp;
+&nbsp;	@SuppressWarnings(&quot;rawtypes&quot;)
+&nbsp;	private Link link;
+&nbsp;
+&nbsp;	private DownloadListBean downloadBean;
+&nbsp;
+&nbsp;	public List&lt;DownloadListBean&gt; getDownloadList() {
+<b class="fc">&nbsp;		return new ArrayList&lt;&gt;(downloadList);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	@ValueMapValue(name = &quot;useCFData&quot;, injectionStrategy = InjectionStrategy.OPTIONAL)
+&nbsp;	@Nullable
+&nbsp;	private boolean useCFData;
+&nbsp;
+<b class="fc">&nbsp;	private List&lt;DownloadListBean&gt; downloadList = new ArrayList&lt;DownloadListBean&gt;();</b>
+&nbsp;
+&nbsp;	@PostConstruct
+&nbsp;	private void initModel() {
+<b class="fc">&nbsp;		if (currentStyle != null) {</b>
+<b class="fc">&nbsp;			titleType = currentStyle.get(PN_TITLE_TYPE, String.class);</b>
+<b class="fc">&nbsp;			displaySize = currentStyle.get(PN_DISPLAY_SIZE, true);</b>
+<b class="fc">&nbsp;			displayFormat = currentStyle.get(PN_DISPLAY_FORMAT, true);</b>
+<b class="fc">&nbsp;			displayFilename = currentStyle.get(PN_DISPLAY_FILENAME, true);</b>
+<b class="fc">&nbsp;			hideTitleLink = currentStyle.get(PN_HIDE_TITLE_LINK, false);</b>
+&nbsp;		}
+<b class="fc">&nbsp;		if (useCFData) {</b>
+&nbsp;
+<b class="pc">&nbsp;			if (request.getAttribute(&quot;assetCfPath&quot;) != null) {</b>
+<b class="fc">&nbsp;				cfPath = request.getAttribute(&quot;assetCfPath&quot;).toString();</b>
+&nbsp;			}
+<b class="pc">&nbsp;			if (StringUtils.isNotEmpty(cfPath)) {</b>
+<b class="fc">&nbsp;				Resource fragmentResource = resolver.getResource(cfPath);</b>
+<b class="pc">&nbsp;				if (fragmentResource != null) {</b>
+<b class="fc">&nbsp;					ContentFragment cf = fragmentResource.adaptTo(ContentFragment.class);</b>
+<b class="pc">&nbsp;					if (cf != null) {</b>
+<b class="fc">&nbsp;						ContentElement ele = cf.getElement(elementNames);</b>
+<b class="pc">&nbsp;						if (ele != null) {</b>
+<b class="nc">&nbsp;							List&lt;String&gt; str = Arrays.asList(cf.getElement(elementNames).getContent().split(&quot;\\s+&quot;));</b>
+<b class="nc">&nbsp;							for (String assetPath : str) {</b>
+<b class="nc">&nbsp;								if (StringUtils.isNotBlank(assetPath)) {</b>
+<b class="nc">&nbsp;									Resource assetResource = resolver.getResource(assetPath);</b>
+<b class="nc">&nbsp;									if (assetResource != null) {</b>
+<b class="nc">&nbsp;										getFileData(assetResource);</b>
+&nbsp;									}
+&nbsp;								}
+&nbsp;							}
+&nbsp;						}
+&nbsp;					}
+&nbsp;				}
+&nbsp;			}
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;	public List&lt;DownloadListBean&gt; getFileData(Resource assetResource) {
+<b class="fc">&nbsp;		String fileReference = assetResource.getPath();</b>
+<b class="fc">&nbsp;		titleFromAsset = properties.get(PN_TITLE_FROM_ASSET, titleFromAsset);</b>
+<b class="fc">&nbsp;		descriptionFromAsset = properties.get(PN_DESCRIPTION_FROM_ASSET, descriptionFromAsset);</b>
+<b class="fc">&nbsp;		inline = properties.get(PN_INLINE, inline);</b>
+<b class="pc">&nbsp;		if (StringUtils.isNotBlank(fileReference)) {</b>
+<b class="fc">&nbsp;			initAssetDownload(fileReference);</b>
+<b class="nc">&nbsp;			downloadList.add(initAssetDownload(fileReference));</b>
+&nbsp;		}
+&nbsp;
+<b class="nc">&nbsp;		return new ArrayList&lt;&gt;(downloadList);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	private DownloadListBean initAssetDownload(String fileReference) {
+&nbsp;
+<b class="fc">&nbsp;		Resource downloadResource = resolver.getResource(fileReference);</b>
+<b class="pc">&nbsp;		if (downloadResource != null) {</b>
+<b class="fc">&nbsp;			Asset downloadAsset = downloadResource.adaptTo(Asset.class);</b>
+<b class="pc">&nbsp;			if (downloadAsset != null) {</b>
+<b class="fc">&nbsp;				lastModified = getLastModified(downloadAsset);</b>
+<b class="fc">&nbsp;				filename = downloadAsset.getName();</b>
+<b class="fc">&nbsp;				format = getDcFormat(downloadAsset);</b>
+<b class="fc">&nbsp;				extension = getExtension(downloadAsset);</b>
+<b class="fc">&nbsp;				link = linkManager.get(getDownloadUrl(downloadResource)).build();</b>
+<b class="nc">&nbsp;				title = getDcTitle(downloadAsset);</b>
+<b class="nc">&nbsp;				description = getDescription(downloadAsset);</b>
+<b class="nc">&nbsp;				size = getRawFileSize(downloadAsset);</b>
+<b class="nc">&nbsp;				downloadBean = new DownloadListBean();</b>
+<b class="nc">&nbsp;				downloadBean.setFileName(filename);</b>
+<b class="nc">&nbsp;				downloadBean.setFormat(format);</b>
+<b class="nc">&nbsp;				downloadBean.setSize(size);</b>
+<b class="nc">&nbsp;				downloadBean.setDescription(description);</b>
+<b class="nc">&nbsp;				downloadBean.setExtension(extension);</b>
+<b class="nc">&nbsp;				downloadBean.setLink(link);</b>
+<b class="nc">&nbsp;				downloadBean.setTitle(title);</b>
+<b class="nc">&nbsp;				downloadBean.setLastModified(lastModified);</b>
+&nbsp;			}
+&nbsp;		}
+<b class="nc">&nbsp;		return downloadBean;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	private String getDcFormat(Asset downloadAsset) {
+<b class="fc">&nbsp;		format = downloadAsset.getMetadataValue(DamConstants.DC_FORMAT);</b>
+<b class="pc">&nbsp;		if (!StringUtils.isEmpty(format)) {</b>
+<b class="fc">&nbsp;			format = FilenameUtils.getExtension(filename);</b>
+&nbsp;		}
+<b class="fc">&nbsp;		return extension;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	private String getExtension(Asset downloadAsset) {
+<b class="fc">&nbsp;		format = downloadAsset.getMetadataValue(DamConstants.DC_FORMAT);</b>
+<b class="pc">&nbsp;		if (!StringUtils.isEmpty(format)) {</b>
+<b class="fc">&nbsp;			extension = mimeTypeService.getExtension(format);</b>
+&nbsp;		}
+&nbsp;
+<b class="pc">&nbsp;		if (StringUtils.isEmpty(extension)) {</b>
+<b class="nc">&nbsp;			extension = FilenameUtils.getExtension(filename);</b>
+&nbsp;		}
+<b class="fc">&nbsp;		return extension;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	private long getLastModified(Asset downloadAsset) {
+<b class="fc">&nbsp;		Calendar resourceLastModified = properties.get(JcrConstants.JCR_LASTMODIFIED, Calendar.class);</b>
+<b class="pc">&nbsp;		if (resourceLastModified != null) {</b>
+<b class="nc">&nbsp;			lastModified = resourceLastModified.getTimeInMillis();</b>
+&nbsp;		}
+<b class="fc">&nbsp;		long assetLastModified = downloadAsset.getLastModified();</b>
+<b class="pc">&nbsp;		if (assetLastModified &gt; lastModified) {</b>
+<b class="fc">&nbsp;			lastModified = assetLastModified;</b>
+&nbsp;		}
+<b class="fc">&nbsp;		return lastModified;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	private String getDcTitle(Asset downloadAsset) {
+<b class="nc">&nbsp;		if (titleFromAsset) {</b>
+<b class="nc">&nbsp;			title = downloadAsset.getMetadataValue(DamConstants.DC_TITLE);</b>
+<b class="nc">&nbsp;			if (StringUtils.isEmpty(title)) {</b>
+<b class="nc">&nbsp;				title = downloadAsset.getMetadataValueFromJcr(JcrConstants.JCR_TITLE);</b>
+<b class="nc">&nbsp;				if (StringUtils.isEmpty(title)) {</b>
+<b class="nc">&nbsp;					title = downloadAsset.getName();</b>
+&nbsp;				}
+&nbsp;			}
+&nbsp;		}
+<b class="nc">&nbsp;		return title;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	private String getRawFileSize(Asset downloadAsset) {
+&nbsp;		long rawFileSize;
+<b class="nc">&nbsp;		Object rawFileSizeObject = downloadAsset.getMetadata(DamConstants.DAM_SIZE);</b>
+&nbsp;
+<b class="nc">&nbsp;		if (rawFileSizeObject != null) {</b>
+<b class="nc">&nbsp;			rawFileSize = (Long) rawFileSizeObject;</b>
+&nbsp;		} else {
+<b class="nc">&nbsp;			rawFileSize = downloadAsset.getOriginal().getSize();</b>
+&nbsp;		}
+<b class="nc">&nbsp;		size = FileUtils.byteCountToDisplaySize(rawFileSize);</b>
+&nbsp;
+<b class="nc">&nbsp;		return size;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	private String getDescription(Asset downloadAsset) {
+<b class="nc">&nbsp;		if (descriptionFromAsset) {</b>
+<b class="nc">&nbsp;			String assetDescription = downloadAsset.getMetadataValue(DamConstants.DC_DESCRIPTION);</b>
+<b class="nc">&nbsp;			if (StringUtils.isNotBlank(assetDescription)) {</b>
+<b class="nc">&nbsp;				description = assetDescription;</b>
+&nbsp;			}
+&nbsp;		}
+<b class="nc">&nbsp;		return description;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	@NotNull
+&nbsp;	private String getDownloadUrl(Resource resource) {
+<b class="fc">&nbsp;		StringBuilder downloadUrlBuilder = new StringBuilder();</b>
+<b class="fc">&nbsp;		downloadUrlBuilder.append(resource.getPath()).append(&quot;.&quot;).append(SELECTOR).append(&quot;.&quot;);</b>
+<b class="pc">&nbsp;		if (inline) {</b>
+<b class="nc">&nbsp;			downloadUrlBuilder.append(INLINE_SELECTOR).append(&quot;.&quot;);</b>
+&nbsp;		}
+<b class="fc">&nbsp;		downloadUrlBuilder.append(extension);</b>
+<b class="fc">&nbsp;		return downloadUrlBuilder.toString();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public String getExportedType() {
+<b class="fc">&nbsp;		return request.getResource().getResourceType();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public String getUrl() {
+<b class="pc">&nbsp;		return (link != null) ? link.getURL() : null;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public String getTitle() {
+<b class="fc">&nbsp;		return title;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public String getDescription() {
+<b class="fc">&nbsp;		return description;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public String getActionText() {
+<b class="fc">&nbsp;		return actionText;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public String getTitleType() {
+<b class="fc">&nbsp;		return titleType;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public String getFilename() {
+<b class="fc">&nbsp;		return filename;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public String getFormat() {
+<b class="fc">&nbsp;		return format;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public String getSize() {
+<b class="fc">&nbsp;		return size;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public boolean displaySize() {
+<b class="fc">&nbsp;		return displaySize;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public boolean displayFormat() {
+<b class="fc">&nbsp;		return displayFormat;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public boolean displayFilename() {
+<b class="fc">&nbsp;		return displayFilename;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public boolean hideTitleLink() {
+<b class="fc">&nbsp;		return hideTitleLink;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public String getExtension() {
+<b class="fc">&nbsp;		return extension;</b>
+&nbsp;	}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

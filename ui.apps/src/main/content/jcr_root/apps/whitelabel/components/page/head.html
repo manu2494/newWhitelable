@@ -1,0 +1,116 @@
+<template data-sly-template.head="${ @ page, pwa, promo, oneTrustConfig, trackingConfig}" data-sly-use.headlibRenderer="headlibs.html"
+	data-sly-use.headResources="head.resources.html" data-sly-use.seoStructure="seostructureddata.html"
+	data-sly-set.generalConfig="${caconfig['com.merkle.xp.whitelabel.core.config.GeneralConfig']}">
+	<!-- OneTrust Privacy Notice start -->
+	<sly data-sly-test="${oneTrustConfig.oneTrustId}">
+		<script type="text/javascript" src="${oneTrustConfig.oneTrustSrcUrl}"></script>
+		<script src="${oneTrustConfig.oneTrustSDKUrl}"  type="text/javascript"
+				charset="UTF-8" data-domain-script="${oneTrustConfig.oneTrustId}" ></script>
+		<script type="text/javascript">
+			function OptanonWrapper() { }
+		</script>
+	</sly>
+	<!-- OneTrust Privacy Notice end -->
+
+	<meta charset="UTF-8">
+	<meta data-sly-test="${wcmmode.edit}" name="edit-mode" content="true">
+	<title>${pageProperties.pageTitle || page.title}${page.brandSlug ? ' | ' : ''}${page.brandSlug}</title>
+	<meta data-sly-test.keywords="${page.keywords}" name="keywords" content="${keywords}" />
+	<meta data-sly-test.description="${page.description || properties['jcr:description']}" name="description"
+		content="${description}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta data-sly-test="${page.robotsTags}" name="robots" content="${page.robotsTags @ join=', '}">
+
+	<meta data-sly-test.templateName="${page.templateName}" name="template" content="${templateName}" />
+	<meta property="og:site_name" data-sly-test="${generalConfig.websiteName}" content="${generalConfig.websiteName}">
+	<sly data-sly-test="${promo.env == 'stage'}">
+		<meta name="robots" CONTENT="noindex" />
+	</sly>
+	<sly data-sly-test="${!('noindex' in page.robotsTags)}">
+		<link data-sly-test="${page.canonicalTag}" rel="canonical" href="${page.canonicalTag}">
+	</sly>
+	<sly data-sly-test="${pwa.enabled}">
+		<link rel="manifest" href="${pwa.manifestPath}" crossorigin="use-credentials" />
+		<meta name="theme-color" content="${pwa.themeColor}" />
+		<link rel="apple-touch-icon" href="${pwa.iconPath}" />
+		<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+			data-sly-call="${clientlib.css @ categories='core.wcm.components.page.v2.pwa'}"></sly>
+		<meta name="cq:sw_path" content="${pwa.serviceWorkerPath @ context ='text'}" />
+	</sly>
+	<link data-sly-test="${page.alternateLanguageLinks}" data-sly-repeat="${page.alternateLanguageLinks.entrySet}"
+		rel="alternate" hreflang="${item.key.toLanguageTag}" href="${item.value}">
+	<link data-sly-test="${generalConfig.favIcon}" rel="icon" type="image/vnd.microsoft.icon"
+		href="${generalConfig.favIcon}" />
+	<link data-sly-test="${generalConfig.favIcon}" rel="shortcut icon" type="image/vnd.microsoft.icon"
+		href="${generalConfig.favIcon}" />
+	<sly data-sly-test="${!properties.ignoreOpengraph}">
+		<meta property="og:title"
+			content="${properties.ogTitle ? properties.ogTitle : page.title}${page.brandSlug ? ' | ' : ''}${page.brandSlug}">
+		<meta property="og:description" data-sly-test="${properties.ogDescription || description}"
+			content="${properties.ogDescription ? properties.ogDescription : description}">
+		<meta property="og:url" content="${page.canonicalTag}">
+		<meta property="og:locale" data-sly-test="${properties['jcr:language']}"
+			content="${properties['jcr:language']}">
+		<meta property="og:type" data-sly-test="${properties.ogType}" content="${properties.ogType}">
+		<meta property="og:image"
+			data-sly-set.image="${properties['cq:featuredimage/fileReference'] ? properties['cq:featuredimage/fileReference'] : properties['image/fileReference']}"
+			data-sly-test="${properties.ogFileReference || image}"
+			content="${properties.ogFileReference ? properties.ogFileReference : image}">
+		<meta name="twitter:card" data-sly-test="${properties.twitterCard}" content="${properties.twitterCard}">
+		<meta name="twitter:title"
+			content="${properties.twitterTitle ? properties.twitterTitle : page.title}${page.brandSlug ? ' | ' : ''}${page.brandSlug}">
+		<meta name="twitter:description" data-sly-test="${properties.twitterDescription || description}"
+			content="${properties.twitterDescription ? properties.twitterDescription : description}">
+		<meta name="twitter:creator" data-sly-test.twitterCreator="${properties.twitterCreator}"
+			content="@${twitterCreator}">
+		<meta name="twitter:image"
+			data-sly-set.image="${properties['cq:featuredimage/fileReference'] ? properties['cq:featuredimage/fileReference'] : properties['image/fileReference']}"
+			data-sly-test="${properties.ogFileReference || image}"
+			content="${properties.twitterFileReference ? properties.twitterFileReference : image}">
+	</sly>
+
+	<meta name="twitter:site" data-sly-test="${generalConfig.websiteName}" content="${generalConfig.websiteName}">
+
+	<!--/* site structured data  */-->
+	<sly data-sly-call="${seoStructure.seoStructuredData @ page = page}"></sly>
+
+
+	<sly data-sly-include="head.links.html"></sly>
+	<sly data-sly-include="head.socialmedia.html"></sly>
+	<sly data-sly-include="customheaderlibs.html"></sly>
+	<sly data-sly-call="${headlibRenderer.headlibs @
+                                designPath                = page.designPath,
+                                staticDesignPath          = page.staticDesignPath,
+                                clientLibCategories       = page.clientLibCategories,
+                                clientLibCategoriesJsHead = page.clientLibCategoriesJsHead,
+                                hasCloudconfigSupport     = page.hasCloudconfigSupport}"></sly>
+	<sly data-sly-test.appResourcesPath=${page.appResourcesPath}
+		data-sly-call="${headResources.favicons @ path = appResourcesPath}"></sly>
+	<sly data-sly-list="${page.htmlPageItems}">
+		<script data-sly-test="${item.location.name == 'header'}"
+			data-sly-element="${item.element.name @ context='unsafe'}" data-sly-attribute="${item.attributes}"></script>
+	</sly>
+	<sly
+		data-sly-test.scriptsHead="${caconfig['com.merkle.xp.whitelabel.core.config.GeneralConfig/jcr:content/headScriptsOrganizationConfig'].scriptsHead}">
+		${scriptsHead @ context='unsafe'}
+	</sly>
+	<sly
+		data-sly-test.jsonLD="${caconfig['com.merkle.xp.whitelabel.core.config.GeneralConfig/jcr:content/seoSiteOrganization'].jsonLD}">
+		<script type="application/ld+json">${jsonLD @ context='unsafe'}</script>
+	</sly>
+	<meta name="resourcePath" content="${resource.path}" />
+	<sly data-sly-test="${trackingConfig.googleAnalyticsUACode}">
+		<script type="text/javascript">
+                window.dataLayer = window.dataLayer || []; //check a dataLayer exists, if not then create one
+        </script>
+        <!-- close dataLayer declaration -->
+
+        <script>
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="//www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","${trackingConfig.googleAnalyticsUACode  @ context='unsafe'}");
+		</script>
+
+	</sly>
+	
+	<script src="https://universal-editor-service.experiencecloud.live/corslib/LATEST" async></script>
+
+</template>

@@ -1,0 +1,115 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > SeoSiteOrganizationConfig</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.config</a>
+</div>
+
+<h1>Coverage Summary for Class: SeoSiteOrganizationConfig (com.merkle.xp.whitelabel.core.config)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">SeoSiteOrganizationConfig$MockitoMock$xtzt5gtT</td>
+  </tr>
+  <tr>
+    <td class="name">SeoSiteOrganizationConfig$MockitoMock$xtzt5gtT$auxiliary$PwtYfMdy</td>
+  </tr>
+  <tr>
+    <td class="name">SeoSiteOrganizationConfig$MockitoMock$xtzt5gtT$auxiliary$VjDuDiSt</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.config;
+&nbsp;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;import org.apache.sling.caconfig.annotation.Property;
+&nbsp;
+&nbsp;/**
+&nbsp; * Context-aware configuration holding information about the SEO Site Organization 
+&nbsp; * This configuration is meant to be used as a context-aware resource. See &lt;a href=
+&nbsp; * &quot;https://sling.apache.org/documentation/bundles/context-aware-configuration/context-aware-configuration.html#context-aware-resources&quot;&gt;Context-Aware
+&nbsp; * Resources&lt;/a&gt;
+&nbsp; */
+&nbsp;public @interface SeoSiteOrganizationConfig {
+&nbsp;
+&nbsp;  @Property(label = &quot;Organization Name&quot;)
+&nbsp;  String name() default StringUtils.EMPTY;
+&nbsp;
+&nbsp;  @Property(label = &quot;Organization Url&quot;)
+&nbsp;  String url() default StringUtils.EMPTY;
+&nbsp;
+&nbsp;  @Property(label = &quot;Organization Logo&quot;, description = &quot;Please only select valid, published assets in the PNG, JPEG and SVG formats.&quot;,
+&nbsp;      property = {&quot;widgetType=pathbrowser&quot;, &quot;pathbrowserRootPath=/content/dam&quot;})
+&nbsp;  String logo();
+&nbsp; 
+&nbsp;  @Property(label = &quot;Organization Telephone country code&quot;, description = &quot;Please add the country code with the &#39;+&#39; suffix if necessary&quot;)
+&nbsp;  String countryCode() default StringUtils.EMPTY;
+&nbsp;
+&nbsp;  @Property(label = &quot;Organization telephone&quot;, description = &quot;A &#39;-&#39; will be automatically added between the country code and the telephone number&quot;)
+&nbsp;  String telephone() default StringUtils.EMPTY;
+&nbsp;  
+&nbsp;  @Property(label = &quot;Organization Contact Points&quot;, description = &quot;Click &#39;Add&#39; to add contact point&quot;)
+&nbsp;  SeoSiteContactPointConfig[] contactPoint();
+&nbsp;  
+&nbsp;  @Property(label = &quot;Social channels&quot;, description = &quot;Click &#39;Add Field&#39; to add social channel&quot;)
+&nbsp;  String[] sameAs(); 
+&nbsp;
+&nbsp;  @Property(label = &quot;Json LD&quot;, description = &quot;Add a configuration for a ld+json&quot;)
+&nbsp;  String jsonLD();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

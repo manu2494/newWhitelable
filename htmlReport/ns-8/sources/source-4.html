@@ -1,0 +1,193 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ContentApprovalPayloadValidatorProcess</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.services.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: ContentApprovalPayloadValidatorProcess (com.merkle.xp.whitelabel.core.services.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ContentApprovalPayloadValidatorProcess</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (14/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (27/27)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.services.impl;
+&nbsp;
+&nbsp;import com.adobe.granite.workflow.WorkflowException;
+&nbsp;import com.adobe.granite.workflow.WorkflowSession;
+&nbsp;import com.adobe.granite.workflow.exec.WorkItem;
+&nbsp;import com.adobe.granite.workflow.exec.Workflow;
+&nbsp;import com.adobe.granite.workflow.exec.WorkflowData;
+&nbsp;import com.adobe.granite.workflow.exec.WorkflowProcess;
+&nbsp;import com.adobe.granite.workflow.metadata.MetaDataMap;
+&nbsp;import com.merkle.xp.whitelabel.core.services.GenericListService;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;import org.apache.jackrabbit.api.security.user.Authorizable;
+&nbsp;import org.apache.jackrabbit.api.security.user.UserManager;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;import org.osgi.framework.Constants;
+&nbsp;import org.osgi.service.component.annotations.Component;
+&nbsp;import org.osgi.service.component.annotations.Reference;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;import javax.jcr.RepositoryException;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;import static com.merkle.xp.whitelabel.core.utils.constants.Constants.*;
+&nbsp;
+&nbsp;@Component(service = WorkflowProcess.class,
+&nbsp;        property = {
+&nbsp;                Constants.SERVICE_DESCRIPTION + &quot;=Validation for content approval payload&quot;,
+&nbsp;                &quot;process.label&quot; + &quot;=Content Approval Payload Validation Process&quot;
+&nbsp;        })
+<b class="fc">&nbsp;public class ContentApprovalPayloadValidatorProcess implements WorkflowProcess {</b>
+<b class="fc">&nbsp;    private static final Logger LOGGER = LoggerFactory.getLogger(ContentApprovalPayloadValidatorProcess.class);</b>
+&nbsp;    String approverGroup;
+&nbsp;    @Reference
+&nbsp;    GenericListService genericListService;
+&nbsp;    @Override
+&nbsp;    public void execute(WorkItem workItem, WorkflowSession workflowSession, MetaDataMap metaDataMap) throws WorkflowException {
+&nbsp;        try {
+<b class="fc">&nbsp;            ResourceResolver resolver = workflowSession.adaptTo(ResourceResolver.class);</b>
+<b class="pc">&nbsp;            if(resolver != null ){</b>
+<b class="fc">&nbsp;                Map&lt;String,String&gt; contentApproversMap = genericListService.populateGenListMap(resolver,GENERIC_LIST_BASE_PATH+&quot;/content-approvers&quot;);</b>
+<b class="fc">&nbsp;                Workflow wf = workItem.getWorkflow();</b>
+<b class="fc">&nbsp;                WorkflowData wfData = wf.getWorkflowData();</b>
+<b class="fc">&nbsp;                String payload = wfData.getPayload().toString();</b>
+<b class="pc">&nbsp;                if(contentApproversMap != null) {</b>
+<b class="fc">&nbsp;                    for (Map.Entry&lt;String, String&gt; entry : contentApproversMap.entrySet()) {</b>
+<b class="fc">&nbsp;                        if (payload.startsWith(entry.getKey())) {</b>
+<b class="fc">&nbsp;                            approverGroup = entry.getValue();</b>
+<b class="fc">&nbsp;                            boolean isValidUser = isValidUserGroup(approverGroup, resolver);</b>
+<b class="fc">&nbsp;                            if (isValidUser) {</b>
+<b class="fc">&nbsp;                                wfData.getMetaDataMap().put(&quot;isValidContentPayload&quot;, &quot;true&quot;);</b>
+<b class="fc">&nbsp;                                wfData.getMetaDataMap().put(&quot;contentApproverGroup&quot;, approverGroup);</b>
+&nbsp;                            } else {
+<b class="fc">&nbsp;                                workItem.getMetaDataMap().put(&quot;comment&quot;, &quot;Not able to find Approver-Group&quot;);</b>
+&nbsp;                            }
+<b class="fc">&nbsp;                            workflowSession.updateWorkflowData(wf, wfData);</b>
+&nbsp;                            break;
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+<b class="fc">&nbsp;                if(StringUtils.isEmpty(approverGroup)) {</b>
+<b class="fc">&nbsp;                    workItem.getMetaDataMap().put(&quot;comment&quot;, &quot;Path has not been configured to be used by this workflow &quot;);</b>
+&nbsp;                }
+&nbsp;            }
+<b class="fc">&nbsp;        } catch (RepositoryException e) {</b>
+<b class="fc">&nbsp;            LOGGER.error(&quot;Error Occurred while payload process&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean isValidUserGroup(String approverGroup, ResourceResolver resolver) throws RepositoryException {
+<b class="fc">&nbsp;        UserManager manager = resolver.adaptTo(UserManager.class);</b>
+<b class="fc">&nbsp;        if (manager != null) {</b>
+<b class="fc">&nbsp;            Authorizable authorizable = manager.getAuthorizable(approverGroup);</b>
+<b class="fc">&nbsp;            return (authorizable != null);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

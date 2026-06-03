@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > LinkManager</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.utils.link</a>
+</div>
+
+<h1>Coverage Summary for Class: LinkManager (com.merkle.xp.whitelabel.core.utils.link)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">LinkManager$MockitoMock$Y0llJvls</td>
+  </tr>
+  <tr>
+    <td class="name">LinkManager$MockitoMock$Y0llJvls$auxiliary$lWXLFg5K</td>
+  </tr>
+  <tr>
+    <td class="name">LinkManager$MockitoMock$Y0llJvls$auxiliary$RTTcLpDb</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.utils.link;
+&nbsp;
+&nbsp;import com.day.cq.dam.api.Asset;
+&nbsp;import com.day.cq.wcm.api.Page;
+&nbsp;import com.drew.lang.annotations.NotNull;
+&nbsp;import org.apache.sling.api.SlingHttpServletRequest;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.osgi.annotation.versioning.ConsumerType;
+&nbsp;
+&nbsp;/**
+&nbsp; * This interface offers a flexible way, based on the builder pattern, to compute links.
+&nbsp; *
+&nbsp; * This is a Sling model that can be injected into other models using the &lt;code&gt;@Self&lt;/code&gt; annotation.
+&nbsp; * It can be adapted from a {@link SlingHttpServletRequest}.
+&nbsp; *
+&nbsp; * It can be used as follows:
+&nbsp; * &lt;pre&gt;
+&nbsp; *     Link link = linkManager.get(page).build();
+&nbsp; *     Link link = linkManager.get(page)
+&nbsp; *          .withLinkTarget(...)
+&nbsp; *          .withLinkAttribute(...)
+&nbsp; *          .build();
+&nbsp; * &lt;/pre&gt;
+&nbsp; */
+&nbsp;@ConsumerType
+&nbsp;public interface LinkManager {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a link builder where the link is defined by the resource properties.
+&nbsp;     *
+&nbsp;     * @param resource Resource to read the link properties from.
+&nbsp;     * @return {@link LinkBuilder}
+&nbsp;     */
+&nbsp;    @NotNull
+&nbsp;    LinkBuilder get(@NotNull Resource resource);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a link builder where the link points to a page.
+&nbsp;     *
+&nbsp;     * @param page Target page of the link.
+&nbsp;     * @return {@link LinkBuilder}
+&nbsp;     */
+&nbsp;    @NotNull
+&nbsp;    LinkBuilder get(@NotNull Page page);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a link builder where the link points to an asset.
+&nbsp;     *
+&nbsp;     * @param asset Target asset of the link.
+&nbsp;     * @return {@link LinkBuilder}
+&nbsp;     */
+&nbsp;    @NotNull
+&nbsp;    LinkBuilder get(@NotNull Asset asset);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a link builder where the link points to an URL.
+&nbsp;     *
+&nbsp;     * @param url URL string of the link.
+&nbsp;     * @return {@link LinkBuilder}
+&nbsp;     */
+&nbsp;    @NotNull
+&nbsp;    LinkBuilder get(@NotNull String url);
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

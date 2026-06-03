@@ -1,0 +1,747 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > carousel__002e__html</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.apache.sling.scripting.sightly.apps.whitelabel.components.carousel</a>
+</div>
+
+<h1>Coverage Summary for Class: carousel__002e__html (org.apache.sling.scripting.sightly.apps.whitelabel.components.carousel)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">carousel__002e__html</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/250)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/306)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*******************************************************************************
+&nbsp; * Licensed to the Apache Software Foundation (ASF) under one
+&nbsp; * or more contributor license agreements.  See the NOTICE file
+&nbsp; * distributed with this work for additional information
+&nbsp; * regarding copyright ownership.  The ASF licenses this file
+&nbsp; * to you under the Apache License, Version 2.0 (the
+&nbsp; * &quot;License&quot;); you may not use this file except in compliance
+&nbsp; * with the License.  You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *   http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing,
+&nbsp; * software distributed under the License is distributed on an
+&nbsp; * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+&nbsp; * KIND, either express or implied.  See the License for the
+&nbsp; * specific language governing permissions and limitations
+&nbsp; * under the License.
+&nbsp; ******************************************************************************/
+&nbsp;package org.apache.sling.scripting.sightly.apps.whitelabel.components.carousel;
+&nbsp;
+&nbsp;import java.io.PrintWriter;
+&nbsp;import java.util.Collection;
+&nbsp;import javax.script.Bindings;
+&nbsp;
+&nbsp;import org.apache.sling.scripting.sightly.render.RenderUnit;
+&nbsp;import org.apache.sling.scripting.sightly.render.RenderContext;
+&nbsp;
+<b class="nc">&nbsp;public final class carousel__002e__html extends RenderUnit {</b>
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected final void render(PrintWriter out,
+&nbsp;                                Bindings bindings,
+&nbsp;                                Bindings arguments,
+&nbsp;                                RenderContext renderContext) {
+&nbsp;// Main Template Body -----------------------------------------------------------------------------
+&nbsp;
+<b class="nc">&nbsp;Object _global_carousel = null;</b>
+<b class="nc">&nbsp;Object _global_templates = null;</b>
+<b class="nc">&nbsp;Object _global_controlstemplate = null;</b>
+<b class="nc">&nbsp;Object _dynamic_wcmmode = bindings.get(&quot;wcmmode&quot;);</b>
+<b class="nc">&nbsp;Object _dynamic_properties = bindings.get(&quot;properties&quot;);</b>
+<b class="nc">&nbsp;Collection var_collectionvar48_list_coerced$ = null;</b>
+<b class="nc">&nbsp;Object _global_selectitemlink = null;</b>
+<b class="nc">&nbsp;Collection var_attrmap58_list_coerced$ = null;</b>
+<b class="nc">&nbsp;Collection var_collectionvar88_list_coerced$ = null;</b>
+<b class="nc">&nbsp;Object _dynamic_resource = bindings.get(&quot;resource&quot;);</b>
+<b class="nc">&nbsp;_global_carousel = renderContext.call(&quot;use&quot;, com.adobe.cq.wcm.core.components.models.Carousel.class.getName(), obj());</b>
+<b class="nc">&nbsp;_global_templates = renderContext.call(&quot;use&quot;, &quot;core/wcm/components/commons/v1/templates.html&quot;, obj());</b>
+<b class="nc">&nbsp;_global_controlstemplate = renderContext.call(&quot;use&quot;, &quot;controls.html&quot;, obj());</b>
+<b class="nc">&nbsp;out.write(&quot;&lt;div&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue0 = ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? &quot;carousel&quot; : renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)));</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent1 = renderContext.call(&quot;xss&quot;, var_attrvalue0, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr3 = (((null != var_attrcontent1) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent1))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue0)) &amp;&amp; (!((Object)false).equals(var_attrvalue0))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr3) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-panelcontainer&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr2 = (var_attrvalue0.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr2) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent1));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue4 = renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;id&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent5 = renderContext.call(&quot;xss&quot;, var_attrvalue4, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr7 = (((null != var_attrcontent5) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent5))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue4)) &amp;&amp; (!((Object)false).equals(var_attrvalue4))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr7) {</b>
+<b class="nc">&nbsp;                out.write(&quot; id&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr6 = (var_attrvalue4.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr6) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent5));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot; class=\&quot;cmp-carousel\&quot; role=\&quot;group\&quot;&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue8 = renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;accessibilityLabel&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent9 = renderContext.call(&quot;xss&quot;, var_attrvalue8, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr11 = (((null != var_attrcontent9) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent9))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue8)) &amp;&amp; (!((Object)false).equals(var_attrvalue8))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr11) {</b>
+<b class="nc">&nbsp;                out.write(&quot; aria-label&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr10 = (var_attrvalue8.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr10) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent9));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot; aria-live=\&quot;polite\&quot; aria-roledescription=\&quot;carousel\&quot; data-cmp-is=\&quot;carousel\&quot;&quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue12 = renderContext.getObjectModel().resolveProperty(_dynamic_properties, &quot;analyticsPrimary&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent13 = renderContext.call(&quot;xss&quot;, var_attrvalue12, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr15 = (((null != var_attrcontent13) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent13))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue12)) &amp;&amp; (!((Object)false).equals(var_attrvalue12))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr15) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-analytics-primary&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr14 = (var_attrvalue12.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr14) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent13));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue16 = renderContext.getObjectModel().resolveProperty(_dynamic_properties, &quot;analyticsSecondary&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent17 = renderContext.call(&quot;xss&quot;, var_attrvalue16, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr19 = (((null != var_attrcontent17) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent17))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue16)) &amp;&amp; (!((Object)false).equals(var_attrvalue16))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr19) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-analytics-secondary&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr18 = (var_attrvalue16.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr18) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent17));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue20 = (renderContext.getObjectModel().toBoolean(((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;) : renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;preview&quot;)))) ? &quot;&quot; : renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;autoplay&quot;));</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent21 = renderContext.call(&quot;xss&quot;, var_attrvalue20, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr23 = (((null != var_attrcontent21) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent21))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue20)) &amp;&amp; (!((Object)false).equals(var_attrvalue20))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr23) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-cmp-autoplay&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr22 = (var_attrvalue20.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr22) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent21));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue24 = renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;delay&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent25 = renderContext.call(&quot;xss&quot;, var_attrvalue24, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr27 = (((null != var_attrcontent25) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent25))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue24)) &amp;&amp; (!((Object)false).equals(var_attrvalue24))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr27) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-cmp-delay&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr26 = (var_attrvalue24.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr26) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent25));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue28 = renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;autopauseDisabled&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent29 = renderContext.call(&quot;xss&quot;, var_attrvalue28, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr31 = (((null != var_attrcontent29) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent29))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue28)) &amp;&amp; (!((Object)false).equals(var_attrvalue28))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr31) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-cmp-autopause-disabled&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr30 = (var_attrvalue28.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr30) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent29));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue32 = renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;data&quot;), &quot;json&quot;);</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent33 = renderContext.call(&quot;xss&quot;, var_attrvalue32, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr35 = (((null != var_attrcontent33) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent33))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue32)) &amp;&amp; (!((Object)false).equals(var_attrvalue32))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr35) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-cmp-data-layer&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr34 = (var_attrvalue32.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr34) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent33));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;{
+<b class="nc">&nbsp;    Object var_attrvalue36 = renderContext.call(&quot;i18n&quot;, ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? &quot;Please add Carousel components here&quot; : renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;))), obj().with(&quot;i18n&quot;, null));</b>
+&nbsp;    {
+<b class="nc">&nbsp;        Object var_attrcontent37 = renderContext.call(&quot;xss&quot;, var_attrvalue36, &quot;attribute&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_shoulddisplayattr39 = (((null != var_attrcontent37) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent37))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue36)) &amp;&amp; (!((Object)false).equals(var_attrvalue36))));</b>
+<b class="nc">&nbsp;            if (var_shoulddisplayattr39) {</b>
+<b class="nc">&nbsp;                out.write(&quot; data-placeholder-text&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_istrueattr38 = (var_attrvalue36.equals(true));</b>
+<b class="nc">&nbsp;                    if (!var_istrueattr38) {</b>
+<b class="nc">&nbsp;                        out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                        out.write(renderContext.getObjectModel().toString(var_attrcontent37));</b>
+<b class="nc">&nbsp;                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;&gt;\n\n    &quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable40 = renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;controlsPrepended&quot;);</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable40)) {</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_templatevar41 = renderContext.getObjectModel().resolveProperty(_global_controlstemplate, &quot;controls&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_templateoptions42_field$_carousel = _global_carousel;</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    java.util.Map var_templateoptions42 = obj().with(&quot;carousel&quot;, var_templateoptions42_field$_carousel);</b>
+<b class="nc">&nbsp;                    callUnit(out, renderContext, var_templatevar41, var_templateoptions42);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n\n    &quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable43 = ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;items&quot;)) ? (!(org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.leq(renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;items&quot;), &quot;size&quot;), 0))) : renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;items&quot;)));</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable43)) {</b>
+<b class="nc">&nbsp;        out.write(&quot;&lt;div class=\&quot;cmp-carousel__content\&quot; aria-atomic=\&quot;false\&quot;&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            String var_attrvalue44 = (renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;autoplay&quot;)) ? &quot;off&quot; : &quot;polite&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrcontent45 = renderContext.call(&quot;xss&quot;, var_attrvalue44, &quot;attribute&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_shoulddisplayattr47 = (((null != var_attrcontent45) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent45))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue44)) &amp;&amp; (!((Object)false).equals(var_attrvalue44))));</b>
+<b class="nc">&nbsp;                    if (var_shoulddisplayattr47) {</b>
+<b class="nc">&nbsp;                        out.write(&quot; aria-live&quot;);</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            boolean var_istrueattr46 = (var_attrvalue44.equals(true));</b>
+<b class="nc">&nbsp;                            if (!var_istrueattr46) {</b>
+<b class="nc">&nbsp;                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                out.write(renderContext.getObjectModel().toString(var_attrcontent45));</b>
+<b class="nc">&nbsp;                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;&gt;\n\n        &quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_collectionvar48 = renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;items&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                long var_size49 = ((var_collectionvar48_list_coerced$ == null ? (var_collectionvar48_list_coerced$ = renderContext.getObjectModel().toCollection(var_collectionvar48)) : var_collectionvar48_list_coerced$).size());</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_notempty50 = (var_size49 &gt; 0);</b>
+<b class="nc">&nbsp;                    if (var_notempty50) {</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            long var_end53 = var_size49;</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_validstartstepend54 = (((0 &lt; var_size49) &amp;&amp; true) &amp;&amp; (var_end53 &gt; 0));</b>
+<b class="nc">&nbsp;                                if (var_validstartstepend54) {</b>
+<b class="nc">&nbsp;                                    if (var_collectionvar48_list_coerced$ == null) {</b>
+<b class="nc">&nbsp;                                        var_collectionvar48_list_coerced$ = renderContext.getObjectModel().toCollection(var_collectionvar48);</b>
+&nbsp;                                    }
+<b class="nc">&nbsp;                                    long var_index55 = 0;</b>
+<b class="nc">&nbsp;                                    for (Object item : var_collectionvar48_list_coerced$) {</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            boolean itemlist_field$_middle = (!((var_index55 == 0) || (var_index55 == (renderContext.getObjectModel().toNumber(org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.SUB.eval(var_size49, 1)).longValue()))));</b>
+&nbsp;                                            {
+<b class="nc">&nbsp;                                                boolean itemlist_field$_last = (var_index55 == (renderContext.getObjectModel().toNumber(org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.SUB.eval(var_size49, 1)).longValue()));</b>
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    boolean itemlist_field$_even = ((renderContext.getObjectModel().toNumber(org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.REM.eval(var_index55, 2)).longValue()) == 1);</b>
+&nbsp;                                                    {
+<b class="nc">&nbsp;                                                        long itemlist_field$_count = (renderContext.getObjectModel().toNumber(org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.ADD.eval(var_index55, 1)).longValue());</b>
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            long itemlist_field$_index = var_index55;</b>
+&nbsp;                                                            {
+<b class="nc">&nbsp;                                                                boolean itemlist_field$_first = (var_index55 == 0);</b>
+&nbsp;                                                                {
+<b class="nc">&nbsp;                                                                    boolean itemlist_field$_odd = ((renderContext.getObjectModel().toNumber(org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.REM.eval(var_index55, 2)).longValue()) == 0);</b>
+&nbsp;                                                                    {
+<b class="nc">&nbsp;                                                                        java.util.Map itemlist = obj().with(&quot;middle&quot;, itemlist_field$_middle).with(&quot;last&quot;, itemlist_field$_last).with(&quot;even&quot;, itemlist_field$_even).with(&quot;count&quot;, itemlist_field$_count).with(&quot;index&quot;, itemlist_field$_index).with(&quot;first&quot;, itemlist_field$_first).with(&quot;odd&quot;, itemlist_field$_odd);</b>
+&nbsp;                                                                        {
+<b class="nc">&nbsp;                                                                            boolean var_traversal57 = (((var_index55 &gt;= 0) &amp;&amp; (var_index55 &lt;= var_end53)) &amp;&amp; true);</b>
+<b class="nc">&nbsp;                                                                            if (var_traversal57) {</b>
+<b class="nc">&nbsp;                                                                                out.write(&quot;\n            &quot;);</b>
+<b class="nc">&nbsp;_global_selectitemlink = renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;mapCarouselLinks&quot;), renderContext.getObjectModel().resolveProperty(itemlist.get(&quot;index&quot;), &quot;toString&quot;));</b>
+<b class="nc">&nbsp;                                                                                if (renderContext.getObjectModel().toBoolean(_global_selectitemlink)) {</b>
+&nbsp;                                                                                }
+<b class="nc">&nbsp;                                                                                out.write(&quot;\n            &quot;);</b>
+&nbsp;                                                                                {
+<b class="nc">&nbsp;                                                                                    boolean var_unwrapcondition59 = (!renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_selectitemlink, &quot;isValid&quot;)));</b>
+<b class="nc">&nbsp;                                                                                    if (!var_unwrapcondition59) {</b>
+<b class="nc">&nbsp;                                                                                        out.write(&quot;&lt;a&quot;);</b>
+&nbsp;                                                                                        {
+<b class="nc">&nbsp;                                                                                            Object var_attrmap58 = renderContext.getObjectModel().resolveProperty(_global_selectitemlink, &quot;htmlAttributes&quot;);</b>
+&nbsp;                                                                                            {
+<b class="nc">&nbsp;                                                                                                java.util.Map var_ignoredattributes60 = obj();</b>
+<b class="nc">&nbsp;                                                                                                if (var_attrmap58_list_coerced$ == null) {</b>
+<b class="nc">&nbsp;                                                                                                    var_attrmap58_list_coerced$ = renderContext.getObjectModel().toCollection(var_attrmap58);</b>
+&nbsp;                                                                                                }
+<b class="nc">&nbsp;                                                                                                long var_attrindex63 = 0;</b>
+<b class="nc">&nbsp;                                                                                                for (Object var_attrname61 : var_attrmap58_list_coerced$) {</b>
+&nbsp;                                                                                                    {
+<b class="nc">&nbsp;                                                                                                        Object var_attrnameescaped62 = renderContext.call(&quot;xss&quot;, var_attrname61, &quot;attributeName&quot;);</b>
+<b class="nc">&nbsp;                                                                                                        if (renderContext.getObjectModel().toBoolean(var_attrnameescaped62)) {</b>
+&nbsp;                                                                                                            {
+<b class="nc">&nbsp;                                                                                                                Object var_isignoredattr64 = var_ignoredattributes60.get(var_attrname61);</b>
+<b class="nc">&nbsp;                                                                                                                if (!renderContext.getObjectModel().toBoolean(var_isignoredattr64)) {</b>
+&nbsp;                                                                                                                    {
+<b class="nc">&nbsp;                                                                                                                        Object var_attrcontent65 = renderContext.getObjectModel().resolveProperty(var_attrmap58, var_attrname61);</b>
+&nbsp;                                                                                                                        {
+<b class="nc">&nbsp;                                                                                                                            Object var_attrcontentescaped66 = renderContext.call(&quot;xss&quot;, var_attrcontent65, &quot;attribute&quot;, var_attrnameescaped62);</b>
+&nbsp;                                                                                                                            {
+<b class="nc">&nbsp;                                                                                                                                boolean var_shoulddisplayattr67 = (((null != var_attrcontentescaped66) &amp;&amp; (!&quot;&quot;.equals(var_attrcontentescaped66))) &amp;&amp; ((!&quot;&quot;.equals(var_attrcontent65)) &amp;&amp; (!((Object)false).equals(var_attrcontent65))));</b>
+<b class="nc">&nbsp;                                                                                                                                if (var_shoulddisplayattr67) {</b>
+<b class="nc">&nbsp;                                                                                                                                    out.write(&quot; &quot;);</b>
+<b class="nc">&nbsp;                                                                                                                                    out.write(renderContext.getObjectModel().toString(var_attrnameescaped62));</b>
+&nbsp;                                                                                                                                    {
+<b class="nc">&nbsp;                                                                                                                                        boolean var_istrueattr68 = (var_attrcontent65.equals(true));</b>
+<b class="nc">&nbsp;                                                                                                                                        if (!var_istrueattr68) {</b>
+<b class="nc">&nbsp;                                                                                                                                            out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                                                                                            out.write(renderContext.getObjectModel().toString(var_attrcontentescaped66));</b>
+<b class="nc">&nbsp;                                                                                                                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                                                                                        }
+&nbsp;                                                                                                                                    }
+&nbsp;                                                                                                                                }
+&nbsp;                                                                                                                            }
+&nbsp;                                                                                                                        }
+&nbsp;                                                                                                                    }
+&nbsp;                                                                                                                }
+&nbsp;                                                                                                            }
+&nbsp;                                                                                                        }
+&nbsp;                                                                                                    }
+<b class="nc">&nbsp;                                                                                                    var_attrindex63++;</b>
+&nbsp;                                                                                                }
+&nbsp;                                                                                            }
+<b class="nc">&nbsp;                                                                                            var_attrmap58_list_coerced$ = null;</b>
+&nbsp;                                                                                        }
+<b class="nc">&nbsp;                                                                                        out.write(&quot;&gt;&quot;);</b>
+&nbsp;                                                                                    }
+<b class="nc">&nbsp;                                                                                    out.write(&quot;\n                &lt;div&quot;);</b>
+&nbsp;                                                                                    {
+<b class="nc">&nbsp;                                                                                        String var_attrcontent69 = (renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(item, &quot;id&quot;), &quot;attribute&quot;)) + &quot;-tabpanel&quot;);</b>
+<b class="nc">&nbsp;                                                                                        out.write(&quot; id=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                                        out.write(renderContext.getObjectModel().toString(var_attrcontent69));</b>
+<b class="nc">&nbsp;                                                                                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                                    }
+&nbsp;                                                                                    {
+<b class="nc">&nbsp;                                                                                        String var_attrcontent70 = (&quot;cmp-carousel__item&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, (itemlist_field$_first ? &quot; cmp-carousel__item--active&quot; : &quot;&quot;), &quot;attribute&quot;)));</b>
+<b class="nc">&nbsp;                                                                                        out.write(&quot; class=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                                        out.write(renderContext.getObjectModel().toString(var_attrcontent70));</b>
+<b class="nc">&nbsp;                                                                                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                                    }
+<b class="nc">&nbsp;                                                                                    out.write(&quot; role=\&quot;tabpanel\&quot;&quot;);</b>
+&nbsp;                                                                                    {
+<b class="nc">&nbsp;                                                                                        String var_attrcontent71 = (renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(item, &quot;id&quot;), &quot;attribute&quot;)) + &quot;-tab&quot;);</b>
+<b class="nc">&nbsp;                                                                                        out.write(&quot; aria-labelledby=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                                        out.write(renderContext.getObjectModel().toString(var_attrcontent71));</b>
+<b class="nc">&nbsp;                                                                                        out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                                    }
+<b class="nc">&nbsp;                                                                                    out.write(&quot; aria-roledescription=\&quot;slide\&quot;&quot;);</b>
+&nbsp;                                                                                    {
+<b class="nc">&nbsp;                                                                                        Object var_attrvalue72 = renderContext.call(&quot;format&quot;, renderContext.call(&quot;i18n&quot;, &quot;Slide {0} of {1}&quot;, obj()), obj().with(&quot;format&quot;, (new Object[] {itemlist_field$_count, renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;items&quot;), &quot;size&quot;)})));</b>
+&nbsp;                                                                                        {
+<b class="nc">&nbsp;                                                                                            Object var_attrcontent73 = renderContext.call(&quot;xss&quot;, var_attrvalue72, &quot;attribute&quot;);</b>
+&nbsp;                                                                                            {
+<b class="nc">&nbsp;                                                                                                boolean var_shoulddisplayattr75 = (((null != var_attrcontent73) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent73))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue72)) &amp;&amp; (!((Object)false).equals(var_attrvalue72))));</b>
+<b class="nc">&nbsp;                                                                                                if (var_shoulddisplayattr75) {</b>
+<b class="nc">&nbsp;                                                                                                    out.write(&quot; aria-label&quot;);</b>
+&nbsp;                                                                                                    {
+<b class="nc">&nbsp;                                                                                                        boolean var_istrueattr74 = (var_attrvalue72.equals(true));</b>
+<b class="nc">&nbsp;                                                                                                        if (!var_istrueattr74) {</b>
+<b class="nc">&nbsp;                                                                                                            out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                                                            out.write(renderContext.getObjectModel().toString(var_attrcontent73));</b>
+<b class="nc">&nbsp;                                                                                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                                                        }
+&nbsp;                                                                                                    }
+&nbsp;                                                                                                }
+&nbsp;                                                                                            }
+&nbsp;                                                                                        }
+&nbsp;                                                                                    }
+&nbsp;                                                                                    {
+<b class="nc">&nbsp;                                                                                        Object var_attrvalue76 = renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(item, &quot;data&quot;), &quot;json&quot;);</b>
+&nbsp;                                                                                        {
+<b class="nc">&nbsp;                                                                                            Object var_attrcontent77 = renderContext.call(&quot;xss&quot;, var_attrvalue76, &quot;attribute&quot;);</b>
+&nbsp;                                                                                            {
+<b class="nc">&nbsp;                                                                                                boolean var_shoulddisplayattr79 = (((null != var_attrcontent77) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent77))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue76)) &amp;&amp; (!((Object)false).equals(var_attrvalue76))));</b>
+<b class="nc">&nbsp;                                                                                                if (var_shoulddisplayattr79) {</b>
+<b class="nc">&nbsp;                                                                                                    out.write(&quot; data-cmp-data-layer&quot;);</b>
+&nbsp;                                                                                                    {
+<b class="nc">&nbsp;                                                                                                        boolean var_istrueattr78 = (var_attrvalue76.equals(true));</b>
+<b class="nc">&nbsp;                                                                                                        if (!var_istrueattr78) {</b>
+<b class="nc">&nbsp;                                                                                                            out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                                                            out.write(renderContext.getObjectModel().toString(var_attrcontent77));</b>
+<b class="nc">&nbsp;                                                                                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                                                        }
+&nbsp;                                                                                                    }
+&nbsp;                                                                                                }
+&nbsp;                                                                                            }
+&nbsp;                                                                                        }
+&nbsp;                                                                                    }
+<b class="nc">&nbsp;                                                                                    out.write(&quot; data-cmp-hook-carousel=\&quot;item\&quot;&gt;&quot;);</b>
+&nbsp;                                                                                    {
+<b class="nc">&nbsp;                                                                                        Object var_resourcecontent80 = renderContext.call(&quot;includeResource&quot;, renderContext.getObjectModel().resolveProperty(item, &quot;name&quot;), obj().with(&quot;decorationTagName&quot;, &quot;div&quot;));</b>
+<b class="nc">&nbsp;                                                                                        out.write(renderContext.getObjectModel().toString(var_resourcecontent80));</b>
+&nbsp;                                                                                    }
+<b class="nc">&nbsp;                                                                                    out.write(&quot;&lt;/div&gt;\n            &quot;);</b>
+<b class="nc">&nbsp;                                                                                    if (!var_unwrapcondition59) {</b>
+<b class="nc">&nbsp;                                                                                        out.write(&quot;&lt;/a&gt;&quot;);</b>
+&nbsp;                                                                                    }
+&nbsp;                                                                                }
+<b class="nc">&nbsp;                                                                                out.write(&quot;\n        &quot;);</b>
+&nbsp;                                                                            }
+&nbsp;                                                                        }
+&nbsp;                                                                    }
+&nbsp;                                                                }
+&nbsp;                                                            }
+&nbsp;                                                        }
+&nbsp;                                                    }
+&nbsp;                                                }
+&nbsp;                                            }
+&nbsp;                                        }
+<b class="nc">&nbsp;                                        var_index55++;</b>
+&nbsp;                                    }
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;            var_collectionvar48_list_coerced$ = null;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n\n        &quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            boolean var_testvariable81 = (!renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;controlsPrepended&quot;)));</b>
+<b class="nc">&nbsp;            if (var_testvariable81) {</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Object var_templatevar82 = renderContext.getObjectModel().resolveProperty(_global_controlstemplate, &quot;controls&quot;);</b>
+&nbsp;                    {
+<b class="nc">&nbsp;                        Object var_templateoptions83_field$_carousel = _global_carousel;</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            java.util.Map var_templateoptions83 = obj().with(&quot;carousel&quot;, var_templateoptions83_field$_carousel);</b>
+<b class="nc">&nbsp;                            callUnit(out, renderContext, var_templatevar82, var_templateoptions83);</b>
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n        &lt;ol class=\&quot;cmp-carousel__indicators\&quot; role=\&quot;tablist\&quot;&quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_attrvalue84 = renderContext.call(&quot;i18n&quot;, &quot;Choose a slide to display&quot;, obj().with(&quot;i18n&quot;, null));</b>
+&nbsp;            {
+<b class="nc">&nbsp;                Object var_attrcontent85 = renderContext.call(&quot;xss&quot;, var_attrvalue84, &quot;attribute&quot;);</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_shoulddisplayattr87 = (((null != var_attrcontent85) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent85))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue84)) &amp;&amp; (!((Object)false).equals(var_attrvalue84))));</b>
+<b class="nc">&nbsp;                    if (var_shoulddisplayattr87) {</b>
+<b class="nc">&nbsp;                        out.write(&quot; aria-label&quot;);</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            boolean var_istrueattr86 = (var_attrvalue84.equals(true));</b>
+<b class="nc">&nbsp;                            if (!var_istrueattr86) {</b>
+<b class="nc">&nbsp;                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                out.write(renderContext.getObjectModel().toString(var_attrcontent85));</b>
+<b class="nc">&nbsp;                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot; data-cmp-hook-carousel=\&quot;indicators\&quot;&gt;\n            &quot;);</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_collectionvar88 = renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;items&quot;);</b>
+&nbsp;            {
+<b class="nc">&nbsp;                long var_size89 = ((var_collectionvar88_list_coerced$ == null ? (var_collectionvar88_list_coerced$ = renderContext.getObjectModel().toCollection(var_collectionvar88)) : var_collectionvar88_list_coerced$).size());</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    boolean var_notempty90 = (var_size89 &gt; 0);</b>
+<b class="nc">&nbsp;                    if (var_notempty90) {</b>
+&nbsp;                        {
+<b class="nc">&nbsp;                            long var_end93 = var_size89;</b>
+&nbsp;                            {
+<b class="nc">&nbsp;                                boolean var_validstartstepend94 = (((0 &lt; var_size89) &amp;&amp; true) &amp;&amp; (var_end93 &gt; 0));</b>
+<b class="nc">&nbsp;                                if (var_validstartstepend94) {</b>
+<b class="nc">&nbsp;                                    if (var_collectionvar88_list_coerced$ == null) {</b>
+<b class="nc">&nbsp;                                        var_collectionvar88_list_coerced$ = renderContext.getObjectModel().toCollection(var_collectionvar88);</b>
+&nbsp;                                    }
+<b class="nc">&nbsp;                                    long var_index95 = 0;</b>
+<b class="nc">&nbsp;                                    for (Object item : var_collectionvar88_list_coerced$) {</b>
+&nbsp;                                        {
+<b class="nc">&nbsp;                                            long itemlist_field$_count = (renderContext.getObjectModel().toNumber(org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.ADD.eval(var_index95, 1)).longValue());</b>
+&nbsp;                                            {
+<b class="nc">&nbsp;                                                boolean itemlist_field$_first = (var_index95 == 0);</b>
+&nbsp;                                                {
+<b class="nc">&nbsp;                                                    boolean var_traversal97 = (((var_index95 &gt;= 0) &amp;&amp; (var_index95 &lt;= var_end93)) &amp;&amp; true);</b>
+<b class="nc">&nbsp;                                                    if (var_traversal97) {</b>
+<b class="nc">&nbsp;                                                        out.write(&quot;&lt;li&quot;);</b>
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            String var_attrcontent98 = (renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(item, &quot;id&quot;), &quot;attribute&quot;)) + &quot;-tab&quot;);</b>
+<b class="nc">&nbsp;                                                            out.write(&quot; id=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                            out.write(renderContext.getObjectModel().toString(var_attrcontent98));</b>
+<b class="nc">&nbsp;                                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                        }
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            String var_attrcontent99 = (&quot;cmp-carousel__indicator&quot; + renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, (itemlist_field$_first ? &quot; cmp-carousel__indicator--active&quot; : &quot;&quot;), &quot;attribute&quot;)));</b>
+<b class="nc">&nbsp;                                                            out.write(&quot; class=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                            out.write(renderContext.getObjectModel().toString(var_attrcontent99));</b>
+<b class="nc">&nbsp;                                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                        }
+<b class="nc">&nbsp;                                                        out.write(&quot; role=\&quot;tab\&quot;&quot;);</b>
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            String var_attrcontent100 = (renderContext.getObjectModel().toString(renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(item, &quot;id&quot;), &quot;attribute&quot;)) + &quot;-tabpanel&quot;);</b>
+<b class="nc">&nbsp;                                                            out.write(&quot; aria-controls=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                            out.write(renderContext.getObjectModel().toString(var_attrcontent100));</b>
+<b class="nc">&nbsp;                                                            out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                        }
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            Object var_attrvalue101 = renderContext.call(&quot;format&quot;, renderContext.call(&quot;i18n&quot;, &quot;Slide {0}&quot;, obj()), obj().with(&quot;format&quot;, (new Object[] {itemlist_field$_count})));</b>
+&nbsp;                                                            {
+<b class="nc">&nbsp;                                                                Object var_attrcontent102 = renderContext.call(&quot;xss&quot;, var_attrvalue101, &quot;attribute&quot;);</b>
+&nbsp;                                                                {
+<b class="nc">&nbsp;                                                                    boolean var_shoulddisplayattr104 = (((null != var_attrcontent102) &amp;&amp; (!&quot;&quot;.equals(var_attrcontent102))) &amp;&amp; ((!&quot;&quot;.equals(var_attrvalue101)) &amp;&amp; (!((Object)false).equals(var_attrvalue101))));</b>
+<b class="nc">&nbsp;                                                                    if (var_shoulddisplayattr104) {</b>
+<b class="nc">&nbsp;                                                                        out.write(&quot; aria-label&quot;);</b>
+&nbsp;                                                                        {
+<b class="nc">&nbsp;                                                                            boolean var_istrueattr103 = (var_attrvalue101.equals(true));</b>
+<b class="nc">&nbsp;                                                                            if (!var_istrueattr103) {</b>
+<b class="nc">&nbsp;                                                                                out.write(&quot;=\&quot;&quot;);</b>
+<b class="nc">&nbsp;                                                                                out.write(renderContext.getObjectModel().toString(var_attrcontent102));</b>
+<b class="nc">&nbsp;                                                                                out.write(&quot;\&quot;&quot;);</b>
+&nbsp;                                                                            }
+&nbsp;                                                                        }
+&nbsp;                                                                    }
+&nbsp;                                                                }
+&nbsp;                                                            }
+&nbsp;                                                        }
+<b class="nc">&nbsp;                                                        out.write(&quot; data-cmp-hook-carousel=\&quot;indicator\&quot;&gt;&quot;);</b>
+&nbsp;                                                        {
+<b class="nc">&nbsp;                                                            Object var_105 = renderContext.call(&quot;xss&quot;, renderContext.getObjectModel().resolveProperty(item, &quot;title&quot;), &quot;text&quot;);</b>
+<b class="nc">&nbsp;                                                            out.write(renderContext.getObjectModel().toString(var_105));</b>
+&nbsp;                                                        }
+<b class="nc">&nbsp;                                                        out.write(&quot;&lt;/li&gt;\n&quot;);</b>
+&nbsp;                                                    }
+&nbsp;                                                }
+&nbsp;                                            }
+&nbsp;                                        }
+<b class="nc">&nbsp;                                        var_index95++;</b>
+&nbsp;                                    }
+&nbsp;                                }
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;            var_collectionvar88_list_coerced$ = null;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        out.write(&quot;\n        &lt;/ol&gt;\n    &lt;/div&gt;&quot;);</b>
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n    &quot;);</b>
+&nbsp;{
+<b class="nc">&nbsp;    Object var_testvariable106 = ((renderContext.getObjectModel().toBoolean(((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;) : renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;preview&quot;)))) ? (org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator.lt(renderContext.getObjectModel().resolveProperty(renderContext.getObjectModel().resolveProperty(_global_carousel, &quot;items&quot;), &quot;size&quot;), 1)) : ((renderContext.getObjectModel().toBoolean(renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;)) ? renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;edit&quot;) : renderContext.getObjectModel().resolveProperty(_dynamic_wcmmode, &quot;preview&quot;)))));</b>
+<b class="nc">&nbsp;    if (renderContext.getObjectModel().toBoolean(var_testvariable106)) {</b>
+&nbsp;        {
+<b class="nc">&nbsp;            Object var_resourcecontent107 = renderContext.call(&quot;includeResource&quot;, renderContext.getObjectModel().resolveProperty(_dynamic_resource, &quot;path&quot;), obj().with(&quot;cssClassName&quot;, &quot;new section aem-Grid-newComponent&quot;).with(&quot;decorationTagName&quot;, &quot;div&quot;).with(&quot;appendPath&quot;, &quot;/*&quot;).with(&quot;resourceType&quot;, &quot;wcm/foundation/components/parsys/newpar&quot;));</b>
+<b class="nc">&nbsp;            out.write(renderContext.getObjectModel().toString(var_resourcecontent107));</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+<b class="nc">&nbsp;out.write(&quot;\n&lt;/div&gt;\n&quot;);</b>
+&nbsp;
+&nbsp;
+&nbsp;// End Of Main Template Body ----------------------------------------------------------------------
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    {
+&nbsp;//Sub-Templates Initialization --------------------------------------------------------------------
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;//End of Sub-Templates Initialization -------------------------------------------------------------
+&nbsp;    }
+&nbsp;
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+// 20230203192134
+// https://author-p72053-e640853.adobeaemcloud.com/content/dam/content-fragment/sn/global/dnc/learning-asset/en/theFeedCovid19DuringBreastfeedingPregnancyAndInfancy.infinity.json
+
+{
+  "jcr:versionHistory": "70a8587d-0c16-412d-8a80-de681cf7aee0",
+  "jcr:predecessors": [
+    "480e7090-b7af-4e73-9554-f68d2f406a77"
+  ],
+  "jcr:created": "Fri Jan 06 2023 10:31:00 GMT+0000",
+  "jcr:isCheckedOut": true,
+  "jcr:mixinTypes": [
+    "mix:referenceable",
+    "mix:versionable"
+  ],
+  "jcr:createdBy": "camille.labrousse@danone.com",
+  "jcr:uuid": "d826639a-b5bd-4513-ad90-c0bb0717f945",
+  "jcr:primaryType": "dam:Asset",
+  "jcr:baseVersion": "480e7090-b7af-4e73-9554-f68d2f406a77",
+  "jcr:content": {
+    "jcr:lastModifiedBy": "reference-adjustment-service",
+    "cq:lastReplicatedBy": "Sebastien.CHARRET@danone.com",
+    "cq:lastReplicationAction": "Activate",
+    "cq:lastReplicatedBy_publish": "Sebastien.CHARRET@danone.com",
+    "jcr:title": "The Feed - COVID-19 during breastfeeding, pregnancy and infancy",
+    "lastFragmentSave": "Thu Jan 26 2023 10:30:36 GMT+0000",
+    "dam:processingId": "/var/workflow/instances/server1847/2023-01-26/dynamic-media-reupload_3",
+    "dam:runPostProcess": true,
+    "contentFragment": true,
+    "cq:lastReplicationAction_scene7": "Activate",
+    "dam:scene7RequestID": "/var/workflow/instances/server1847/2023-01-26/dynamic-media-reupload_3",
+    "cq:parentPath": "/content/dam/content-fragment/sn/global/dnc/learning-asset",
+    "cq:name": "theFeedCovid19DuringBreastfeedingPregnancyAndInfancy",
+    "jcr:lastModified": "Thu Jan 26 2023 10:30:36 GMT+0000",
+    "dam:processingRenditions": [
+      
+    ],
+    "cq:lastReplicationAction_publish": "Activate",
+    "cq:lastReplicatedBy_scene7": "Sebastien.CHARRET@danone.com",
+    "jcr:primaryType": "dam:AssetContent",
+    "cq:lastReplicated": "Thu Jan 26 2023 10:30:40 GMT+0000",
+    "dam:processingRequestedDate": "Thu Jan 26 2023 09:54:39 GMT+0000",
+    "cq:lastReplicated_publish": "Thu Jan 26 2023 10:30:40 GMT+0000",
+    "cq:lastReplicated_scene7": "Thu Jan 26 2023 10:30:40 GMT+0000",
+    "data": {
+      "jcr:primaryType": "nt:unstructured",
+      "cq:model": "/conf/core-framework/settings/dam/cfm/models/learning-asset",
+      "master": {
+        "accreditationTitle@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "podcastDescription@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "infographicDescription@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "customDate": "Fri Jan 06 2023 00:00:00 GMT+0000",
+        "ranking@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "relatedEvents@LastModified": "Wed Jan 11 2023 16:36:39 GMT+0000",
+        "visual": "/content/dam/sn/hcp/global/dnc/kelly-sikkema-Z4GKcFAGck4-unsplash.jpg",
+        "infographicHtml@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "id": "Test01",
+        "duration@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "authors@LastModified": "Wed Jan 11 2023 16:36:39 GMT+0000",
+        "publicationDescription@ContentType": "text/html",
+        "appleUrl@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "ageStage": [
+          "maternalPregnancy",
+          "neonatalPreterm",
+          "infantNutrition"
+        ],
+        "infographicDescription@ContentType": "text/html",
+        "podcastDescription@ContentType": "text/html",
+        "assetType": "podcast",
+        "timeToConsume": "Long",
+        "assetType@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "webinarDescription@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "spotifyURL@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "spotifyURL":"spoticyurl",
+        "googlePodcastUrl@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "jcr:primaryType": "nt:unstructured",
+        "webinarUrl@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "authors": "Dr. Sarah Jarvis",
+        "visual@LastModified": "Fri Jan 06 2023 12:42:17 GMT+0000",
+        "placeholder@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "title@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "deezerUrl@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "downloads@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "accreditationDescription@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "title": "The Feed - COVID-19 during breastfeeding, pregnancy and infancy",
+        "key@LastModified": "Fri Jan 06 2023 14:00:34 GMT+0000",
+        "relatedCollections": [
+          "/content/dam/content-fragment/sn/global/dnc/collection/en/collection-test-3",
+          "/content/dam/content-fragment/sn/global/dnc/collection/en/collection-2"
+        ],
+        "youMightAlsoBeInterestedIn": [
+          "/content/dam/content-fragment/sn/global/dnc/learning-asset/en/learning-asset-2",
+          "/content/dam/content-fragment/sn/global/dnc/learning-asset/en/learning-asset-1"
+        ],
+        "duration": 48,
+        "relatedCollections@LastModified": "Wed Jan 11 2023 16:36:39 GMT+0000",
+        "id@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "views@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "relatedEvents": [
+          "/content/dam/content-fragment/sn/global/dnc/events/en/toto2"
+        ],
+        "topics@LastModified": "Fri Jan 06 2023 12:51:00 GMT+0000",
+        "key": "Test02",
+        "tidalUrl@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "views": 187.0,
+        "PublicationFile@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "cq:tags": [
+          
+        ],
+        "infographicHtml@ContentType": "text/html",
+        "publicationDescription@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "relatedCourseForAccreditation@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "topics": [
+          "sn:dnc/early-life-nutrition"
+        ],
+        "bodyOfText@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "accreditationDescription@ContentType": "text/html",
+        "accreditationUrl@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000",
+        "youMightAlsoBeInterestedIn@LastModified": "Wed Jan 11 2023 16:36:39 GMT+0000",
+        "ageStage@LastModified": "Fri Jan 06 2023 12:42:17 GMT+0000",
+        "timeToConsume@LastModified": "Fri Jan 06 2023 10:43:25 GMT+0000",
+        "jcr:mixinTypes": [
+          "dam:cfVariationNode",
+          "cq:Taggable"
+        ],
+        "customDate@LastModified": "Wed Jan 11 2023 16:36:39 GMT+0000",
+        "ranking": 5.0,
+        "webinarDescription@ContentType": "text/html",
+        "infographicUrl@LastModified": "Fri Jan 06 2023 10:31:00 GMT+0000"
+      }
+    },
+    "metadata": {
+      "danone:TypeOfAssets": "",
+      "jcr:mixinTypes": [
+        "cq:Taggable"
+      ],
+      "dc:title": "The Feed - COVID-19 during breastfeeding, pregnancy and infancy",
+      "dam:scene7FileStatus": "NotSupported",
+      "dam:extension": "/content/dam/content-fragment/sn/global/dnc/learning-asset/en/thefeedcovid19duringbreastfeedingpregnancyandinfancy",
+      "jcr:primaryType": "nt:unstructured"
+    },
+    "related": {
+      "jcr:primaryType": "nt:unstructured"
+    },
+    "renditions": {
+      "jcr:created": "Wed Jan 25 2023 13:34:18 GMT+0000",
+      "jcr:createdBy": "parag.garg@external.danone.com",
+      "jcr:primaryType": "nt:folder"
+    }
+  }
+}

@@ -1,0 +1,138 @@
+@mixin separator-base($size: 4px, $types: solid) {
+    border: none;
+    border-top: $size $types;
+    height: 1px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.separator {
+    .cmp-separator__horizontal-rule {
+        @include separator-base;
+    }
+
+    &.dot {
+        .cmp-separator__horizontal-rule {
+            @include separator-base($types: dotted);
+        }
+    }
+
+    &.dash {
+        .cmp-separator__horizontal-rule {
+            @include separator-base($types: dashed);
+        }
+    }
+
+    &.round {
+        .cmp-separator__horizontal-rule {
+            @include separator-base($size: 8px, $types: solid);
+            border-radius: 6px;
+        }
+    }
+
+    &.transparent {
+        .cmp-separator__horizontal-rule {
+            position: relative;
+            height: 4px;
+            border: none;
+            margin-top: 16px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 2px;
+            }
+        }
+    }
+
+    &.shadow {
+        .cmp-separator__horizontal-rule {
+            border: none;
+            height: 5px;
+            border-radius: 50%;
+        }
+    }
+
+    &.width {
+        &-maximum {
+            .cmp-separator__horizontal-rule {
+                width: 100%;
+            }
+        }
+
+        &-medium {
+            .cmp-separator__horizontal-rule {
+                width: 75%;
+            }
+        }
+
+        &-minimum {
+            .cmp-separator__horizontal-rule {
+                width: 50%;
+            }
+        }
+    }
+}
+
+.separator {
+
+	&.color {
+		&-primary {
+			.cmp-separator__horizontal-rule {
+				border-color: $color-primary;
+
+				&::before {
+					background-image: linear-gradient(to right, transparent, $color-primary, transparent);
+				}
+			}
+		}
+
+		&-secondary {
+			.cmp-separator__horizontal-rule {
+				border-color: $color-secondary;
+
+				&::before {
+					background-image: linear-gradient(to right, transparent, $color-secondary, transparent);
+				}
+			}
+		}
+
+		&-tertiary {
+			.cmp-separator__horizontal-rule {
+				border-color: $color-tertiary;
+
+				&::before {
+					background-image: linear-gradient(to right, transparent, $color-tertiary, transparent);
+				}
+			}
+		}
+	}
+
+	&.shadow {
+		.cmp-separator__horizontal-rule {
+			box-shadow: 0 5px 5px -1px $color-shadow;
+		}
+
+		&.color {
+			&-primary {
+				.cmp-separator__horizontal-rule {
+					box-shadow: 0 5px 5px -1px $color-primary;
+				}
+			}
+
+			&-secondary {
+				.cmp-separator__horizontal-rule {
+					box-shadow: 0 5px 5px -1px $color-secondary;
+				}
+			}
+
+			&-tertiary {
+				.cmp-separator__horizontal-rule {
+					box-shadow: 0 5px 5px -1px $color-tertiary;
+				}
+			}
+		}
+	}
+}

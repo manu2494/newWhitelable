@@ -1,0 +1,176 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ReplicationServiceImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.services.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: ReplicationServiceImpl (com.merkle.xp.whitelabel.core.services.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ReplicationServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (4/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.services.impl;
+&nbsp;
+&nbsp;import com.merkle.xp.whitelabel.core.services.ReplicationService;
+&nbsp;import com.day.cq.replication.ReplicationActionType;
+&nbsp;import com.day.cq.replication.ReplicationException;
+&nbsp;import com.day.cq.replication.ReplicationOptions;
+&nbsp;import com.day.cq.replication.ReplicationStatus;
+&nbsp;import com.day.cq.replication.Replicator;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;import org.apache.sling.api.resource.Resource;
+&nbsp;import org.apache.sling.api.resource.ResourceResolver;
+&nbsp;import org.osgi.service.component.annotations.Component;
+&nbsp;import org.osgi.service.component.annotations.Reference;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;
+&nbsp;import javax.jcr.Session;
+&nbsp;
+&nbsp;@Component(service = ReplicationService.class)
+<b class="fc">&nbsp;public class ReplicationServiceImpl implements ReplicationService {</b>
+&nbsp;
+<b class="fc">&nbsp;	private static final Logger LOG = LoggerFactory.getLogger(ReplicationServiceImpl.class);</b>
+&nbsp;	@Reference
+&nbsp;	private Replicator replicator;
+&nbsp;
+&nbsp;	@Override
+&nbsp;	public void activate(String path, ResourceResolver resourceResolver) {
+<b class="fc">&nbsp;		replicate(ReplicationActionType.ACTIVATE, path, resourceResolver);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	@Override
+&nbsp;	public void deactivate(String path, ResourceResolver resourceResolver) {
+<b class="fc">&nbsp;		replicate(ReplicationActionType.DEACTIVATE, path, resourceResolver);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	private void replicate(ReplicationActionType replicationActionType, String path,
+&nbsp;			ResourceResolver resourceResolver) {
+<b class="pc">&nbsp;		if (replicationActionType == null || StringUtils.isBlank(path) || resourceResolver == null) {</b>
+&nbsp;			return;
+&nbsp;		}
+&nbsp;
+<b class="fc">&nbsp;		Session session = resourceResolver.adaptTo(Session.class);</b>
+<b class="fc">&nbsp;		ReplicationOptions replicationOptions = new ReplicationOptions();</b>
+<b class="fc">&nbsp;		replicationOptions.setSuppressVersions(true);</b>
+&nbsp;		try {
+<b class="fc">&nbsp;			this.replicator.replicate(session, replicationActionType, path, replicationOptions);</b>
+<b class="fc">&nbsp;		} catch (ReplicationException e) {</b>
+<b class="fc">&nbsp;			LOG.error(&quot;[Merkle Whitelabel] - ReplicationServiceImpl - Error during replication {} on path &#39;{}&#39; &quot;,</b>
+<b class="fc">&nbsp;					replicationActionType.getName(), path, e);</b>
+&nbsp;
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;	@Override
+&nbsp;	public boolean isPublished(Resource resource) {
+<b class="fc">&nbsp;		ReplicationStatus replicationStatus = resource.adaptTo(ReplicationStatus.class);</b>
+<b class="fc">&nbsp;		return replicationStatus.isActivated();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

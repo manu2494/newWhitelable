@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-11-08T12:39:15.739+05:30"
+        cq:lastModifiedBy="admin"
+        cq:policy="whitelabel/components/page/policy_1696939205437"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="wcm/core/components/policies/mappings">
+        <root
+            cq:policy="whitelabel/components/container/policy_1696712343798"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/core/components/policies/mapping">
+            <container_1873007775 jcr:primaryType="nt:unstructured">
+                <container
+                    cq:policy="whitelabel/components/container/policy_701371593169731"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/core/components/policies/mapping">
+                    <options
+                        cq:policy="whitelabel/components/form/options/policy_1650873017010"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                </container>
+                <container_326088155
+                    cq:policy="whitelabel/components/container/policy_452956283279930"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/core/components/policies/mapping">
+                    <whitelabel jcr:primaryType="nt:unstructured">
+                        <components jcr:primaryType="nt:unstructured">
+                            <form jcr:primaryType="nt:unstructured">
+                                <options
+                                    cq:policy="whitelabel/components/form/options/policy_1650873017010"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </form>
+                        </components>
+                    </whitelabel>
+                </container_326088155>
+            </container_1873007775>
+        </root>
+    </jcr:content>
+</jcr:root>

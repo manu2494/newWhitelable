@@ -1,0 +1,312 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > LinkImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.core.utils.link.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: LinkImpl (com.merkle.xp.whitelabel.core.utils.link.impl)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LinkImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (10/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (32/32)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">LinkImpl$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (13/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (10/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (36/36)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.merkle.xp.whitelabel.core.utils.link.impl;
+&nbsp;
+&nbsp;import java.util.HashSet;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;import org.apache.commons.collections4.MapUtils;
+&nbsp;import org.apache.commons.lang3.StringUtils;
+&nbsp;
+&nbsp;import com.drew.lang.annotations.NotNull;
+&nbsp;import com.drew.lang.annotations.Nullable;
+&nbsp;import com.fasterxml.jackson.annotation.JsonIgnore;
+&nbsp;import com.fasterxml.jackson.annotation.JsonInclude;
+&nbsp;import com.fasterxml.jackson.annotation.JsonInclude.Include;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.merkle.xp.whitelabel.core.utils.link.MerkleLink;
+&nbsp;
+&nbsp;/**
+&nbsp; * Wraps link information to be used in models.
+&nbsp; */
+&nbsp;@JsonInclude(Include.NON_NULL)
+&nbsp;public final class LinkImpl&lt;T&gt; implements MerkleLink&lt;T&gt; {
+&nbsp;
+&nbsp;    public static final String ATTR_HREF = &quot;href&quot;;
+&nbsp;    public static final String ATTR_TARGET = &quot;target&quot;;
+&nbsp;    public static final String ATTR_ARIA_LABEL = &quot;aria-label&quot;;
+&nbsp;    public static final String ATTR_TITLE = &quot;title&quot;;
+&nbsp;
+<b class="fc">&nbsp;    private static final Set&lt;String&gt; ALLOWED_ATTRIBUTES = new HashSet&lt;String&gt;() {{</b>
+<b class="fc">&nbsp;        add(ATTR_TARGET);</b>
+<b class="fc">&nbsp;        add(ATTR_ARIA_LABEL);</b>
+<b class="fc">&nbsp;        add(ATTR_TITLE);</b>
+&nbsp;    }};
+&nbsp;
+&nbsp;    private final String url;
+&nbsp;    private final String mappedUrl;
+&nbsp;    private final T reference;
+&nbsp;    private final Map&lt;String, String&gt; htmlAttributes;
+&nbsp;    private final String externalizedUrl;
+&nbsp;
+&nbsp;    private final String originalResourcePath;
+&nbsp;
+&nbsp;    public LinkImpl(@Nullable String url, @Nullable String mappedUrl, @Nullable String externalizedUrl, @Nullable T reference,
+<b class="fc">&nbsp;                    @Nullable Map&lt;String, String&gt; htmlAttributes, @Nullable String originalResourcePath) {</b>
+<b class="fc">&nbsp;        this.url = url;</b>
+<b class="fc">&nbsp;        this.mappedUrl = mappedUrl;</b>
+<b class="fc">&nbsp;        this.externalizedUrl = externalizedUrl;</b>
+<b class="fc">&nbsp;        this.reference = reference;</b>
+<b class="fc">&nbsp;        this.htmlAttributes = buildHtmlAttributes(url, htmlAttributes);</b>
+<b class="fc">&nbsp;        this.originalResourcePath = originalResourcePath;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Getter exposing if link is valid.
+&nbsp;     *
+&nbsp;     * @return {@code true} if link is valid, {@code false} if link is not valid
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean isValid() {
+<b class="fc">&nbsp;        return url != null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Getter for link URL.
+&nbsp;     *
+&nbsp;     * @return Link URL, can be {@code null} if link is not valid
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    @JsonIgnore
+&nbsp;    public @Nullable String getURL() {
+<b class="fc">&nbsp;        return url;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Getter for the processed URL.
+&nbsp;     *
+&nbsp;     * @return Processed link URL, can be {@code null} if link is not valid or no processors are defined
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    @JsonProperty(&quot;url&quot;)
+&nbsp;    public @Nullable String getMappedURL() {
+<b class="fc">&nbsp;        return mappedUrl;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    @JsonIgnore
+&nbsp;    public @Nullable String getExternalizedURL() {
+<b class="fc">&nbsp;        return externalizedUrl;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Getter for link HTML attributes.
+&nbsp;     *
+&nbsp;     *
+&nbsp;     * @return {@link Map} of HTML attributes, may include the URL as {@code href}
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    @JsonInclude(Include.NON_EMPTY)
+&nbsp;    @JsonProperty(&quot;attributes&quot;)
+&nbsp;    public @NotNull Map&lt;String, String&gt; getHtmlAttributes() {
+<b class="fc">&nbsp;        return htmlAttributes;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Getter for link reference, if existing.
+&nbsp;     *
+&nbsp;     * @return Link referenced WCM/DAM entity or {@code null} if link does not point to one
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    @JsonIgnore
+&nbsp;    public @Nullable T getReference() {
+<b class="fc">&nbsp;        return reference;</b>
+&nbsp;    }
+&nbsp;    @Override
+<b class="fc">&nbsp;    public @Nullable String getOriginalResourcePath() { return originalResourcePath; }</b>
+&nbsp;    
+&nbsp;    @Override
+&nbsp;    @JsonIgnore
+&nbsp;    public @Nullable String getLabel() {
+<b class="fc">&nbsp;      String label = StringUtils.EMPTY;</b>
+<b class="pc">&nbsp;      if(MapUtils.isNotEmpty(htmlAttributes)) {</b>
+<b class="fc">&nbsp;        label = htmlAttributes.get(ATTR_ARIA_LABEL);</b>
+&nbsp;      }
+<b class="fc">&nbsp;      return label;</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    @Override
+&nbsp;    @JsonIgnore
+&nbsp;    public @Nullable String getTarget() {
+<b class="fc">&nbsp;      String target = StringUtils.EMPTY;</b>
+<b class="pc">&nbsp;      if(MapUtils.isNotEmpty(htmlAttributes)) {</b>
+<b class="fc">&nbsp;    	  target = htmlAttributes.get(ATTR_TARGET);</b>
+&nbsp;      }
+<b class="fc">&nbsp;      return target;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds link HTML attributes.
+&nbsp;     *
+&nbsp;     * @param linkURL Link URL
+&nbsp;     * @param htmlAttributes HTML attributes to add
+&nbsp;     *
+&nbsp;     * @return {@link Map} of link attributes
+&nbsp;     */
+&nbsp;    private static Map&lt;String, String&gt; buildHtmlAttributes(String linkURL, Map&lt;String, String&gt; htmlAttributes) {
+<b class="fc">&nbsp;        Map&lt;String,String&gt; attributes = new LinkedHashMap&lt;&gt;();</b>
+<b class="fc">&nbsp;        if (linkURL != null) {</b>
+<b class="fc">&nbsp;            attributes.put(ATTR_HREF, linkURL);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        if (htmlAttributes != null) {</b>
+<b class="fc">&nbsp;            Map&lt;String, String&gt; filteredAttributes = htmlAttributes.entrySet().stream()</b>
+<b class="fc">&nbsp;                    .filter(e -&gt; ALLOWED_ATTRIBUTES.contains(e.getKey()) &amp;&amp; StringUtils.isNotEmpty(e.getValue()))</b>
+<b class="fc">&nbsp;                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));</b>
+<b class="fc">&nbsp;            attributes.putAll(filteredAttributes);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return ImmutableMap.copyOf(attributes);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>

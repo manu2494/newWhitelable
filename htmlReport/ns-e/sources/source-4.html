@@ -1,0 +1,263 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > PublishPageValidationIT</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.merkle.xp.whitelabel.it.tests</a>
+</div>
+
+<h1>Coverage Summary for Class: PublishPageValidationIT (com.merkle.xp.whitelabel.it.tests)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PublishPageValidationIT</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/33)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; *  Copyright 2020 Adobe Systems Incorporated
+&nbsp; *
+&nbsp; *  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; *  you may not use this file except in compliance with the License.
+&nbsp; *  You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *      http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; *  Unless required by applicable law or agreed to in writing, software
+&nbsp; *  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; *  See the License for the specific language governing permissions and
+&nbsp; *  limitations under the License.
+&nbsp; */
+&nbsp;package com.merkle.xp.whitelabel.it.tests;
+&nbsp;
+&nbsp;import com.adobe.cq.testing.client.CQClient;
+&nbsp;import com.adobe.cq.testing.junit.assertion.CQAssert;
+&nbsp;import com.adobe.cq.testing.junit.rules.CQAuthorClassRule;
+&nbsp;import com.adobe.cq.testing.junit.rules.CQAuthorPublishClassRule;
+&nbsp;import com.adobe.cq.testing.junit.rules.CQRule;
+&nbsp;import com.adobe.cq.testing.junit.rules.Page;
+&nbsp;
+&nbsp;import org.apache.http.client.ClientProtocolException;
+&nbsp;import org.apache.http.client.methods.HttpGet;
+&nbsp;import org.apache.sling.testing.clients.ClientException;
+&nbsp;import org.apache.sling.testing.clients.SlingHttpResponse;
+&nbsp;import org.eclipse.jetty.client.HttpResponse;
+&nbsp;import org.junit.AfterClass;
+&nbsp;import org.junit.BeforeClass;
+&nbsp;import org.junit.ClassRule;
+&nbsp;import org.junit.Rule;
+&nbsp;import org.junit.Test;
+&nbsp;import org.junit.Ignore;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;
+&nbsp;import static java.util.concurrent.TimeUnit.MINUTES;
+&nbsp;import static org.junit.Assert.assertEquals;
+&nbsp;import static org.junit.Assert.assertTrue;
+&nbsp;
+&nbsp;import java.io.IOException;
+&nbsp;import java.net.URI;
+&nbsp;import java.net.URISyntaxException;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * Validates pages on publish and makes sure that the page renders completely and also
+&nbsp; * validates all linked resources (images, clientlibs etc).
+&nbsp; * 
+&nbsp; */
+<b class="nc">&nbsp;public class PublishPageValidationIT {</b>
+&nbsp;
+&nbsp;
+&nbsp;    // the page to test
+&nbsp;    private static final String HOMEPAGE = &quot;/&quot;;
+&nbsp;
+&nbsp;    // list files which do return a zerobyte response body
+<b class="nc">&nbsp;    private static final List&lt;String&gt; ZEROBYTEFILES = Arrays.asList();</b>
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(PublishPageValidationIT.class);</b>
+&nbsp;
+&nbsp;    @ClassRule
+<b class="nc">&nbsp;    public static final CQAuthorPublishClassRule cqBaseClassRule = new CQAuthorPublishClassRule(true);</b>
+&nbsp;
+<b class="nc">&nbsp;    @Rule</b>
+&nbsp;    public CQRule cqBaseRule = new CQRule(cqBaseClassRule.publishRule);
+&nbsp;
+&nbsp;    private static HtmlUnitClient adminPublish;
+&nbsp;
+&nbsp;    @BeforeClass
+&nbsp;    public static void beforeClass() throws ClientException {
+&nbsp;
+<b class="nc">&nbsp;        adminPublish = cqBaseClassRule.publishRule.getAdminClient(CQClient.class).adaptTo(HtmlUnitClient.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @AfterClass
+&nbsp;    public static void afterClass() {
+&nbsp;        // As of 2022/10/13, AEM declares &#39;org.apache.commons.io.IOUtils.closeQuietly&#39; as deprecated,
+&nbsp;        // even though the function has been un-deprecated again in version 2.9.0 of &#39;commons-io&#39;
+&nbsp;        // (https://issues.apache.org/jira/browse/IO-504); thus a try-catch is used instead.
+&nbsp;        try {
+<b class="nc">&nbsp;            adminPublish.close();</b>
+<b class="nc">&nbsp;        } catch (IOException ignored) {}</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    @Test
+&nbsp;    @Ignore
+&nbsp;    public void validateHomepage() throws ClientException, IOException, URISyntaxException {
+<b class="nc">&nbsp;        String path = HOMEPAGE;</b>
+<b class="nc">&nbsp;        verifyPage(adminPublish, path);</b>
+<b class="nc">&nbsp;        verifyLinkedResources(adminPublish,path);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    private static void verifyPage (HtmlUnitClient client, String path) throws ClientProtocolException, IOException {
+<b class="nc">&nbsp;        URI baseURI = client.getUrl();</b>
+<b class="nc">&nbsp;        LOG.info(&quot;Using {} as baseURL&quot;, baseURI.toString());</b>
+<b class="nc">&nbsp;        HttpGet get = new HttpGet(baseURI.toString() + path);</b>
+<b class="nc">&nbsp;        org.apache.http.HttpResponse validationResponse = client.execute(get);</b>
+<b class="nc">&nbsp;        assertEquals(&quot;Request to [&quot; + get.getURI().toString() + &quot;] does not return expected returncode 200&quot;,</b>
+<b class="nc">&nbsp;                200, validationResponse.getStatusLine().getStatusCode());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void verifyLinkedResources(HtmlUnitClient client, String path) throws ClientException, IOException, URISyntaxException {
+&nbsp;
+<b class="nc">&nbsp;        List&lt;URI&gt; references = client.getResourceRefs(path);</b>
+<b class="nc">&nbsp;        assertTrue(path + &quot; does not contain any references!&quot;, references.size() &gt; 0);</b>
+<b class="nc">&nbsp;        for (URI ref : references ) {</b>
+<b class="nc">&nbsp;            if (isSameOrigin(client.getUrl(), ref)) {</b>
+<b class="nc">&nbsp;                LOG.info(&quot;verifying linked resource {}&quot;, ref.toString());</b>
+<b class="nc">&nbsp;                SlingHttpResponse response = client.doGet(ref.getPath());</b>
+<b class="nc">&nbsp;                int statusCode = response.getStatusLine().getStatusCode();</b>
+<b class="nc">&nbsp;                int responseSize = response.getContent().length();</b>
+<b class="nc">&nbsp;                assertEquals(&quot;Unexpected status returned from [&quot; + ref + &quot;]&quot;, 200, statusCode);</b>
+<b class="nc">&nbsp;                if (! ZEROBYTEFILES.stream().anyMatch(s -&gt; ref.getPath().startsWith(s))) {</b>
+<b class="nc">&nbsp;                    if (responseSize == 0) {</b>
+<b class="nc">&nbsp;                        LOG.warn(&quot;Empty response body from [&quot; + ref.getPath() + &quot;], please validate if this is correct&quot;);</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;
+&nbsp;            } else {
+<b class="nc">&nbsp;                LOG.info(&quot;skipping linked resource from another domain {}&quot;, ref.toString());</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Checks if two URIs have the same origin.
+&nbsp;     *
+&nbsp;     * @param uri1 first URI
+&nbsp;     * @param uri2 second URI
+&nbsp;     * @return true if two URI come from the same host, port and use the same scheme
+&nbsp;     */
+&nbsp;    private static boolean isSameOrigin(URI uri1, URI uri2) {
+<b class="nc">&nbsp;        if (!uri1.getScheme().equals(uri2.getScheme())) {</b>
+<b class="nc">&nbsp;            return false;</b>
+<b class="nc">&nbsp;        } else return uri1.getAuthority().equals(uri2.getAuthority());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-06-03 15:45</div>
+</div>
+</body>
+</html>
