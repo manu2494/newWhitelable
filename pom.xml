@@ -60,6 +60,7 @@
 		<wcmio.caconfig.spi>1.4.0</wcmio.caconfig.spi>
 		<sling.commons>1.6.4</sling.commons>
 		<jsoup.version>1.17.2</jsoup.version>
+  		<sonar.organization>manu2494</sonar.organization>
 	</properties>
 	<build>
 		<plugins>
